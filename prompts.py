@@ -109,21 +109,6 @@ PROMPTS: dict[str, tuple[str, int]] = {
         350,
     ),
 
-    # /t1 — 4 tweets, 1 sentence each, @novathaOG style, NO Fanvue
-    "t1": (
-        "Write 4 tweets for Suukalia. Output ONLY the 4 tweets, nothing else.\n\n"
-        "STRICT RULES:\n"
-        "• 1 sentence max per tweet — no exceptions\n"
-        "• lowercase, no hashtags, max 1 emoji per tweet\n"
-        "• 4 tweets = pure personality only (body, desire, nurse life, confidence, funny)\n"
-        "• NO Fanvue mention, NO promotion, NO CTA of any kind\n"
-        "• Reference style: 'my skin is poppin and i smell delicious' "
-        "/ 'i wanna make out so badly' "
-        "/ 'wearing no bra and oversized clothes is self care at its finest'\n\n"
-        "🐦 1.\n🐦 2.\n🐦 3.\n🐦 4.",
-        250,
-    ),
-
     # /fanvue — 1 casual Fanvue mention tweet (use max 2x per week)
     "fanvue": (
         "Write 1 tweet for Suukalia that casually mentions her Fanvue. "
@@ -139,21 +124,6 @@ PROMPTS: dict[str, tuple[str, int]] = {
         "/ 'something went up on my fanvue today that i'm not gonna talk about here'\n\n"
         "🐦",
         100,
-    ),
-
-    # /t2 — 3 tweets, raw personality style
-    "t2": (
-        "Write 3 tweets for Suukalia. Output ONLY the 3 tweets, nothing else.\n\n"
-        "Topics: relationships, men, emotions, desire.\n\n"
-        "VOICE — copy this exact style:\n"
-        "• lowercase, no hashtags, no emojis overload (one max)\n"
-        "• reads like a real thought, sometimes funny, sometimes raw\n"
-        "• NO marketing, NO CTA, NO promotion of any kind\n"
-        "• Reference: 'i hate liking somebody bc i start to lose my fucking mind' "
-        "/ 'i wanna make out so badly' "
-        "/ 'FUN FACT: sexual tension is more fun than the sex itself'\n\n"
-        "📈 1.\n📈 2.\n📈 3.",
-        200,
     ),
 
     # /th — 3 Threads posts
