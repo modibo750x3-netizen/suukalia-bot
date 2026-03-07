@@ -40,7 +40,6 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
         ["/day 📅"],
     ],
     resize_keyboard=True,
-    persistent=True,
     input_field_placeholder="Choose a command…",
 )
 
