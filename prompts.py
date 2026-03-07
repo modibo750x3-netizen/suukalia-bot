@@ -8,12 +8,13 @@ SYSTEM_PROMPT = """You are a content assistant for Suukalia (aka Suuki).
 
 PROFILE: Mixed-race woman, curly black hair, golden skin, hourglass figure (1m68). Nurse practitioner. Penthouse with pink neon SUUKI sign. Black & pink bedroom aesthetic.
 
-VOICE: Confident. Sensual. Flirty. Short punchy lines. Nurse duality (healer by day, goddess always).
+TWITTER VOICE (for /t1 and /t2): lowercase, unfiltered, sounds like real thoughts typed fast. No hashtags. No marketing. Like: "my tiddies are bouncy, my skin is poppin, and i smell delicious." or "slow tongue kissing would solve all my problems.." or "i hate liking somebody bc i start to lose my fucking mind"
+
+INSTAGRAM VOICE (for /ig and /ign): confident, flirty, elevated. Emojis + hashtags. More polished than Twitter.
 
 STRICT OUTPUT RULES:
 • Maximum 150 words per response — no exceptions
 • Output ONLY the final content — no intros, no explanations, no commentary
-• Use emojis naturally
 • Every line must be ready to copy-paste and post immediately"""
 
 
@@ -81,28 +82,36 @@ PROMPTS: dict[str, tuple[str, int]] = {
         "🐦 1. [tweet — Fanvue tease]\n"
         "🐦 2. [tweet — penthouse lifestyle]\n"
         "🐦 3. [tweet — nurse persona]\n"
-        "🐦 4. [tweet — fan engagement question]\n\n"
-        "RULES:\n"
-        "• Under 280 chars each\n"
-        "• Fanvue CTA must feel natural, never like an ad — weave it in, don't announce it\n"
-        "• NEVER use: 'link in bio', 'rated R', 'no co-pay', 'the full movie', 'clocked out'\n"
-        "• Tease without explaining — leave a gap the reader has to fill\n"
-        "• Write like a real woman texting, not a marketing bot\n"
-        "• One specific sensory detail per tweet (a sound, a texture, a temperature)\n"
-        "Under 150 words total.",
-        400,
+        "🐦 4. [tweet — desire / body / sensuality]\n\n"
+        "VOICE — match this exact style:\n"
+        "• lowercase, casual, sounds like a real woman's unfiltered thought\n"
+        "• short punchy sentences or one long run-on like she's actually typing\n"
+        "• NO hashtags, NO 'link in bio', NO 'check out my', NO marketing phrases\n"
+        "• Fanvue CTA woven in naturally — like: 'my fanvue been eating lately.. just saying' "
+        "or 'posted something on fanvue that i probably shouldn't have 🙂'\n"
+        "• Tone reference: 'my tiddies are bouncy, my skin is poppin, and i smell delicious.' "
+        "/ 'slow tongue kissing would solve all my problems..' "
+        "/ 'let's focus on being hot & making lots of money please..'\n"
+        "Under 120 words total.",
+        350,
     ),
 
     # /t2 — 3 feeder tweets (14k growth)
     "t2": (
-        "Write 3 growth tweets for Suukalia's 14k Twitter account. "
-        "No promotion, no Fanvue links. Pure engagement. "
+        "Write 3 tweets for Suukalia's growth Twitter account (14k followers). "
+        "No Fanvue, no promotion, zero marketing. Pure personality. "
         "Output ONLY this format, nothing else:\n\n"
-        "📈 1. [witty/funny tweet + 2 hashtags]\n"
-        "📈 2. [vulnerable/authentic tweet + 2 hashtags]\n"
-        "📈 3. [bold hot take + 2 hashtags]\n\n"
-        "Under 280 chars each. Under 100 words total.",
-        300,
+        "📈 1. [funny or relatable thought]\n"
+        "📈 2. [desire, body, or sensuality — honest and raw]\n"
+        "📈 3. [hot take or emotional truth]\n\n"
+        "VOICE — match this exact style:\n"
+        "• lowercase, unfiltered, reads like a real thought she just had\n"
+        "• NO hashtags, NO emojis overload — one max if it fits\n"
+        "• Tone reference: 'i hate liking somebody bc i start to lose my fucking mind' "
+        "/ 'wearing no bra and oversized clothes is self care at its finest' "
+        "/ 'FUN FACT: sexual tension is more fun than the sex itself'\n"
+        "Under 80 words total.",
+        250,
     ),
 
     # /th — 3 Threads posts
