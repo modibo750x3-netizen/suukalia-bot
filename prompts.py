@@ -77,13 +77,19 @@ PROMPTS: dict[str, tuple[str, int]] = {
     # /t1 — 4 tweets (40k audience + Fanvue CTA)
     "t1": (
         "Write 4 tweets for Suukalia's main Twitter account (40k followers). "
-        "Each tweet must include a Fanvue CTA. "
         "Output ONLY this format, nothing else:\n\n"
         "🐦 1. [tweet — Fanvue tease]\n"
         "🐦 2. [tweet — penthouse lifestyle]\n"
         "🐦 3. [tweet — nurse persona]\n"
         "🐦 4. [tweet — fan engagement question]\n\n"
-        "Under 280 chars each. Confident + flirty tone. Under 150 words total.",
+        "RULES:\n"
+        "• Under 280 chars each\n"
+        "• Fanvue CTA must feel natural, never like an ad — weave it in, don't announce it\n"
+        "• NEVER use: 'link in bio', 'rated R', 'no co-pay', 'the full movie', 'clocked out'\n"
+        "• Tease without explaining — leave a gap the reader has to fill\n"
+        "• Write like a real woman texting, not a marketing bot\n"
+        "• One specific sensory detail per tweet (a sound, a texture, a temperature)\n"
+        "Under 150 words total.",
         400,
     ),
 
