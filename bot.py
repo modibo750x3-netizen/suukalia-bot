@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 from telegram import BotCommand, ReplyKeyboardMarkup, Update
 from telegram.constants import ChatAction
 from telegram.error import NetworkError, TelegramError
-from telegram.ext import Application, CommandHandler, ContextTypes
+from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
 from prompts import PROMPTS, SYSTEM_PROMPT
 
@@ -32,16 +32,39 @@ MAX_MSG_LEN = 4000
 # ── Persistent reply keyboard ──────────────────────────────────────────────────
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
-        ["/ig 📸",      "/ign 👩‍⚕️"],
-        ["/reel1 🎬",   "/reel2 💋"],
-        ["/t1 🐦",      "/t2 📈"],
-        ["/fanvue 🩷",  "/th 🧵"],
-        ["/ppv 💰",     "/prompt 🤖"],
-        ["/day 📅"],
+        ["/ig 📸",        "/ign 👩‍⚕️"],
+        ["/reel1 🎬",     "/reel2 💋"],
+        ["/t 🐦",         "/fanvue 🩷"],
+        ["/th 🧵",        "/ppv 💰"],
+        ["/prompt 🤖",    "/day 📅"],
+        ["/checklist ✅"],
     ],
     resize_keyboard=True,
     input_field_placeholder="Choose a command…",
 )
+
+# ── Weekly checklist items ─────────────────────────────────────────────────────
+CHECKLIST_ITEMS = [
+    "Générer prompts Higgsfield (/prompt x7)",
+    "Générer captions IG bikini (/ig x7)",
+    "Générer captions nurse (/ign x3)",
+    "Générer tweets semaine (/t x7)",
+    "Générer posts Threads (/th x3)",
+    "Programmer sur Metricool",
+    "Préparer contenu Fanvue (/ppv)",
+    "Shooter les visuels de la semaine",
+]
+
+
+def render_checklist(checked: set) -> str:
+    lines = ["📋 *Checklist semaine* — réponds avec un numéro pour cocher/décocher\n"]
+    for i, item in enumerate(CHECKLIST_ITEMS, start=1):
+        box = "✅" if i in checked else "☐"
+        lines.append(f"{box} {i}. {item}")
+    done = len(checked)
+    total = len(CHECKLIST_ITEMS)
+    lines.append(f"\n_{done}/{total} complété{'s' if done != 1 else ''}_")
+    return "\n".join(lines)
 
 # ── Bot command list (shows up when user types /) ──────────────────────────────
 BOT_COMMANDS = [
@@ -54,7 +77,8 @@ BOT_COMMANDS = [
     BotCommand("th",     "3 Threads posts"),
     BotCommand("ppv",    "3 Fanvue PPV ideas"),
     BotCommand("prompt", "Higgsfield arch back prompt"),
-    BotCommand("day",    "Full daily content plan"),
+    BotCommand("day",       "Full daily content plan"),
+    BotCommand("checklist", "Weekly Monday checklist"),
 ]
 
 
@@ -186,6 +210,34 @@ async def cmd_day(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "day")
 
 
+# ── /checklist ─────────────────────────────────────────────────────────────────
+async def cmd_checklist(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    context.user_data.setdefault("checklist", set())
+    await update.message.reply_text(
+        render_checklist(context.user_data["checklist"]),
+        parse_mode="Markdown",
+    )
+
+
+async def handle_checklist_toggle(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Toggle a checklist item when the user sends a bare number."""
+    text = update.message.text.strip()
+    if not text.isdigit():
+        return
+    n = int(text)
+    if not (1 <= n <= len(CHECKLIST_ITEMS)):
+        return
+    checked: set = context.user_data.setdefault("checklist", set())
+    if n in checked:
+        checked.discard(n)
+    else:
+        checked.add(n)
+    await update.message.reply_text(
+        render_checklist(checked),
+        parse_mode="Markdown",
+    )
+
+
 # ── Global error handler ───────────────────────────────────────────────────────
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Log errors but never let them crash the bot process."""
@@ -233,6 +285,8 @@ def main() -> None:
     app.add_handler(CommandHandler("ppv", cmd_ppv))
     app.add_handler(CommandHandler("prompt", cmd_prompt))
     app.add_handler(CommandHandler("day", cmd_day))
+    app.add_handler(CommandHandler("checklist", cmd_checklist))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_checklist_toggle))
 
     logger.info("Suukalia Bot is starting — polling for updates...")
     app.run_polling(
