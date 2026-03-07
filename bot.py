@@ -67,18 +67,19 @@ BOT_COMMANDS = [
 
 # ── Core AI call ──────────────────────────────────────────────────────────────
 async def generate_content(prompt: str, max_tokens: int = 2500) -> str:
-    """Stream a response from Claude and return the full text."""
-    async with ai_client.messages.stream(
+    """Call Claude and return the full text response."""
+    response = await ai_client.messages.create(
         model="claude-opus-4-6",
         max_tokens=max_tokens,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": prompt}],
-    ) as stream:
-        final = await stream.get_final_message()
-
-    return "\n".join(
-        block.text for block in final.content if block.type == "text"
+    )
+    text = "\n".join(
+        block.text for block in response.content if block.type == "text"
     ).strip()
+    if not text:
+        raise ValueError("Empty response from Claude")
+    return text
 
 
 # ── Telegram helpers ──────────────────────────────────────────────────────────
