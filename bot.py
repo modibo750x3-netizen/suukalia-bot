@@ -37,12 +37,12 @@ MAX_MSG_LEN = 4000
 # ── Persistent reply keyboard ──────────────────────────────────────────────────
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
-        ["📸 /ig",      "👩‍⚕️ /ign"],
-        ["🎬 /reel1",   "💋 /reel2"],
-        ["🐦 /t1",      "📈 /t2"],
-        ["🩷 /fanvue",  "🧵 /th"],
-        ["💰 /ppv",     "🤖 /prompt"],
-        ["📅 /day"],
+        ["/ig 📸",      "/ign 👩‍⚕️"],
+        ["/reel1 🎬",   "/reel2 💋"],
+        ["/t1 🐦",      "/t2 📈"],
+        ["/fanvue 🩷",  "/th 🧵"],
+        ["/ppv 💰",     "/prompt 🤖"],
+        ["/day 📅"],
     ],
     resize_keyboard=True,
     persistent=True,
