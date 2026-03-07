@@ -75,22 +75,36 @@ PROMPTS: dict[str, tuple[str, int]] = {
         250,
     ),
 
-    # /t1 — 4 tweets, 1 sentence each, @novathaOG style
+    # /t1 — 4 tweets, 1 sentence each, @novathaOG style, NO Fanvue
     "t1": (
         "Write 4 tweets for Suukalia. Output ONLY the 4 tweets, nothing else.\n\n"
         "STRICT RULES:\n"
         "• 1 sentence max per tweet — no exceptions\n"
         "• lowercase, no hashtags, max 1 emoji per tweet\n"
-        "• 3 tweets = pure personality (body, desire, nurse life, confidence, funny)\n"
-        "• 1 tweet only = casual Fanvue mention, NOT a CTA — "
-        "like a side comment, not an ad. Example: "
-        "'i posted something on fanvue last night and i really said what i said 🙂' "
-        "or 'my fanvue subscribers are really built different'\n"
+        "• 4 tweets = pure personality only (body, desire, nurse life, confidence, funny)\n"
+        "• NO Fanvue mention, NO promotion, NO CTA of any kind\n"
         "• Reference style: 'my skin is poppin and i smell delicious' "
         "/ 'i wanna make out so badly' "
         "/ 'wearing no bra and oversized clothes is self care at its finest'\n\n"
         "🐦 1.\n🐦 2.\n🐦 3.\n🐦 4.",
         250,
+    ),
+
+    # /fanvue — 1 casual Fanvue mention tweet (use max 2x per week)
+    "fanvue": (
+        "Write 1 tweet for Suukalia that casually mentions her Fanvue. "
+        "Output ONLY the tweet, nothing else.\n\n"
+        "STRICT RULES:\n"
+        "• 1 sentence max\n"
+        "• lowercase, max 1 emoji\n"
+        "• Sounds like a random thought, NOT a promotion — a side comment, not an ad\n"
+        "• NO 'link in bio', NO 'check out', NO 'exclusive content'\n"
+        "• Examples of the right tone: "
+        "'i posted something on fanvue last night and i really said what i said 🙂' "
+        "/ 'my fanvue subscribers are really built different' "
+        "/ 'something went up on my fanvue today that i'm not gonna talk about here'\n\n"
+        "🐦",
+        100,
     ),
 
     # /t2 — 3 tweets, raw personality style
