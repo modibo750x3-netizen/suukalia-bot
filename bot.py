@@ -49,6 +49,7 @@ BOT_COMMANDS = [
     BotCommand("ign",    "5 nurse practitioner captions"),
     BotCommand("reel1",  "Viral reel script"),
     BotCommand("reel2",  "5 provocative nurse phrases"),
+    BotCommand("t",      "6 tweets — full mix (relatable + nurse)"),
     BotCommand("t1",     "4 tweets — personality"),
     BotCommand("t2",     "3 tweets — relationships & desire"),
     BotCommand("fanvue", "1 casual Fanvue mention tweet (2x/week max)"),
@@ -163,6 +164,10 @@ async def cmd_reel2(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "reel2")
 
 
+async def cmd_t(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await run_command(update, context, "t")
+
+
 async def cmd_t1(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "t1")
 
@@ -232,6 +237,7 @@ def main() -> None:
     app.add_handler(CommandHandler("ign", cmd_ign))
     app.add_handler(CommandHandler("reel1", cmd_reel1))
     app.add_handler(CommandHandler("reel2", cmd_reel2))
+    app.add_handler(CommandHandler("t", cmd_t))
     app.add_handler(CommandHandler("t1", cmd_t1))
     app.add_handler(CommandHandler("t2", cmd_t2))
     app.add_handler(CommandHandler("fanvue", cmd_fanvue))

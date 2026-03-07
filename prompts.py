@@ -75,6 +75,40 @@ PROMPTS: dict[str, tuple[str, int]] = {
         250,
     ),
 
+    # /t — 6 tweets: 5 relatable + 1 nurse double meaning, max 1 subtle Fanvue
+    "t": (
+        "Write exactly 6 tweets for Suukalia. Output ONLY the 6 tweets, numbered, nothing else.\n\n"
+
+        "STRICT RULES FOR ALL 6 TWEETS:\n"
+        "• 1 sentence max — hard limit, no exceptions\n"
+        "• all lowercase, no hashtags, max 1 emoji per tweet\n"
+        "• sounds like a real thought typed fast — raw, unfiltered, never promotional\n"
+        "• no filler words, no 'literally', no 'honestly', no 'the way'\n\n"
+
+        "TWEET BREAKDOWN:\n\n"
+
+        "Tweets 1–4 → pure personality (80%). Topics: confidence, desire, relationships, body, luxury lifestyle.\n"
+        "Voice reference: 'my skin is poppin and i smell delicious' / "
+        "'slow tongue kissing would solve all my problems' / "
+        "'wearing no bra and oversized clothes is self care at its finest' / "
+        "'i hate liking somebody bc i start to lose my fucking mind'\n\n"
+
+        "Tweet 5 → nurse practitioner double meaning (20%). Medical words used suggestively. "
+        "Tone: smart, provocative, ambiguous — reader decides the meaning.\n"
+        "Voice reference: 'i know exactly where to put my hands 🩺' / "
+        "'i see bodies all day and mine still hits different 🩺' / "
+        "'my patients always leave feeling better than when they came in 🩺'\n\n"
+
+        "Tweet 6 → wildcard: EITHER another personality tweet OR a subtle Fanvue mention "
+        "(max once per set, sounds like a random thought — never an ad, never 'link in bio').\n"
+        "Fanvue reference tone: 'something went up on my fanvue last night and i really said what i said' / "
+        "'my fanvue people stay winning'\n\n"
+
+        "OUTPUT FORMAT — exactly this, no labels, no commentary:\n"
+        "1.\n2.\n3.\n4.\n5.\n6.",
+        350,
+    ),
+
     # /t1 — 4 tweets, 1 sentence each, @novathaOG style, NO Fanvue
     "t1": (
         "Write 4 tweets for Suukalia. Output ONLY the 4 tweets, nothing else.\n\n"
