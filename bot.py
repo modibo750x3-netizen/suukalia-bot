@@ -67,26 +67,18 @@ BOT_COMMANDS = [
 
 # ── Core AI call ──────────────────────────────────────────────────────────────
 async def generate_content(prompt: str, max_tokens: int = 2500) -> str:
-    """
-    Stream a response from Claude and return the full text.
-    Uses claude-opus-4-6 with adaptive thinking for best quality.
-    """
+    """Stream a response from Claude and return the full text."""
     async with ai_client.messages.stream(
         model="claude-opus-4-6",
         max_tokens=max_tokens,
-        thinking={"type": "adaptive"},
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": prompt}],
     ) as stream:
         final = await stream.get_final_message()
 
-    # Extract text blocks only (skip thinking blocks)
-    text_parts = [
-        block.text
-        for block in final.content
-        if block.type == "text"
-    ]
-    return "\n".join(text_parts).strip()
+    return "\n".join(
+        block.text for block in final.content if block.type == "text"
+    ).strip()
 
 
 # ── Telegram helpers ──────────────────────────────────────────────────────────
