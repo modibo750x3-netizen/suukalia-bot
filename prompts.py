@@ -75,36 +75,36 @@ PROMPTS: dict[str, tuple[str, int]] = {
         250,
     ),
 
-    # /t — 6 tweets: 5 relatable + 1 nurse double meaning, max 1 subtle Fanvue
+    # /t — 6 tweets: 5 raw feminine + 1 nurse double meaning
     "t": (
-        "Write exactly 6 tweets for Suukalia. Output ONLY the 6 tweets, numbered, nothing else.\n\n"
+        "Write exactly 6 tweets for Suukalia. Output ONLY the 6 tweets, numbered 1 to 6. Nothing else.\n\n"
 
-        "STRICT RULES FOR ALL 6 TWEETS:\n"
-        "• 1 sentence max — hard limit, no exceptions\n"
-        "• all lowercase, no hashtags, max 1 emoji per tweet\n"
-        "• sounds like a real thought typed fast — raw, unfiltered, never promotional\n"
-        "• no filler words, no 'literally', no 'honestly', no 'the way'\n\n"
+        "CHARACTER: Suukalia — nurse practitioner, penthouse, curly hair, golden skin. "
+        "Confident, feminine, unbothered.\n\n"
 
-        "TWEET BREAKDOWN:\n\n"
+        "RULES — apply to every tweet:\n"
+        "• all lowercase\n"
+        "• 1 short sentence max — hard limit\n"
+        "• no hashtags, no numbers inside the tweet\n"
+        "• emojis: only when it truly adds emotion or meaning — most tweets should have none\n"
+        "  good use: 😭 🩺 >>> 💀 — never forced, max 1\n"
+        "• raw, confident, feminine — reads like a real thought, not content\n"
+        "• no filler words: no 'literally', 'honestly', 'the way', 'i just'\n\n"
 
-        "Tweets 1–4 → pure personality (80%). Topics: confidence, desire, relationships, body, luxury lifestyle.\n"
-        "Voice reference: 'my skin is poppin and i smell delicious' / "
-        "'slow tongue kissing would solve all my problems' / "
-        "'wearing no bra and oversized clothes is self care at its finest' / "
-        "'i hate liking somebody bc i start to lose my fucking mind'\n\n"
+        "TWEET 1–5 → feminine raw energy. Rotate through these topics:\n"
+        "body confidence, men, desire, touch, smell, waist, hugs, looks, attraction\n"
+        "Style (inspire only, do NOT copy):\n"
+        "'i just know i smell good today'\n"
+        "'men who grab your waist >>>'\n"
+        "'being kissed on the neck should be illegal'\n"
+        "'sometimes i look in the mirror and understand everything'\n\n"
 
-        "Tweet 5 → nurse practitioner double meaning (20%). Medical words used suggestively. "
-        "Tone: smart, provocative, ambiguous — reader decides the meaning.\n"
-        "Voice reference: 'i know exactly where to put my hands 🩺' / "
-        "'i see bodies all day and mine still hits different 🩺' / "
-        "'my patients always leave feeling better than when they came in 🩺'\n\n"
+        "TWEET 6 → nurse double meaning. Medical term used suggestively. "
+        "Ambiguous — reader decides.\n"
+        "Style: 'i know exactly where to put my hands 🩺' / "
+        "'i see bodies all day and mine still hits different'\n\n"
 
-        "Tweet 6 → wildcard: EITHER another personality tweet OR a subtle Fanvue mention "
-        "(max once per set, sounds like a random thought — never an ad, never 'link in bio').\n"
-        "Fanvue reference tone: 'something went up on my fanvue last night and i really said what i said' / "
-        "'my fanvue people stay winning'\n\n"
-
-        "OUTPUT FORMAT — exactly this, no labels, no commentary:\n"
+        "OUTPUT FORMAT — no labels, no commentary:\n"
         "1.\n2.\n3.\n4.\n5.\n6.",
         350,
     ),
