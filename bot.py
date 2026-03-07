@@ -10,7 +10,7 @@ import os
 
 import anthropic
 from dotenv import load_dotenv
-from telegram import Update
+from telegram import BotCommand, ReplyKeyboardMarkup, Update
 from telegram.constants import ChatAction
 from telegram.ext import Application, CommandHandler, ContextTypes
 
@@ -33,6 +33,34 @@ ai_client = anthropic.AsyncAnthropic(api_key=ANTHROPIC_API_KEY)
 
 # ── Telegram message length limit ─────────────────────────────────────────────
 MAX_MSG_LEN = 4000
+
+# ── Persistent reply keyboard ──────────────────────────────────────────────────
+MENU_KEYBOARD = ReplyKeyboardMarkup(
+    [
+        ["📸 /ig",     "👩‍⚕️ /ign"],
+        ["🎬 /reel1",  "💋 /reel2"],
+        ["🐦 /t1",     "📈 /t2"],
+        ["🧵 /th",     "💰 /ppv"],
+        ["🤖 /prompt", "📅 /day"],
+    ],
+    resize_keyboard=True,
+    persistent=True,
+    input_field_placeholder="Choose a command…",
+)
+
+# ── Bot command list (shows up when user types /) ──────────────────────────────
+BOT_COMMANDS = [
+    BotCommand("ig",     "5 Instagram bikini captions + hashtags"),
+    BotCommand("ign",    "5 nurse practitioner captions"),
+    BotCommand("reel1",  "Viral reel script"),
+    BotCommand("reel2",  "5 provocative nurse phrases"),
+    BotCommand("t1",     "4 tweets — personality"),
+    BotCommand("t2",     "3 tweets — relationships & desire"),
+    BotCommand("th",     "3 Threads posts"),
+    BotCommand("ppv",    "3 Fanvue PPV ideas"),
+    BotCommand("prompt", "Higgsfield arch back prompt"),
+    BotCommand("day",    "Full daily content plan"),
+]
 
 
 # ── Core AI call ──────────────────────────────────────────────────────────────
@@ -124,22 +152,10 @@ async def run_command(
 
 # ── /start & /help ─────────────────────────────────────────────────────────────
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    menu = (
-        "✨ Suukalia Content Bot ✨\n"
-        "─────────────────────────\n\n"
-        "📸 /ig      — 5 Instagram bikini captions + hashtags\n"
-        "👩‍⚕️ /ign     — 5 nurse practitioner captions\n"
-        "🎬 /reel1   — Viral reel script (15–30 sec)\n"
-        "💋 /reel2   — 5 provocative nurse phrases\n"
-        "🐦 /t1      — 4 tweets for 40k audience + Fanvue CTA\n"
-        "📈 /t2      — 3 feeder tweets for 14k growth\n"
-        "🧵 /th      — 3 Threads posts\n"
-        "💰 /ppv     — 3 Fanvue PPV content ideas\n"
-        "🤖 /prompt  — Higgsfield arch back video prompt\n"
-        "📅 /day     — Full daily content plan\n\n"
-        "Tap any command to generate content instantly! 🚀"
+    await update.message.reply_text(
+        "✨ Suukalia Content Bot ✨\n\nTap a button below to generate content instantly 🚀",
+        reply_markup=MENU_KEYBOARD,
     )
-    await update.message.reply_text(menu)
 
 
 # ── Command handlers ───────────────────────────────────────────────────────────
@@ -183,6 +199,12 @@ async def cmd_day(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "day")
 
 
+# ── Startup hook — register bot commands with Telegram ────────────────────────
+async def post_init(app: Application) -> None:
+    await app.bot.set_my_commands(BOT_COMMANDS)
+    logger.info("Bot commands registered with Telegram")
+
+
 # ── Entry point ────────────────────────────────────────────────────────────────
 def main() -> None:
     if not TELEGRAM_TOKEN:
@@ -190,7 +212,7 @@ def main() -> None:
     if not ANTHROPIC_API_KEY:
         raise RuntimeError("ANTHROPIC_API_KEY is not set")
 
-    app = Application.builder().token(TELEGRAM_TOKEN).build()
+    app = Application.builder().token(TELEGRAM_TOKEN).post_init(post_init).build()
 
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_start))
