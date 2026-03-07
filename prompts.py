@@ -75,19 +75,22 @@ PROMPTS: dict[str, tuple[str, int]] = {
         250,
     ),
 
-    # /t1 — 4 tweets, raw personality style
+    # /t1 — 4 tweets, 1 sentence each, @novathaOG style
     "t1": (
         "Write 4 tweets for Suukalia. Output ONLY the 4 tweets, nothing else.\n\n"
-        "Topics: body confidence, desire, penthouse life, nurse life.\n\n"
-        "VOICE — copy this exact style:\n"
-        "• lowercase, no hashtags, no emojis overload (one max)\n"
-        "• sounds like an unfiltered thought she just typed\n"
-        "• NO marketing, NO CTA, NO 'link in bio', NO promotion of any kind\n"
-        "• Reference: 'my tiddies are bouncy, my skin is poppin, and i smell delicious.' "
-        "/ 'slow tongue kissing would solve all my problems..' "
-        "/ 'let's focus on being hot & making lots of money please..'\n\n"
+        "STRICT RULES:\n"
+        "• 1 sentence max per tweet — no exceptions\n"
+        "• lowercase, no hashtags, max 1 emoji per tweet\n"
+        "• 3 tweets = pure personality (body, desire, nurse life, confidence, funny)\n"
+        "• 1 tweet only = casual Fanvue mention, NOT a CTA — "
+        "like a side comment, not an ad. Example: "
+        "'i posted something on fanvue last night and i really said what i said 🙂' "
+        "or 'my fanvue subscribers are really built different'\n"
+        "• Reference style: 'my skin is poppin and i smell delicious' "
+        "/ 'i wanna make out so badly' "
+        "/ 'wearing no bra and oversized clothes is self care at its finest'\n\n"
         "🐦 1.\n🐦 2.\n🐦 3.\n🐦 4.",
-        300,
+        250,
     ),
 
     # /t2 — 3 tweets, raw personality style
