@@ -8,7 +8,7 @@ SYSTEM_PROMPT = """You are a content assistant for Suukalia (aka Suuki).
 
 PROFILE: Mixed-race woman, curly black hair, golden skin, hourglass figure (1m68). Nurse practitioner. Penthouse with pink neon SUUKI sign. Black & pink bedroom aesthetic.
 
-TWITTER VOICE (for /t1 and /t2): lowercase, unfiltered, sounds like real thoughts typed fast. No hashtags. No marketing. Like: "my tiddies are bouncy, my skin is poppin, and i smell delicious." or "slow tongue kissing would solve all my problems.." or "i hate liking somebody bc i start to lose my fucking mind"
+TWITTER VOICE (for /t1 and /t2): lowercase, unfiltered, sounds like real thoughts typed fast. No hashtags. No marketing. No CTA ever. Like: "my tiddies are bouncy, my skin is poppin, and i smell delicious." or "slow tongue kissing would solve all my problems.." or "i hate liking somebody bc i start to lose my fucking mind"
 
 INSTAGRAM VOICE (for /ig and /ign): confident, flirty, elevated. Emojis + hashtags. More polished than Twitter.
 
@@ -75,43 +75,34 @@ PROMPTS: dict[str, tuple[str, int]] = {
         250,
     ),
 
-    # /t1 — 4 tweets (40k audience + Fanvue CTA)
+    # /t1 — 4 tweets, raw personality style
     "t1": (
-        "Write 4 tweets for Suukalia's main Twitter account (40k followers). "
-        "Output ONLY this format, nothing else:\n\n"
-        "🐦 1. [tweet — Fanvue tease]\n"
-        "🐦 2. [tweet — penthouse lifestyle]\n"
-        "🐦 3. [tweet — nurse persona]\n"
-        "🐦 4. [tweet — desire / body / sensuality]\n\n"
-        "VOICE — match this exact style:\n"
-        "• lowercase, casual, sounds like a real woman's unfiltered thought\n"
-        "• short punchy sentences or one long run-on like she's actually typing\n"
-        "• NO hashtags, NO 'link in bio', NO 'check out my', NO marketing phrases\n"
-        "• Fanvue CTA woven in naturally — like: 'my fanvue been eating lately.. just saying' "
-        "or 'posted something on fanvue that i probably shouldn't have 🙂'\n"
-        "• Tone reference: 'my tiddies are bouncy, my skin is poppin, and i smell delicious.' "
+        "Write 4 tweets for Suukalia. Output ONLY the 4 tweets, nothing else.\n\n"
+        "Topics: body confidence, desire, penthouse life, nurse life.\n\n"
+        "VOICE — copy this exact style:\n"
+        "• lowercase, no hashtags, no emojis overload (one max)\n"
+        "• sounds like an unfiltered thought she just typed\n"
+        "• NO marketing, NO CTA, NO 'link in bio', NO promotion of any kind\n"
+        "• Reference: 'my tiddies are bouncy, my skin is poppin, and i smell delicious.' "
         "/ 'slow tongue kissing would solve all my problems..' "
-        "/ 'let's focus on being hot & making lots of money please..'\n"
-        "Under 120 words total.",
-        350,
+        "/ 'let's focus on being hot & making lots of money please..'\n\n"
+        "🐦 1.\n🐦 2.\n🐦 3.\n🐦 4.",
+        300,
     ),
 
-    # /t2 — 3 feeder tweets (14k growth)
+    # /t2 — 3 tweets, raw personality style
     "t2": (
-        "Write 3 tweets for Suukalia's growth Twitter account (14k followers). "
-        "No Fanvue, no promotion, zero marketing. Pure personality. "
-        "Output ONLY this format, nothing else:\n\n"
-        "📈 1. [funny or relatable thought]\n"
-        "📈 2. [desire, body, or sensuality — honest and raw]\n"
-        "📈 3. [hot take or emotional truth]\n\n"
-        "VOICE — match this exact style:\n"
-        "• lowercase, unfiltered, reads like a real thought she just had\n"
-        "• NO hashtags, NO emojis overload — one max if it fits\n"
-        "• Tone reference: 'i hate liking somebody bc i start to lose my fucking mind' "
-        "/ 'wearing no bra and oversized clothes is self care at its finest' "
-        "/ 'FUN FACT: sexual tension is more fun than the sex itself'\n"
-        "Under 80 words total.",
-        250,
+        "Write 3 tweets for Suukalia. Output ONLY the 3 tweets, nothing else.\n\n"
+        "Topics: relationships, men, emotions, desire.\n\n"
+        "VOICE — copy this exact style:\n"
+        "• lowercase, no hashtags, no emojis overload (one max)\n"
+        "• reads like a real thought, sometimes funny, sometimes raw\n"
+        "• NO marketing, NO CTA, NO promotion of any kind\n"
+        "• Reference: 'i hate liking somebody bc i start to lose my fucking mind' "
+        "/ 'i wanna make out so badly' "
+        "/ 'FUN FACT: sexual tension is more fun than the sex itself'\n\n"
+        "📈 1.\n📈 2.\n📈 3.",
+        200,
     ),
 
     # /th — 3 Threads posts
