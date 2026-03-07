@@ -12,6 +12,7 @@ import anthropic
 from dotenv import load_dotenv
 from telegram import BotCommand, ReplyKeyboardMarkup, Update
 from telegram.constants import ChatAction
+from telegram.error import NetworkError, TelegramError
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 from prompts import PROMPTS, SYSTEM_PROMPT
@@ -24,12 +25,6 @@ logging.basicConfig(
     level=logging.INFO,
 )
 logger = logging.getLogger(__name__)
-
-# ── Clients ────────────────────────────────────────────────────────────────────
-TELEGRAM_TOKEN: str = os.environ["TELEGRAM_BOT_TOKEN"]
-ANTHROPIC_API_KEY: str = os.environ["ANTHROPIC_API_KEY"]
-
-ai_client = anthropic.AsyncAnthropic(api_key=ANTHROPIC_API_KEY)
 
 # ── Telegram message length limit ─────────────────────────────────────────────
 MAX_MSG_LEN = 4000
@@ -66,7 +61,7 @@ BOT_COMMANDS = [
 
 
 # ── Core AI call ──────────────────────────────────────────────────────────────
-async def generate_content(prompt: str, max_tokens: int = 2500) -> str:
+async def generate_content(ai_client: anthropic.AsyncAnthropic, prompt: str, max_tokens: int = 2500) -> str:
     """Call Claude and return the full text response."""
     response = await ai_client.messages.create(
         model="claude-opus-4-6",
@@ -89,7 +84,6 @@ async def send_chunks(update: Update, text: str) -> None:
         await update.message.reply_text(text)
         return
 
-    # Split on double-newlines where possible to avoid cutting mid-paragraph
     paragraphs = text.split("\n\n")
     chunk = ""
     for para in paragraphs:
@@ -100,7 +94,6 @@ async def send_chunks(update: Update, text: str) -> None:
             if chunk:
                 await update.message.reply_text(chunk)
                 await asyncio.sleep(0.4)
-            # If a single paragraph exceeds the limit, hard-split it
             while len(para) > MAX_MSG_LEN:
                 await update.message.reply_text(para[:MAX_MSG_LEN])
                 await asyncio.sleep(0.4)
@@ -119,9 +112,10 @@ async def run_command(
     """Generic dispatcher: show typing → call Claude → send result."""
     await update.message.reply_chat_action(ChatAction.TYPING)
     prompt, max_tokens = PROMPTS[key]
+    ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
 
     try:
-        content = await generate_content(prompt, max_tokens)
+        content = await generate_content(ai_client, prompt, max_tokens)
         await send_chunks(update, content)
     except anthropic.AuthenticationError:
         logger.error("Anthropic authentication failed — check ANTHROPIC_API_KEY")
@@ -198,6 +192,18 @@ async def cmd_day(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "day")
 
 
+# ── Global error handler ───────────────────────────────────────────────────────
+async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Log errors but never let them crash the bot process."""
+    err = context.error
+    if isinstance(err, NetworkError):
+        logger.warning("Network error (will auto-retry): %s", err)
+    elif isinstance(err, TelegramError):
+        logger.error("Telegram error: %s", err)
+    else:
+        logger.exception("Unhandled exception: %s", err)
+
+
 # ── Startup hook — register bot commands with Telegram ────────────────────────
 async def post_init(app: Application) -> None:
     await app.bot.set_my_commands(BOT_COMMANDS)
@@ -206,12 +212,20 @@ async def post_init(app: Application) -> None:
 
 # ── Entry point ────────────────────────────────────────────────────────────────
 def main() -> None:
-    if not TELEGRAM_TOKEN:
-        raise RuntimeError("TELEGRAM_BOT_TOKEN is not set")
-    if not ANTHROPIC_API_KEY:
-        raise RuntimeError("ANTHROPIC_API_KEY is not set")
+    telegram_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
 
-    app = Application.builder().token(TELEGRAM_TOKEN).post_init(post_init).build()
+    if not telegram_token:
+        raise RuntimeError("TELEGRAM_BOT_TOKEN environment variable is not set")
+    if not anthropic_api_key:
+        raise RuntimeError("ANTHROPIC_API_KEY environment variable is not set")
+
+    ai_client = anthropic.AsyncAnthropic(api_key=anthropic_api_key)
+
+    app = Application.builder().token(telegram_token).post_init(post_init).build()
+    app.bot_data["ai_client"] = ai_client
+
+    app.add_error_handler(error_handler)
 
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_start))
@@ -228,7 +242,10 @@ def main() -> None:
     app.add_handler(CommandHandler("day", cmd_day))
 
     logger.info("Suukalia Bot is starting — polling for updates...")
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
+    app.run_polling(
+        allowed_updates=Update.ALL_TYPES,
+        drop_pending_updates=True,
+    )
 
 
 if __name__ == "__main__":
