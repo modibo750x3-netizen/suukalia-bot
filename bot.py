@@ -19,7 +19,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandl
 
 from prompts import PROMPTS, SYSTEM_PROMPT
 
-# ── Bootstrap ──────────────────────────────────────────────────────────────────
+# ââ Bootstrap ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 load_dotenv()
 
 logging.basicConfig(
@@ -28,10 +28,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Telegram message length limit ─────────────────────────────────────────────
+# ââ Telegram message length limit âââââââââââââââââââââââââââââââââââââââââââââ
 MAX_MSG_LEN = 4000
 
-# ── Wavespeed ──────────────────────────────────────────────────────────────────
+# ââ Wavespeed ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 WAVESPEED_BASE = "https://api.wavespeed.ai/api/v2"
 REFERENCE_IMAGE_URL = "https://drive.google.com/uc?export=download&id=1TfDZ_isId3LoLgb_MQvaJATJuAhADx42"
 
@@ -55,60 +55,60 @@ VIDEO_OUTFITS = [
     "silk bralette and thong",
 ]
 
-# ── Persistent reply keyboard ──────────────────────────────────────────────────
+# ââ Persistent reply keyboard ââââââââââââââââââââââââââââââââââââââââââââââââââ
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
-        ["/faceswap 🔄",  "/video 🎬"],
-        ["/ig 📸",        "/ign 👩‍⚕️"],
-        ["/reel1 🎬",     "/reel2 💋"],
-        ["/t 🐦",         "/fanvue 🩷"],
-        ["/th 🧵",        "/ppv 💰"],
-        ["/prompt 🤖",    "/day 📅"],
-        ["/checklist ✅"],
+        ["/faceswap ð",  "/video ð¬"],
+        ["/ig ð¸",        "/ign ð©ââï¸"],
+        ["/reel1 ð¬",     "/reel2 ð"],
+        ["/t ð¦",         "/fanvue ð©·"],
+        ["/th ð§µ",        "/ppv ð°"],
+        ["/prompt ð¤",    "/day ð"],
+        ["/checklist â"],
     ],
     resize_keyboard=True,
-    input_field_placeholder="Choose a command…",
+    input_field_placeholder="Choose a commandâ¦",
 )
 
-# ── Weekly checklist items ─────────────────────────────────────────────────────
+# ââ Weekly checklist items âââââââââââââââââââââââââââââââââââââââââââââââââââââ
 CHECKLIST_ITEMS = [
-    "Générer prompts Higgsfield (/prompt x7)",
-    "Générer captions IG bikini (/ig x7)",
-    "Générer captions nurse (/ign x3)",
-    "Générer tweets semaine (/t x7)",
-    "Générer posts Threads (/th x3)",
+    "GÃ©nÃ©rer prompts Higgsfield (/prompt x7)",
+    "GÃ©nÃ©rer captions IG bikini (/ig x7)",
+    "GÃ©nÃ©rer captions nurse (/ign x3)",
+    "GÃ©nÃ©rer tweets semaine (/t x7)",
+    "GÃ©nÃ©rer posts Threads (/th x3)",
     "Programmer sur Metricool",
-    "Préparer contenu Fanvue (/ppv)",
+    "PrÃ©parer contenu Fanvue (/ppv)",
     "Shooter les visuels de la semaine",
 ]
 
 
 def render_checklist(checked: set) -> str:
-    lines = ["📋 *Checklist semaine* — réponds avec un numéro pour cocher/décocher\n"]
+    lines = ["ð *Checklist semaine* â rÃ©ponds avec un numÃ©ro pour cocher/dÃ©cocher\n"]
     for i, item in enumerate(CHECKLIST_ITEMS, start=1):
-        box = "✅" if i in checked else "☐"
+        box = "â" if i in checked else "â"
         lines.append(f"{box} {i}. {item}")
     done = len(checked)
     total = len(CHECKLIST_ITEMS)
-    lines.append(f"\n_{done}/{total} complété{'s' if done != 1 else ''}_")
+    lines.append(f"\n_{done}/{total} complÃ©tÃ©{'s' if done != 1 else ''}_")
     return "\n".join(lines)
 
-# ── Bot command list (shows up when user types /) ──────────────────────────────
+# ââ Bot command list (shows up when user types /) ââââââââââââââââââââââââââââââ
 BOT_COMMANDS = [
     BotCommand("faceswap", "Face swap via Wavespeed Nano Banana 2"),
-    BotCommand("video",  "Generate video — twerking (Kling 3.0)"),
-    BotCommand("video2", "Generate video — crawl (Kling 3.0)"),
-    BotCommand("video3", "Generate video — floor sit (Kling 3.0)"),
-    BotCommand("video4", "Generate video — squat (Kling 3.0)"),
-    BotCommand("video5", "Generate video — bed roll (Kling 3.0)"),
-    BotCommand("video6", "Generate video — body run (Kling 3.0)"),
-    BotCommand("video7", "Generate video — arch back (Kling 3.0)"),
-    BotCommand("video8", "Generate video — catwalk (Kling 3.0)"),
+    BotCommand("video",  "Generate video â twerking (Kling 3.0)"),
+    BotCommand("video2", "Generate video â crawl (Kling 3.0)"),
+    BotCommand("video3", "Generate video â floor sit (Kling 3.0)"),
+    BotCommand("video4", "Generate video â squat (Kling 3.0)"),
+    BotCommand("video5", "Generate video â bed roll (Kling 3.0)"),
+    BotCommand("video6", "Generate video â body run (Kling 3.0)"),
+    BotCommand("video7", "Generate video â arch back (Kling 3.0)"),
+    BotCommand("video8", "Generate video â catwalk (Kling 3.0)"),
     BotCommand("ig",     "5 Instagram bikini captions + hashtags"),
     BotCommand("ign",    "5 nurse practitioner captions"),
     BotCommand("reel1",  "Viral reel script"),
     BotCommand("reel2",  "5 provocative nurse phrases"),
-    BotCommand("t",      "6 tweets — full mix (relatable + nurse)"),
+    BotCommand("t",      "6 tweets â full mix (relatable + nurse)"),
     BotCommand("fanvue", "1 casual Fanvue mention tweet (2x/week max)"),
     BotCommand("th",     "3 Threads posts"),
     BotCommand("ppv",    "3 Fanvue PPV ideas"),
@@ -118,7 +118,7 @@ BOT_COMMANDS = [
 ]
 
 
-# ── Core AI call ──────────────────────────────────────────────────────────────
+# ââ Core AI call ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def generate_content(ai_client: anthropic.AsyncAnthropic, prompt: str, max_tokens: int = 2500) -> str:
     """Call Claude and return the full text response."""
     response = await ai_client.messages.create(
@@ -135,9 +135,9 @@ async def generate_content(ai_client: anthropic.AsyncAnthropic, prompt: str, max
     return text
 
 
-# ── Telegram helpers ──────────────────────────────────────────────────────────
+# ââ Telegram helpers ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def send_chunks(update: Update, text: str) -> None:
-    """Send a potentially long message, splitting into ≤4000-char chunks."""
+    """Send a potentially long message, splitting into â¤4000-char chunks."""
     if len(text) <= MAX_MSG_LEN:
         await update.message.reply_text(text)
         return
@@ -167,7 +167,7 @@ async def run_command(
     context: ContextTypes.DEFAULT_TYPE,
     key: str,
 ) -> None:
-    """Generic dispatcher: show typing → call Claude → send result."""
+    """Generic dispatcher: show typing â call Claude â send result."""
     await update.message.reply_chat_action(ChatAction.TYPING)
     prompt, max_tokens = PROMPTS[key]
     ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
@@ -176,28 +176,28 @@ async def run_command(
         content = await generate_content(ai_client, prompt, max_tokens)
         await send_chunks(update, content)
     except anthropic.AuthenticationError:
-        logger.error("Anthropic authentication failed — check ANTHROPIC_API_KEY")
+        logger.error("Anthropic authentication failed â check ANTHROPIC_API_KEY")
         await update.message.reply_text(
-            "❌ Authentication error. Please contact the bot admin."
+            "â Authentication error. Please contact the bot admin."
         )
     except anthropic.RateLimitError:
         logger.warning("Anthropic rate limit hit")
         await update.message.reply_text(
-            "⏳ Too many requests right now. Please wait a moment and try again."
+            "â³ Too many requests right now. Please wait a moment and try again."
         )
     except anthropic.APIStatusError as exc:
         logger.error("Anthropic API error %s: %s", exc.status_code, exc.message)
         await update.message.reply_text(
-            "❌ AI service error. Please try again in a moment."
+            "â AI service error. Please try again in a moment."
         )
     except Exception as exc:  # noqa: BLE001
         logger.exception("Unexpected error in /%s: %s", key, exc)
         await update.message.reply_text(
-            "❌ Something went wrong. Please try again."
+            "â Something went wrong. Please try again."
         )
 
 
-# ── Wavespeed helpers ──────────────────────────────────────────────────────────
+# ââ Wavespeed helpers ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def _wavespeed_poll(prediction_id: str, max_wait: int = 160, interval: int = 15) -> dict | None:
     """Poll Wavespeed until status == succeeded/failed or timeout."""
     wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
@@ -221,11 +221,11 @@ async def _wavespeed_poll(prediction_id: str, max_wait: int = 160, interval: int
     return None
 
 
-# ── /faceswap ─────────────────────────────────────────────────────────────────
+# ââ /faceswap âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def cmd_faceswap(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     context.user_data["awaiting_faceswap"] = True
     await update.message.reply_text(
-        "📸 Envoie-moi une photo — je vais swapper le visage !"
+        "ð¸ Envoie-moi une photo â je vais swapper le visage !"
     )
 
 
@@ -237,11 +237,11 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
 
     wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
     if not wavespeed_api_key:
-        await update.message.reply_text("❌ WAVESPEED_API_KEY non configuré.")
+        await update.message.reply_text("â WAVESPEED_API_KEY non configurÃ©.")
         return
 
     await update.message.reply_chat_action(ChatAction.UPLOAD_PHOTO)
-    await update.message.reply_text("⏳ Face swap en cours… (25-50 sec)")
+    await update.message.reply_text("â³ Face swap en coursâ¦ (25-50 sec)")
 
     # Build direct Telegram download URL for the user's photo
     photo = update.message.photo[-1]
@@ -254,17 +254,18 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
         "Content-Type": "application/json",
     }
     payload = {
-        "inputs": {
-            "face_image": face_image_url,
-            "target_image": REFERENCE_IMAGE_URL,
-        },
-        "enable_safety_checker": False,
+        "images": [REFERENCE_IMAGE_URL, face_image_url],
+        "prompt": "Swap the face from the second image onto the person in the first image. Keep the body, clothes, and background exactly the same.",
+        "output_format": "png",
+        "resolution": "1k",
+        "enable_base64_output": False,
+        "enable_sync_mode": False,
     }
 
     try:
         async with httpx.AsyncClient(timeout=30) as client:
             resp = await client.post(
-                f"{WAVESPEED_BASE}/wavespeed-ai/nano-banana-2",
+                f"{WAVESPEED_BASE}/google/nano-banana-2/edit",
                 headers=headers,
                 json=payload,
             )
@@ -276,18 +277,18 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
             await update.message.reply_photo(result["outputs"][0])
         else:
             await update.message.reply_text(
-                "❌ La génération a échoué ou a pris trop de temps. Réessaie dans un moment."
+                "â La gÃ©nÃ©ration a Ã©chouÃ© ou a pris trop de temps. RÃ©essaie dans un moment."
             )
     except Exception as exc:
         logger.exception("Face swap error: %s", exc)
-        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
+        await update.message.reply_text("â Une erreur s'est produite. RÃ©essaie.")
 
 
-# ── /video – /video8 ───────────────────────────────────────────────────────────
+# ââ /video â /video8 âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def _run_video(update: Update, cmd_key: str) -> None:
     wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
     if not wavespeed_api_key:
-        await update.message.reply_text("❌ WAVESPEED_API_KEY non configuré.")
+        await update.message.reply_text("â WAVESPEED_API_KEY non configurÃ©.")
         return
 
     motion = VIDEO_MOTIONS.get(cmd_key, VIDEO_MOTIONS["video"])
@@ -300,7 +301,7 @@ async def _run_video(update: Update, cmd_key: str) -> None:
         "Cinematic slow motion, low angle camera, 4K, ultra-realistic, seamless loop."
     )
 
-    await update.message.reply_text("🎬 Génération en cours… (30-90 sec)")
+    await update.message.reply_text("ð¬ GÃ©nÃ©ration en coursâ¦ (30-90 sec)")
 
     headers = {
         "Authorization": f"Bearer {wavespeed_api_key}",
@@ -332,11 +333,11 @@ async def _run_video(update: Update, cmd_key: str) -> None:
             await update.message.reply_video(result["outputs"][0])
         else:
             await update.message.reply_text(
-                "❌ La génération a échoué ou a dépassé le délai. Réessaie dans un moment."
+                "â La gÃ©nÃ©ration a Ã©chouÃ© ou a dÃ©passÃ© le dÃ©lai. RÃ©essaie dans un moment."
             )
     except Exception as exc:
         logger.exception("Video generation error (%s): %s", cmd_key, exc)
-        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
+        await update.message.reply_text("â Une erreur s'est produite. RÃ©essaie.")
 
 
 async def cmd_video(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -364,15 +365,15 @@ async def cmd_video8(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     await _run_video(update, "video8")
 
 
-# ── /start & /help ─────────────────────────────────────────────────────────────
+# ââ /start & /help âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
-        "✨ Suukalia Content Bot ✨\n\nTap a button below to generate content instantly 🚀",
+        "â¨ Suukalia Content Bot â¨\n\nTap a button below to generate content instantly ð",
         reply_markup=MENU_KEYBOARD,
     )
 
 
-# ── Command handlers ───────────────────────────────────────────────────────────
+# ââ Command handlers âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def cmd_ig(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "ig")
 
@@ -413,7 +414,7 @@ async def cmd_day(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "day")
 
 
-# ── /checklist ─────────────────────────────────────────────────────────────────
+# ââ /checklist âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def cmd_checklist(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     context.user_data.setdefault("checklist", set())
     await update.message.reply_text(
@@ -441,7 +442,7 @@ async def handle_checklist_toggle(update: Update, context: ContextTypes.DEFAULT_
     )
 
 
-# ── Global error handler ───────────────────────────────────────────────────────
+# ââ Global error handler âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Log errors but never let them crash the bot process."""
     err = context.error
@@ -453,13 +454,13 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
         logger.exception("Unhandled exception: %s", err)
 
 
-# ── Startup hook — register bot commands with Telegram ────────────────────────
+# ââ Startup hook â register bot commands with Telegram ââââââââââââââââââââââââ
 async def post_init(app: Application) -> None:
     await app.bot.set_my_commands(BOT_COMMANDS)
     logger.info("Bot commands registered with Telegram")
 
 
-# ── Entry point ────────────────────────────────────────────────────────────────
+# ââ Entry point ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 def main() -> None:
     telegram_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
@@ -488,7 +489,7 @@ def main() -> None:
     app.add_handler(CommandHandler("video6", cmd_video6))
     app.add_handler(CommandHandler("video7", cmd_video7))
     app.add_handler(CommandHandler("video8", cmd_video8))
-    # Photo handler — face swap (must come before text handler)
+    # Photo handler â face swap (must come before text handler)
     app.add_handler(MessageHandler(filters.PHOTO, handle_faceswap_photo))
     # Content generation commands
     app.add_handler(CommandHandler("ig", cmd_ig))
@@ -504,7 +505,7 @@ def main() -> None:
     app.add_handler(CommandHandler("checklist", cmd_checklist))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_checklist_toggle))
 
-    logger.info("Suukalia Bot is starting — polling for updates...")
+    logger.info("Suukalia Bot is starting â polling for updates...")
     app.run_polling(
         allowed_updates=Update.ALL_TYPES,
         drop_pending_updates=True,
