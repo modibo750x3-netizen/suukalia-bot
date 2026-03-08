@@ -7,8 +7,10 @@ Generates AI-powered social media content using Claude (Anthropic API).
 import asyncio
 import logging
 import os
+import random
 
 import anthropic
+import httpx
 from dotenv import load_dotenv
 from telegram import BotCommand, ReplyKeyboardMarkup, Update
 from telegram.constants import ChatAction
@@ -29,9 +31,34 @@ logger = logging.getLogger(__name__)
 # ── Telegram message length limit ─────────────────────────────────────────────
 MAX_MSG_LEN = 4000
 
+# ── Wavespeed ──────────────────────────────────────────────────────────────────
+WAVESPEED_BASE = "https://api.wavespeed.ai/api/v2"
+REFERENCE_IMAGE_URL = "https://drive.google.com/uc?export=download&id=1TfDZ_isId3LoLgb_MQvaJATJuAhADx42"
+
+VIDEO_MOTIONS = {
+    "video":  "twerking, slow bounce, low angle, hypnotic rhythm",
+    "video2": "on all fours, looking directly at camera, slow crawl",
+    "video3": "sitting on floor, legs spread, leaning back on hands",
+    "video4": "squatting slowly, hands resting on knees, seductive gaze",
+    "video5": "lying on bed, slow full body roll, tangled in sheets",
+    "video6": "standing, hands slowly running down body from neck to hips",
+    "video7": "arching back, dramatic hair flip, look over shoulder",
+    "video8": "walking toward camera slowly, confident strut, direct eye contact",
+}
+
+VIDEO_OUTFITS = [
+    "tiny triangle bikini",
+    "black lace lingerie",
+    "high cut bodysuit",
+    "sheer mesh outfit",
+    "sports bra and booty shorts",
+    "silk bralette and thong",
+]
+
 # ── Persistent reply keyboard ──────────────────────────────────────────────────
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
+        ["/faceswap 🔄",  "/video 🎬"],
         ["/ig 📸",        "/ign 👩‍⚕️"],
         ["/reel1 🎬",     "/reel2 💋"],
         ["/t 🐦",         "/fanvue 🩷"],
@@ -68,6 +95,15 @@ def render_checklist(checked: set) -> str:
 
 # ── Bot command list (shows up when user types /) ──────────────────────────────
 BOT_COMMANDS = [
+    BotCommand("faceswap", "Face swap via Wavespeed Nano Banana 2"),
+    BotCommand("video",  "Generate video — twerking (Kling 3.0)"),
+    BotCommand("video2", "Generate video — crawl (Kling 3.0)"),
+    BotCommand("video3", "Generate video — floor sit (Kling 3.0)"),
+    BotCommand("video4", "Generate video — squat (Kling 3.0)"),
+    BotCommand("video5", "Generate video — bed roll (Kling 3.0)"),
+    BotCommand("video6", "Generate video — body run (Kling 3.0)"),
+    BotCommand("video7", "Generate video — arch back (Kling 3.0)"),
+    BotCommand("video8", "Generate video — catwalk (Kling 3.0)"),
     BotCommand("ig",     "5 Instagram bikini captions + hashtags"),
     BotCommand("ign",    "5 nurse practitioner captions"),
     BotCommand("reel1",  "Viral reel script"),
@@ -159,6 +195,173 @@ async def run_command(
         await update.message.reply_text(
             "❌ Something went wrong. Please try again."
         )
+
+
+# ── Wavespeed helpers ──────────────────────────────────────────────────────────
+async def _wavespeed_poll(prediction_id: str, max_wait: int = 160, interval: int = 15) -> dict | None:
+    """Poll Wavespeed until status == succeeded/failed or timeout."""
+    wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
+    headers = {"Authorization": f"Bearer {wavespeed_api_key}"}
+    deadline = asyncio.get_event_loop().time() + max_wait
+    async with httpx.AsyncClient(timeout=30) as client:
+        while asyncio.get_event_loop().time() < deadline:
+            await asyncio.sleep(interval)
+            try:
+                resp = await client.get(
+                    f"{WAVESPEED_BASE}/predictions/{prediction_id}", headers=headers
+                )
+                data = resp.json().get("data", {})
+                status = data.get("status")
+                if status == "succeeded":
+                    return data
+                if status in ("failed", "canceled"):
+                    return None
+            except Exception:
+                pass
+    return None
+
+
+# ── /faceswap ─────────────────────────────────────────────────────────────────
+async def cmd_faceswap(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    context.user_data["awaiting_faceswap"] = True
+    await update.message.reply_text(
+        "📸 Envoie-moi une photo — je vais swapper le visage !"
+    )
+
+
+async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Triggered when the user sends a photo after /faceswap."""
+    if not context.user_data.get("awaiting_faceswap"):
+        return
+    context.user_data["awaiting_faceswap"] = False
+
+    wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
+    if not wavespeed_api_key:
+        await update.message.reply_text("❌ WAVESPEED_API_KEY non configuré.")
+        return
+
+    await update.message.reply_chat_action(ChatAction.UPLOAD_PHOTO)
+    await update.message.reply_text("⏳ Face swap en cours… (25-50 sec)")
+
+    # Build direct Telegram download URL for the user's photo
+    photo = update.message.photo[-1]
+    tg_file = await context.bot.get_file(photo.file_id)
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    face_image_url = f"https://api.telegram.org/file/bot{token}/{tg_file.file_path}"
+
+    headers = {
+        "Authorization": f"Bearer {wavespeed_api_key}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "inputs": {
+            "face_image": face_image_url,
+            "target_image": REFERENCE_IMAGE_URL,
+        },
+        "enable_safety_checker": False,
+    }
+
+    try:
+        async with httpx.AsyncClient(timeout=30) as client:
+            resp = await client.post(
+                f"{WAVESPEED_BASE}/wavespeed-ai/nano-banana-2",
+                headers=headers,
+                json=payload,
+            )
+            resp.raise_for_status()
+            prediction_id = resp.json()["data"]["id"]
+
+        result = await _wavespeed_poll(prediction_id)
+        if result and result.get("outputs"):
+            await update.message.reply_photo(result["outputs"][0])
+        else:
+            await update.message.reply_text(
+                "❌ La génération a échoué ou a pris trop de temps. Réessaie dans un moment."
+            )
+    except Exception as exc:
+        logger.exception("Face swap error: %s", exc)
+        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
+
+
+# ── /video – /video8 ───────────────────────────────────────────────────────────
+async def _run_video(update: Update, cmd_key: str) -> None:
+    wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
+    if not wavespeed_api_key:
+        await update.message.reply_text("❌ WAVESPEED_API_KEY non configuré.")
+        return
+
+    motion = VIDEO_MOTIONS.get(cmd_key, VIDEO_MOTIONS["video"])
+    outfit = random.choice(VIDEO_OUTFITS)
+    prompt = (
+        "Mixed woman, voluminous curly black hair, warm golden brown skin, "
+        f"hourglass figure, slim waist, 1m68. Wearing {outfit}. "
+        f"{motion}. "
+        "Pink neon lighting, penthouse setting. "
+        "Cinematic slow motion, low angle camera, 4K, ultra-realistic, seamless loop."
+    )
+
+    await update.message.reply_text("🎬 Génération en cours… (30-90 sec)")
+
+    headers = {
+        "Authorization": f"Bearer {wavespeed_api_key}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "inputs": {
+            "image": REFERENCE_IMAGE_URL,
+            "prompt": prompt,
+            "duration": 15,
+            "aspect_ratio": "9:16",
+            "cfg_scale": 0.5,
+        },
+        "enable_safety_checker": False,
+    }
+
+    try:
+        async with httpx.AsyncClient(timeout=30) as client:
+            resp = await client.post(
+                f"{WAVESPEED_BASE}/kling/kling-v3-0-image-to-video",
+                headers=headers,
+                json=payload,
+            )
+            resp.raise_for_status()
+            prediction_id = resp.json()["data"]["id"]
+
+        result = await _wavespeed_poll(prediction_id, max_wait=180, interval=20)
+        if result and result.get("outputs"):
+            await update.message.reply_video(result["outputs"][0])
+        else:
+            await update.message.reply_text(
+                "❌ La génération a échoué ou a dépassé le délai. Réessaie dans un moment."
+            )
+    except Exception as exc:
+        logger.exception("Video generation error (%s): %s", cmd_key, exc)
+        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
+
+
+async def cmd_video(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video")
+
+async def cmd_video2(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video2")
+
+async def cmd_video3(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video3")
+
+async def cmd_video4(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video4")
+
+async def cmd_video5(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video5")
+
+async def cmd_video6(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video6")
+
+async def cmd_video7(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video7")
+
+async def cmd_video8(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_video(update, "video8")
 
 
 # ── /start & /help ─────────────────────────────────────────────────────────────
@@ -275,6 +478,19 @@ def main() -> None:
 
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_start))
+    # Wavespeed commands
+    app.add_handler(CommandHandler("faceswap", cmd_faceswap))
+    app.add_handler(CommandHandler("video",  cmd_video))
+    app.add_handler(CommandHandler("video2", cmd_video2))
+    app.add_handler(CommandHandler("video3", cmd_video3))
+    app.add_handler(CommandHandler("video4", cmd_video4))
+    app.add_handler(CommandHandler("video5", cmd_video5))
+    app.add_handler(CommandHandler("video6", cmd_video6))
+    app.add_handler(CommandHandler("video7", cmd_video7))
+    app.add_handler(CommandHandler("video8", cmd_video8))
+    # Photo handler — face swap (must come before text handler)
+    app.add_handler(MessageHandler(filters.PHOTO, handle_faceswap_photo))
+    # Content generation commands
     app.add_handler(CommandHandler("ig", cmd_ig))
     app.add_handler(CommandHandler("ign", cmd_ign))
     app.add_handler(CommandHandler("reel1", cmd_reel1))
