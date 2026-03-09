@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Suukalia Telegram Content Bot
+Suukalia Telegram Content Bo
 Generates AI-powered social media content using Claude (Anthropic API).
 """
 
