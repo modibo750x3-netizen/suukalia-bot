@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 """
-Suukalia Team Bot — 4 specialized AI agents + face swap.
+Suukalia Team Bot — Elite OFM AI agent team + face swap.
 
-Agents:
-  /strategie — Competitor analysis + weekly content strategy (@lalucigmzz inspired)
-  /poster    — Ready-to-post content (IG, Twitter, Threads)
-  /stats     — Performance metrics analysis + real-time optimization
-  /channel   — Telegram channel manager (1300 subs → Fanvue)
+Named agents (Phase 5):
+  /marcus    — Marcus, Stratège OFM Senior (stratégie semaine)
+  /sofia     — Sofia, Directrice Contenu & Copywriting [ig|twitter|threads|ppv]
+  /alex      — Alex, Analyste Data & Performance [stats inline ou prompt]
+  /maya      — Maya, Manager Communauté & Conversion [ppv]
+
+Legacy agents (Phase 4, kept for compatibility):
+  /strategie — Alias /marcus
+  /poster    — Alias /sofia
+  /stats     — Alias /alex
+  /channel   — Alias /maya
   /faceswap  — Face swap via Higgsfield
 """
 
@@ -31,6 +37,7 @@ from telegram.ext import (
 )
 
 from agents import analyste_agent, channel_agent, poster_agent, strategie_agent
+from agents import marcus_agent, sofia_agent, alex_agent, maya_agent
 
 # ── Bootstrap ──────────────────────────────────────────────────────────────────
 load_dotenv()
@@ -46,17 +53,23 @@ MAX_MSG_LEN = 4096
 # ── Keyboard ───────────────────────────────────────────────────────────────────
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
+        ["/marcus 🎯",  "/sofia ✨"],
+        ["/alex 📊",    "/maya 💫"],
         ["/strategie 📊", "/poster 📅"],
         ["/stats 📈",     "/channel 📢"],
         ["/faceswap 🔄"],
     ],
     resize_keyboard=True,
-    input_field_placeholder="Choisis une commande…",
+    input_field_placeholder="Choisis un agent…",
 )
 
 # ── Bot commands ───────────────────────────────────────────────────────────────
 BOT_COMMANDS = [
-    BotCommand("strategie", "Analyse @lalucigmzz + stratégie semaine pour Suukalia"),
+    BotCommand("marcus",    "Marcus — Stratège OFM Senior (stratégie semaine)"),
+    BotCommand("sofia",     "Sofia — Contenu prêt à poster [ig|twitter|threads|ppv]"),
+    BotCommand("alex",      "Alex — Analyse métriques data & performance"),
+    BotCommand("maya",      "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
+    BotCommand("strategie", "Stratégie semaine @lalucigmzz version nurse"),
     BotCommand("poster",    "Contenu prêt à poster — /poster [ig|twitter|threads]"),
     BotCommand("stats",     "Analyse métriques + optimisation stratégie"),
     BotCommand("channel",   "Post channel Telegram (1300 abonnés → Fanvue)"),
@@ -155,17 +168,107 @@ async def _safe_run(update: Update, coro) -> None:
 # ── /start ─────────────────────────────────────────────────────────────────────
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
-        "✨ *Suukalia Team Bot* ✨\n\n"
-        "4 agents IA spécialisés à ton service :\n\n"
-        "📊 /strategie — stratégie semaine (@lalucigmzz version nurse)\n"
-        "📅 /poster — contenu prêt à poster (IG/Twitter/Threads)\n"
-        "📈 /stats — analyse tes métriques + optimisation\n"
-        "📢 /channel — post pour ton channel Telegram (1300 abonnés)\n"
+        "✨ *Suukalia Elite Team Bot* ✨\n\n"
+        "🎯 /marcus — stratégie semaine OFM Senior\n"
+        "✨ /sofia — contenu IG/Twitter/Threads/PPV\n"
+        "📊 /alex — analyse métriques & data\n"
+        "💫 /maya — post channel Telegram (1300 abonnés)\n"
         "🔄 /faceswap — face swap via Higgsfield\n\n"
+        "Commandes legacy : /strategie · /poster · /stats · /channel\n\n"
         "Utilise les boutons ci-dessous 👇",
         reply_markup=MENU_KEYBOARD,
         parse_mode="Markdown",
     )
+
+
+# ── MARCUS — Stratège OFM Senior ───────────────────────────────────────────────
+async def cmd_marcus(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text("🎯 Marcus analyse la situation… (15-20 sec)")
+    task = " ".join(context.args) if context.args else ""
+    await _safe_run(update, marcus_agent.run(task, _ai(context)))
+
+
+# ── SOFIA — Directrice Contenu & Copywriting ───────────────────────────────────
+async def cmd_sofia(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    platform = (context.args[0] if context.args else "all").lower()
+    valid = {"ig", "twitter", "threads", "ppv", "all"}
+    if platform not in valid:
+        await update.message.reply_text(
+            "Usage: /sofia [ig|twitter|threads|ppv]\nSans argument = toutes les plateformes."
+        )
+        return
+    await _safe_run(update, sofia_agent.run(platform, _ai(context)))
+
+
+# ── ALEX — Analyste Data & Performance ─────────────────────────────────────────
+async def cmd_alex(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    inline = " ".join(context.args) if context.args else ""
+    if inline:
+        await update.message.reply_chat_action(ChatAction.TYPING)
+        await _safe_run(update, alex_agent.run(inline, _ai(context)))
+    else:
+        context.user_data["awaiting_alex"] = True
+        await update.message.reply_text(
+            "📊 Alex attend tes métriques.\n\n"
+            "Exemple :\n"
+            "• Reach: 45k | Engagement: 3.2%\n"
+            "• Nouveaux followers: +230\n"
+            "• Top post: reel nurse 87k vues\n\n"
+            "_(ou envoie ce que tu as — Alex s'adapte)_",
+            parse_mode="Markdown",
+        )
+
+
+async def handle_alex_reply(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if not context.user_data.get("awaiting_alex"):
+        return
+    context.user_data["awaiting_alex"] = False
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await _safe_run(update, alex_agent.run(update.message.text, _ai(context)))
+
+
+# ── MAYA — Manager Communauté & Conversion ─────────────────────────────────────
+async def cmd_maya(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_chat_action(ChatAction.TYPING)
+
+    force_ppv = bool(context.args and context.args[0].lower() == "ppv")
+    today = datetime.datetime.now()
+    is_ppv = today.weekday() in (4, 5)  # Friday=4, Saturday=5
+    day_fr = {
+        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi",
+        "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+    }.get(today.strftime("%A"), today.strftime("%A"))
+
+    try:
+        content = await maya_agent.run(
+            is_ppv_day=is_ppv, day_name=day_fr, client=_ai(context), force_ppv=force_ppv
+        )
+    except Exception as exc:
+        logger.exception("Maya agent error: %s", exc)
+        await update.message.reply_text("❌ Erreur lors de la génération. Réessaie.")
+        return
+
+    await send_chunks(update, content)
+
+    channel_id = os.environ.get("TELEGRAM_CHANNEL_ID", "").strip()
+    if channel_id:
+        try:
+            await context.bot.send_message(chat_id=channel_id, text=content)
+            tag = "🔒 PPV teaser" if (is_ppv or force_ppv) else "📢 Post quotidien"
+            await update.message.reply_text(f"✅ {tag} envoyé au channel !")
+        except Exception as exc:
+            logger.error("Failed to post to channel %s: %s", channel_id, exc)
+            await update.message.reply_text(
+                "⚠️ Contenu généré mais envoi au channel échoué. "
+                "Vérifie que le bot est admin dans le channel."
+            )
+    else:
+        await update.message.reply_text(
+            "_(Configure `TELEGRAM_CHANNEL_ID` pour l'envoi automatique au channel.)_",
+            parse_mode="Markdown",
+        )
 
 
 # ── AGENT 1 — STRATÈGE ─────────────────────────────────────────────────────────
@@ -223,6 +326,14 @@ async def handle_stats_reply(update: Update, context: ContextTypes.DEFAULT_TYPE)
     await _safe_run(
         update, analyste_agent.run(update.message.text, _ai(context))
     )
+
+
+async def handle_text_replies(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Route text replies to the appropriate waiting agent (/alex or /stats)."""
+    if context.user_data.get("awaiting_alex"):
+        await handle_alex_reply(update, context)
+    elif context.user_data.get("awaiting_stats"):
+        await handle_stats_reply(update, context)
 
 
 # ── AGENT 4 — CHANNEL MANAGER ──────────────────────────────────────────────────
@@ -284,9 +395,9 @@ async def _scheduled_channel_post(context: ContextTypes.DEFAULT_TYPE) -> None:
         "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
     }.get(today.strftime("%A"), today.strftime("%A"))
     try:
-        content = await channel_agent.run(is_ppv_day=is_ppv, day_name=day_fr, client=ai_client)
+        content = await maya_agent.run(is_ppv_day=is_ppv, day_name=day_fr, client=ai_client)
         await context.bot.send_message(chat_id=channel_id, text=content)
-        logger.info("Auto-posted to channel (%s, ppv=%s)", day_fr, is_ppv)
+        logger.info("Auto-posted to channel via Maya (%s, ppv=%s)", day_fr, is_ppv)
     except Exception as exc:
         logger.error("Scheduled channel post failed: %s", exc)
 
@@ -399,9 +510,14 @@ def main() -> None:
 
     app.add_error_handler(error_handler)
 
-    # Commands
+    # Commands — named elite agents
     app.add_handler(CommandHandler("start",     cmd_start))
     app.add_handler(CommandHandler("help",      cmd_start))
+    app.add_handler(CommandHandler("marcus",    cmd_marcus))
+    app.add_handler(CommandHandler("sofia",     cmd_sofia))
+    app.add_handler(CommandHandler("alex",      cmd_alex))
+    app.add_handler(CommandHandler("maya",      cmd_maya))
+    # Commands — legacy aliases
     app.add_handler(CommandHandler("strategie", cmd_strategie))
     app.add_handler(CommandHandler("poster",    cmd_poster))
     app.add_handler(CommandHandler("stats",     cmd_stats))
@@ -411,8 +527,8 @@ def main() -> None:
     # Photo handler for face swap
     app.add_handler(MessageHandler(filters.PHOTO, handle_faceswap_photo))
 
-    # Text handler for /stats reply (must be last)
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_stats_reply))
+    # Text handler for /alex and /stats replies (must be last)
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_replies))
 
     # Scheduled auto-post to Telegram channel (daily at 9am UTC)
     post_hour = int(os.environ.get("CHANNEL_POST_HOUR", "9"))
