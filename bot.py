@@ -18,6 +18,7 @@ from telegram.error import NetworkError, TelegramError
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
 from prompts import PROMPTS, SYSTEM_PROMPT
+from agents.team import run as team_run
 
 # ── Bootstrap ──────────────────────────────────────────────────────────────────
 load_dotenv()
@@ -167,13 +168,12 @@ async def run_command(
     context: ContextTypes.DEFAULT_TYPE,
     key: str,
 ) -> None:
-    """Generic dispatcher: show typing → call Claude → send result."""
+    """Generic dispatcher: show typing → route through agent team → send result."""
     await update.message.reply_chat_action(ChatAction.TYPING)
-    prompt, max_tokens = PROMPTS[key]
     ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
 
     try:
-        content = await generate_content(ai_client, prompt, max_tokens)
+        content = await team_run(key, ai_client)
         await send_chunks(update, content)
     except anthropic.AuthenticationError:
         logger.error("Anthropic authentication failed — check ANTHROPIC_API_KEY")
