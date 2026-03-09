@@ -61,11 +61,11 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/faceswap 🔄",  "/video 🎬"],
         ["/ig 📸",        "/ign 👩‍⚕️"],
+        ["/igrow 📈",     "/day 📅"],
         ["/reel1 🎬",     "/reel2 💋"],
         ["/t 🐦",         "/fanvue 🩷"],
         ["/th 🧵",        "/ppv 💰"],
-        ["/prompt 🤖",    "/day 📅"],
-        ["/checklist ✅"],
+        ["/prompt 🤖",    "/checklist ✅"],
     ],
     resize_keyboard=True,
     input_field_placeholder="Choose a command…",
@@ -113,7 +113,8 @@ BOT_COMMANDS = [
     BotCommand("fanvue", "1 casual Fanvue mention tweet (2x/week max)"),
     BotCommand("th",     "3 Threads posts"),
     BotCommand("ppv",    "3 Fanvue PPV ideas"),
-    BotCommand("prompt", "Higgsfield arch back prompt"),
+    BotCommand("igrow",     "Instagram growth strategy (optional: @compte1 @compte2)"),
+    BotCommand("prompt",    "Higgsfield arch back prompt"),
     BotCommand("day",       "Full daily content plan"),
     BotCommand("checklist", "Weekly Monday checklist"),
 ]
@@ -462,6 +463,41 @@ async def cmd_day(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await run_command(update, context, "day")
 
 
+async def cmd_igrow(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Instagram growth strategy — accepts optional @account handles as arguments."""
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
+
+    # Parse @handles from args, e.g. /igrow @nurse.model @aesthetic.model
+    handles = [a.lstrip("@") for a in (context.args or []) if a]
+    if handles:
+        handles_str = ", ".join(f"@{h}" for h in handles)
+        task = (
+            f"Génère une stratégie Instagram growth pour Suukalia "
+            f"inspirée de ces comptes de référence: {handles_str}. "
+            f"Analyse leur niche, format de contenu, et fréquence de publication. "
+            f"Adapte TOUT au profil Suukalia (nurse + model + Fanvue)."
+        )
+    else:
+        task = (
+            "Génère une stratégie Instagram growth pour Suukalia. "
+            "Base-toi sur les meilleures créatrices de la niche nurse + model + lifestyle + Fanvue. "
+            "Focus: growth rapide, engagement authentique, funnel Fanvue."
+        )
+
+    try:
+        from agents.growth_agent import run as growth_run
+        content = await growth_run(task, 700, ai_client)
+        await send_chunks(update, content)
+    except anthropic.AuthenticationError:
+        await update.message.reply_text("❌ Authentication error. Please contact the bot admin.")
+    except anthropic.RateLimitError:
+        await update.message.reply_text("⏳ Too many requests right now. Please wait a moment.")
+    except Exception as exc:
+        logger.exception("igrow error: %s", exc)
+        await update.message.reply_text("❌ Something went wrong. Please try again.")
+
+
 # ── /checklist ─────────────────────────────────────────────────────────────────
 async def cmd_checklist(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     context.user_data.setdefault("checklist", set())
@@ -550,6 +586,7 @@ def main() -> None:
     app.add_handler(CommandHandler("ppv", cmd_ppv))
     app.add_handler(CommandHandler("prompt", cmd_prompt))
     app.add_handler(CommandHandler("day", cmd_day))
+    app.add_handler(CommandHandler("igrow", cmd_igrow))
     app.add_handler(CommandHandler("checklist", cmd_checklist))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_checklist_toggle))
 

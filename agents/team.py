@@ -12,7 +12,7 @@ import logging
 
 import anthropic
 
-from . import content_agent, prompt_agent, strategy_agent
+from . import content_agent, growth_agent, prompt_agent, strategy_agent
 from prompts import PROMPTS
 
 logger = logging.getLogger(__name__)
@@ -29,6 +29,7 @@ _ROUTING: dict[str, str] = {
     "reel2":  "strategy",
     "prompt": "prompt",
     "day":    "orchestrator",
+    "igrow":  "growth",
 }
 
 # ── Orchestrator (for /day) ────────────────────────────────────────────────────
@@ -160,5 +161,7 @@ async def run(command_key: str, client: anthropic.AsyncAnthropic) -> str:
         return await strategy_agent.run(prompt, max_tokens, client)
     if agent_name == "prompt":
         return await prompt_agent.run(prompt, max_tokens, client)
+    if agent_name == "growth":
+        return await growth_agent.run(prompt, max_tokens, client)
 
     raise ValueError(f"Unhandled agent: {agent_name!r}")

@@ -159,6 +159,15 @@ PROMPTS: dict[str, tuple[str, int]] = {
         200,
     ),
 
+    # /igrow — Instagram growth strategy (with optional reference accounts)
+    "igrow": (
+        "Génère une stratégie Instagram growth pour Suukalia. "
+        "Aucun compte de référence spécifié — base-toi sur les meilleures créatrices "
+        "de la niche nurse + model + lifestyle + Fanvue. "
+        "Focus: growth rapide, engagement authentique, funnel Fanvue.",
+        500,
+    ),
+
     # /day — daily schedule
     "day": (
         "Write a daily content schedule for Suukalia. "
