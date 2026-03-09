@@ -55,12 +55,8 @@ MAX_MSG_LEN = 4096
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/standup 🗓️"],
-        ["/spy 🕵️",      "/analyse 📸"],
         ["/marcus 🎯",   "/sofia ✨"],
         ["/alex 📊",     "/maya 💫"],
-        ["/strategie 📊", "/poster 📅"],
-        ["/stats 📈",     "/channel 📢"],
-        ["/faceswap 🔄"],
     ],
     resize_keyboard=True,
     input_field_placeholder="Choisis un agent…",
@@ -69,18 +65,10 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
 # ── Bot commands ───────────────────────────────────────────────────────────────
 BOT_COMMANDS = [
     BotCommand("standup",   "Réunion équipe du jour — tous les agents se briefent"),
-    BotCommand("spy",       "Espionner un compte IG — /spy @lalucigmzz"),
-    BotCommand("analyse",   "Analyse visuelle browser — /analyse @compte"),
-    BotCommand("inspire",   "Inspiration visuelle — /inspire @compte"),
-    BotCommand("marcus",    "Marcus — Stratège OFM Senior (stratégie semaine)"),
-    BotCommand("sofia",     "Sofia — Contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]"),
-    BotCommand("alex",      "Alex — Analyse métriques data & performance"),
-    BotCommand("maya",      "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
-    BotCommand("strategie", "Stratégie semaine @lalucigmzz version nurse"),
-    BotCommand("poster",    "Contenu prêt à poster — /poster [ig|twitter|threads]"),
-    BotCommand("stats",     "Analyse métriques + optimisation stratégie"),
-    BotCommand("channel",   "Post channel Telegram (1300 abonnés → Fanvue)"),
-    BotCommand("faceswap",  "Face swap via Higgsfield — envoie une photo"),
+    BotCommand("marcus",    "Marcus — Stratège OFM Senior"),
+    BotCommand("sofia",     "Sofia — Directrice Contenu"),
+    BotCommand("alex",      "Alex — Analyste Data & Performance"),
+    BotCommand("maya",      "Maya — Manager Telegram"),
 ]
 
 # ── Higgsfield ─────────────────────────────────────────────────────────────────
@@ -176,16 +164,11 @@ async def _safe_run(update: Update, coro) -> None:
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "✨ *Suukalia Elite Team Bot* ✨\n\n"
-        "🗓️ /standup — réunion équipe du jour (tous les agents)\n"
-        "🕵️ /spy @compte — espionner un compte Instagram\n"
-        "📸 /analyse @compte — analyse visuelle browser + Marcus\n"
-        "✨ /inspire @compte — inspiration visuelle + stratégie aesthetic\n\n"
-        "🎯 /marcus — stratégie semaine OFM Senior\n"
-        "✨ /sofia — contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n"
-        "📊 /alex — analyse métriques & data\n"
-        "💫 /maya — post channel Telegram (1300 abonnés)\n"
-        "🔄 /faceswap — face swap via Higgsfield\n\n"
-        "Commandes legacy : /strategie · /poster · /stats · /channel\n\n"
+        "🗓️ /standup — réunion équipe du jour\n"
+        "🎯 /marcus — Stratège OFM Senior\n"
+        "✨ /sofia — Directrice Contenu\n"
+        "📊 /alex — Analyste Data\n"
+        "💫 /maya — Manager Telegram\n\n"
         "Utilise les boutons ci-dessous 👇",
         reply_markup=MENU_KEYBOARD,
         parse_mode="Markdown",
@@ -307,28 +290,43 @@ async def cmd_inspire(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 
 # ── MARCUS — Stratège OFM Senior ───────────────────────────────────────────────
 async def cmd_marcus(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_chat_action(ChatAction.TYPING)
-    await update.message.reply_text("🎯 Marcus analyse la situation… (15-20 sec)")
     task = " ".join(context.args) if context.args else ""
-    await _safe_run(update, marcus_agent.run(task, _ai(context)))
+    if task:
+        await update.message.reply_chat_action(ChatAction.TYPING)
+        await update.message.reply_text("🎯 Marcus analyse la situation… (15-20 sec)")
+        await _safe_run(update, marcus_agent.run(task, _ai(context)))
+    else:
+        context.user_data["awaiting_marcus"] = True
+        await update.message.reply_text(
+            "🎯 *Marcus* — Stratège OFM Senior\n\n"
+            "Qu'est-ce que tu veux que je fasse ?\n"
+            "Ex : stratégie semaine · spy @compte · analyse concurrents · plan contenu",
+            parse_mode="Markdown",
+        )
 
 
 # ── SOFIA — Directrice Contenu & Copywriting ───────────────────────────────────
 async def cmd_sofia(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_chat_action(ChatAction.TYPING)
-    platform = (context.args[0] if context.args else "all").lower()
+    platform = (context.args[0] if context.args else "").lower()
     valid = {"ig", "ig_main", "ig_nurse", "collab", "twitter", "threads", "ppv", "all"}
-    if platform not in valid:
+    if platform in valid:
+        await update.message.reply_chat_action(ChatAction.TYPING)
+        await _safe_run(update, sofia_agent.run(platform, _ai(context)))
+    else:
+        context.user_data["awaiting_sofia"] = True
         await update.message.reply_text(
-            "Usage: /sofia [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n\n"
-            "• ig — 2 captions par compte (principal 73k + secondaire 13k)\n"
-            "• ig_main — 3 captions IG Principal 73k (lifestyle/Moon)\n"
-            "• ig_nurse — 3 captions IG Secondaire 13k (nurse)\n"
-            "• collab — même photo, 2 captions différentes\n"
-            "• twitter / threads / ppv / all"
+            "✨ *Sofia* — Directrice Contenu\n\n"
+            "Quel contenu tu veux ?\n"
+            "• `ig` — captions IG (73k + 13k)\n"
+            "• `ig_main` — IG Principal 73k\n"
+            "• `ig_nurse` — IG Secondaire 13k\n"
+            "• `collab` — même photo, 2 captions\n"
+            "• `twitter` — tweets 40k + feeder\n"
+            "• `threads` — posts Threads\n"
+            "• `ppv` — teasers Fanvue\n"
+            "• `all` — tout",
+            parse_mode="Markdown",
         )
-        return
-    await _safe_run(update, sofia_agent.run(platform, _ai(context)))
 
 
 # ── ALEX — Analyste Data & Performance ─────────────────────────────────────────
@@ -359,10 +357,8 @@ async def handle_alex_reply(update: Update, context: ContextTypes.DEFAULT_TYPE) 
 
 
 # ── MAYA — Manager Communauté & Conversion ─────────────────────────────────────
-async def cmd_maya(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def _run_maya(update: Update, context: ContextTypes.DEFAULT_TYPE, force_ppv: bool = False) -> None:
     await update.message.reply_chat_action(ChatAction.TYPING)
-
-    force_ppv = bool(context.args and context.args[0].lower() == "ppv")
     today = datetime.datetime.now()
     is_ppv = today.weekday() in (4, 5)  # Friday=4, Saturday=5
     day_fr = {
@@ -396,6 +392,21 @@ async def cmd_maya(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     else:
         await update.message.reply_text(
             "_(Configure `TELEGRAM_CHANNEL_ID` pour l'envoi automatique au channel.)_",
+            parse_mode="Markdown",
+        )
+
+
+async def cmd_maya(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    if context.args:
+        force_ppv = context.args[0].lower() == "ppv"
+        await _run_maya(update, context, force_ppv=force_ppv)
+    else:
+        context.user_data["awaiting_maya"] = True
+        await update.message.reply_text(
+            "💫 *Maya* — Manager Telegram\n\n"
+            "Qu'est-ce que tu veux ?\n"
+            "• `post` — post quotidien channel\n"
+            "• `ppv` — teaser PPV Fanvue",
             parse_mode="Markdown",
         )
 
@@ -458,9 +469,32 @@ async def handle_stats_reply(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
 
 async def handle_text_replies(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Route text replies to the appropriate waiting agent (/alex or /stats)."""
-    if context.user_data.get("awaiting_alex"):
+    """Route text replies to the appropriate waiting agent."""
+    text = update.message.text.strip()
+
+    if context.user_data.get("awaiting_marcus"):
+        context.user_data["awaiting_marcus"] = False
+        await update.message.reply_chat_action(ChatAction.TYPING)
+        await update.message.reply_text("🎯 Marcus analyse… (15-20 sec)")
+        await _safe_run(update, marcus_agent.run(text, _ai(context)))
+
+    elif context.user_data.get("awaiting_sofia"):
+        context.user_data["awaiting_sofia"] = False
+        valid = {"ig", "ig_main", "ig_nurse", "collab", "twitter", "threads", "ppv", "all"}
+        platform = text.lower().strip()
+        if platform not in valid:
+            platform = "all"
+        await update.message.reply_chat_action(ChatAction.TYPING)
+        await _safe_run(update, sofia_agent.run(platform, _ai(context)))
+
+    elif context.user_data.get("awaiting_maya"):
+        context.user_data["awaiting_maya"] = False
+        force_ppv = "ppv" in text.lower()
+        await _run_maya(update, context, force_ppv=force_ppv)
+
+    elif context.user_data.get("awaiting_alex"):
         await handle_alex_reply(update, context)
+
     elif context.user_data.get("awaiting_stats"):
         await handle_stats_reply(update, context)
 

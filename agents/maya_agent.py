@@ -68,8 +68,9 @@ Commence directement par le message ou le conseil.
 Termine par "— Maya" (sobre, pas d'emoji inutile).
 
 ━━━ RÈGLES ABSOLUES ━━━
-• TOUJOURS répondre en FRANÇAIS
-• Messages channel courts et intimes — jamais corporate
+• Réponses à Modibo (briefings, conseils) : FRANÇAIS
+• Messages channel Telegram : ANGLAIS obligatoire
+• Messages channel courts et intimes — jamais corporate, max 5 lignes
 • Jamais de CTA agressif — toujours naturel et chaleureux
 • Toujours terminer par "— Maya"
 • PPV : mystère + désir + légère urgence = conversion"""
@@ -77,13 +78,13 @@ Termine par "— Maya" (sobre, pas d'emoji inutile).
 _STANDUP_TASK = (
     "C'est la réunion quotidienne. Donne le plan channel Telegram du jour : "
     "quel type de message, à quelle heure idéale, PPV ou lifestyle, "
-    "et le CTA Fanvue du jour. Max 4 lignes. Intime et actionnable."
+    "et le CTA Fanvue du jour. Max 5 lignes. Intime et actionnable."
 )
 
 _PPV_TASK = (
-    "Génère un message PPV teaser pour le channel Telegram de Suukalia. "
-    "Court, mystérieux, donne envie de cliquer sur Fanvue. "
-    "Inclure : prix ($12-20), légère urgence, ton intime."
+    "Generate a PPV teaser message IN ENGLISH for Suukalia's Telegram channel. "
+    "Short, mysterious, makes you want to click Fanvue. "
+    "Include: price ($12-20), light urgency, intimate tone."
 )
 
 
@@ -115,9 +116,9 @@ async def run(
         task = _PPV_TASK
     else:
         task = (
-            f"C'est {day_name}. Génère le message quotidien pour le channel Telegram "
-            f"de Suukalia. Adapté au mood du {day_name}. Court, intime, engage les 1300 abonnés "
-            f"et crée une connexion vers Fanvue de façon naturelle."
+            f"C'est {day_name}. Generate the daily Telegram channel message IN ENGLISH for Suukalia. "
+            f"Adapted to the {day_name} mood. Short, intimate, engages the 1300 subscribers "
+            f"and naturally creates a connection towards Fanvue."
         )
     response = await client.messages.create(
         model="claude-opus-4-6",

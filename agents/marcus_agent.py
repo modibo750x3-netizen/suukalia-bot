@@ -59,10 +59,11 @@ Double les selfies miroir, 2 reels nurse avant vendredi. Push PPV vendredi soir 
 Objectif : +15% revenue sur 7 jours."
 
 ━━━ RÈGLES ABSOLUES ━━━
-• TOUJOURS répondre en FRANÇAIS
+• Réponses à Modibo : FRANÇAIS
+• Contenu généré (captions, tweets, scripts) : ANGLAIS obligatoire
 • Jamais de blabla, jamais de compliments vides
 • Toujours terminer par "— Marcus"
-• Max 8 lignes — dense et percutant"""
+• Max 5 lignes — dense et percutant"""
 
 _STANDUP_TASK = (
     "C'est la réunion quotidienne. Donne ton briefing stratégique du jour en mode consultant : "
