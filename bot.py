@@ -222,11 +222,46 @@ async def _wavespeed_poll(prediction_id: str, max_wait: int = 160, interval: int
 
 
 # ── /faceswap ─────────────────────────────────────────────────────────────────
+HIGGSFIELD_BASE = "https://fnf.higgsfield.ai"
+
+
+async def _higgsfield_upload(image_bytes: bytes, filename: str) -> dict:
+    """Upload an image to Higgsfield, returns {id, url, type}."""
+    jwt = os.environ.get("HIGGSFIELD_JWT", "").strip()
+    async with httpx.AsyncClient(timeout=60) as client:
+        resp = await client.post(
+            f"{HIGGSFIELD_BASE}/upload",
+            headers={"Authorization": f"Bearer {jwt}"},
+            files={"file": (filename, image_bytes, "image/jpeg")},
+        )
+        resp.raise_for_status()
+        return resp.json()
+
+
+async def _higgsfield_poll(job_id: str, max_wait: int = 180, interval: int = 5) -> str | None:
+    """Poll Higgsfield job until completed. Returns image URL or None."""
+    jwt = os.environ.get("HIGGSFIELD_JWT", "").strip()
+    headers = {"Authorization": f"Bearer {jwt}"}
+    deadline = asyncio.get_event_loop().time() + max_wait
+    async with httpx.AsyncClient(timeout=30) as client:
+        while asyncio.get_event_loop().time() < deadline:
+            await asyncio.sleep(interval)
+            try:
+                resp = await client.get(f"{HIGGSFIELD_BASE}/jobs/{job_id}", headers=headers)
+                data = resp.json()
+                status = data.get("status", "")
+                if status == "completed":
+                    return data.get("results", {}).get("raw", {}).get("url")
+                elif status in ("failed", "nsfw", "error"):
+                    return None
+            except Exception:
+                pass
+    return None
+
+
 async def cmd_faceswap(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     context.user_data["awaiting_faceswap"] = True
-    await update.message.reply_text(
-        "📸 Envoie-moi une photo — je vais swapper le visage !"
-    )
+    await update.message.reply_text("📸 Envoie-moi une photo — je vais swapper le visage !")
 
 
 async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -235,49 +270,63 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
         return
     context.user_data["awaiting_faceswap"] = False
 
-    wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
-    if not wavespeed_api_key:
-        await update.message.reply_text("❌ WAVESPEED_API_KEY non configuré.")
+    jwt = os.environ.get("HIGGSFIELD_JWT", "").strip()
+    if not jwt:
+        await update.message.reply_text("❌ HIGGSFIELD_JWT non configuré.")
         return
 
     await update.message.reply_chat_action(ChatAction.UPLOAD_PHOTO)
-    await update.message.reply_text("⏳ Face swap en cours… (25-50 sec)")
-
-    # Build direct Telegram download URL for the user's photo
-    photo = update.message.photo[-1]
-    tg_file = await context.bot.get_file(photo.file_id)
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    face_image_url = f"https://api.telegram.org/file/bot{token}/{tg_file.file_path}"
-
-    headers = {
-        "Authorization": f"Bearer {wavespeed_api_key}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "image": REFERENCE_IMAGE_URL,
-        "face_image": face_image_url,
-    }
+    await update.message.reply_text("⏳ Face swap en cours… (30-60 sec)")
 
     try:
+        photo = update.message.photo[-1]
+        tg_file = await context.bot.get_file(photo.file_id)
+        tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+        face_url = f"https://api.telegram.org/file/bot{tg_token}/{tg_file.file_path}"
+
+        async with httpx.AsyncClient(timeout=30) as dl:
+            img_resp = await dl.get(face_url)
+            img_bytes = img_resp.content
+
+        uploaded = await _higgsfield_upload(img_bytes, "face.jpg")
+        face_image = {"id": uploaded["id"], "url": uploaded["url"], "type": "media_input"}
+
+        ref_id = os.environ.get("HIGGSFIELD_REF_ID", "9c30dcd3-1519-40ba-a6a9-79316070fa65")
+        ref_url = os.environ.get("REFERENCE_IMAGE_URL", "")
+        target_image = {"id": ref_id, "url": ref_url, "type": "media_input"}
+
         async with httpx.AsyncClient(timeout=30) as client:
             resp = await client.post(
-                f"{WAVESPEED_BASE}/wavespeed-ai/image-face-swap",
-                headers=headers,
-                json=payload,
+                f"{HIGGSFIELD_BASE}/jobs/nano-banana",
+                headers={"Authorization": f"Bearer {jwt}", "Content-Type": "application/json"},
+                json={
+                    "params": {
+                        "prompt": "Image 1 is the face reference. Naturally replace the face in image 2 with image 1. Same lighting and skin tone.",
+                        "aspect_ratio": "4:5",
+                        "resolution": "4k",
+                        "batch_size": 1,
+                        "width": 3712,
+                        "height": 4608,
+                        "input_images": [face_image, target_image],
+                    }
+                },
             )
             resp.raise_for_status()
-            prediction_id = resp.json()["data"]["id"]
+            data = resp.json()
+            job_id = data["job_sets"][0]["jobs"][0]["id"]
 
-        result = await _wavespeed_poll(prediction_id)
-        if result and result.get("outputs"):
-            await update.message.reply_photo(result["outputs"][0])
-        else:
-            await update.message.reply_text(
-                "❌ La génération a échoué ou a pris trop de temps. Réessaie dans un moment."
-            )
-    except Exception as exc:
-        logger.exception("Face swap error: %s", exc)
-        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
+        result_url = await _higgsfield_poll(job_id)
+        if not result_url:
+            await update.message.reply_text("❌ La génération a échoué ou a pris trop de temps.")
+            return
+
+        async with httpx.AsyncClient(timeout=60) as client:
+            img_resp = await client.get(result_url)
+        from io import BytesIO
+        await update.message.reply_photo(photo=BytesIO(img_resp.content))
+
+    except Exception as e:
+        await update.message.reply_text(f"❌ Erreur: {e}")
 
 
 # ── /video – /video8 ───────────────────────────────────────────────────────────
