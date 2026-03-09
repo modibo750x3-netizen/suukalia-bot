@@ -227,15 +227,18 @@ HIGGSFIELD_BASE = "https://fnf.higgsfield.ai"
 
 async def _higgsfield_upload(image_bytes: bytes, filename: str) -> dict:
     """Upload an image to Higgsfield, returns {id, url, type}."""
+    import uuid as _uuid
     jwt = os.environ.get("HIGGSFIELD_JWT", "").strip()
+    image_id = str(_uuid.uuid4())
     async with httpx.AsyncClient(timeout=60) as client:
         resp = await client.post(
-            f"{HIGGSFIELD_BASE}/upload",
+            f"{HIGGSFIELD_BASE}/media/{image_id}/upload",
             headers={"Authorization": f"Bearer {jwt}"},
             files={"file": (filename, image_bytes, "image/jpeg")},
         )
         resp.raise_for_status()
-        return resp.json()
+        data = resp.json()
+        return {"id": data.get("id", image_id), "url": data.get("url", ""), "type": "media_input"}
 
 
 async def _higgsfield_poll(job_id: str, max_wait: int = 180, interval: int = 5) -> str | None:
