@@ -53,6 +53,7 @@ MAX_MSG_LEN = 4096
 # ── Keyboard ───────────────────────────────────────────────────────────────────
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
+        ["/standup 🗓️"],
         ["/marcus 🎯",  "/sofia ✨"],
         ["/alex 📊",    "/maya 💫"],
         ["/strategie 📊", "/poster 📅"],
@@ -65,6 +66,7 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
 
 # ── Bot commands ───────────────────────────────────────────────────────────────
 BOT_COMMANDS = [
+    BotCommand("standup",   "Réunion équipe du jour — tous les agents se briefent"),
     BotCommand("marcus",    "Marcus — Stratège OFM Senior (stratégie semaine)"),
     BotCommand("sofia",     "Sofia — Contenu prêt à poster [ig|twitter|threads|ppv]"),
     BotCommand("alex",      "Alex — Analyse métriques data & performance"),
@@ -169,6 +171,7 @@ async def _safe_run(update: Update, coro) -> None:
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "✨ *Suukalia Elite Team Bot* ✨\n\n"
+        "🗓️ /standup — réunion équipe du jour (tous les agents)\n\n"
         "🎯 /marcus — stratégie semaine OFM Senior\n"
         "✨ /sofia — contenu IG/Twitter/Threads/PPV\n"
         "📊 /alex — analyse métriques & data\n"
@@ -179,6 +182,40 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         reply_markup=MENU_KEYBOARD,
         parse_mode="Markdown",
     )
+
+
+# ── /standup — Daily team briefing ─────────────────────────────────────────────
+async def cmd_standup(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Call all 4 agents in parallel for a daily briefing."""
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text("🗓️ Réunion en cours… Marcus, Sofia, Alex et Maya se briefent (20-30 sec)")
+
+    ai = _ai(context)
+    try:
+        marcus_out, sofia_out, alex_out, maya_out = await asyncio.gather(
+            marcus_agent.run_standup(ai),
+            sofia_agent.run_standup(ai),
+            alex_agent.run_standup(ai),
+            maya_agent.run_standup(ai),
+        )
+    except Exception as exc:
+        logger.exception("Standup error: %s", exc)
+        await update.message.reply_text("❌ Erreur standup. Réessaie.")
+        return
+
+    report = (
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        "🗓️  STANDUP SUUKALIA TEAM\n"
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"{marcus_out}\n\n"
+        "─────────────────────────────\n\n"
+        f"{sofia_out}\n\n"
+        "─────────────────────────────\n\n"
+        f"{alex_out}\n\n"
+        "─────────────────────────────\n\n"
+        f"{maya_out}"
+    )
+    await send_chunks(update, report)
 
 
 # ── MARCUS — Stratège OFM Senior ───────────────────────────────────────────────
@@ -513,6 +550,7 @@ def main() -> None:
     # Commands — named elite agents
     app.add_handler(CommandHandler("start",     cmd_start))
     app.add_handler(CommandHandler("help",      cmd_start))
+    app.add_handler(CommandHandler("standup",   cmd_standup))
     app.add_handler(CommandHandler("marcus",    cmd_marcus))
     app.add_handler(CommandHandler("sofia",     cmd_sofia))
     app.add_handler(CommandHandler("alex",      cmd_alex))

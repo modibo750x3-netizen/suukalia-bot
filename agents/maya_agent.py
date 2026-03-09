@@ -72,11 +72,35 @@ Termine par : "— Maya 💫"
 • Toujours terminer par "— Maya 💫"
 • PPV : mystère + désir + légère urgence = conversion"""
 
+_STANDUP_TASK = (
+    "C'est la réunion quotidienne. Donne le plan channel Telegram du jour : "
+    "quel type de message, à quelle heure idéale, PPV ou lifestyle, "
+    "et le CTA Fanvue du jour. Max 4 lignes. Intime et actionnable."
+)
+
 _PPV_TASK = (
     "Génère un message PPV teaser pour le channel Telegram de Suukalia. "
     "Court, mystérieux, donne envie de cliquer sur Fanvue. "
     "Inclure : prix ($12-20), légère urgence, ton intime."
 )
+
+
+async def run_standup(client: anthropic.AsyncAnthropic) -> str:
+    import datetime as _dt
+    today = _dt.datetime.now()
+    is_ppv = today.weekday() in (4, 5)
+    day_fr = {
+        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi",
+        "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+    }.get(today.strftime("%A"), today.strftime("%A"))
+    task = f"C'est {day_fr}{'(jour PPV ✅)' if is_ppv else ''}. " + _STANDUP_TASK
+    response = await client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=300,
+        system=SYSTEM,
+        messages=[{"role": "user", "content": task}],
+    )
+    return "\n".join(b.text for b in response.content if b.type == "text").strip()
 
 
 async def run(

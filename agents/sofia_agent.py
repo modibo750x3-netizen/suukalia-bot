@@ -30,10 +30,15 @@ INSTAGRAM
 Captions confident, flirty, élevées. Emojis choisis. 15 hashtags stratégiques.
 Mix des thèmes : nurse / lifestyle / bikini / penthouse. Alterne les tonalités.
 
-TWITTER (X)
-Tout en minuscules. 1 phrase maximum. 0 hashtag. Pensée brute et vraie.
-Max 1 emoji si vraiment justifié. Sonne comme une vraie pensée tapée vite.
+TWITTER (X) — 2 COMPTES
+Compte principal 40k : 4-6 tweets/jour. Style novathaOG.
+80% body/désir + 20% nurse practitioner. Tout en minuscules. 0 hashtag.
+1 phrase max. 1 emoji max si vraiment justifié. Pensée brute, vraie, tapée vite.
 Style : "je sais exactement où mettre mes mains 🩺" / "mon corps est son propre aesthetic"
+
+Compte feeder 14k : 3-4 tweets/jour.
+Reposts sélectifs du compte 40k + redirections vers le compte principal.
+Format redirect : "[tweet original] — → @suukalia" ou "go follow @suukalia pour le reste 🔒"
 
 THREADS
 2-3 phrases décontractées, authentiques. Question finale pour l'engagement.
@@ -74,13 +79,19 @@ _PROMPTS: dict[str, tuple[str, int]] = {
         800,
     ),
     "twitter": (
-        "Génère 5 tweets pour Suukalia. Format :\n\n"
-        "🐦 1. [tweet tout en minuscules]\n"
+        "Génère du contenu Twitter pour les 2 comptes Suukalia.\n\n"
+        "━━ COMPTE PRINCIPAL 40K (4 tweets) ━━\n"
+        "Style novathaOG, 80% body/désir + 20% nurse. Tout en minuscules. 0 hashtag.\n"
+        "🐦 1. [tweet]\n"
         "🐦 2. [tweet]\n"
         "🐦 3. [tweet]\n"
-        "🐦 4. [tweet]\n"
-        "🐦 5. [tweet — double sens médical 🩺]",
-        500,
+        "🐦 4. [tweet — double sens médical 🩺]\n\n"
+        "━━ COMPTE FEEDER 14K (3 tweets) ━━\n"
+        "Reposts du compte 40k + redirections vers @suukalia.\n"
+        "🔁 1. [repost tweet 1 + redirect]\n"
+        "🔁 2. [repost tweet 3 + redirect]\n"
+        "🔁 3. [redirect original vers @suukalia]",
+        700,
     ),
     "threads": (
         "Génère 3 posts Threads pour Suukalia. Format :\n\n"
@@ -100,13 +111,37 @@ _PROMPTS: dict[str, tuple[str, int]] = {
         "Génère du contenu pour toutes les plateformes de Suukalia.\n\n"
         "══ INSTAGRAM (3 captions) ══\n"
         "Format : 📸 POST N → caption + emojis + 15 hashtags\n\n"
-        "══ TWITTER (5 tweets) ══\n"
-        "Format : 🐦 N. tweet (dont 1 double sens 🩺)\n\n"
+        "══ TWITTER 40K (4 tweets) ══\n"
+        "Style novathaOG, lowercase, 0 hashtag. 🐦 N. tweet\n"
+        "Dont 1 double sens médical 🩺\n\n"
+        "══ TWITTER FEEDER 14K (3 reposts) ══\n"
+        "Reposts du 40k + redirections @suukalia. 🔁 N.\n\n"
         "══ THREADS (3 posts) ══\n"
         "Format : 🧵 N. 2-3 phrases + question finale",
-        2000,
+        2200,
     ),
 }
+
+_STANDUP_PROMPT = (
+    "C'est la réunion quotidienne. Donne le plan contenu du jour pour Suukalia.\n\n"
+    "Format :\n"
+    "📸 INSTAGRAM : [type de post du jour + thème]\n"
+    "🐦 TWITTER 40K : [combien de tweets + vibe du jour]\n"
+    "🔁 TWITTER 14K : [combien de reposts + quels tweets à booster]\n"
+    "🧵 THREADS : [post prévu ou pas + thème]\n"
+    "🔒 PPV : [si prévu aujourd'hui]\n\n"
+    "Court, actionnable, prêt à exécuter."
+)
+
+
+async def run_standup(client: anthropic.AsyncAnthropic) -> str:
+    response = await client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=400,
+        system=SYSTEM,
+        messages=[{"role": "user", "content": _STANDUP_PROMPT}],
+    )
+    return "\n".join(b.text for b in response.content if b.type == "text").strip()
 
 
 async def run(platform: str, client: anthropic.AsyncAnthropic) -> str:

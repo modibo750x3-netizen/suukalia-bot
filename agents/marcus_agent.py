@@ -61,11 +61,28 @@ Structure :
 • Toujours terminer par "— Marcus 🎯"
 • Max 300 mots — dense et percutant"""
 
+_STANDUP_TASK = (
+    "C'est la réunion quotidienne. Donne ton briefing stratégique du jour en mode consultant : "
+    "top 3 priorités aujourd'hui, 1 action immédiate, 1 risque à surveiller. "
+    "Max 5 lignes. Percutant."
+)
+
 _DEFAULT_TASK = (
     "Génère la stratégie OFM de la semaine pour Suukalia. "
     "Analyse ce que ferait @lalucigmzz et donne la version nurse practitioner. "
     "Inclus les actions concrètes pour progresser vers 100k$/mois."
 )
+
+
+async def run_standup(client: anthropic.AsyncAnthropic) -> str:
+    response = await client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=400,
+        thinking={"type": "adaptive"},
+        system=SYSTEM,
+        messages=[{"role": "user", "content": _STANDUP_TASK}],
+    )
+    return "\n".join(b.text for b in response.content if b.type == "text").strip()
 
 
 async def run(task: str, client: anthropic.AsyncAnthropic) -> str:

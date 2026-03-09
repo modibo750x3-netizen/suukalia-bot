@@ -72,12 +72,29 @@ Semaine prochaine si optimisations appliquées : [fourchette $]
 • Toujours terminer par "— Alex 📊"
 • Max 250 mots"""
 
+_STANDUP_TASK = (
+    "C'est la réunion quotidienne. Donne 3 KPIs à checker aujourd'hui pour Suukalia, "
+    "avec les seuils d'alerte et ce que ça signifie si le chiffre est en dessous. "
+    "Format ultra-court : KPI → seuil cible → action si en dessous."
+)
+
 _NO_STATS_TASK = (
     "Aucune métrique fournie. Donne : "
     "(1) les benchmarks de référence pour la niche nurse/model/lifestyle sur IG/Twitter/Threads, "
     "(2) le chemin chiffré de 3k à 100k$/mois pour Suukalia, "
     "(3) les 5 KPIs absolument essentiels à tracker chaque semaine."
 )
+
+
+async def run_standup(client: anthropic.AsyncAnthropic) -> str:
+    response = await client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=350,
+        thinking={"type": "adaptive"},
+        system=SYSTEM,
+        messages=[{"role": "user", "content": _STANDUP_TASK}],
+    )
+    return "\n".join(b.text for b in response.content if b.type == "text").strip()
 
 
 async def run(stats_text: str, client: anthropic.AsyncAnthropic) -> str:
