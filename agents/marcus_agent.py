@@ -74,6 +74,46 @@ _DEFAULT_TASK = (
 )
 
 
+_SPY_PROMPT_TPL = """Voici les données scraped d'Instagram pour @{username} :
+
+{analysis}
+
+En tant que Marcus, Stratège OFM Senior, analyse ce compte et génère la stratégie complète pour Suukalia.
+
+Structure ta réponse :
+
+🕵️ ANALYSE @{username}
+[Ce qui fait son succès — format, timing, type de contenu, style caption]
+
+🎯 FORMULE SUUKALIA (version nurse practitioner)
+[Comment adapter exactement ce qui marche pour Suukalia]
+
+📅 CALENDRIER DE POSTING OPTIMAL
+[Jours, heures, fréquence — basé sur les données]
+
+#️⃣ HASHTAGS À ADAPTER
+[Liste des hashtags à copier/adapter pour la niche nurse]
+
+⚡ 3 ACTIONS IMMÉDIATES (à faire cette semaine)
+• [Action 1]
+• [Action 2]
+• [Action 3]"""
+
+
+async def run_spy(
+    username: str, analysis_text: str, client: anthropic.AsyncAnthropic
+) -> str:
+    prompt = _SPY_PROMPT_TPL.format(username=username, analysis=analysis_text)
+    response = await client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=1500,
+        thinking={"type": "adaptive"},
+        system=SYSTEM,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+
+
 async def run_standup(client: anthropic.AsyncAnthropic) -> str:
     response = await client.messages.create(
         model="claude-opus-4-6",

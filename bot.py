@@ -38,6 +38,7 @@ from telegram.ext import (
 
 from agents import analyste_agent, channel_agent, poster_agent, strategie_agent
 from agents import marcus_agent, sofia_agent, alex_agent, maya_agent
+from agents import instagram_scraper
 
 # ── Bootstrap ──────────────────────────────────────────────────────────────────
 load_dotenv()
@@ -54,8 +55,9 @@ MAX_MSG_LEN = 4096
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/standup 🗓️"],
-        ["/marcus 🎯",  "/sofia ✨"],
-        ["/alex 📊",    "/maya 💫"],
+        ["/spy 🕵️",    "/marcus 🎯"],
+        ["/sofia ✨",   "/alex 📊"],
+        ["/maya 💫"],
         ["/strategie 📊", "/poster 📅"],
         ["/stats 📈",     "/channel 📢"],
         ["/faceswap 🔄"],
@@ -67,6 +69,7 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
 # ── Bot commands ───────────────────────────────────────────────────────────────
 BOT_COMMANDS = [
     BotCommand("standup",   "Réunion équipe du jour — tous les agents se briefent"),
+    BotCommand("spy",       "Espionner un compte IG — /spy @lalucigmzz"),
     BotCommand("marcus",    "Marcus — Stratège OFM Senior (stratégie semaine)"),
     BotCommand("sofia",     "Sofia — Contenu prêt à poster [ig|twitter|threads|ppv]"),
     BotCommand("alex",      "Alex — Analyse métriques data & performance"),
@@ -171,7 +174,8 @@ async def _safe_run(update: Update, coro) -> None:
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "✨ *Suukalia Elite Team Bot* ✨\n\n"
-        "🗓️ /standup — réunion équipe du jour (tous les agents)\n\n"
+        "🗓️ /standup — réunion équipe du jour (tous les agents)\n"
+        "🕵️ /spy @compte — espionner un compte Instagram\n\n"
         "🎯 /marcus — stratégie semaine OFM Senior\n"
         "✨ /sofia — contenu IG/Twitter/Threads/PPV\n"
         "📊 /alex — analyse métriques & data\n"
@@ -216,6 +220,36 @@ async def cmd_standup(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         f"{maya_out}"
     )
     await send_chunks(update, report)
+
+
+# ── /spy — Instagram account spy ───────────────────────────────────────────────
+_DEFAULT_SPY_TARGET = "lalucigmzz"
+
+async def cmd_spy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """
+    /spy @lalucigmzz  — scrape public IG profile, then Marcus analyzes it.
+    /spy              — defaults to @lalucigmzz (main inspiration account).
+    """
+    raw = " ".join(context.args).strip() if context.args else ""
+    username = instagram_scraper.extract_username(raw) if raw else _DEFAULT_SPY_TARGET
+
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text(
+        f"🕵️ Espionnage de @{username} en cours… (30-60 sec)\n"
+        "Scraping Instagram → Analyse Marcus"
+    )
+
+    # 1. Scrape Instagram
+    data = await instagram_scraper.scrape(username, max_posts=15)
+    analysis_text = instagram_scraper.format_for_marcus(data)
+
+    # 2. Show raw data to user
+    await send_chunks(update, analysis_text)
+
+    # 3. Marcus strategy analysis
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text("🎯 Marcus analyse les données…")
+    await _safe_run(update, marcus_agent.run_spy(username, analysis_text, _ai(context)))
 
 
 # ── MARCUS — Stratège OFM Senior ───────────────────────────────────────────────
@@ -551,6 +585,7 @@ def main() -> None:
     app.add_handler(CommandHandler("start",     cmd_start))
     app.add_handler(CommandHandler("help",      cmd_start))
     app.add_handler(CommandHandler("standup",   cmd_standup))
+    app.add_handler(CommandHandler("spy",       cmd_spy))
     app.add_handler(CommandHandler("marcus",    cmd_marcus))
     app.add_handler(CommandHandler("sofia",     cmd_sofia))
     app.add_handler(CommandHandler("alex",      cmd_alex))
