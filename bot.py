@@ -73,7 +73,7 @@ BOT_COMMANDS = [
     BotCommand("analyse",   "Analyse visuelle browser — /analyse @compte"),
     BotCommand("inspire",   "Inspiration visuelle — /inspire @compte"),
     BotCommand("marcus",    "Marcus — Stratège OFM Senior (stratégie semaine)"),
-    BotCommand("sofia",     "Sofia — Contenu prêt à poster [ig|twitter|threads|ppv]"),
+    BotCommand("sofia",     "Sofia — Contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]"),
     BotCommand("alex",      "Alex — Analyse métriques data & performance"),
     BotCommand("maya",      "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
     BotCommand("strategie", "Stratégie semaine @lalucigmzz version nurse"),
@@ -181,7 +181,7 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "📸 /analyse @compte — analyse visuelle browser + Marcus\n"
         "✨ /inspire @compte — inspiration visuelle + stratégie aesthetic\n\n"
         "🎯 /marcus — stratégie semaine OFM Senior\n"
-        "✨ /sofia — contenu IG/Twitter/Threads/PPV\n"
+        "✨ /sofia — contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n"
         "📊 /alex — analyse métriques & data\n"
         "💫 /maya — post channel Telegram (1300 abonnés)\n"
         "🔄 /faceswap — face swap via Higgsfield\n\n"
@@ -317,10 +317,15 @@ async def cmd_marcus(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
 async def cmd_sofia(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_chat_action(ChatAction.TYPING)
     platform = (context.args[0] if context.args else "all").lower()
-    valid = {"ig", "twitter", "threads", "ppv", "all"}
+    valid = {"ig", "ig_main", "ig_nurse", "collab", "twitter", "threads", "ppv", "all"}
     if platform not in valid:
         await update.message.reply_text(
-            "Usage: /sofia [ig|twitter|threads|ppv]\nSans argument = toutes les plateformes."
+            "Usage: /sofia [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n\n"
+            "• ig — 2 captions par compte (principal 73k + secondaire 13k)\n"
+            "• ig_main — 3 captions IG Principal 73k (lifestyle/Moon)\n"
+            "• ig_nurse — 3 captions IG Secondaire 13k (nurse)\n"
+            "• collab — même photo, 2 captions différentes\n"
+            "• twitter / threads / ppv / all"
         )
         return
     await _safe_run(update, sofia_agent.run(platform, _ai(context)))

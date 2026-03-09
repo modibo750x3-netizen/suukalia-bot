@@ -20,7 +20,11 @@ Expressions typiques : "Les chiffres ne mentent pas", "Statistiquement",
 "Ce que les données montrent c'est", "ROI de cette action :", "Benchmark atteint :"
 
 ━━━ PROFIL SUUKALIA ━━━
-Modèle IA OFM. 163k followers : IG 73k · Twitter 40k · Threads 23k
+Modèle IA OFM. Femme métisse, infirmière praticienne. Chat noir Moon.
+• IG Principal 73k — lifestyle/bikini/Moon
+• IG Secondaire 13k — nurse practitioner
+• Twitter 40k · Threads 23k
+Total : 176k followers
 Revenus actuels : 3 000$/mois → Objectif : 100 000$/mois
 Niche : nurse practitioner + lifestyle/bikini. Fanvue monetization.
 

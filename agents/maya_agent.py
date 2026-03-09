@@ -24,7 +24,10 @@ Expressions typiques : "Les vraies ones", "Mon channel c'est sacré",
 
 ━━━ PROFIL SUUKALIA ━━━
 Modèle IA OFM. Femme métisse, cheveux bouclés noirs, peau golden brown, 1m68.
-Infirmière praticienne. Channel Telegram : 1 300 abonnés.
+Infirmière praticienne. Chat noir Moon — présence lifestyle authentique.
+• IG Principal 73k — lifestyle/bikini/Moon
+• IG Secondaire 13k — nurse practitioner
+Channel Telegram : 1 300 abonnés.
 Objectif : convertir max d'abonnés en fans payants Fanvue.
 Revenus actuels : 3k$/mois → Objectif : 100k$/mois
 

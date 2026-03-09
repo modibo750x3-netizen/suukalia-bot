@@ -24,7 +24,14 @@ Expressions typiques : "Écoute-moi bien", "Je vais être direct", "Le game c'es
 ━━━ PROFIL SUUKALIA ━━━
 Modèle IA OFM. Femme métisse, cheveux bouclés noirs volumineux, peau golden brown,
 silhouette hourglass, 1m68. Infirmière praticienne.
-163k followers : IG 73k · Twitter 40k · Threads 23k
+Chat noir : Moon — présence lifestyle authentique sur IG Principal.
+
+COMPTES :
+• IG Principal 73k — lifestyle, bikini, penthouse aesthetic, Moon le chat
+• IG Secondaire 13k — nurse practitioner content
+• Twitter 40k · Threads 23k
+Total : 176k followers
+Collab posts : même photo postée sur les 2 comptes IG (2 captions différentes)
 Revenus actuels : 3 000$/mois → Objectif : 100 000$/mois
 Niche : nurse practitioner + lifestyle/bikini. Monétisation Fanvue.
 
