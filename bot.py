@@ -38,7 +38,7 @@ from telegram.ext import (
 
 from agents import analyste_agent, channel_agent, poster_agent, strategie_agent
 from agents import marcus_agent, sofia_agent, alex_agent, maya_agent
-from agents import instagram_scraper
+from agents import instagram_scraper, browser_scraper
 
 # ── Bootstrap ──────────────────────────────────────────────────────────────────
 load_dotenv()
@@ -55,9 +55,9 @@ MAX_MSG_LEN = 4096
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/standup 🗓️"],
-        ["/spy 🕵️",    "/marcus 🎯"],
-        ["/sofia ✨",   "/alex 📊"],
-        ["/maya 💫"],
+        ["/spy 🕵️",      "/analyse 📸"],
+        ["/marcus 🎯",   "/sofia ✨"],
+        ["/alex 📊",     "/maya 💫"],
         ["/strategie 📊", "/poster 📅"],
         ["/stats 📈",     "/channel 📢"],
         ["/faceswap 🔄"],
@@ -70,6 +70,8 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
 BOT_COMMANDS = [
     BotCommand("standup",   "Réunion équipe du jour — tous les agents se briefent"),
     BotCommand("spy",       "Espionner un compte IG — /spy @lalucigmzz"),
+    BotCommand("analyse",   "Analyse visuelle browser — /analyse @compte"),
+    BotCommand("inspire",   "Inspiration visuelle — /inspire @compte"),
     BotCommand("marcus",    "Marcus — Stratège OFM Senior (stratégie semaine)"),
     BotCommand("sofia",     "Sofia — Contenu prêt à poster [ig|twitter|threads|ppv]"),
     BotCommand("alex",      "Alex — Analyse métriques data & performance"),
@@ -175,7 +177,9 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "✨ *Suukalia Elite Team Bot* ✨\n\n"
         "🗓️ /standup — réunion équipe du jour (tous les agents)\n"
-        "🕵️ /spy @compte — espionner un compte Instagram\n\n"
+        "🕵️ /spy @compte — espionner un compte Instagram\n"
+        "📸 /analyse @compte — analyse visuelle browser + Marcus\n"
+        "✨ /inspire @compte — inspiration visuelle + stratégie aesthetic\n\n"
         "🎯 /marcus — stratégie semaine OFM Senior\n"
         "✨ /sofia — contenu IG/Twitter/Threads/PPV\n"
         "📊 /alex — analyse métriques & data\n"
@@ -250,6 +254,55 @@ async def cmd_spy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_chat_action(ChatAction.TYPING)
     await update.message.reply_text("🎯 Marcus analyse les données…")
     await _safe_run(update, marcus_agent.run_spy(username, analysis_text, _ai(context)))
+
+
+# ── /analyse & /inspire — Browser visual scrape + Marcus Vision ────────────────
+async def _run_visual_scrape(
+    update: Update, context: ContextTypes.DEFAULT_TYPE, inspire: bool
+) -> None:
+    raw = " ".join(context.args).strip() if context.args else ""
+    username = browser_scraper.extract_username_from_raw(raw) if raw else "lalucigmzz"
+
+    mode_label = "inspiration visuelle" if inspire else "analyse visuelle"
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text(
+        f"📸 {mode_label.capitalize()} de @{username} en cours… (30-60 sec)\n"
+        "Chromium → screenshots → analyse Marcus"
+    )
+
+    # 1. Browser scrape
+    data = await browser_scraper.scrape_visual(username, max_posts=10)
+    text_summary = browser_scraper.format_extracted(data)
+    screenshots = data.get("screenshots", [])
+
+    # 2. Show summary + login wall warning if needed
+    await send_chunks(update, text_summary)
+
+    if data.get("login_wall") and not os.environ.get("IG_SESSION_ID"):
+        await update.message.reply_text(
+            "ℹ️ Pour l'accès complet, configure IG_SESSION_ID dans les variables Railway.\n"
+            "Marcus analyse quand même les screenshots disponibles."
+        )
+
+    if not screenshots:
+        await update.message.reply_text("❌ Aucun screenshot disponible. Vérifie que Playwright est installé.")
+        return
+
+    # 3. Marcus visual analysis
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text("🎯 Marcus analyse les visuels…")
+    await _safe_run(
+        update,
+        marcus_agent.run_analyse(username, screenshots, text_summary, _ai(context), inspire_mode=inspire),
+    )
+
+
+async def cmd_analyse(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_visual_scrape(update, context, inspire=False)
+
+
+async def cmd_inspire(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await _run_visual_scrape(update, context, inspire=True)
 
 
 # ── MARCUS — Stratège OFM Senior ───────────────────────────────────────────────
@@ -586,6 +639,8 @@ def main() -> None:
     app.add_handler(CommandHandler("help",      cmd_start))
     app.add_handler(CommandHandler("standup",   cmd_standup))
     app.add_handler(CommandHandler("spy",       cmd_spy))
+    app.add_handler(CommandHandler("analyse",   cmd_analyse))
+    app.add_handler(CommandHandler("inspire",   cmd_inspire))
     app.add_handler(CommandHandler("marcus",    cmd_marcus))
     app.add_handler(CommandHandler("sofia",     cmd_sofia))
     app.add_handler(CommandHandler("alex",      cmd_alex))

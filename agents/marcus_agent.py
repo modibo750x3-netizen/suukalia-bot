@@ -4,6 +4,7 @@ Command: /marcus
 """
 
 import anthropic
+import base64
 
 SYSTEM = """Tu es MARCUS, Stratège OFM Senior de la team Suukalia.
 
@@ -38,28 +39,23 @@ Niche : nurse practitioner + lifestyle/bikini. Monétisation Fanvue.
 • Funnel complet : contenu gratuit → abonnés Fanvue → PPV → upsell → rétention
 • Revenue breakdown optimal pour atteindre 100k$/mois
 
-━━━ FORMAT DE TES RÉPONSES ━━━
-Commence TOUJOURS par ton prénom et un opener en mode consultant :
-"Marcus — [phrase d'accroche directe]"
+━━━ TON NATUREL ━━━
+Parle comme un vrai consultant OFM à un collègue — direct, humain, pas corporate.
+Pas de gros titres avec des tirets ou des emojis en cascade. Pas de listes à puces formatées.
+Des phrases courtes. Des chiffres précis. Du concret immédiatement actionnable.
+Commence directement par la stratégie — pas de "Bonjour" ni de "Super question".
+Termine par "— Marcus" (sobre, pas d'emoji).
 
-Structure :
-🎯 [TITRE DE LA STRATÉGIE EN MAJUSCULES]
-[Corps : recommandations directes, chiffrées si possible, pas de blabla]
-
-📊 ACTIONS DE LA SEMAINE
-• [Action concrète] — [deadline]
-• [Action concrète] — [deadline]
-• [Action concrète] — [deadline]
-
-📈 KPI CIBLE : [chiffre précis]
-
-— Marcus 🎯
+Exemple de bonne réponse :
+"Marcus ici. Cette semaine focus nurse scrubs — tes posts bikini sous-performent de 40%.
+Double les selfies miroir, 2 reels nurse avant vendredi. Push PPV vendredi soir 21h.
+Objectif : +15% revenue sur 7 jours."
 
 ━━━ RÈGLES ABSOLUES ━━━
 • TOUJOURS répondre en FRANÇAIS
 • Jamais de blabla, jamais de compliments vides
-• Toujours terminer par "— Marcus 🎯"
-• Max 300 mots — dense et percutant"""
+• Toujours terminer par "— Marcus"
+• Max 8 lignes — dense et percutant"""
 
 _STANDUP_TASK = (
     "C'est la réunion quotidienne. Donne ton briefing stratégique du jour en mode consultant : "
@@ -98,6 +94,66 @@ Structure ta réponse :
 • [Action 1]
 • [Action 2]
 • [Action 3]"""
+
+
+_ANALYSE_PROMPT_TPL = """Voici les screenshots du profil Instagram @{username} + données DOM extraites :
+
+{text_data}
+
+Analyse visuelle et stratégique de ce compte. Structure ta réponse :
+
+ANALYSE @{username}
+Ce que tu vois — esthétique, types de posts, ce qui performe visuellement.
+
+FORMULE SUUKALIA
+Comment adapter exactement ce style pour Suukalia (nurse practitioner version).
+Quels éléments visuels copier, quels angles éviter.
+
+CALENDRIER
+Fréquence, jours et heures optimaux basés sur ce que tu vois.
+
+3 ACTIONS CETTE SEMAINE
+Concrètes, directement inspirées de ce compte."""
+
+_INSPIRE_PROMPT_TPL = """Voici les screenshots du profil Instagram @{username} :
+
+{text_data}
+
+Analyse le style visuel et l'esthétique de ce compte. Je veux :
+- Ce qui rend ce feed visuellement fort (lumière, angles, couleurs, mise en scène)
+- Les 3 types de posts qui créent le plus d'impact visuel
+- Comment Suukalia (infirmière praticienne, aesthetic élégant) doit s'inspirer de ça
+- Des idées de shoots et de visuels concrets à créer cette semaine"""
+
+
+async def run_analyse(
+    username: str,
+    screenshots: list[tuple[str, bytes]],
+    text_data: str,
+    client: anthropic.AsyncAnthropic,
+    inspire_mode: bool = False,
+) -> str:
+    tpl = _INSPIRE_PROMPT_TPL if inspire_mode else _ANALYSE_PROMPT_TPL
+    prompt_text = tpl.format(username=username, text_data=text_data)
+
+    content: list[dict] = []
+    # Add screenshots as vision inputs (max 3 to stay within token limits)
+    for _label, img_bytes in screenshots[:3]:
+        b64 = base64.b64encode(img_bytes).decode()
+        content.append({
+            "type": "image",
+            "source": {"type": "base64", "media_type": "image/png", "data": b64},
+        })
+    content.append({"type": "text", "text": prompt_text})
+
+    # Note: extended thinking is not used with vision to ensure compatibility
+    response = await client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=1500,
+        system=SYSTEM,
+        messages=[{"role": "user", "content": content}],
+    )
+    return "\n".join(b.text for b in response.content if b.type == "text").strip()
 
 
 async def run_spy(
