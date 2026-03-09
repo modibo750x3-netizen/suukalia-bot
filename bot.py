@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """
-Suukalia Telegram Content Bo
-Generates AI-powered social media content using Claude (Anthropic API).
+Suukalia Team Bot — 4 specialized AI agents + face swap.
+
+Agents:
+  /strategie — Competitor analysis + weekly content strategy (@lalucigmzz inspired)
+  /poster    — Ready-to-post content (IG, Twitter, Threads)
+  /stats     — Performance metrics analysis + real-time optimization
+  /channel   — Telegram channel manager (1300 subs → Fanvue)
+  /faceswap  — Face swap via Higgsfield
 """
 
 import asyncio
+import datetime
 import logging
 import os
-import random
+from io import BytesIO
 
 import anthropic
 import httpx
@@ -15,10 +22,15 @@ from dotenv import load_dotenv
 from telegram import BotCommand, ReplyKeyboardMarkup, Update
 from telegram.constants import ChatAction
 from telegram.error import NetworkError, TelegramError
-from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    ContextTypes,
+    MessageHandler,
+    filters,
+)
 
-from prompts import PROMPTS, SYSTEM_PROMPT
-from agents.team import run as team_run
+from agents import analyste_agent, channel_agent, poster_agent, strategie_agent
 
 # ── Bootstrap ──────────────────────────────────────────────────────────────────
 load_dotenv()
@@ -29,200 +41,29 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Telegram message length limit ─────────────────────────────────────────────
-MAX_MSG_LEN = 4000
+MAX_MSG_LEN = 4096
 
-# ── Wavespeed ──────────────────────────────────────────────────────────────────
-WAVESPEED_BASE = "https://api.wavespeed.ai/api/v2"
-REFERENCE_IMAGE_URL = "https://drive.google.com/uc?export=download&id=1TfDZ_isId3LoLgb_MQvaJATJuAhADx42"
-
-VIDEO_MOTIONS = {
-    "video":  "twerking, slow bounce, low angle, hypnotic rhythm",
-    "video2": "on all fours, looking directly at camera, slow crawl",
-    "video3": "sitting on floor, legs spread, leaning back on hands",
-    "video4": "squatting slowly, hands resting on knees, seductive gaze",
-    "video5": "lying on bed, slow full body roll, tangled in sheets",
-    "video6": "standing, hands slowly running down body from neck to hips",
-    "video7": "arching back, dramatic hair flip, look over shoulder",
-    "video8": "walking toward camera slowly, confident strut, direct eye contact",
-}
-
-VIDEO_OUTFITS = [
-    "tiny triangle bikini",
-    "black lace lingerie",
-    "high cut bodysuit",
-    "sheer mesh outfit",
-    "sports bra and booty shorts",
-    "silk bralette and thong",
-]
-
-# ── Persistent reply keyboard ──────────────────────────────────────────────────
+# ── Keyboard ───────────────────────────────────────────────────────────────────
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
-        ["/faceswap 🔄",  "/video 🎬"],
-        ["/ig 📸",        "/ign 👩‍⚕️"],
-        ["/igrow 📈",     "/day 📅"],
-        ["/reel1 🎬",     "/reel2 💋"],
-        ["/t 🐦",         "/fanvue 🩷"],
-        ["/th 🧵",        "/ppv 💰"],
-        ["/prompt 🤖",    "/checklist ✅"],
+        ["/strategie 📊", "/poster 📅"],
+        ["/stats 📈",     "/channel 📢"],
+        ["/faceswap 🔄"],
     ],
     resize_keyboard=True,
-    input_field_placeholder="Choose a command…",
+    input_field_placeholder="Choisis une commande…",
 )
 
-# ── Weekly checklist items ─────────────────────────────────────────────────────
-CHECKLIST_ITEMS = [
-    "Générer prompts Higgsfield (/prompt x7)",
-    "Générer captions IG bikini (/ig x7)",
-    "Générer captions nurse (/ign x3)",
-    "Générer tweets semaine (/t x7)",
-    "Générer posts Threads (/th x3)",
-    "Programmer sur Metricool",
-    "Préparer contenu Fanvue (/ppv)",
-    "Shooter les visuels de la semaine",
-]
-
-
-def render_checklist(checked: set) -> str:
-    lines = ["📋 *Checklist semaine* — réponds avec un numéro pour cocher/décocher\n"]
-    for i, item in enumerate(CHECKLIST_ITEMS, start=1):
-        box = "✅" if i in checked else "☐"
-        lines.append(f"{box} {i}. {item}")
-    done = len(checked)
-    total = len(CHECKLIST_ITEMS)
-    lines.append(f"\n_{done}/{total} complété{'s' if done != 1 else ''}_")
-    return "\n".join(lines)
-
-# ── Bot command list (shows up when user types /) ──────────────────────────────
+# ── Bot commands ───────────────────────────────────────────────────────────────
 BOT_COMMANDS = [
-    BotCommand("faceswap", "Face swap via Wavespeed Nano Banana 2"),
-    BotCommand("video",  "Generate video — twerking (Kling 3.0)"),
-    BotCommand("video2", "Generate video — crawl (Kling 3.0)"),
-    BotCommand("video3", "Generate video — floor sit (Kling 3.0)"),
-    BotCommand("video4", "Generate video — squat (Kling 3.0)"),
-    BotCommand("video5", "Generate video — bed roll (Kling 3.0)"),
-    BotCommand("video6", "Generate video — body run (Kling 3.0)"),
-    BotCommand("video7", "Generate video — arch back (Kling 3.0)"),
-    BotCommand("video8", "Generate video — catwalk (Kling 3.0)"),
-    BotCommand("ig",     "5 Instagram bikini captions + hashtags"),
-    BotCommand("ign",    "5 nurse practitioner captions"),
-    BotCommand("reel1",  "Viral reel script"),
-    BotCommand("reel2",  "5 provocative nurse phrases"),
-    BotCommand("t",      "6 tweets — full mix (relatable + nurse)"),
-    BotCommand("fanvue", "1 casual Fanvue mention tweet (2x/week max)"),
-    BotCommand("th",     "3 Threads posts"),
-    BotCommand("ppv",    "3 Fanvue PPV ideas"),
-    BotCommand("igrow",     "Instagram growth strategy (optional: @compte1 @compte2)"),
-    BotCommand("prompt",    "Higgsfield arch back prompt"),
-    BotCommand("day",       "Full daily content plan"),
-    BotCommand("checklist", "Weekly Monday checklist"),
+    BotCommand("strategie", "Analyse @lalucigmzz + stratégie semaine pour Suukalia"),
+    BotCommand("poster",    "Contenu prêt à poster — /poster [ig|twitter|threads]"),
+    BotCommand("stats",     "Analyse métriques + optimisation stratégie"),
+    BotCommand("channel",   "Post channel Telegram (1300 abonnés → Fanvue)"),
+    BotCommand("faceswap",  "Face swap via Higgsfield — envoie une photo"),
 ]
 
-
-# ── Core AI call ──────────────────────────────────────────────────────────────
-async def generate_content(ai_client: anthropic.AsyncAnthropic, prompt: str, max_tokens: int = 2500) -> str:
-    """Call Claude and return the full text response."""
-    response = await ai_client.messages.create(
-        model="claude-opus-4-6",
-        max_tokens=max_tokens,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    text = "\n".join(
-        block.text for block in response.content if block.type == "text"
-    ).strip()
-    if not text:
-        raise ValueError("Empty response from Claude")
-    return text
-
-
-# ── Telegram helpers ──────────────────────────────────────────────────────────
-async def send_chunks(update: Update, text: str) -> None:
-    """Send a potentially long message, splitting into ≤4000-char chunks."""
-    if len(text) <= MAX_MSG_LEN:
-        await update.message.reply_text(text)
-        return
-
-    paragraphs = text.split("\n\n")
-    chunk = ""
-    for para in paragraphs:
-        candidate = f"{chunk}\n\n{para}".strip() if chunk else para
-        if len(candidate) <= MAX_MSG_LEN:
-            chunk = candidate
-        else:
-            if chunk:
-                await update.message.reply_text(chunk)
-                await asyncio.sleep(0.4)
-            while len(para) > MAX_MSG_LEN:
-                await update.message.reply_text(para[:MAX_MSG_LEN])
-                await asyncio.sleep(0.4)
-                para = para[MAX_MSG_LEN:]
-            chunk = para
-
-    if chunk:
-        await update.message.reply_text(chunk)
-
-
-async def run_command(
-    update: Update,
-    context: ContextTypes.DEFAULT_TYPE,
-    key: str,
-) -> None:
-    """Generic dispatcher: show typing → route through agent team → send result."""
-    await update.message.reply_chat_action(ChatAction.TYPING)
-    ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
-
-    try:
-        content = await team_run(key, ai_client)
-        await send_chunks(update, content)
-    except anthropic.AuthenticationError:
-        logger.error("Anthropic authentication failed — check ANTHROPIC_API_KEY")
-        await update.message.reply_text(
-            "❌ Authentication error. Please contact the bot admin."
-        )
-    except anthropic.RateLimitError:
-        logger.warning("Anthropic rate limit hit")
-        await update.message.reply_text(
-            "⏳ Too many requests right now. Please wait a moment and try again."
-        )
-    except anthropic.APIStatusError as exc:
-        logger.error("Anthropic API error %s: %s", exc.status_code, exc.message)
-        await update.message.reply_text(
-            "❌ AI service error. Please try again in a moment."
-        )
-    except Exception as exc:  # noqa: BLE001
-        logger.exception("Unexpected error in /%s: %s", key, exc)
-        await update.message.reply_text(
-            "❌ Something went wrong. Please try again."
-        )
-
-
-# ── Wavespeed helpers ──────────────────────────────────────────────────────────
-async def _wavespeed_poll(prediction_id: str, max_wait: int = 160, interval: int = 15) -> dict | None:
-    """Poll Wavespeed until status == succeeded/failed or timeout."""
-    wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
-    headers = {"Authorization": f"Bearer {wavespeed_api_key}"}
-    deadline = asyncio.get_event_loop().time() + max_wait
-    async with httpx.AsyncClient(timeout=30) as client:
-        while asyncio.get_event_loop().time() < deadline:
-            await asyncio.sleep(interval)
-            try:
-                resp = await client.get(
-                    f"{WAVESPEED_BASE}/predictions/{prediction_id}", headers=headers
-                )
-                data = resp.json().get("data", {})
-                status = data.get("status")
-                if status == "succeeded":
-                    return data
-                if status in ("failed", "canceled"):
-                    return None
-            except Exception:
-                pass
-    return None
-
-
-# ── /faceswap ─────────────────────────────────────────────────────────────────
+# ── Higgsfield ─────────────────────────────────────────────────────────────────
 HIGGSFIELD_BASE = "https://fnf.higgsfield.ai"
 
 
@@ -263,13 +104,200 @@ async def _higgsfield_poll(job_id: str, max_wait: int = 180, interval: int = 5) 
     return None
 
 
+# ── Helpers ────────────────────────────────────────────────────────────────────
+async def send_chunks(update: Update, text: str) -> None:
+    """Send a long message split into ≤4096-char chunks."""
+    if len(text) <= MAX_MSG_LEN:
+        await update.message.reply_text(text)
+        return
+    paragraphs = text.split("\n\n")
+    chunk = ""
+    for para in paragraphs:
+        candidate = f"{chunk}\n\n{para}".strip() if chunk else para
+        if len(candidate) <= MAX_MSG_LEN:
+            chunk = candidate
+        else:
+            if chunk:
+                await update.message.reply_text(chunk)
+                await asyncio.sleep(0.3)
+            while len(para) > MAX_MSG_LEN:
+                await update.message.reply_text(para[:MAX_MSG_LEN])
+                await asyncio.sleep(0.3)
+                para = para[MAX_MSG_LEN:]
+            chunk = para
+    if chunk:
+        await update.message.reply_text(chunk)
+
+
+def _ai(context: ContextTypes.DEFAULT_TYPE) -> anthropic.AsyncAnthropic:
+    return context.bot_data["ai_client"]
+
+
+async def _safe_run(update: Update, coro) -> None:
+    """Execute an AI coroutine and handle errors uniformly."""
+    try:
+        content = await coro
+        await send_chunks(update, content)
+    except anthropic.AuthenticationError:
+        logger.error("Anthropic auth failed — check ANTHROPIC_API_KEY")
+        await update.message.reply_text("❌ Erreur d'authentification. Contacte l'admin.")
+    except anthropic.RateLimitError:
+        logger.warning("Anthropic rate limit hit")
+        await update.message.reply_text("⏳ Trop de requêtes. Patiente un moment et réessaie.")
+    except anthropic.APIStatusError as exc:
+        logger.error("Anthropic API %s: %s", exc.status_code, exc.message)
+        await update.message.reply_text("❌ Erreur service IA. Réessaie dans un moment.")
+    except Exception as exc:
+        logger.exception("Unexpected error: %s", exc)
+        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
+
+
+# ── /start ─────────────────────────────────────────────────────────────────────
+async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_text(
+        "✨ *Suukalia Team Bot* ✨\n\n"
+        "4 agents IA spécialisés à ton service :\n\n"
+        "📊 /strategie — stratégie semaine (@lalucigmzz version nurse)\n"
+        "📅 /poster — contenu prêt à poster (IG/Twitter/Threads)\n"
+        "📈 /stats — analyse tes métriques + optimisation\n"
+        "📢 /channel — post pour ton channel Telegram (1300 abonnés)\n"
+        "🔄 /faceswap — face swap via Higgsfield\n\n"
+        "Utilise les boutons ci-dessous 👇",
+        reply_markup=MENU_KEYBOARD,
+        parse_mode="Markdown",
+    )
+
+
+# ── AGENT 1 — STRATÈGE ─────────────────────────────────────────────────────────
+async def cmd_strategie(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text("📊 Analyse en cours… (peut prendre 15-20 sec)")
+    await _safe_run(update, strategie_agent.run(_ai(context)))
+
+
+# ── AGENT 2 — POSTER ───────────────────────────────────────────────────────────
+async def cmd_poster(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    # args: /poster ig | /poster twitter | /poster threads | /poster (= all)
+    platform = (context.args[0] if context.args else "all").lower()
+    valid = {"ig", "twitter", "threads", "all"}
+    if platform not in valid:
+        await update.message.reply_text(
+            "Usage: /poster [ig|twitter|threads]\nSans argument = toutes les plateformes."
+        )
+        return
+    await _safe_run(update, poster_agent.run(platform, _ai(context)))
+
+
+# ── AGENT 3 — ANALYSTE ─────────────────────────────────────────────────────────
+async def cmd_stats(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """
+    /stats → asks for metrics, waits for next message.
+    /stats [inline text] → analyzes immediately.
+    """
+    # Inline stats: /stats reach 50k, engagement 3.2%, +230 followers
+    inline = " ".join(context.args) if context.args else ""
+    if inline:
+        await update.message.reply_chat_action(ChatAction.TYPING)
+        await _safe_run(update, analyste_agent.run(inline, _ai(context)))
+    else:
+        context.user_data["awaiting_stats"] = True
+        await update.message.reply_text(
+            "📈 Envoie-moi tes métriques de la semaine.\n\n"
+            "Exemple:\n"
+            "• Reach: 45k | Engagement: 3.2%\n"
+            "• Nouveaux followers: +230\n"
+            "• Top post: reel nurse 87k vues\n"
+            "• Stories: 28% completion rate\n\n"
+            "_(ou envoie juste ce que tu as)_",
+            parse_mode="Markdown",
+        )
+
+
+async def handle_stats_reply(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Process metrics when user replies after /stats prompt."""
+    if not context.user_data.get("awaiting_stats"):
+        return
+    context.user_data["awaiting_stats"] = False
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await _safe_run(
+        update, analyste_agent.run(update.message.text, _ai(context))
+    )
+
+
+# ── AGENT 4 — CHANNEL MANAGER ──────────────────────────────────────────────────
+async def cmd_channel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """
+    Generate channel content and optionally post it to the Telegram channel.
+    Detects day of week automatically (PPV on Friday & Saturday).
+    """
+    await update.message.reply_chat_action(ChatAction.TYPING)
+
+    today = datetime.datetime.now()
+    is_ppv = today.weekday() in (4, 5)  # Friday=4, Saturday=5
+    day_fr = {
+        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi",
+        "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+    }.get(today.strftime("%A"), today.strftime("%A"))
+
+    try:
+        content = await channel_agent.run(is_ppv_day=is_ppv, day_name=day_fr, client=_ai(context))
+    except Exception as exc:
+        logger.exception("Channel agent error: %s", exc)
+        await update.message.reply_text("❌ Erreur lors de la génération. Réessaie.")
+        return
+
+    # Show content in the bot chat
+    await send_chunks(update, content)
+
+    # If TELEGRAM_CHANNEL_ID is set, also post to the channel
+    channel_id = os.environ.get("TELEGRAM_CHANNEL_ID", "").strip()
+    if channel_id:
+        try:
+            await context.bot.send_message(chat_id=channel_id, text=content)
+            tag = "🔒 PPV teaser" if is_ppv else "📢 Post quotidien"
+            await update.message.reply_text(f"✅ {tag} envoyé au channel !")
+        except Exception as exc:
+            logger.error("Failed to post to channel %s: %s", channel_id, exc)
+            await update.message.reply_text(
+                "⚠️ Contenu généré mais envoi au channel échoué. "
+                "Vérifie que le bot est admin dans le channel."
+            )
+    else:
+        await update.message.reply_text(
+            "_(Configure `TELEGRAM_CHANNEL_ID` pour l'envoi automatique au channel.)_",
+            parse_mode="Markdown",
+        )
+
+
+# ── Scheduled auto-post to channel ────────────────────────────────────────────
+async def _scheduled_channel_post(context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Job: auto-post daily content to the Telegram channel."""
+    channel_id = os.environ.get("TELEGRAM_CHANNEL_ID", "").strip()
+    if not channel_id:
+        return
+    ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
+    today = datetime.datetime.now()
+    is_ppv = today.weekday() in (4, 5)
+    day_fr = {
+        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi",
+        "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+    }.get(today.strftime("%A"), today.strftime("%A"))
+    try:
+        content = await channel_agent.run(is_ppv_day=is_ppv, day_name=day_fr, client=ai_client)
+        await context.bot.send_message(chat_id=channel_id, text=content)
+        logger.info("Auto-posted to channel (%s, ppv=%s)", day_fr, is_ppv)
+    except Exception as exc:
+        logger.error("Scheduled channel post failed: %s", exc)
+
+
+# ── /faceswap ─────────────────────────────────────────────────────────────────
 async def cmd_faceswap(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     context.user_data["awaiting_faceswap"] = True
     await update.message.reply_text("📸 Envoie-moi une photo — je vais swapper le visage !")
 
 
 async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Triggered when the user sends a photo after /faceswap."""
     if not context.user_data.get("awaiting_faceswap"):
         return
     context.user_data["awaiting_faceswap"] = False
@@ -305,7 +333,11 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
                 headers={"Authorization": f"Bearer {jwt}", "Content-Type": "application/json"},
                 json={
                     "params": {
-                        "prompt": "Image 1 is the face reference. Naturally replace the face in image 2 with image 1. Same lighting and skin tone.",
+                        "prompt": (
+                            "Image 1 is the face reference. "
+                            "Naturally replace the face in image 2 with image 1. "
+                            "Same lighting and skin tone."
+                        ),
                         "aspect_ratio": "4:5",
                         "resolution": "4k",
                         "batch_size": 1,
@@ -321,224 +353,30 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
 
         result_url = await _higgsfield_poll(job_id)
         if not result_url:
-            await update.message.reply_text("❌ La génération a échoué ou a pris trop de temps.")
+            await update.message.reply_text("❌ La génération a échoué ou pris trop de temps.")
             return
 
         async with httpx.AsyncClient(timeout=60) as client:
             img_resp = await client.get(result_url)
-        from io import BytesIO
         await update.message.reply_photo(photo=BytesIO(img_resp.content))
 
-    except Exception as e:
-        await update.message.reply_text(f"❌ Erreur: {e}")
-
-
-# ── /video – /video8 ───────────────────────────────────────────────────────────
-async def _run_video(update: Update, cmd_key: str) -> None:
-    wavespeed_api_key = os.environ.get("WAVESPEED_API_KEY", "").strip()
-    if not wavespeed_api_key:
-        await update.message.reply_text("❌ WAVESPEED_API_KEY non configuré.")
-        return
-
-    motion = VIDEO_MOTIONS.get(cmd_key, VIDEO_MOTIONS["video"])
-    outfit = random.choice(VIDEO_OUTFITS)
-    prompt = (
-        "Mixed woman, voluminous curly black hair, warm golden brown skin, "
-        f"hourglass figure, slim waist, 1m68. Wearing {outfit}. "
-        f"{motion}. "
-        "Pink neon lighting, penthouse setting. "
-        "Cinematic slow motion, low angle camera, 4K, ultra-realistic, seamless loop."
-    )
-
-    await update.message.reply_text("🎬 Génération en cours… (30-90 sec)")
-
-    headers = {
-        "Authorization": f"Bearer {wavespeed_api_key}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "inputs": {
-            "image": REFERENCE_IMAGE_URL,
-            "prompt": prompt,
-            "duration": 15,
-            "aspect_ratio": "9:16",
-            "cfg_scale": 0.5,
-        },
-        "enable_safety_checker": False,
-    }
-
-    try:
-        async with httpx.AsyncClient(timeout=30) as client:
-            resp = await client.post(
-                f"{WAVESPEED_BASE}/kling/kling-v3-0-image-to-video",
-                headers=headers,
-                json=payload,
-            )
-            resp.raise_for_status()
-            prediction_id = resp.json()["data"]["id"]
-
-        result = await _wavespeed_poll(prediction_id, max_wait=180, interval=20)
-        if result and result.get("outputs"):
-            await update.message.reply_video(result["outputs"][0])
-        else:
-            await update.message.reply_text(
-                "❌ La génération a échoué ou a dépassé le délai. Réessaie dans un moment."
-            )
     except Exception as exc:
-        logger.exception("Video generation error (%s): %s", cmd_key, exc)
-        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
-
-
-async def cmd_video(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video")
-
-async def cmd_video2(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video2")
-
-async def cmd_video3(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video3")
-
-async def cmd_video4(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video4")
-
-async def cmd_video5(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video5")
-
-async def cmd_video6(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video6")
-
-async def cmd_video7(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video7")
-
-async def cmd_video8(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await _run_video(update, "video8")
-
-
-# ── /start & /help ─────────────────────────────────────────────────────────────
-async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(
-        "✨ Suukalia Content Bot ✨\n\nTap a button below to generate content instantly 🚀",
-        reply_markup=MENU_KEYBOARD,
-    )
-
-
-# ── Command handlers ───────────────────────────────────────────────────────────
-async def cmd_ig(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "ig")
-
-
-async def cmd_ign(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "ign")
-
-
-async def cmd_reel1(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "reel1")
-
-
-async def cmd_reel2(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "reel2")
-
-
-async def cmd_t(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "t")
-
-
-async def cmd_fanvue(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "fanvue")
-
-
-async def cmd_th(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "th")
-
-
-async def cmd_ppv(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "ppv")
-
-
-async def cmd_prompt(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "prompt")
-
-
-async def cmd_day(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await run_command(update, context, "day")
-
-
-async def cmd_igrow(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Instagram growth strategy — accepts optional @account handles as arguments."""
-    await update.message.reply_chat_action(ChatAction.TYPING)
-    ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
-
-    # Parse @handles from args, e.g. /igrow @nurse.model @aesthetic.model
-    handles = [a.lstrip("@") for a in (context.args or []) if a]
-    if handles:
-        handles_str = ", ".join(f"@{h}" for h in handles)
-        task = (
-            f"Génère une stratégie Instagram growth pour Suukalia "
-            f"inspirée de ces comptes de référence: {handles_str}. "
-            f"Analyse leur niche, format de contenu, et fréquence de publication. "
-            f"Adapte TOUT au profil Suukalia (nurse + model + Fanvue)."
-        )
-    else:
-        task = (
-            "Génère une stratégie Instagram growth pour Suukalia. "
-            "Base-toi sur les meilleures créatrices de la niche nurse + model + lifestyle + Fanvue. "
-            "Focus: growth rapide, engagement authentique, funnel Fanvue."
-        )
-
-    try:
-        from agents.growth_agent import run as growth_run
-        content = await growth_run(task, 700, ai_client)
-        await send_chunks(update, content)
-    except anthropic.AuthenticationError:
-        await update.message.reply_text("❌ Authentication error. Please contact the bot admin.")
-    except anthropic.RateLimitError:
-        await update.message.reply_text("⏳ Too many requests right now. Please wait a moment.")
-    except Exception as exc:
-        logger.exception("igrow error: %s", exc)
-        await update.message.reply_text("❌ Something went wrong. Please try again.")
-
-
-# ── /checklist ─────────────────────────────────────────────────────────────────
-async def cmd_checklist(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    context.user_data.setdefault("checklist", set())
-    await update.message.reply_text(
-        render_checklist(context.user_data["checklist"]),
-        parse_mode="Markdown",
-    )
-
-
-async def handle_checklist_toggle(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Toggle a checklist item when the user sends a bare number."""
-    text = update.message.text.strip()
-    if not text.isdigit():
-        return
-    n = int(text)
-    if not (1 <= n <= len(CHECKLIST_ITEMS)):
-        return
-    checked: set = context.user_data.setdefault("checklist", set())
-    if n in checked:
-        checked.discard(n)
-    else:
-        checked.add(n)
-    await update.message.reply_text(
-        render_checklist(checked),
-        parse_mode="Markdown",
-    )
+        logger.exception("Face swap error: %s", exc)
+        await update.message.reply_text(f"❌ Erreur: {exc}")
 
 
 # ── Global error handler ───────────────────────────────────────────────────────
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Log errors but never let them crash the bot process."""
     err = context.error
     if isinstance(err, NetworkError):
-        logger.warning("Network error (will auto-retry): %s", err)
+        logger.warning("Network error: %s", err)
     elif isinstance(err, TelegramError):
         logger.error("Telegram error: %s", err)
     else:
         logger.exception("Unhandled exception: %s", err)
 
 
-# ── Startup hook — register bot commands with Telegram ────────────────────────
+# ── Startup hook ───────────────────────────────────────────────────────────────
 async def post_init(app: Application) -> None:
     await app.bot.set_my_commands(BOT_COMMANDS)
     logger.info("Bot commands registered with Telegram")
@@ -547,54 +385,49 @@ async def post_init(app: Application) -> None:
 # ── Entry point ────────────────────────────────────────────────────────────────
 def main() -> None:
     telegram_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
-    anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
 
     if not telegram_token:
-        raise RuntimeError("TELEGRAM_BOT_TOKEN environment variable is not set")
-    if not anthropic_api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY environment variable is not set")
+        raise RuntimeError("TELEGRAM_BOT_TOKEN is not set")
+    if not anthropic_key:
+        raise RuntimeError("ANTHROPIC_API_KEY is not set")
 
-    ai_client = anthropic.AsyncAnthropic(api_key=anthropic_api_key)
+    ai_client = anthropic.AsyncAnthropic(api_key=anthropic_key)
 
     app = Application.builder().token(telegram_token).post_init(post_init).build()
     app.bot_data["ai_client"] = ai_client
 
     app.add_error_handler(error_handler)
 
-    app.add_handler(CommandHandler("start", cmd_start))
-    app.add_handler(CommandHandler("help", cmd_start))
-    # Wavespeed commands
-    app.add_handler(CommandHandler("faceswap", cmd_faceswap))
-    app.add_handler(CommandHandler("video",  cmd_video))
-    app.add_handler(CommandHandler("video2", cmd_video2))
-    app.add_handler(CommandHandler("video3", cmd_video3))
-    app.add_handler(CommandHandler("video4", cmd_video4))
-    app.add_handler(CommandHandler("video5", cmd_video5))
-    app.add_handler(CommandHandler("video6", cmd_video6))
-    app.add_handler(CommandHandler("video7", cmd_video7))
-    app.add_handler(CommandHandler("video8", cmd_video8))
-    # Photo handler — face swap (must come before text handler)
-    app.add_handler(MessageHandler(filters.PHOTO, handle_faceswap_photo))
-    # Content generation commands
-    app.add_handler(CommandHandler("ig", cmd_ig))
-    app.add_handler(CommandHandler("ign", cmd_ign))
-    app.add_handler(CommandHandler("reel1", cmd_reel1))
-    app.add_handler(CommandHandler("reel2", cmd_reel2))
-    app.add_handler(CommandHandler("t", cmd_t))
-    app.add_handler(CommandHandler("fanvue", cmd_fanvue))
-    app.add_handler(CommandHandler("th", cmd_th))
-    app.add_handler(CommandHandler("ppv", cmd_ppv))
-    app.add_handler(CommandHandler("prompt", cmd_prompt))
-    app.add_handler(CommandHandler("day", cmd_day))
-    app.add_handler(CommandHandler("igrow", cmd_igrow))
-    app.add_handler(CommandHandler("checklist", cmd_checklist))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_checklist_toggle))
+    # Commands
+    app.add_handler(CommandHandler("start",     cmd_start))
+    app.add_handler(CommandHandler("help",      cmd_start))
+    app.add_handler(CommandHandler("strategie", cmd_strategie))
+    app.add_handler(CommandHandler("poster",    cmd_poster))
+    app.add_handler(CommandHandler("stats",     cmd_stats))
+    app.add_handler(CommandHandler("channel",   cmd_channel))
+    app.add_handler(CommandHandler("faceswap",  cmd_faceswap))
 
-    logger.info("Suukalia Bot is starting — polling for updates...")
-    app.run_polling(
-        allowed_updates=Update.ALL_TYPES,
-        drop_pending_updates=True,
+    # Photo handler for face swap
+    app.add_handler(MessageHandler(filters.PHOTO, handle_faceswap_photo))
+
+    # Text handler for /stats reply (must be last)
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_stats_reply))
+
+    # Scheduled auto-post to Telegram channel (daily at 9am UTC)
+    post_hour = int(os.environ.get("CHANNEL_POST_HOUR", "9"))
+    post_minute = int(os.environ.get("CHANNEL_POST_MINUTE", "0"))
+    app.job_queue.run_daily(
+        _scheduled_channel_post,
+        time=datetime.time(hour=post_hour, minute=post_minute, tzinfo=datetime.timezone.utc),
+        name="daily_channel_post",
     )
+    logger.info(
+        "Scheduled daily channel post at %02d:%02d UTC", post_hour, post_minute
+    )
+
+    logger.info("Suukalia Team Bot starting — polling...")
+    app.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
 
 
 if __name__ == "__main__":
