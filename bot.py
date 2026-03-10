@@ -8,12 +8,6 @@ Named agents (Phase 5):
   /alex — Alex, Analyste Data & Performance [stats inline ou prompt]
   /maya — Maya, Manager Communauté & Conversion [ppv]
 
-Legacy agents (Phase 4, kept for compatibility):
-  /strategie — Alias /marcus
-  /poster — Alias /sofia
-  /stats — Alias /alex
-  /channel — Alias /maya
-
   /faceswap — Face swap via Higgsfield
 """
 
@@ -68,10 +62,8 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/standup 🗓️"],
         ["/spy 🕵️", "/analyse 📸"],
-        ["/marcus 🎯", "/sofia ✨"],
-        ["/alex 📊", "/maya 💫"],
-        ["/strategie 📊", "/poster 📅"],
-        ["/stats 📈", "/channel 📢"],
+        ["/marcus 🎯 Stratège OFM", "/sofia ✨ Contenu"],
+        ["/alex 📊 Data & Stats", "/maya 💫 Channel PPV"],
         ["/faceswap 🔄"],
     ],
     resize_keyboard=True,
@@ -88,10 +80,6 @@ BOT_COMMANDS = [
     BotCommand("sofia", "Sofia — Contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]"),
     BotCommand("alex", "Alex — Analyse métriques data & performance"),
     BotCommand("maya", "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
-    BotCommand("strategie", "Stratégie semaine @lalucigmzz version nurse"),
-    BotCommand("poster", "Contenu prêt à poster — /poster [ig|twitter|threads]"),
-    BotCommand("stats", "Analyse métriques + optimisation stratégie"),
-    BotCommand("channel", "Post channel Telegram (1300 abonnés → Fanvue)"),
     BotCommand("faceswap", "Face swap via Higgsfield — envoie une photo"),
 ]
 
@@ -297,7 +285,6 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "📊 /alex — analyse métriques & data\n"
         "💫 /maya — post channel Telegram (1300 abonnés)\n"
         "🔄 /faceswap — face swap via Higgsfield\n\n"
-        "Commandes legacy : /strategie · /poster · /stats · /channel\n\n"
         "Utilise les boutons ci-dessous 👇",
         reply_markup=MENU_KEYBOARD,
         parse_mode="Markdown",
