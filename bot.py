@@ -3,17 +3,18 @@
 Suukalia Team Bot — Elite OFM AI agent team + face swap.
 
 Named agents (Phase 5):
-  /marcus    — Marcus, Stratège OFM Senior (stratégie semaine)
-  /sofia     — Sofia, Directrice Contenu & Copywriting [ig|twitter|threads|ppv]
-  /alex      — Alex, Analyste Data & Performance [stats inline ou prompt]
-  /maya      — Maya, Manager Communauté & Conversion [ppv]
+  /marcus — Marcus, Stratège OFM Senior (stratégie semaine)
+  /sofia — Sofia, Directrice Contenu & Copywriting [ig|twitter|threads|ppv]
+  /alex — Alex, Analyste Data & Performance [stats inline ou prompt]
+  /maya — Maya, Manager Communauté & Conversion [ppv]
 
 Legacy agents (Phase 4, kept for compatibility):
   /strategie — Alias /marcus
-  /poster    — Alias /sofia
-  /stats     — Alias /alex
-  /channel   — Alias /maya
-  /faceswap  — Face swap via Higgsfield
+  /poster — Alias /sofia
+  /stats — Alias /alex
+  /channel — Alias /maya
+
+  /faceswap — Face swap via Higgsfield
 """
 
 import asyncio
@@ -36,11 +37,18 @@ from telegram.ext import (
     filters,
 )
 
+import re
+
+import pytz
+import tweepy
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import CallbackQueryHandler
+
 from agents import analyste_agent, channel_agent, poster_agent, strategie_agent
 from agents import marcus_agent, sofia_agent, alex_agent, maya_agent
 from agents import instagram_scraper, browser_scraper
 
-# ── Bootstrap ──────────────────────────────────────────────────────────────────
+# ── Bootstrap ────────────────────────────────────────────────────────────────────
 load_dotenv()
 
 logging.basicConfig(
@@ -49,35 +57,52 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# ── Timezone ────────────────────────────────────────────────────────────────────
+CT = pytz.timezone("America/Chicago")  # Houston / Central Time
+TWEET_HOURS_CT = [8, 12, 17, 21]       # 8h, 12h, 17h, 21h CT
+
 MAX_MSG_LEN = 4096
 
-# ── Keyboard ───────────────────────────────────────────────────────────────────
+# ── Keyboard ─────────────────────────────────────────────────────────────────────
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/standup 🗓️"],
-        ["/marcus 🎯",   "/sofia ✨"],
-        ["/alex 📊",     "/maya 💫"],
+        ["/spy 🕵️", "/analyse 📸"],
+        ["/marcus 🎯", "/sofia ✨"],
+        ["/alex 📊", "/maya 💫"],
+        ["/strategie 📊", "/poster 📅"],
+        ["/stats 📈", "/channel 📢"],
+        ["/faceswap 🔄"],
     ],
     resize_keyboard=True,
     input_field_placeholder="Choisis un agent…",
 )
 
-# ── Bot commands ───────────────────────────────────────────────────────────────
+# ── Bot commands ─────────────────────────────────────────────────────────────────
 BOT_COMMANDS = [
-    BotCommand("standup",   "Réunion équipe du jour — tous les agents se briefent"),
-    BotCommand("marcus",    "Marcus — Stratège OFM Senior"),
-    BotCommand("sofia",     "Sofia — Directrice Contenu"),
-    BotCommand("alex",      "Alex — Analyste Data & Performance"),
-    BotCommand("maya",      "Maya — Manager Telegram"),
+    BotCommand("standup", "Réunion équipe du jour — tous les agents se briefent"),
+    BotCommand("spy", "Espionner un compte IG — /spy @lalucigmzz"),
+    BotCommand("analyse", "Analyse visuelle browser — /analyse @compte"),
+    BotCommand("inspire", "Inspiration visuelle — /inspire @compte"),
+    BotCommand("marcus", "Marcus — Stratège OFM Senior (stratégie semaine)"),
+    BotCommand("sofia", "Sofia — Contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]"),
+    BotCommand("alex", "Alex — Analyse métriques data & performance"),
+    BotCommand("maya", "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
+    BotCommand("strategie", "Stratégie semaine @lalucigmzz version nurse"),
+    BotCommand("poster", "Contenu prêt à poster — /poster [ig|twitter|threads]"),
+    BotCommand("stats", "Analyse métriques + optimisation stratégie"),
+    BotCommand("channel", "Post channel Telegram (1300 abonnés → Fanvue)"),
+    BotCommand("faceswap", "Face swap via Higgsfield — envoie une photo"),
 ]
 
-# ── Higgsfield ─────────────────────────────────────────────────────────────────
+# ── Higgsfield ───────────────────────────────────────────────────────────────────
 HIGGSFIELD_BASE = "https://fnf.higgsfield.ai"
 
 
 async def _higgsfield_upload(image_bytes: bytes, filename: str) -> dict:
     """Upload an image to Higgsfield, returns {id, url, type}."""
     import uuid as _uuid
+
     jwt = os.environ.get("HIGGSFIELD_JWT", "").strip()
     image_id = str(_uuid.uuid4())
     async with httpx.AsyncClient(timeout=60) as client:
@@ -88,7 +113,11 @@ async def _higgsfield_upload(image_bytes: bytes, filename: str) -> dict:
         )
         resp.raise_for_status()
         data = resp.json()
-        return {"id": data.get("id", image_id), "url": data.get("url", ""), "type": "media_input"}
+        return {
+            "id": data.get("id", image_id),
+            "url": data.get("url", ""),
+            "type": "media_input",
+        }
 
 
 async def _higgsfield_poll(job_id: str, max_wait: int = 180, interval: int = 5) -> str | None:
@@ -100,7 +129,9 @@ async def _higgsfield_poll(job_id: str, max_wait: int = 180, interval: int = 5) 
         while asyncio.get_event_loop().time() < deadline:
             await asyncio.sleep(interval)
             try:
-                resp = await client.get(f"{HIGGSFIELD_BASE}/jobs/{job_id}", headers=headers)
+                resp = await client.get(
+                    f"{HIGGSFIELD_BASE}/jobs/{job_id}", headers=headers
+                )
                 data = resp.json()
                 status = data.get("status", "")
                 if status == "completed":
@@ -111,13 +142,15 @@ async def _higgsfield_poll(job_id: str, max_wait: int = 180, interval: int = 5) 
                 pass
     return None
 
+# ── Helpers ──────────────────────────────────────────────────────────────────────
 
-# ── Helpers ────────────────────────────────────────────────────────────────────
+
 async def send_chunks(update: Update, text: str) -> None:
     """Send a long message split into ≤4096-char chunks."""
     if len(text) <= MAX_MSG_LEN:
         await update.message.reply_text(text)
         return
+
     paragraphs = text.split("\n\n")
     chunk = ""
     for para in paragraphs:
@@ -159,27 +192,126 @@ async def _safe_run(update: Update, coro) -> None:
         logger.exception("Unexpected error: %s", exc)
         await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
 
+# ── Twitter / X — Auto-scheduling via Tweepy ────────────────────────────────────
 
-# ── /start ─────────────────────────────────────────────────────────────────────
+
+def _get_twitter_client_40k() -> tweepy.Client:
+    """Client Tweepy pour le compte @suukalia 40k."""
+    return tweepy.Client(
+        consumer_key=os.environ["TWITTER_API_KEY"],
+        consumer_secret=os.environ["TWITTER_API_SECRET"],
+        access_token=os.environ["TWITTER_ACCESS_TOKEN"],
+        access_token_secret=os.environ["TWITTER_ACCESS_TOKEN_SECRET"],
+    )
+
+
+def _parse_40k_tweets(content: str) -> list[str]:
+    """Extraire les tweets 40k (lignes 🐦 N. ...) du contenu généré par Sofia."""
+    tweets = []
+    for line in content.split("\n"):
+        m = re.match(r"^🐦\s*\d+\.\s*(.+)", line.strip())
+        if m:
+            tweet = m.group(1).strip()
+            if len(tweet) <= 280:
+                tweets.append(tweet)
+    return tweets
+
+
+def _next_ct_posting_times(hours: list[int]) -> list[datetime.datetime]:
+    """Calcule les prochains créneaux CT pour chaque heure (saute si déjà passé aujourd'hui)."""
+    now_ct = datetime.datetime.now(CT)
+    times = []
+    for h in hours:
+        t = now_ct.replace(hour=h, minute=0, second=0, microsecond=0)
+        if t <= now_ct:
+            t += datetime.timedelta(days=1)
+        times.append(t)
+    return times
+
+
+async def _post_scheduled_tweet(context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Job déclenché par job_queue — poste un tweet sur le 40k."""
+    data = context.job.data
+    tweet_text: str = data["tweet"]
+    chat_id: int = data["chat_id"]
+    try:
+        client = _get_twitter_client_40k()
+        resp = client.create_tweet(text=tweet_text)
+        tweet_id = resp.data["id"]
+        tweet_url = f"https://x.com/suukalia/status/{tweet_id}"
+        logger.info("Scheduled tweet posted: %s", tweet_id)
+        await context.bot.send_message(
+            chat_id=chat_id,
+            text=f"✅ Tweet posté sur @suukalia !\n{tweet_url}\n\n_{tweet_text[:80]}..._",
+            parse_mode="Markdown",
+        )
+    except Exception as exc:
+        logger.error("Scheduled tweet failed: %s", exc)
+        await context.bot.send_message(
+            chat_id=chat_id,
+            text=f"❌ Échec du tweet programmé : {exc}",
+        )
+
+
+async def callback_schedule_tweets(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Callback du bouton 'Programmer les tweets' — planifie les 4 tweets sur job_queue."""
+    query = update.callback_query
+    await query.answer()
+
+    tweets = context.user_data.get("pending_40k_tweets", [])
+    if not tweets:
+        await query.edit_message_text("❌ Aucun tweet en attente. Régénère avec /sofia twitter.")
+        return
+
+    hours = TWEET_HOURS_CT[: len(tweets)]
+    posting_times = _next_ct_posting_times(hours)
+    chat_id = query.message.chat_id
+
+    scheduled_lines = []
+    for tweet, post_time in zip(tweets, posting_times):
+        context.job_queue.run_once(
+            _post_scheduled_tweet,
+            when=post_time,
+            data={"tweet": tweet, "chat_id": chat_id},
+            name=f"tweet_40k_{post_time.strftime('%H%M')}",
+        )
+        local_str = post_time.strftime("%H:%M CT")
+        scheduled_lines.append(f"🕐 {local_str} — {tweet[:60]}…")
+
+    summary = "✅ *Tweets programmés sur @suukalia 40k !*\n\n" + "\n".join(scheduled_lines)
+    await query.edit_message_text(summary, parse_mode="Markdown")
+    context.user_data.pop("pending_40k_tweets", None)
+
+# ── /start ───────────────────────────────────────────────────────────────────────
+
+
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "✨ *Suukalia Elite Team Bot* ✨\n\n"
-        "🗓️ /standup — réunion équipe du jour\n"
-        "🎯 /marcus — Stratège OFM Senior\n"
-        "✨ /sofia — Directrice Contenu\n"
-        "📊 /alex — Analyste Data\n"
-        "💫 /maya — Manager Telegram\n\n"
+        "🗓️ /standup — réunion équipe du jour (tous les agents)\n"
+        "🕵️ /spy @compte — espionner un compte Instagram\n"
+        "📸 /analyse @compte — analyse visuelle browser + Marcus\n"
+        "✨ /inspire @compte — inspiration visuelle + stratégie aesthetic\n\n"
+        "🎯 /marcus — stratégie semaine OFM Senior\n"
+        "✨ /sofia — contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n"
+        "📊 /alex — analyse métriques & data\n"
+        "💫 /maya — post channel Telegram (1300 abonnés)\n"
+        "🔄 /faceswap — face swap via Higgsfield\n\n"
+        "Commandes legacy : /strategie · /poster · /stats · /channel\n\n"
         "Utilise les boutons ci-dessous 👇",
         reply_markup=MENU_KEYBOARD,
         parse_mode="Markdown",
     )
 
+# ── /standup — Daily team briefing ───────────────────────────────────────────────
 
-# ── /standup — Daily team briefing ─────────────────────────────────────────────
+
 async def cmd_standup(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Call all 4 agents in parallel for a daily briefing."""
     await update.message.reply_chat_action(ChatAction.TYPING)
-    await update.message.reply_text("🗓️ Réunion en cours… Marcus, Sofia, Alex et Maya se briefent (20-30 sec)")
+    await update.message.reply_text(
+        "🗓️ Réunion en cours… Marcus, Sofia, Alex et Maya se briefent (20-30 sec)"
+    )
 
     ai = _ai(context)
     try:
@@ -196,7 +328,7 @@ async def cmd_standup(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 
     report = (
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "🗓️  STANDUP SUUKALIA TEAM\n"
+        "🗓️ STANDUP SUUKALIA TEAM\n"
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
         f"{marcus_out}\n\n"
         "─────────────────────────────\n\n"
@@ -208,14 +340,16 @@ async def cmd_standup(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     )
     await send_chunks(update, report)
 
+# ── /spy — Instagram account spy ─────────────────────────────────────────────────
 
-# ── /spy — Instagram account spy ───────────────────────────────────────────────
+
 _DEFAULT_SPY_TARGET = "lalucigmzz"
+
 
 async def cmd_spy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """
-    /spy @lalucigmzz  — scrape public IG profile, then Marcus analyzes it.
-    /spy              — defaults to @lalucigmzz (main inspiration account).
+    /spy @lalucigmzz — scrape public IG profile, then Marcus analyzes it.
+    /spy — defaults to @lalucigmzz (main inspiration account).
     """
     raw = " ".join(context.args).strip() if context.args else ""
     username = instagram_scraper.extract_username(raw) if raw else _DEFAULT_SPY_TARGET
@@ -238,15 +372,18 @@ async def cmd_spy(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text("🎯 Marcus analyse les données…")
     await _safe_run(update, marcus_agent.run_spy(username, analysis_text, _ai(context)))
 
+# ── /analyse & /inspire — Browser visual scrape + Marcus Vision ──────────────────
 
-# ── /analyse & /inspire — Browser visual scrape + Marcus Vision ────────────────
+
 async def _run_visual_scrape(
     update: Update, context: ContextTypes.DEFAULT_TYPE, inspire: bool
 ) -> None:
     raw = " ".join(context.args).strip() if context.args else ""
-    username = browser_scraper.extract_username_from_raw(raw) if raw else "lalucigmzz"
-
+    username = (
+        browser_scraper.extract_username_from_raw(raw) if raw else "lalucigmzz"
+    )
     mode_label = "inspiration visuelle" if inspire else "analyse visuelle"
+
     await update.message.reply_chat_action(ChatAction.TYPING)
     await update.message.reply_text(
         f"📸 {mode_label.capitalize()} de @{username} en cours… (30-60 sec)\n"
@@ -268,7 +405,9 @@ async def _run_visual_scrape(
         )
 
     if not screenshots:
-        await update.message.reply_text("❌ Aucun screenshot disponible. Vérifie que Playwright est installé.")
+        await update.message.reply_text(
+            "❌ Aucun screenshot disponible. Vérifie que Playwright est installé."
+        )
         return
 
     # 3. Marcus visual analysis
@@ -276,7 +415,9 @@ async def _run_visual_scrape(
     await update.message.reply_text("🎯 Marcus analyse les visuels…")
     await _safe_run(
         update,
-        marcus_agent.run_analyse(username, screenshots, text_summary, _ai(context), inspire_mode=inspire),
+        marcus_agent.run_analyse(
+            username, screenshots, text_summary, _ai(context), inspire_mode=inspire
+        ),
     )
 
 
@@ -287,51 +428,64 @@ async def cmd_analyse(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 async def cmd_inspire(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await _run_visual_scrape(update, context, inspire=True)
 
+# ── MARCUS — Stratège OFM Senior ─────────────────────────────────────────────────
 
-# ── MARCUS — Stratège OFM Senior ───────────────────────────────────────────────
+
 async def cmd_marcus(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text("🎯 Marcus analyse la situation… (15-20 sec)")
     task = " ".join(context.args) if context.args else ""
-    if task:
-        await update.message.reply_chat_action(ChatAction.TYPING)
-        await update.message.reply_text("🎯 Marcus analyse la situation… (15-20 sec)")
-        await _safe_run(update, marcus_agent.run(task, _ai(context)))
-    else:
-        context.user_data["awaiting_marcus"] = True
-        await update.message.reply_text(
-            "🎯 *Marcus* — Stratège OFM Senior\n\n"
-            "Qu'est-ce que tu veux que je fasse ?\n"
-            "Ex : stratégie semaine · spy @compte · analyse concurrents · plan contenu",
-            parse_mode="Markdown",
-        )
+    await _safe_run(update, marcus_agent.run(task, _ai(context)))
+
+# ── SOFIA — Directrice Contenu & Copywriting ─────────────────────────────────────
 
 
-# ── SOFIA — Directrice Contenu & Copywriting ───────────────────────────────────
 async def cmd_sofia(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    platform = (context.args[0] if context.args else "").lower()
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    platform = (context.args[0] if context.args else "all").lower()
     valid = {"ig", "ig_main", "ig_nurse", "collab", "twitter", "threads", "ppv", "all"}
-    if platform in valid:
-        await update.message.reply_chat_action(ChatAction.TYPING)
-        await _safe_run(update, sofia_agent.run(platform, _ai(context)))
-    else:
-        context.user_data["awaiting_sofia"] = True
+
+    if platform not in valid:
         await update.message.reply_text(
-            "✨ *Sofia* — Directrice Contenu\n\n"
-            "Quel contenu tu veux ?\n"
-            "• `ig` — captions IG (73k + 13k)\n"
-            "• `ig_main` — IG Principal 73k\n"
-            "• `ig_nurse` — IG Secondaire 13k\n"
-            "• `collab` — même photo, 2 captions\n"
-            "• `twitter` — tweets 40k + feeder\n"
-            "• `threads` — posts Threads\n"
-            "• `ppv` — teasers Fanvue\n"
-            "• `all` — tout",
-            parse_mode="Markdown",
+            "Usage: /sofia [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n\n"
+            "• ig — 2 captions par compte (principal 73k + secondaire 13k)\n"
+            "• ig_main — 3 captions IG Principal 73k (lifestyle/Moon)\n"
+            "• ig_nurse — 3 captions IG Secondaire 13k (nurse)\n"
+            "• collab — même photo, 2 captions différentes\n"
+            "• twitter / threads / ppv / all"
         )
+        return
+
+    content = await sofia_agent.run(platform, _ai(context))
+    await send_chunks(update, content)
+
+    if platform in ("twitter", "all"):
+        tweets_40k = _parse_40k_tweets(content)
+        if tweets_40k:
+            context.user_data["pending_40k_tweets"] = tweets_40k
+            hours_str = " · ".join(f"{h}h" for h in TWEET_HOURS_CT[: len(tweets_40k)])
+            keyboard = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            f"🐦 Programmer {len(tweets_40k)} tweets — {hours_str} CT",
+                            callback_data="schedule_tweets_40k",
+                        )
+                    ]
+                ]
+            )
+            await update.message.reply_text(
+                f"_{len(tweets_40k)} tweets prêts. Seront postés à {hours_str} (Houston CT)_",
+                reply_markup=keyboard,
+                parse_mode="Markdown",
+            )
+
+# ── ALEX — Analyste Data & Performance ───────────────────────────────────────────
 
 
-# ── ALEX — Analyste Data & Performance ─────────────────────────────────────────
 async def cmd_alex(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     inline = " ".join(context.args) if context.args else ""
+
     if inline:
         await update.message.reply_chat_action(ChatAction.TYPING)
         await _safe_run(update, alex_agent.run(inline, _ai(context)))
@@ -351,19 +505,29 @@ async def cmd_alex(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def handle_alex_reply(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not context.user_data.get("awaiting_alex"):
         return
+
     context.user_data["awaiting_alex"] = False
     await update.message.reply_chat_action(ChatAction.TYPING)
     await _safe_run(update, alex_agent.run(update.message.text, _ai(context)))
 
+# ── MAYA — Manager Communauté & Conversion ───────────────────────────────────────
 
-# ── MAYA — Manager Communauté & Conversion ─────────────────────────────────────
-async def _run_maya(update: Update, context: ContextTypes.DEFAULT_TYPE, force_ppv: bool = False) -> None:
+
+async def cmd_maya(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_chat_action(ChatAction.TYPING)
+
+    force_ppv = bool(context.args and context.args[0].lower() == "ppv")
     today = datetime.datetime.now()
     is_ppv = today.weekday() in (4, 5)  # Friday=4, Saturday=5
+
     day_fr = {
-        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi",
-        "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+        "Monday": "Lundi",
+        "Tuesday": "Mardi",
+        "Wednesday": "Mercredi",
+        "Thursday": "Jeudi",
+        "Friday": "Vendredi",
+        "Saturday": "Samedi",
+        "Sunday": "Dimanche",
     }.get(today.strftime("%A"), today.strftime("%A"))
 
     try:
@@ -395,51 +559,46 @@ async def _run_maya(update: Update, context: ContextTypes.DEFAULT_TYPE, force_pp
             parse_mode="Markdown",
         )
 
-
-async def cmd_maya(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    if context.args:
-        force_ppv = context.args[0].lower() == "ppv"
-        await _run_maya(update, context, force_ppv=force_ppv)
-    else:
-        context.user_data["awaiting_maya"] = True
-        await update.message.reply_text(
-            "💫 *Maya* — Manager Telegram\n\n"
-            "Qu'est-ce que tu veux ?\n"
-            "• `post` — post quotidien channel\n"
-            "• `ppv` — teaser PPV Fanvue",
-            parse_mode="Markdown",
-        )
+# ── AGENT 1 — STRATÈGE ───────────────────────────────────────────────────────────
 
 
-# ── AGENT 1 — STRATÈGE ─────────────────────────────────────────────────────────
 async def cmd_strategie(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_chat_action(ChatAction.TYPING)
-    await update.message.reply_text("📊 Analyse en cours… (peut prendre 15-20 sec)")
+    await update.message.reply_text(
+        "📊 Analyse en cours… (peut prendre 15-20 sec)"
+    )
     await _safe_run(update, strategie_agent.run(_ai(context)))
 
+# ── AGENT 2 — POSTER ─────────────────────────────────────────────────────────────
 
-# ── AGENT 2 — POSTER ───────────────────────────────────────────────────────────
+
 async def cmd_poster(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_chat_action(ChatAction.TYPING)
+
     # args: /poster ig | /poster twitter | /poster threads | /poster (= all)
     platform = (context.args[0] if context.args else "all").lower()
     valid = {"ig", "twitter", "threads", "all"}
+
     if platform not in valid:
         await update.message.reply_text(
             "Usage: /poster [ig|twitter|threads]\nSans argument = toutes les plateformes."
         )
         return
+
     await _safe_run(update, poster_agent.run(platform, _ai(context)))
 
+# ── AGENT 3 — ANALYSTE ───────────────────────────────────────────────────────────
 
-# ── AGENT 3 — ANALYSTE ─────────────────────────────────────────────────────────
+
 async def cmd_stats(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """
     /stats → asks for metrics, waits for next message.
     /stats [inline text] → analyzes immediately.
     """
+
     # Inline stats: /stats reach 50k, engagement 3.2%, +230 followers
     inline = " ".join(context.args) if context.args else ""
+
     if inline:
         await update.message.reply_chat_action(ChatAction.TYPING)
         await _safe_run(update, analyste_agent.run(inline, _ai(context)))
@@ -461,45 +620,22 @@ async def handle_stats_reply(update: Update, context: ContextTypes.DEFAULT_TYPE)
     """Process metrics when user replies after /stats prompt."""
     if not context.user_data.get("awaiting_stats"):
         return
+
     context.user_data["awaiting_stats"] = False
     await update.message.reply_chat_action(ChatAction.TYPING)
-    await _safe_run(
-        update, analyste_agent.run(update.message.text, _ai(context))
-    )
+    await _safe_run(update, analyste_agent.run(update.message.text, _ai(context)))
 
 
 async def handle_text_replies(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Route text replies to the appropriate waiting agent."""
-    text = update.message.text.strip()
-
-    if context.user_data.get("awaiting_marcus"):
-        context.user_data["awaiting_marcus"] = False
-        await update.message.reply_chat_action(ChatAction.TYPING)
-        await update.message.reply_text("🎯 Marcus analyse… (15-20 sec)")
-        await _safe_run(update, marcus_agent.run(text, _ai(context)))
-
-    elif context.user_data.get("awaiting_sofia"):
-        context.user_data["awaiting_sofia"] = False
-        valid = {"ig", "ig_main", "ig_nurse", "collab", "twitter", "threads", "ppv", "all"}
-        platform = text.lower().strip()
-        if platform not in valid:
-            platform = "all"
-        await update.message.reply_chat_action(ChatAction.TYPING)
-        await _safe_run(update, sofia_agent.run(platform, _ai(context)))
-
-    elif context.user_data.get("awaiting_maya"):
-        context.user_data["awaiting_maya"] = False
-        force_ppv = "ppv" in text.lower()
-        await _run_maya(update, context, force_ppv=force_ppv)
-
-    elif context.user_data.get("awaiting_alex"):
+    """Route text replies to the appropriate waiting agent (/alex or /stats)."""
+    if context.user_data.get("awaiting_alex"):
         await handle_alex_reply(update, context)
-
     elif context.user_data.get("awaiting_stats"):
         await handle_stats_reply(update, context)
 
+# ── AGENT 4 — CHANNEL MANAGER ────────────────────────────────────────────────────
 
-# ── AGENT 4 — CHANNEL MANAGER ──────────────────────────────────────────────────
+
 async def cmd_channel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """
     Generate channel content and optionally post it to the Telegram channel.
@@ -509,13 +645,21 @@ async def cmd_channel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 
     today = datetime.datetime.now()
     is_ppv = today.weekday() in (4, 5)  # Friday=4, Saturday=5
+
     day_fr = {
-        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi",
-        "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+        "Monday": "Lundi",
+        "Tuesday": "Mardi",
+        "Wednesday": "Mercredi",
+        "Thursday": "Jeudi",
+        "Friday": "Vendredi",
+        "Saturday": "Samedi",
+        "Sunday": "Dimanche",
     }.get(today.strftime("%A"), today.strftime("%A"))
 
     try:
-        content = await channel_agent.run(is_ppv_day=is_ppv, day_name=day_fr, client=_ai(context))
+        content = await channel_agent.run(
+            is_ppv_day=is_ppv, day_name=day_fr, client=_ai(context)
+        )
     except Exception as exc:
         logger.exception("Channel agent error: %s", exc)
         await update.message.reply_text("❌ Erreur lors de la génération. Réessaie.")
@@ -543,29 +687,42 @@ async def cmd_channel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
             parse_mode="Markdown",
         )
 
+# ── Scheduled auto-post to channel ───────────────────────────────────────────────
 
-# ── Scheduled auto-post to channel ────────────────────────────────────────────
+
 async def _scheduled_channel_post(context: ContextTypes.DEFAULT_TYPE) -> None:
     """Job: auto-post daily content to the Telegram channel."""
     channel_id = os.environ.get("TELEGRAM_CHANNEL_ID", "").strip()
     if not channel_id:
         return
+
     ai_client: anthropic.AsyncAnthropic = context.bot_data["ai_client"]
+
     today = datetime.datetime.now()
     is_ppv = today.weekday() in (4, 5)
+
     day_fr = {
-        "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi",
-        "Thursday": "Jeudi", "Friday": "Vendredi", "Saturday": "Samedi", "Sunday": "Dimanche",
+        "Monday": "Lundi",
+        "Tuesday": "Mardi",
+        "Wednesday": "Mercredi",
+        "Thursday": "Jeudi",
+        "Friday": "Vendredi",
+        "Saturday": "Samedi",
+        "Sunday": "Dimanche",
     }.get(today.strftime("%A"), today.strftime("%A"))
+
     try:
-        content = await maya_agent.run(is_ppv_day=is_ppv, day_name=day_fr, client=ai_client)
+        content = await maya_agent.run(
+            is_ppv_day=is_ppv, day_name=day_fr, client=ai_client
+        )
         await context.bot.send_message(chat_id=channel_id, text=content)
         logger.info("Auto-posted to channel via Maya (%s, ppv=%s)", day_fr, is_ppv)
     except Exception as exc:
         logger.error("Scheduled channel post failed: %s", exc)
 
+# ── /faceswap ───────────────────────────────────────────────────────────────────
 
-# ── /faceswap ─────────────────────────────────────────────────────────────────
+
 async def cmd_faceswap(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     context.user_data["awaiting_faceswap"] = True
     await update.message.reply_text("📸 Envoie-moi une photo — je vais swapper le visage !")
@@ -574,6 +731,7 @@ async def cmd_faceswap(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not context.user_data.get("awaiting_faceswap"):
         return
+
     context.user_data["awaiting_faceswap"] = False
 
     jwt = os.environ.get("HIGGSFIELD_JWT", "").strip()
@@ -597,14 +755,19 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
         uploaded = await _higgsfield_upload(img_bytes, "face.jpg")
         face_image = {"id": uploaded["id"], "url": uploaded["url"], "type": "media_input"}
 
-        ref_id = os.environ.get("HIGGSFIELD_REF_ID", "9c30dcd3-1519-40ba-a6a9-79316070fa65")
+        ref_id = os.environ.get(
+            "HIGGSFIELD_REF_ID", "9c30dcd3-1519-40ba-a6a9-79316070fa65"
+        )
         ref_url = os.environ.get("REFERENCE_IMAGE_URL", "")
         target_image = {"id": ref_id, "url": ref_url, "type": "media_input"}
 
         async with httpx.AsyncClient(timeout=30) as client:
             resp = await client.post(
                 f"{HIGGSFIELD_BASE}/jobs/nano-banana",
-                headers={"Authorization": f"Bearer {jwt}", "Content-Type": "application/json"},
+                headers={
+                    "Authorization": f"Bearer {jwt}",
+                    "Content-Type": "application/json",
+                },
                 json={
                     "params": {
                         "prompt": (
@@ -623,23 +786,27 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
             )
             resp.raise_for_status()
             data = resp.json()
-            job_id = data["job_sets"][0]["jobs"][0]["id"]
 
+        job_id = data["job_sets"][0]["jobs"][0]["id"]
         result_url = await _higgsfield_poll(job_id)
+
         if not result_url:
-            await update.message.reply_text("❌ La génération a échoué ou pris trop de temps.")
+            await update.message.reply_text(
+                "❌ La génération a échoué ou pris trop de temps."
+            )
             return
 
         async with httpx.AsyncClient(timeout=60) as client:
             img_resp = await client.get(result_url)
-        await update.message.reply_photo(photo=BytesIO(img_resp.content))
+            await update.message.reply_photo(photo=BytesIO(img_resp.content))
 
     except Exception as exc:
         logger.exception("Face swap error: %s", exc)
         await update.message.reply_text(f"❌ Erreur: {exc}")
 
+# ── Global error handler ─────────────────────────────────────────────────────────
 
-# ── Global error handler ───────────────────────────────────────────────────────
+
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
     err = context.error
     if isinstance(err, NetworkError):
@@ -649,14 +816,16 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
     else:
         logger.exception("Unhandled exception: %s", err)
 
+# ── Startup hook ─────────────────────────────────────────────────────────────────
 
-# ── Startup hook ───────────────────────────────────────────────────────────────
+
 async def post_init(app: Application) -> None:
     await app.bot.set_my_commands(BOT_COMMANDS)
     logger.info("Bot commands registered with Telegram")
 
+# ── Entry point ──────────────────────────────────────────────────────────────────
 
-# ── Entry point ────────────────────────────────────────────────────────────────
+
 def main() -> None:
     telegram_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
@@ -670,29 +839,34 @@ def main() -> None:
 
     app = Application.builder().token(telegram_token).post_init(post_init).build()
     app.bot_data["ai_client"] = ai_client
-
     app.add_error_handler(error_handler)
 
     # Commands — named elite agents
-    app.add_handler(CommandHandler("start",     cmd_start))
-    app.add_handler(CommandHandler("help",      cmd_start))
-    app.add_handler(CommandHandler("standup",   cmd_standup))
-    app.add_handler(CommandHandler("spy",       cmd_spy))
-    app.add_handler(CommandHandler("analyse",   cmd_analyse))
-    app.add_handler(CommandHandler("inspire",   cmd_inspire))
-    app.add_handler(CommandHandler("marcus",    cmd_marcus))
-    app.add_handler(CommandHandler("sofia",     cmd_sofia))
-    app.add_handler(CommandHandler("alex",      cmd_alex))
-    app.add_handler(CommandHandler("maya",      cmd_maya))
+    app.add_handler(CommandHandler("start", cmd_start))
+    app.add_handler(CommandHandler("help", cmd_start))
+    app.add_handler(CommandHandler("standup", cmd_standup))
+    app.add_handler(CommandHandler("spy", cmd_spy))
+    app.add_handler(CommandHandler("analyse", cmd_analyse))
+    app.add_handler(CommandHandler("inspire", cmd_inspire))
+    app.add_handler(CommandHandler("marcus", cmd_marcus))
+    app.add_handler(CommandHandler("sofia", cmd_sofia))
+    app.add_handler(CommandHandler("alex", cmd_alex))
+    app.add_handler(CommandHandler("maya", cmd_maya))
+
     # Commands — legacy aliases
     app.add_handler(CommandHandler("strategie", cmd_strategie))
-    app.add_handler(CommandHandler("poster",    cmd_poster))
-    app.add_handler(CommandHandler("stats",     cmd_stats))
-    app.add_handler(CommandHandler("channel",   cmd_channel))
-    app.add_handler(CommandHandler("faceswap",  cmd_faceswap))
+    app.add_handler(CommandHandler("poster", cmd_poster))
+    app.add_handler(CommandHandler("stats", cmd_stats))
+    app.add_handler(CommandHandler("channel", cmd_channel))
+    app.add_handler(CommandHandler("faceswap", cmd_faceswap))
 
     # Photo handler for face swap
     app.add_handler(MessageHandler(filters.PHOTO, handle_faceswap_photo))
+
+    # Callback handler for tweet scheduling
+    app.add_handler(
+        CallbackQueryHandler(callback_schedule_tweets, pattern="^schedule_tweets_40k$")
+    )
 
     # Text handler for /alex and /stats replies (must be last)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text_replies))
@@ -702,12 +876,12 @@ def main() -> None:
     post_minute = int(os.environ.get("CHANNEL_POST_MINUTE", "0"))
     app.job_queue.run_daily(
         _scheduled_channel_post,
-        time=datetime.time(hour=post_hour, minute=post_minute, tzinfo=datetime.timezone.utc),
+        time=datetime.time(
+            hour=post_hour, minute=post_minute, tzinfo=datetime.timezone.utc
+        ),
         name="daily_channel_post",
     )
-    logger.info(
-        "Scheduled daily channel post at %02d:%02d UTC", post_hour, post_minute
-    )
+    logger.info("Scheduled daily channel post at %02d:%02d UTC", post_hour, post_minute)
 
     logger.info("Suukalia Team Bot starting — polling...")
     app.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
