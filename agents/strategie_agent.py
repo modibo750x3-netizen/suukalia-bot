@@ -84,24 +84,38 @@ FORT (100k+) :
 
 ═══ TA MISSION ═══
 Créer la VERSION NURSE PRACTITIONER de @lalucigmzz pour Suukalia.
-Mêmes codes viraux (face cam voiture, expression réaction, back view, Day X...) + la dualité nurse qui différencie.
-Angle unique : infirmière praticienne sensuelle — pas juste une IG model.
 Funnel : contenu gratuit (IG/Twitter/Threads) → abonnés Fanvue premium.
+
+═══ RÈGLES NANOBANANA PRO 2 (Higgsfield) ═══
+Pour chaque idée de post, génère un prompt NanoBanana prêt à coller dans Higgsfield.
+RÈGLES STRICTES :
+• Toujours commencer par : shot on iPhone, candid photography
+• Jamais décrire le personnage (la photo référence gère ça)
+• iPhone blanc (iPhone 16 Pro Max) : UNIQUEMENT si mirror selfie ou iPhone visible dans le shot
+• Jamais "tight", "hugging the body", "fitted" — trop flaggué NSFW
+• "locker room" → remplacer par "hospital break room" ou "hospital hallway"
+• Toujours finir par : no filter, authentic
+• Ton éditorial/lifestyle — jamais suggestif dans le prompt
+
+FORMAT PROMPT @suukalia (carousel/photo) :
+shot on iPhone, candid photography, [tenue neutre], [lieu premium], [éclairage], [pose naturelle], no filter, authentic
+
+FORMAT PROMPT @suuki03 (Reel/photo nurse) :
+shot on iPhone, candid photography, navy blue nursing scrubs, [lieu hôpital safe], RN badge on chest with name blurred, [éclairage], [énergie], no filter, authentic
+→ Ajouter "holding white iPhone 16 Pro Max" SEULEMENT si mirror selfie
 
 ═══ FORMAT RÉPONSE ═══
 🎯 POSITIONNEMENT — ce qui rend Suukalia unique vs @lalucigmzz (2-3 lignes)
 📌 3 PILIERS CONTENU — avec 1 exemple de post par pilier
 📅 CALENDRIER 7 JOURS — type de contenu par jour (1 ligne chacun)
-🎞️ 3 IDÉES REELS VIRAUX — pour chaque idée, donne :
-  • Hook (texte exact à afficher à l'écran)
-  • 📍 LIEU: où filmer
-  • 👗 TENUE: quoi porter
-  • 🎬 TOURNAGE: angle / action / durée
-  • 📝 TEXTE ÉCRAN: ce qui apparaît à l'écran (2 premières secondes)
-  • 📋 CAPTION: prête à poster
-  • #️⃣ HASHTAGS: 5-6 hashtags
-  • 🎵 AUDIO: audio suggéré
-#️⃣ HASHTAG STACK — 3 groupes de 5 tags (niche / audience / trending)
+🎞️ 3 IDÉES REELS VIRAUX — pour chaque idée :
+  • Hook (texte exact à l'écran)
+  • 📍 LIEU / 👗 TENUE / 🎬 TOURNAGE / 📝 TEXTE ÉCRAN
+  • 📋 CAPTION prête à poster
+  • #️⃣ HASHTAGS (5-6)
+  • 🎵 AUDIO suggéré
+  • 🤖 NANOBANANA: [prompt exact Higgsfield]
+#️⃣ HASHTAG STACK — 3 groupes de 5 tags
 🚀 1 ACTION PRIORITAIRE cette semaine
 
 MAX 400 mots. Concis, direct, zéro intro."""
@@ -110,7 +124,7 @@ MAX 400 mots. Concis, direct, zéro intro."""
 async def run(client: anthropic.AsyncAnthropic) -> str:
     response = await client.messages.create(
         model="claude-opus-4-6",
-        max_tokens=1500,
+        max_tokens=1800,
         thinking={"type": "adaptive"},
         system=SYSTEM,
         messages=[{
@@ -118,12 +132,10 @@ async def run(client: anthropic.AsyncAnthropic) -> str:
             "content": (
                 "Génère la stratégie contenu de la semaine pour Suukalia, "
                 "inspirée de @lalucigmzz mais version nurse practitioner. "
-                "Pour chaque idée Reel, donne le brief complet de tournage "
-                "(lieu, tenue, angle, texte écran, caption, hashtags, audio). "
-                "Assure-toi que chaque recommandation est unique à Suukalia et "
-                "différencie clairement sa dualité nurse + goddess."
+                "Pour chaque idée Reel, donne le brief complet + le prompt NanoBanana Pro 2 "
+                "prêt à coller dans Higgsfield (shot on iPhone, candid, no filter). "
+                "Assure-toi que chaque prompt NanoBanana respecte les règles Higgsfield strictes."
             ),
         }],
     )
-    return "
-".join(b.text for b in response.content if b.type == "text").strip()
+    return "\n".join(b.text for b in response.content if b.type == "text").strip()
