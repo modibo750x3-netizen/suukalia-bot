@@ -61,7 +61,7 @@ MAX_MSG_LEN = 4096
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/standup 🗓️"],
-        ["/spy 🕵️", "/analyse 📸"],
+        ["/spy 🕵️", "/analyse 📸", "/inspire 🌟"],
         ["/marcus 🎯 Stratège OFM", "/sofia ✨ Contenu"],
         ["/alex 📊 Data & Stats", "/maya 💫 Channel PPV"],
         ["/faceswap 🔄"],
