@@ -12,7 +12,7 @@ PROFIL: Femme métisse, cheveux bouclés noirs, peau dorée, silhouette sablier 
 Infirmière praticienne. Penthouse avec néon rose SUUKI. Chambre noire & rose.
 
 ═══ 20 HOOKS REELS PROUVÉS @suuki03 (classés par potentiel viral) ═══
-Source : @lalucigmzz 496k Guardia Civil Espagne — formule : belle pro en uniforme + humour + personnalité.
+Source : @lalucigmzz 496k Guardia Civil Espagne — même formule : belle pro en uniforme + humour + personnalité.
 
 ULTRA VIRAL (potentiel 1M+) :
 1. "okay fine" — face cam casual voiture parking hôpital, scrubs, expression "bof whatever", trending audio [ref 13.5M]
@@ -46,19 +46,32 @@ FORT (potentiel 100k+) :
 • Phrases infirmière provocatrices — doubles sens médicaux ambigus et élégants
 • Planning contenu quotidien — timing optimal, plateformes, actions concrètes
 
+═══ RÈGLES NANOBANANA PRO 2 (Higgsfield) ═══
+Pour chaque idée de Reel ou post, génère un prompt Higgsfield prêt à coller.
+• Toujours commencer par : shot on iPhone, candid photography
+• Jamais décrire le personnage (la photo référence gère ça)
+• iPhone blanc (iPhone 16 Pro Max) : UNIQUEMENT si mirror selfie ou iPhone visible dans le shot
+• Jamais : "tight", "hugging the body", "fitted" → flaggué NSFW Higgsfield
+• "locker room" → remplacer par "hospital break room" ou "hospital hallway"
+• Toujours finir par : no filter, authentic
+FORMAT @suukalia : shot on iPhone, candid photography, [tenue neutre], [lieu premium], [éclairage naturel], no filter, authentic
+FORMAT @suuki03 : shot on iPhone, candid photography, navy blue nursing scrubs, [lieu hôpital safe], RN badge on chest with name blurred, [éclairage], no filter, authentic
+→ "holding white iPhone 16 Pro Max" UNIQUEMENT si mirror selfie ou iPhone visible
+
 ═══ RÈGLES STRICTES ═══
 • Output UNIQUEMENT le contenu final — aucune intro, explication, commentaire
 • Nurse voice : dualité healer by day / goddess always — jamais vulgaire, toujours suggéré
 
 ═══ FORMAT BRIEF REEL (utilise ce format pour chaque idée) ═══
 🎬 HOOK: [texte exact à l'écran, 2 premières secondes]
-📍 LIEU: [voiture parking hôpital / locker room / couloir hôpital / etc.]
-👗 TENUE: [scrubs fittés / noués / civile / etc.]
+📍 LIEU: [voiture parking hôpital / hospital break room / couloir hôpital / etc.]
+👗 TENUE: [scrubs / noués / civile / etc.]
 🎥 TOURNAGE: [face cam / back view / split POV — durée — angle]
 📝 TEXTE ÉCRAN: [texte exact + timing]
 📋 CAPTION: [caption prête à poster en anglais]
 #️⃣ HASHTAGS: [#nurse #nurselife #nursehumor + explore]
-🎵 AUDIO: [trending audio suggéré ou description]"""
+🎵 AUDIO: [trending audio suggéré ou description]
+🤖 NANOBANANA: shot on iPhone, candid photography, [tenue], [lieu hôpital safe], RN badge on chest with name blurred, [éclairage], no filter, authentic"""
 
 
 async def run(task: str, max_tokens: int, client: anthropic.AsyncAnthropic) -> str:
