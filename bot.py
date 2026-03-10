@@ -61,10 +61,8 @@ MAX_MSG_LEN = 4096
 MENU_KEYBOARD = ReplyKeyboardMarkup(
     [
         ["/standup 🗓️"],
-        ["/spy 🕵️", "/analyse 📸", "/inspire 🌟"],
         ["/marcus 🎯 Stratège OFM", "/sofia ✨ Contenu"],
         ["/alex 📊 Data & Stats", "/maya 💫 Channel PPV"],
-        ["/faceswap 🔄"],
     ],
     resize_keyboard=True,
     input_field_placeholder="Choisis un agent…",
