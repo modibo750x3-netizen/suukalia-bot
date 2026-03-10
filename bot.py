@@ -71,14 +71,10 @@ MENU_KEYBOARD = ReplyKeyboardMarkup(
 # ── Bot commands ─────────────────────────────────────────────────────────────────
 BOT_COMMANDS = [
     BotCommand("standup", "Réunion équipe du jour — tous les agents se briefent"),
-    BotCommand("spy", "Espionner un compte IG — /spy @lalucigmzz"),
-    BotCommand("analyse", "Analyse visuelle browser — /analyse @compte"),
-    BotCommand("inspire", "Inspiration visuelle — /inspire @compte"),
     BotCommand("marcus", "Marcus — Stratège OFM Senior (stratégie semaine)"),
     BotCommand("sofia", "Sofia — Contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]"),
     BotCommand("alex", "Alex — Analyse métriques data & performance"),
     BotCommand("maya", "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
-    BotCommand("faceswap", "Face swap via Higgsfield — envoie une photo"),
 ]
 
 # ── Higgsfield ───────────────────────────────────────────────────────────────────
