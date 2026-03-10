@@ -270,15 +270,11 @@ async def callback_schedule_tweets(update: Update, context: ContextTypes.DEFAULT
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "✨ *Suukalia Elite Team Bot* ✨\n\n"
-        "🗓️ /standup — réunion équipe du jour (tous les agents)\n"
-        "🕵️ /spy @compte — espionner un compte Instagram\n"
-        "📸 /analyse @compte — analyse visuelle browser + Marcus\n"
-        "✨ /inspire @compte — inspiration visuelle + stratégie aesthetic\n\n"
+        "🗓️ /standup — réunion équipe du jour (tous les agents)\n\n"
         "🎯 /marcus — stratégie semaine OFM Senior\n"
         "✨ /sofia — contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n"
         "📊 /alex — analyse métriques & data\n"
-        "💫 /maya — post channel Telegram (1300 abonnés)\n"
-        "🔄 /faceswap — face swap via Higgsfield\n\n"
+        "💫 /maya — post channel Telegram (1300 abonnés)\n\n"
         "Utilise les boutons ci-dessous 👇",
         reply_markup=MENU_KEYBOARD,
         parse_mode="Markdown",
