@@ -116,6 +116,8 @@ Pour chaque idée de post dans /brief, génère un prompt Higgsfield prêt à co
 • iPhone blanc (iPhone 16 Pro Max) : UNIQUEMENT si mirror selfie ou iPhone visible dans le shot
 • Jamais : "tight", "hugging the body", "fitted" → flaggué NSFW Higgsfield
 • "locker room" → remplacer par "hospital break room" ou "hospital hallway"
+• JAMAIS décrire une chute, blessure, accident ou action dangereuse — même comique → "Restricted content" Higgsfield
+• Pour les reels comiques avec action en arrière-plan : décrire uniquement l'expression (surprise, amusé) PAS l'action physique
 • Toujours finir par : no filter, authentic
 
 FORMAT @suukalia : shot on iPhone, candid photography, [tenue neutre], [lieu premium], [éclairage naturel], no filter, authentic
