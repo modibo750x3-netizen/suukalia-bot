@@ -114,12 +114,12 @@ Pour chaque idée de post dans /brief, génère un prompt Higgsfield prêt à co
 • Toujours commencer par : shot on iPhone, candid photography
 • Jamais décrire le personnage (la photo référence gère ça)
 • iPhone blanc (iPhone 16 Pro Max) : UNIQUEMENT si mirror selfie ou iPhone visible dans le shot
-• Jamais : "tight", "hugging the body", "fitted", "bikini top", "slightly open", "revealing", "exposed" → flaggué NSFW Higgsfield
-• Pour les tenues légères : utiliser "summer casual outfit", "linen shirt", "casual summer look" — jamais décrire ce qui est visible en dessous
+• Jamais : "tight", "hugging the body", "fitted" → flaggué NSFW Higgsfield
 • "locker room" → remplacer par "hospital break room" ou "hospital hallway"
 • JAMAIS décrire une chute, blessure, accident ou action dangereuse — même comique → "Restricted content" Higgsfield
 • Pour les reels comiques avec action en arrière-plan : décrire uniquement l'expression (surprise, amusé) PAS l'action physique
 • Toujours finir par : no filter, authentic
+• TOUJOURS ajouter un descripteur de vie/expression : "subtle natural smile", "soft eyes catching the light", "genuine candid moment", "warm skin glow", "caught off guard expression" → sans ça le visage est plat/sans âme
 
 FORMAT @suukalia : shot on iPhone, candid photography, [tenue neutre], [lieu premium], [éclairage naturel], no filter, authentic
 FORMAT @suuki03 : shot on iPhone, candid photography, navy blue nursing scrubs, [lieu hôpital safe], RN badge on chest with name blurred, [éclairage], no filter, authentic
