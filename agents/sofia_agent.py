@@ -30,13 +30,12 @@ TOP POSTS MESURÉS @suukalia :
 • 59.6k likes → Carousel mirror selfie bodysuit beige crouching — caption : "suukalia 🤍🧡"
 • 31.4k likes → Carousel leather jacket all-black full body — caption : "Soft face, strong aura"
 Règles : carousel TOUJOURS 2-3 slides, captions max 4 mots + emoji, warm/moody lighting, contexte premium
-⚨️ Ne jamais répéter des looks déjà postés (ex: leopard bikini sauna déjà fait)
+⚠️ Ne jamais répéter des looks déjà postés (ex: leopard bikini sauna déjà fait)
 
 TOP REELS @suuki03 :
 • 115k vues → "I'm so Single that I message everybody that follows me..."
 • 108k vues → "Day 49 without getting my [emoji] eaten (I scare all men because I'm a nurse)"
 • 70k vues → "6 a.m 🥴 locker room mirror selfie"
-
 Twitter 40k · 14k feeder · Threads 23k. Monétisation Fanvue.
 
 ━━━ 20 HOOKS REELS PROUVÉS @suuki03 ━━━
@@ -74,6 +73,7 @@ Exemples : "moon knows what's coming tonight 🐱🖤" / "my only loyal man 🖤
 Moon = authenticité lifestyle, hook organique, jamais forcé.
 
 ━━━ TON EXPERTISE ━━━
+
 INSTAGRAM PRINCIPAL (75K)
 Lifestyle, bikini, penthouse aesthetic. Captions confident, flirty, élevées.
 Moon intégré naturellement dans au moins 1 caption sur 3.
@@ -91,7 +91,9 @@ Caption Secondaire (15.7k) : nurse, professional, subtle désir.
 TWITTER (X) — 2 COMPTES
 Compte principal 40k : 4-6 tweets/jour. Style novathaOG. 80% body/desire + 20% nurse practitioner.
 All lowercase. 0 hashtag. 1 phrase max. 1 emoji max si vraiment justifié.
-Raw thought, real, typed fast. Style : "i know exactly where to put my hands 🩺" / "my body is its own aesthetic"
+Raw thought, real, typed fast.
+Style : "i know exactly where to put my hands 🩺" / "my body is its own aesthetic"
+
 Compte feeder 14k : 3-4 tweets/jour. Reposts sélectifs du compte 40k + redirections vers le compte principal.
 Format redirect : "[original tweet] — → @suukalia" ou "go follow @suukalia for the rest 🔒"
 
@@ -115,6 +117,7 @@ Pour chaque idée de post dans /brief, génère un prompt Higgsfield prêt à co
 • Jamais : "tight", "hugging the body", "fitted" → flaggué NSFW Higgsfield
 • "locker room" → remplacer par "hospital break room" ou "hospital hallway"
 • Toujours finir par : no filter, authentic
+
 FORMAT @suukalia : shot on iPhone, candid photography, [tenue neutre], [lieu premium], [éclairage naturel], no filter, authentic
 FORMAT @suuki03 : shot on iPhone, candid photography, navy blue nursing scrubs, [lieu hôpital safe], RN badge on chest with name blurred, [éclairage], no filter, authentic
 → "holding white iPhone 16 Pro Max" UNIQUEMENT si mirror selfie ou iPhone visible
@@ -122,7 +125,6 @@ FORMAT @suuki03 : shot on iPhone, candid photography, navy blue nursing scrubs, 
 ━━━ TON NATUREL ━━━
 Parle comme une vraie directrice créative — directe, énergique, sans blabla.
 Une ligne d'intro max, puis directement le contenu prêt à poster.
-Pas de gros titres formatés avec des séparateurs.
 Pas de commentaires après chaque post.
 Les captions, tweets et posts sont exactement comme ils seraient publiés — rien de plus.
 Termine par "— Sofia" (sobre, pas d'emoji inutile).
@@ -132,26 +134,25 @@ Termine par "— Sofia" (sobre, pas d'emoji inutile).
 • Contenu social (captions IG, tweets, posts Threads, teasers PPV) : ANGLAIS obligatoire
 • Output UNIQUEMENT le contenu — aucun commentaire superflu
 • Chaque post prêt à copier-coller immédiatement
-• Max 5 lignes par réponse — court et clair, pas de murs de texte
 • Toujours terminer par "— Sofia"
 """
 
 _PROMPTS: dict[str, tuple[str, int]] = {
     "ig": (
         "Generate Instagram captions in ENGLISH for Suukalia's 2 accounts.\n\n"
-        "IG MAIN 75K — 2 lifestyle/bikini captions\n"
+        "IG MAIN 75K — 2 carousel captions (2-3 slides each)\n"
         "Format: caption + emojis + 15 hashtags lifestyle\n"
         "Naturally include Moon in at least 1 caption.\n\n"
         "IG SECONDARY 15.7K — 2 nurse practitioner captions\n"
         "Format: caption + emojis + 15 hashtags nurse\n"
         "Angle: medical expertise + premium lifestyle, different from main account.",
-        1000,
+        1200,
     ),
     "collab": (
         "Same photo posted on both accounts. 2 completely different captions in ENGLISH.\n\n"
         "CAPTION IG MAIN 75K — lifestyle, flirty, Moon if natural + 15 hashtags\n\n"
         "CAPTION IG SECONDARY 15.7K — nurse, professional, subtle + 15 nurse hashtags",
-        600,
+        800,
     ),
     "twitter": (
         "Generate Twitter content in ENGLISH.\n\n"
@@ -161,7 +162,7 @@ _PROMPTS: dict[str, tuple[str, int]] = {
     ),
     "threads": (
         "Generate 3 Threads posts in ENGLISH. 2-3 sentences + final question each.",
-        500,
+        600,
     ),
     "ppv": (
         "Generate 3 Fanvue PPV teasers in ENGLISH. Mystery + desire + urgency. Short.",
@@ -171,29 +172,58 @@ _PROMPTS: dict[str, tuple[str, int]] = {
         "Génère 2 Reels pour @suuki03 et 1 pour @suukalia. Pour chaque idée :\n"
         "🎯 HOOK:\n📍 LIEU:\n👗 TENUE:\n🎥 TOURNAGE:\n📝 TEXTE ÉCRAN:\n"
         "📋 CAPTION:\n#️⃣ HASHTAGS:\n🎵 AUDIO:\n🤖 NANOBANANA:",
-        1200,
+        1500,
     ),
     "all": (
-        "Generate content in ENGLISH for all platforms.\n\n"
-        "IG MAIN 75K — 2 captions + hashtags (Moon in 1)\n"
-        "IG SECONDARY 15.7K — 2 nurse captions + hashtags\n"
-        "TWITTER 40K — 4 tweets novathaOG style\n"
-        "FEEDER 14K — 3 reposts + redirections\n"
-        "THREADS — 3 posts + final question",
-        2000,
+        """Génère le PLAN CONTENU DU JOUR complet pour Suukalia. Sois précise et actionnable.
+
+FORMAT OBLIGATOIRE — respecte exactement cette structure :
+
+━━━ 📸 IG PRINCIPAL @suukalia — Poster à 12h ━━━
+Type : Carousel [X] slides
+Caption (prête à coller) :
+Hashtags :
+Prompt Higgsfield :
+
+━━━ 📸 IG SECONDAIRE @suuki03 — Poster à 14h ━━━
+Type : Reel OU Carousel [X] slides
+Caption (prête à coller) :
+Hashtags :
+Hook Reel (si reel) :
+Prompt Higgsfield :
+
+━━━ 🐦 TWITTER 40K ━━━
+8h → [tweet]
+12h → [tweet]
+17h → [tweet]
+21h → [tweet]
+
+━━━ 🐦 FEEDER 14K ━━━
+Repost 1 → [tweet + redirection @suukalia]
+Repost 2 → [tweet + redirection @suukalia]
+Repost 3 → [tweet + redirection @suukalia]
+
+━━━ 🧵 THREADS — Poster à 19h ━━━
+Post 1 :
+Post 2 :
+Post 3 :
+
+Contenu social en ANGLAIS. Prêt à copier-coller. Pas de commentaires superflus.""",
+        2500,
     ),
 }
 
 _STANDUP_PROMPT = (
     "C'est la réunion quotidienne. Plan contenu du jour pour Suukalia. "
-    "IG 75k, IG 15.7k, Twitter, Threads, PPV si prévu. Max 5 lignes. Actionnable."
+    "IG 75k, IG 15.7k, Twitter, Threads, PPV si prévu. "
+    "Format : agent + action + timing. Concis et actionnable."
 )
 
 
 async def run_standup(client: anthropic.AsyncAnthropic) -> str:
     response = await client.messages.create(
         model="claude-opus-4-6",
-        max_tokens=400,
+        max_tokens=500,
         system=SYSTEM,
         messages=[{"role": "user", "content": _STANDUP_PROMPT}],
     )
