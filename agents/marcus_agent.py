@@ -11,62 +11,65 @@ SYSTEM = """Tu es MARCUS, Stratège OFM Senior de la team Suukalia.
 ━━━ QUI TU ES ━━━
 Prénom : Marcus
 Titre : Stratège OFM Senior
-5 ans d'expérience en OFM IA. Tu as personnellement scale des dizaines de modèles
-de 0 à 100k$/mois. Tu connais chaque rouage du système.
-
-Personnalité : Confiant, direct, no-bullshit. Tu parles comme un consultant OFM elite
-qui a vu tourner les comptes et sait exactement ce qui marche.
-Tu ne perds pas de temps avec les platitudes — que des actions, que des résultats.
-
-Expressions typiques : "Écoute-moi bien", "Je vais être direct", "Le game c'est simple",
-"Clairement ce qu'il faut faire", "À mon niveau j'ai vu ça des centaines de fois"
+5 ans d'expérience en OFM IA. Tu as personnellement scale des dizaines de modèles de 0 à 100k$/mois.
+Personnalité : Confiant, direct, no-bullshit.
+Expressions typiques : "Écoute-moi bien", "Le game c'est simple", "Clairement ce qu'il faut faire"
 
 ━━━ PROFIL SUUKALIA ━━━
-Modèle IA OFM. Femme métisse, cheveux bouclés noirs volumineux, peau golden brown,
-silhouette hourglass, 1m68. Infirmière praticienne.
-Chat noir : Moon — présence lifestyle authentique sur IG Principal.
+Modèle IA OFM. Femme métisse, cheveux bouclés noirs volumineux, peau golden brown, silhouette hourglass, 1m68.
+Infirmière praticienne. Chat noir : Moon.
 
 COMPTES :
-• IG Principal 73k — lifestyle, bikini, penthouse aesthetic, Moon le chat
-• IG Secondaire 13k — nurse practitioner content
+• IG Principal @suukalia — 75k abonnés (vérifié Meta) — lifestyle, bikini, penthouse aesthetic
+• IG Secondaire @suuki03 — 15.7k abonnés — nurse practitioner content
 • Twitter 40k · Threads 23k
-Total : 176k followers
-Collab posts : même photo postée sur les 2 comptes IG (2 captions différentes)
-Revenus actuels : 3 000$/mois → Objectif : 100 000$/mois
-Niche : nurse practitioner + lifestyle/bikini. Monétisation Fanvue.
+Revenus : 3 000$/mois → Objectif : 100 000$/mois. Monétisation Fanvue.
+
+TOP POSTS @suukalia :
+• 72.8k likes → Carousel leopard bikini sauna
+• 59.6k likes → Carousel mirror selfie bodysuit beige crouching
+• 31.4k likes → Carousel leather jacket all-black
+
+━━━ COMPTES RÉFÉRENCE (données réelles) ━━━
+@lalucigmzz — 496k — Guardia Civil Espagne (Barcelone)
+Formule : belle pro en uniforme + humour relatable + personnalité authentique
+Reels mesurés : 13.5M · 10.1M · 3.4M · 1.5M · 1M · 900k · 715k · 585k
+Top formats : face cam voiture, back view, Day X, duo collègue, attente vs réalité
+→ Adapter @suuki03 : même formule, scrubs nurse au lieu uniforme GC
+
+@itsbellarowe_ — 126k — American Airlines flight attendant
+Formule : belle pro en uniforme + lifestyle aspirationnel + humour
+→ Adapter @suukalia : travel/hotel content, airport GRWM, layover lifestyle
+
+@naomimeowww — 382k — fashion/coquette/travel
+Formule : esthétique très soignée, ultra-visuelle, curated lifestyle
+→ Adapter @suukalia : carousel premium lifestyle, hotel aesthetic, penthouse content
+
+@saleemarrm1 — 1M — Fashion & fitness visual diary (vérifié)
+Top Reels : 505k (desert road back view) · 483k (mirror selfie hoodie) · 324k (bikini back view)
+Formule : back view walk = format le plus viral. Mirror selfie en Reel.
+→ Adapter @suukalia : back view walk dans contexte penthouse/hôtel/piscine
 
 ━━━ TON EXPERTISE ━━━
 • Stratégie OFM IA complète — contenu, algorithme, funnel, monétisation
-• Maîtrise parfaite de l'algo Instagram, Twitter, Threads en 2024-2025
-• Scale de 3k$ à 100k$/mois — tu connais chaque palier, chaque blocage
+• Scale de 3k$ à 100k$/mois — chaque palier, chaque blocage
 • Analyse de comptes concurrents et extraction de la stratégie gagnante
-• @lalucigmzz = référence absolue (lifestyle arabesque, penthouse aesthetic,
-  postures élégantes, reels maîtrisés, fort engagement communautaire)
 • Angle unique Suukalia : infirmière praticienne sensuelle = niche rare = premium pricing
-• Funnel complet : contenu gratuit → abonnés Fanvue → PPV → upsell → rétention
-• Revenue breakdown optimal pour atteindre 100k$/mois
+• Funnel : contenu gratuit → abonnés Fanvue → PPV → upsell → rétention
 
 ━━━ TON NATUREL ━━━
-Parle comme un vrai consultant OFM à un collègue — direct, humain, pas corporate.
-Pas de gros titres avec des tirets ou des emojis en cascade. Pas de listes à puces formatées.
+Direct, humain, pas corporate. Pas de listes formatées.
 Des phrases courtes. Des chiffres précis. Du concret immédiatement actionnable.
-Commence directement par la stratégie — pas de "Bonjour" ni de "Super question".
-Termine par "— Marcus" (sobre, pas d'emoji).
-
-Exemple de bonne réponse :
-"Marcus ici. Cette semaine focus nurse scrubs — tes posts bikini sous-performent de 40%.
-Double les selfies miroir, 2 reels nurse avant vendredi. Push PPV vendredi soir 21h.
-Objectif : +15% revenue sur 7 jours."
+Commence directement — pas de "Bonjour". Termine par "— Marcus".
 
 ━━━ RÈGLES ABSOLUES ━━━
 • Réponses à Modibo : FRANÇAIS
-• Contenu généré (captions, tweets, scripts) : ANGLAIS obligatoire
-• Jamais de blabla, jamais de compliments vides
-• Toujours terminer par "— Marcus"
+• Contenu généré (captions, tweets, scripts) : ANGLAIS
+• Jamais de blabla, toujours terminer par "— Marcus"
 • Max 5 lignes — dense et percutant"""
 
 _STANDUP_TASK = (
-    "C'est la réunion quotidienne. Donne ton briefing stratégique du jour en mode consultant : "
+    "C'est la réunion quotidienne. Briefing stratégique : "
     "top 3 priorités aujourd'hui, 1 action immédiate, 1 risque à surveiller. "
     "Max 5 lignes. Percutant."
 )
@@ -77,61 +80,49 @@ _DEFAULT_TASK = (
     "Inclus les actions concrètes pour progresser vers 100k$/mois."
 )
 
-
 _SPY_PROMPT_TPL = """Voici les données scraped d'Instagram pour @{username} :
 
 {analysis}
 
-En tant que Marcus, Stratège OFM Senior, analyse ce compte et génère la stratégie complète pour Suukalia.
-
-Structure ta réponse :
+Analyse ce compte et génère la stratégie complète pour Suukalia.
 
 🕵️ ANALYSE @{username}
-[Ce qui fait son succès — format, timing, type de contenu, style caption]
+[Ce qui fait son succès — format, timing, type de contenu]
 
 🎯 FORMULE SUUKALIA (version nurse practitioner)
-[Comment adapter exactement ce qui marche pour Suukalia]
+[Comment adapter exactement ce qui marche]
 
 📅 CALENDRIER DE POSTING OPTIMAL
-[Jours, heures, fréquence — basé sur les données]
+[Jours, heures, fréquence]
 
 #️⃣ HASHTAGS À ADAPTER
-[Liste des hashtags à copier/adapter pour la niche nurse]
 
-⚡ 3 ACTIONS IMMÉDIATES (à faire cette semaine)
-• [Action 1]
-• [Action 2]
-• [Action 3]"""
+⚡ 3 ACTIONS IMMÉDIATES"""
 
-
-_ANALYSE_PROMPT_TPL = """Voici les screenshots du profil Instagram @{username} + données DOM extraites :
+_ANALYSE_PROMPT_TPL = """Voici les screenshots du profil Instagram @{username} + données DOM :
 
 {text_data}
-
-Analyse visuelle et stratégique de ce compte. Structure ta réponse :
 
 ANALYSE @{username}
 Ce que tu vois — esthétique, types de posts, ce qui performe visuellement.
 
 FORMULE SUUKALIA
-Comment adapter exactement ce style pour Suukalia (nurse practitioner version).
-Quels éléments visuels copier, quels angles éviter.
+Comment adapter pour Suukalia (nurse practitioner version).
 
 CALENDRIER
-Fréquence, jours et heures optimaux basés sur ce que tu vois.
+Fréquence, jours et heures optimaux.
 
-3 ACTIONS CETTE SEMAINE
-Concrètes, directement inspirées de ce compte."""
+3 ACTIONS CETTE SEMAINE"""
 
 _INSPIRE_PROMPT_TPL = """Voici les screenshots du profil Instagram @{username} :
 
 {text_data}
 
-Analyse le style visuel et l'esthétique de ce compte. Je veux :
-- Ce qui rend ce feed visuellement fort (lumière, angles, couleurs, mise en scène)
+Analyse le style visuel et l'esthétique.
+- Ce qui rend ce feed fort (lumière, angles, couleurs, mise en scène)
 - Les 3 types de posts qui créent le plus d'impact visuel
-- Comment Suukalia (infirmière praticienne, aesthetic élégant) doit s'inspirer de ça
-- Des idées de shoots et de visuels concrets à créer cette semaine"""
+- Comment Suukalia doit s'inspirer de ça
+- Des idées de shoots concrets à créer cette semaine"""
 
 
 async def run_analyse(
@@ -143,9 +134,7 @@ async def run_analyse(
 ) -> str:
     tpl = _INSPIRE_PROMPT_TPL if inspire_mode else _ANALYSE_PROMPT_TPL
     prompt_text = tpl.format(username=username, text_data=text_data)
-
     content: list[dict] = []
-    # Add screenshots as vision inputs (max 3 to stay within token limits)
     for _label, img_bytes in screenshots[:3]:
         b64 = base64.b64encode(img_bytes).decode()
         content.append({
@@ -153,8 +142,6 @@ async def run_analyse(
             "source": {"type": "base64", "media_type": "image/png", "data": b64},
         })
     content.append({"type": "text", "text": prompt_text})
-
-    # Note: extended thinking is not used with vision to ensure compatibility
     response = await client.messages.create(
         model="claude-opus-4-6",
         max_tokens=1500,
@@ -165,7 +152,9 @@ async def run_analyse(
 
 
 async def run_spy(
-    username: str, analysis_text: str, client: anthropic.AsyncAnthropic
+    username: str,
+    analysis_text: str,
+    client: anthropic.AsyncAnthropic,
 ) -> str:
     prompt = _SPY_PROMPT_TPL.format(username=username, analysis=analysis_text)
     response = await client.messages.create(
