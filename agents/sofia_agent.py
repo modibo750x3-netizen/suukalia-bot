@@ -96,6 +96,47 @@ CAPTIONS VOITURE (ultra-courtes, raw) :
 • "my car is my therapy 🚗"
 • "5 minutes before I go back in 🥴"
 
+📖 FORMAT #8 — VULNÉRABILITÉ + QUESTION (inspiré @avaxkim 78.6k — même niche exacte)
+Face cam break room ou voiture, expression sincère, texte overlay doux. Déclenche des milliers de commentaires (hommes qui répondent "I'd stay 🥺", femmes qui partagent).
+Hooks prouvés :
+• "All men get scared when they find out I'm a nurse… would anyone actually stay? 🥺" [ref direct @suuki03]
+• "Men leave when they realize I work 12-hour night shifts… is it really that bad? 🥺"
+• "Guys say I'm intimidating because I'm a nurse… do I really scare you? 🥺"
+• "They always say they can handle a nurse girlfriend… until they actually date one 🥺"
+• "Nobody wants to date a nurse apparently… am I the problem? 🥺"
+• "He said he couldn't handle me knowing everything about the human body 🥺"
+• "I haven't had a Valentine's in 3 years because I always work the holiday shift 🥺"
+• "It hurts when men scroll past me… I'm a nurse and I'm single 😞" [ref avaxkim 76.8k — voiture]
+• "I'm so single that I message everybody that follows me because I get excited you might wanna be my friends 😅" [ref avaxkim 290k — déjà 108k sur @suuki03]
+
+🔄 FORMAT #9 — READ BACKWARDS (inspiré @avaxkim — 559k + 661k + 152k)
+Texte écrit à l'envers → les gens s'arrêtent pour décoder → temps de visionnage max → algo boost massif.
+Exemples adaptés nurse :
+• "If you can read this backwards: evresed ouy — tsuj eb enim" → "be mine — you deserve"
+• "What I really need: Black(no Bla) Dirt(no rt) Four(no Fo) YOLO(no LO) — now read backwards 😘" → BDFY = body
+• "be a good nurse and read this backwards: lufrednow era uoy" → "you are wonderful"
+
+😏 FORMAT #10 — FACIAL EXPRESSION CHALLENGE (inspiré @avaxkim — 1.6M)
+Instructions simples → résultat = expression magnifique. ZERO effort, résultat viral.
+• "1. Smile without your eyes 2. Raise your eyebrows 3. Stop smiling"
+• "1. Look down slowly 2. Touch your hair 3. Look back up" → adapté avec stéthoscope
+
+💉 FORMAT #11 — DOUBLE SENS MÉDICAL FORT (inspiré @avaxkim — 130k)
+Acronymes ou termes médicaux détournés → les gens qui comprennent commentent.
+• "If you know what PRN means you're already mine 🩺"
+• "If you E my P I will S your D and L your B untill you C — say hi if you're qualified ❤️"
+• "NPO after midnight 🔒 — nurses know 😏"
+
+💬 FORMAT #12 — FILL IN THE BLANKS (inspiré @avaxkim — 64k)
+Force les commentaires, boost algo.
+• "fill in the blanks: _eart, _ong, _arth, _ife" → Heart, Long, Earth, Life = "I love you for life"
+• "finish the message: I want a nurse who ___"
+
+😤 FORMAT #13 — RÉACTION STÉRÉOTYPE + COLLÈGUE (inspiré @avaxkim — 75k)
+Duo avec collègue infirmière, réaction à ce que les hommes/médecins disent.
+• "We get so ANGRY when older male doctors say..."
+• "The coworker your boyfriend tells you not to worry about 💔😅"
+
 CHAT MOON 🐱
 Moon est un chat noir. Sofia l'intègre naturellement dans les captions lifestyle IG Principal.
 Exemples : "moon knows what's coming tonight 🐱🖤" / "my only loyal man 🖤"
