@@ -38,34 +38,63 @@ TOP REELS @suuki03 :
 • 70k vues → "6 a.m 🥴 locker room mirror selfie"
 Twitter 40k · 14k feeder · Threads 23k. Monétisation Fanvue.
 
-━━━ 20 HOOKS REELS PROUVÉS @suuki03 ━━━
-Source : @lalucigmzz 496k Guardia Civil — formule : belle pro en uniforme + humour + personnalité
+━━━ FORMATS REELS PROUVÉS @suuki03 ━━━
+Source principale : @lalucigmzz 497k Guardia Civil (analysée en détail) — formule : belle pro en uniforme + humour + personnalité
 
-ULTRA VIRAL (1M+) :
-1. "okay fine" — face cam casual voiture parking hôpital [ref 13.5M]
-2. "What my coworkers see vs what I actually look like" — split collègues → face cam seule [ref 1.5M]
-3. "For those who say nurses are patient... (wait)" — candid chaos hôpital [ref 10.1M équivalent]
+🚗 FORMAT #1 — CAR FACE CAM (priorité absolue — 10.1M + 13.5M chez lalucigmzz)
+Face cam dans la voiture parking hôpital, scrubs, texte humour overlay, caption ultra courte.
+Hooks :
+• "okay fine... I'm a nurse who looks like this 🩺" [ref 13.5M]
+• "for those who said nurses don't slay... (wait)" [ref 10.1M]
+• "who misbehaved today? 👀 🩺" [ref 1M]
+• "parking lot thoughts after a 12h shift 🚗🩺"
+• "Men freak out when they find out I'm a nurse because..." [ref 1M]
+• "just got off my 12h shift and my coworker had the nerve to say..."
+Tournage : voiture parking hôpital, face cam angle légèrement bas, lumière naturelle fenêtre
 
-TRÈS FORT (500k+) :
-4. "When the 80-year-old patient starts flirting" — réaction incrédule [ref 3.4M]
-5. "Men freak out when they find out I'm a nurse because..." — face cam voiture [ref 1M]
-6. "Being a nurse is easy... (wait)" — expression sereine → coupure chaos [ref 585k]
-7. Getting dressed for 12h shift — back view, se mettre en scrubs [ref 850k]
-8. "Me after my 12-hour shift" — transition scrubs → tenue civile glam parking [ref 715k]
-9. "Male doctors when a female nurse is right" — réaction stéréotype [ref 900k]
+🔄 FORMAT #2 — TRANSITION maison/glam → travail (268k–857k)
+À la maison en bikini ou tenue glam → scrubs à l'hôpital. DOS à la caméra dans couloir.
+Hooks :
+• "me at home vs me at work 🩺"
+• "8am vs 8pm 🌙"
+• "yo en el curro" (version nurse)
+• "What people expect a nurse to look like vs me" [déjà 70k sur @suuki03]
+• "Me single vs me at work" [ref 489k]
+2 prompts NanoBanana : slide 1 (glam) + slide 2 (scrubs)
 
-FORT (100k+) :
-10. "6 AM 🥴 locker room mirror selfie" — miroir scrubs, expression fatiguée/cute [déjà 70k]
-11. "The hot patient said..." — story face cam avec punch line [ref 510k]
-12. Duo avec collègue infirmière dans couloir [ref 409k]
-13. "Me single vs me at work" — transition casual → scrubs [ref 489k]
-14. "Day X without a patient asking me to be their personal nurse" [déjà 108k]
-15. "What people expect a nurse to look like vs me" [ref 360k]
-16. "Valentine's Day at the hospital" — holiday at work [ref 345k]
-17. "Halloween shift — the real monsters are the call lights"
-18. "When you finally DM the guy from your comments" — face cam teaser [ref ~500k]
-19. "2015... when I knew I wanted to be a nurse" — throwback origin [ref ~300k]
-20. "Nurse fitness: exercise #3 — The squat" — humour fitness couloir [ref 353k]
+🚶 FORMAT #3 — DOS CAMÉRA couloir hôpital (857k)
+Elle marche dans le couloir, dos caméra, scrubs, musique tendance. Zéro parole. Juste les courbes.
+Tournage : couloir hôpital, marche naturelle vers l'avant, caméra posée derrière
+
+😏 FORMAT #4 — FACE CAM BREAK ROOM — punchline (590k)
+Elle construit une narrative, parle direct à l'objectif, uniforme, bureau ou break room.
+Hooks :
+• "Being a nurse is easy... (wait) 🩺" [ref 585k]
+• "Who misbehaved? 👀" [ref 590k équivalent]
+• "Day X without a patient asking me to be their personal nurse" [déjà 108k]
+• "When the 80-year-old patient starts flirting" [ref 3.4M]
+• "Male doctors when a female nurse is right" [ref 900k]
+
+🌙 FORMAT #5 — VOITURE NUIT APRÈS SHIFT (698k)
+Après le 12h, dans la voiture de nuit, lumière de ville, moins habillée.
+Hooks :
+• "after my 12h shift 🌙"
+• "20:00 👀 my coworker made me..."
+
+👯 FORMAT #6 — DUO COLLÈGUE (414k–1.5M)
+Deux infirmières dans le couloir/bureau, pose naturelle.
+• "What my coworkers see vs what I actually look like" [ref 1.5M]
+
+📍 FORMAT #7 — LIEU PUBLIC EN SCRUBS (humour)
+Café, parking, supermarché en scrubs → contraste uniforme + lieu banal = fort
+• "who's coming with me? 💀🩺"
+
+CAPTIONS VOITURE (ultra-courtes, raw) :
+• "okay fine 🙃"
+• "parking lot thoughts 🤍"
+• "just got off a 12h shift and..."
+• "my car is my therapy 🚗"
+• "5 minutes before I go back in 🥴"
 
 CHAT MOON 🐱
 Moon est un chat noir. Sofia l'intègre naturellement dans les captions lifestyle IG Principal.
