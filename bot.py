@@ -32,8 +32,11 @@ from telegram.ext import (
 )
 
 import re
+import tempfile
+import subprocess
 
 import pytz
+import replicate
 import tweepy
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CallbackQueryHandler
@@ -75,6 +78,7 @@ BOT_COMMANDS = [
     BotCommand("sofia", "Sofia — Contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]"),
     BotCommand("alex", "Alex — Analyse métriques data & performance"),
     BotCommand("maya", "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
+    BotCommand("lipsync", "Lip-sync MuseTalk — corriger les lèvres d'une vidéo"),
 ]
 
 # ── Higgsfield ───────────────────────────────────────────────────────────────────
@@ -274,7 +278,8 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "🎯 /marcus — stratégie semaine OFM Senior\n"
         "✨ /sofia — contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]\n"
         "📊 /alex — analyse métriques & data\n"
-        "💫 /maya — post channel Telegram (1300 abonnés)\n\n"
+        "💫 /maya — post channel Telegram (1300 abonnés)\n"
+        "🎙️ /lipsync — corriger les lèvres d'une vidéo (MuseTalk)\n\n"
         "Utilise les boutons ci-dessous 👇",
         reply_markup=MENU_KEYBOARD,
         parse_mode="Markdown",
@@ -781,6 +786,114 @@ async def handle_faceswap_photo(update: Update, context: ContextTypes.DEFAULT_TY
         logger.exception("Face swap error: %s", exc)
         await update.message.reply_text(f"❌ Erreur: {exc}")
 
+# ── /lipsync — MuseTalk lip-sync via Replicate ──────────────────────────────
+
+
+async def cmd_lipsync(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Start lip-sync flow. Optional: /lipsync 5 to shift mouth openness."""
+    bbox_shift = 0
+    if context.args:
+        try:
+            bbox_shift = int(context.args[0])
+        except ValueError:
+            pass
+    context.user_data["awaiting_lipsync"] = True
+    context.user_data["lipsync_bbox_shift"] = bbox_shift
+    shift_info = f" (bbox_shift={bbox_shift})" if bbox_shift else ""
+    await update.message.reply_text(
+        f"🎙️ Lip-sync MuseTalk{shift_info}\n\n"
+        "Envoie-moi ta vidéo Kling — je vais corriger les lèvres !\n\n"
+        "_(Astuce: /lipsync 5 → plus d'ouverture bouche, /lipsync -5 → moins)_",
+        parse_mode="Markdown",
+    )
+
+
+async def handle_lipsync_video(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Process video for lip-sync when awaiting."""
+    if not context.user_data.get("awaiting_lipsync"):
+        return
+
+    context.user_data["awaiting_lipsync"] = False
+    bbox_shift = context.user_data.pop("lipsync_bbox_shift", 0)
+
+    replicate_token = os.environ.get("REPLICATE_API_TOKEN", "").strip()
+    if not replicate_token:
+        await update.message.reply_text("❌ REPLICATE_API_TOKEN non configuré.")
+        return
+
+    video = update.message.video or update.message.document
+    if not video:
+        await update.message.reply_text("❌ Envoie une vidéo (pas une photo).")
+        context.user_data["awaiting_lipsync"] = True
+        return
+
+    await update.message.reply_chat_action(ChatAction.UPLOAD_VIDEO)
+    await update.message.reply_text(
+        "⏳ Lip-sync en cours… MuseTalk traite ta vidéo (~5-8 min)\n"
+        "Je t'envoie le résultat dès que c'est prêt."
+    )
+
+    try:
+        # 1. Download video from Telegram
+        tg_file = await context.bot.get_file(video.file_id)
+        tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+        video_url = f"https://api.telegram.org/file/bot{tg_token}/{tg_file.file_path}"
+
+        async with httpx.AsyncClient(timeout=60) as dl:
+            vid_resp = await dl.get(video_url)
+            video_bytes = vid_resp.content
+
+        # 2. Extract audio from video using ffmpeg
+        with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as vf:
+            vf.write(video_bytes)
+            video_path = vf.name
+
+        audio_path = video_path.replace(".mp4", ".wav")
+        proc = subprocess.run(
+            ["ffmpeg", "-y", "-i", video_path, "-vn", "-acodec", "pcm_s16le",
+             "-ar", "16000", "-ac", "1", audio_path],
+            capture_output=True, timeout=60,
+        )
+        if proc.returncode != 0:
+            await update.message.reply_text("❌ Impossible d'extraire l'audio de la vidéo.")
+            return
+
+        # 3. Send to MuseTalk on Replicate
+        client = replicate.Client(api_token=replicate_token)
+        with open(video_path, "rb") as vf, open(audio_path, "rb") as af:
+            output = client.run(
+                "douwantech/musetalk",
+                input={
+                    "video_input": vf,
+                    "audio_input": af,
+                    "bbox_shift": bbox_shift,
+                    "fps": 25,
+                },
+            )
+
+        # 4. Download result and send back
+        result_url = str(output)
+        async with httpx.AsyncClient(timeout=120) as dl:
+            result_resp = await dl.get(result_url)
+            result_bytes = result_resp.content
+
+        await update.message.reply_video(
+            video=BytesIO(result_bytes),
+            caption="✅ Lip-sync terminé ! Lèvres corrigées par MuseTalk.",
+        )
+
+    except Exception as exc:
+        logger.exception("Lipsync error: %s", exc)
+        await update.message.reply_text(f"❌ Erreur lip-sync: {exc}")
+    finally:
+        # Cleanup temp files
+        for p in [video_path, audio_path]:
+            try:
+                os.unlink(p)
+            except OSError:
+                pass
+
+
 # ── Global error handler ─────────────────────────────────────────────────────────
 
 
@@ -836,9 +949,13 @@ def main() -> None:
     app.add_handler(CommandHandler("stats", cmd_stats))
     app.add_handler(CommandHandler("channel", cmd_channel))
     app.add_handler(CommandHandler("faceswap", cmd_faceswap))
+    app.add_handler(CommandHandler("lipsync", cmd_lipsync))
 
     # Photo handler for face swap
     app.add_handler(MessageHandler(filters.PHOTO, handle_faceswap_photo))
+
+    # Video handler for lip-sync
+    app.add_handler(MessageHandler(filters.VIDEO | filters.Document.VIDEO, handle_lipsync_video))
 
     # Callback handler for tweet scheduling
     app.add_handler(
