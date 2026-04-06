@@ -289,9 +289,11 @@ Story 8 : "The things I can't post here... 👀" + lien Fanvue (conversion)
 
 ---
 
-## TWITTER @SUUKALIA (40k) — 4 TWEETS/JOUR
+## TWITTER @SUUKALIA (40k) — REPOST PHOTOS IG + ONE-LINER
 
-Style : all lowercase, 1 phrase, 0 hashtag, max 1 emoji, voix brute et feminine
+Methode : repost les photos/carrousels IG + ajouter un one-liner en caption
+Style : all lowercase, 1 phrase, 0 hashtag, max 1 emoji
+Frequence : 3-4 tweets/jour avec photo
 
 ### Horaires (Houston → France)
 | Tweet | Houston | France |
@@ -301,32 +303,76 @@ Style : all lowercase, 1 phrase, 0 hashtag, max 1 emoji, voix brute et feminine
 | Tweet 3 | 17h | 0h (programme) |
 | Tweet 4 | 21h | 4h (programme) |
 
-### 4 semaines de tweets
+### One-liners par type de photo
 
-**Semaine 1 :**
-| Jour | Tweet 1 | Tweet 2 | Tweet 3 | Tweet 4 |
-|---|---|---|---|---|
-| Lun | "i heal people all day and still can't fix my own love life" | "my body is its own aesthetic" | "men who grab your waist >>>" | "i know exactly where to put my hands 🩺" |
-| Mar | "being kissed on the neck should be illegal" | "i just know i smell good today" | "soft skin, sharp mind" | "the things i do in scrubs vs out of them..." |
-| Mer | "sometimes i look in the mirror and understand everything" | "my car knows more about me than any man ever will" | "3am shift glow hits different" | "i'm the nurse you'd fake sick for" |
-| Jeu | "slow tongue kissing would solve all my problems" | "pretty privilege is real and i'm grateful" | "my patients flirt with me and honestly i get it" | "night shift nurse with a daytime body" |
-| Ven | "friday night but i just left the hospital... alone" | "i save lives and still can't save my situationship 😭" | "off duty and dangerous 😈" | "the way i look in lingerie vs the way i look in scrubs" |
-| Sam | "my uber driver just fell in love with me i think" | "golden skin and bad decisions" | "i hate liking somebody bc i start to lose my mind" | "nurses do it better" |
-| Dim | "sunday reset but my mind is still on him" | "recharging my pretty" | "my cat loves me more than any man ever could" | "new week same beautiful problem" |
+**Photo bikini :**
+- "i woke up like this"
+- "your favorite view"
+- "sun kissed"
+- "pool day every day"
+- "born to be in a bikini"
+- "water baby"
+- "tan lines are my accessory"
+- "vitamin sea"
+- "this is my happy place"
+- "summer state of mind"
 
-**Semaine 2 :**
-| Jour | Tweet 1 | Tweet 2 | Tweet 3 | Tweet 4 |
-|---|---|---|---|---|
-| Lun | "monday motivation: i'm still the prettiest nurse at work" | "my waist-to-hip ratio is doing god's work" | "men are temporary, my career is forever" | "i smell like vanilla and hospital and somehow it works" |
-| Mar | "the duality of saving lives at 6am and looking like this at 6pm" | "my hands heal people but they could ruin you" | "tired eyes pretty face" | "night shifts made me mysterious" |
-| Mer | "i don't chase i attract and that's on nursing school" | "pretty girls with stethoscopes run the world" | "my scrubs are tight in all the right places" | "he said i'm intimidating... i said i'm a nurse 🩺" |
-| Jeu | "bare face after a 12h shift and i still ate" | "the way men look at me when i say i'm a nurse" | "my bed misses me more than my ex" | "soft hands that have seen some things" |
-| Ven | "clocking out and clocking in to being fine" | "the hospital doesn't deserve me" | "my fanvue subscribers understand me better than any man" | "weekend nurse off duty... be careful" |
-| Sam | "woke up feeling expensive" | "i'm a walking contradiction: healer and heartbreaker" | "my curls and my curves are doing all the work" | "don't tell me i'm pretty tell me i'm dangerous" |
-| Dim | "lazy sunday but i still look like a snack" | "recharging my healing energy" | "my cat judging me for being single again" | "tomorrow i save lives again" |
+**Photo scrubs/nurse :**
+- "saving lives looking like this"
+- "your favorite nurse"
+- "night shift glow"
+- "12h shifts but make it cute"
+- "scrubs on, world off"
+- "healing hands pretty face"
+- "the hospital doesn't deserve me"
+- "nurse by day, goddess always"
+- "clocking out and clocking in to being fine"
+- "stethoscope and attitude"
+
+**Photo lifestyle/penthouse :**
+- "home 🤍"
+- "my happy place"
+- "built this"
+- "soft hours"
+- "penthouse vibes"
+- "just me and moon"
+- "recharging"
+- "the view from my window"
+- "main character energy"
+- "living my dream"
+
+**Photo bodysuit/tenue :**
+- "unwrap me"
+- "second skin"
+- "trouble 😈"
+- "don't stare"
+- "outfit check"
+- "mirror never lies"
+- "this is the pg version"
+- "my subscribers see the rest 👀"
+- "levels"
+- "dangerous"
+
+**Photo lingerie/teasing :**
+- "the things i can't post here..."
+- "my fanvue knows"
+- "curious? 👀"
+- "members only"
+- "not for instagram"
+- "the full version exists somewhere 😏"
+- "you're missing out"
+- "exclusive"
+- "my subscribers are eating rn"
+- "link in bio for the brave ones"
+
+### Comment poster
+1. Poste ton carrousel/photo sur IG
+2. Save la photo
+3. Tweet la photo + one-liner de la liste ci-dessus
+4. C'est tout — 30 secondes par tweet
 
 ### Twitter feeder (14k) — 2-3/jour
-Repost les meilleurs tweets du compte 40k + ajouter :
+Repost les meilleures photos du compte 40k + ajouter :
 - "follow @suukalia for more"
 - "she's unreal → @suukalia"
 
