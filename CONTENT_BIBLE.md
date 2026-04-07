@@ -402,9 +402,13 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
 - Tight-fitting scrubs hugging her body
 - ID badge showing "Suukalia Smith" with small photo of her face and "NURSE" in pink text
-- Provocative expression
+- Provocative expression OR cute smile (varier)
 - Barefoot sur les carrousels
 - Glasses sur ~1 post sur 3
+- Cheveux : curly, souvent en messy bun haut
+- Stéthoscope autour du cou (pas toujours, ~1 sur 2)
+- Accessoires : pearl necklace, charm bracelet
+- Poses signature : sur le ventre pieds en l'air, assise de dos regard épaule, accroupie de dos
 
 ### Téléphone
 - iPhone 16 Pro Max **blanc**
