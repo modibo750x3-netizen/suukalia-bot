@@ -396,6 +396,51 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 
 ---
 
+## SPECS MODEL & PROMPTS
+
+### Physique (toujours inclure)
+- Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
+- Tight-fitting scrubs hugging her body
+- ID badge showing "Suukalia Smith" with small photo of her face and "NURSE" in pink text
+- Provocative expression
+- Barefoot sur les carrousels
+- Glasses sur ~1 post sur 3
+
+### Téléphone
+- iPhone 16 Pro Max **blanc**
+- Quand visible dans la scène : "holding a white iPhone 16 Pro Max"
+
+### Photo settings
+- "shot on iPhone 16 Pro Max" toujours
+- "no filters" toujours
+- "natural skin texture" toujours
+- "candid photography, raw unedited"
+
+### Accessoires voiture (TOUJOURS)
+- Large iridescent blue-pink plug-shaped hanging accessory dangling from rearview mirror
+- Iced coffee in cupholder, keys in console, cream canvas tote bag on passenger seat
+
+### Rotation scrubs
+- Bleu (jours 1-3) → Vert (jours 4-6) → Noir (jours 7-9) → Violet (jours 10-12) → repeat
+
+### Rotation lieux (8 spots, jamais 2x de suite)
+- Voiture (3x/semaine)
+- Bureau/desk (2x/semaine)
+- Couloir (2x/semaine)
+- Extérieur hôpital (2x/semaine)
+- Break room (1x/semaine)
+- Chambre patient (1x/semaine)
+- Locker room/miroir (1x/semaine)
+- Ascenseur (1x/semaine)
+
+### Kling 3.0 prompt rules
+- "Static medium shot, no camera movement, no zoom"
+- Décrire UNIQUEMENT le mouvement, pas ce qui est visible sur la photo
+- Toujours "Subtle handheld shake"
+- 7 secondes, 2K, 30fps, HDR
+
+---
+
 ## REGLES ABSOLUES
 
 ### @suuki03
