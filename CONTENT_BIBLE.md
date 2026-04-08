@@ -450,9 +450,9 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 
 ### @suuki03
 - TEXT OVERLAY des la frame 1 sur CHAQUE reel (sinon = 932 vues)
-- 1 reel voiture/jour minimum (plug visible = ton signature)
+- Frame 1 = hook principal, Frame 2 = question qui engage
+- Max 3 reels voiture par semaine (rotation 8 lieux)
 - Alterner sexuel / vulnerable / engagement bait
-- Caption = toujours une question pour les commentaires
 - CTA : "Main account → @suukalia" dans chaque caption ou bio
 
 ### @suukalia
@@ -467,3 +467,60 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Programmer le reel de 3h FR via Meta Business Suite
 - Repondre aux commentaires dans les 30 premieres minutes
 - Dimanche = batch filming + programmation semaine
+- 2 sauts de ligne entre caption et hashtags
+- 5 hashtags max par post
+- Lumiere dans le prompt doit correspondre a l'heure Houston du post
+
+---
+
+## GROWTH HACKS IG
+
+### Bio safe (pas de shadow ban)
+```
+Suukalia Smith, RN 🩺
+Houston, TX 💙
+12h shifts & bad decisions
+More of me ↓
+[lien slt.bio]
+```
+JAMAIS "exclusive content" ou lien direct Fanvue dans la bio → shadow ban
+
+### Comment-to-DM (ManyChat)
+- Ajouter dans la caption : "Comment 'NURSE' for a surprise in your DMs 💙"
+- ManyChat detecte le mot-cle → envoie DM auto avec lien Fanvue
+- Boost les commentaires = algo pousse le reel
+
+### Pin comment strategy
+- Poster un premier commentaire soi-meme sur chaque reel :
+  - "Would you date a nurse? Be honest 👇"
+  - "Rate me 1-10 💙"
+  - "Where are my night shift people? 🙋‍♀️"
+- Pin ce commentaire → les gens repondent → explosion de commentaires
+
+### Share bait (hooks qui font partager)
+- "Tag someone who needs a nurse in their life"
+- "Send this to someone who wouldn't survive my shift"
+- "POV: your best friend is dating this nurse... wyd?"
+
+### Save bait (carrousels "advice")
+- "5 things your nurse wants you to know"
+- Save = signal fort pour l'algo, plus que les likes
+
+### Routine par post (30 min)
+1. Story poll 30 min AVANT de poster le reel (reveille l'audience)
+2. Poste le reel avec hook frame 1 + question frame 2
+3. Pin comment engagement
+4. Caption avec "Comment 'NURSE' for a surprise 💙"
+5. Reste en ligne 30 min, reponds aux commentaires
+6. Story apres : repost le reel + CTA Fanvue
+
+### Cross-pollination @suuki03 ↔ @suukalia
+- Chaque post @suuki03 → story @suukalia "my other life 🩺"
+- Chaque post @suukalia → commentaire @suuki03 "Main page → @suukalia 😏"
+
+### Collab posts
+- Collabs avec d'autres AI models dans la meme niche
+- Post collab = apparait sur les 2 comptes = double audience
+
+### Reels remix
+- Activer le remix sur tous les reels → visibilite gratuite
