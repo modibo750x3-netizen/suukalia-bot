@@ -422,7 +422,8 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 
 ### Accessoires voiture (TOUJOURS)
 - Large iridescent blue-pink plug-shaped hanging accessory dangling from rearview mirror
-- Iced coffee in cupholder, keys in console, cream canvas tote bag on passenger seat
+- Keys in console, cream canvas tote bag on passenger seat
+- Cupholder rotation : iced coffee / energy drink / water bottle / smoothie / nothing (varier à chaque post voiture)
 
 ### Rotation scrubs
 - Bleu (jours 1-3) → Vert (jours 4-6) → Noir (jours 7-9) → Violet (jours 10-12) → repeat
