@@ -524,3 +524,42 @@ JAMAIS "exclusive content" ou lien direct Fanvue dans la bio → shadow ban
 
 ### Reels remix
 - Activer le remix sur tous les reels → visibilite gratuite
+
+---
+
+## FORMATS SPECIAUX (1x par semaine en rotation)
+
+### GRWM — "A day in my life as a nurse"
+- 8-9 clips Kling bout a bout (reveil → voiture → hopital → fin de shift)
+- Texte overlay sur chaque clip
+- Scenes 1-5 en x1.5, scenes 6-9 en x1
+- Musique : un seul son du debut a la fin
+- Format long (~56-63 sec)
+
+### Reel transition "Work vs Home"
+- Clip 1 : scrubs, serieuse, cheveux en bun (photo @suuki03)
+- Clip 2 : cheveux laches, bodysuit/lingerie (photo archivee @suukalia)
+- Cut sec sur le beat drop de la musique
+- Total : 5-6 secondes
+- Hook : "At work vs at home... same girl 🩺➡️🔥"
+- CTA : "Follow @suukalia for the home version 😏"
+- Fait le pont entre les 2 comptes
+- Musiques : Carnival (Kanye), Paint The Town Red (Doja Cat), Popular (The Weeknd)
+- Utiliser les photos archivees de @suukalia pour la partie "home"
+
+### Threads/Twitter "Work vs Home"
+- 2 photos cote a cote : scrubs vs spicy
+- Caption : "at work vs at home... which one do you prefer? 😏"
+- Tag les 2 comptes
+
+### Mini-stories carrousel (teasing → Fanvue)
+- 3 slides : habille → teasing → deshabille
+- Slide 1 = NanoBanana, slides 2-3 = Seedream edit du meme background
+- Caption teasing + CTA story vers Fanvue
+- Stories types :
+  - Vestiaire apres le shift
+  - Chambre patient vide porte fermee
+  - Pause pipi qui dure trop longtemps
+  - Coincee dans l'ascenseur
+  - Nuit de garde couloir vide
+  - Voiture apres le shift trop chaud
