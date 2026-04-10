@@ -563,3 +563,92 @@ JAMAIS "exclusive content" ou lien direct Fanvue dans la bio → shadow ban
   - Coincee dans l'ascenseur
   - Nuit de garde couloir vide
   - Voiture apres le shift trop chaud
+
+---
+
+## BANQUE DE SCENES VIRALES
+
+### FILMEE EN CACHETTE (POV collegue)
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 1 | Couloir de dos, camera la suit de loin | "My coworker didn't know I was recording..." | Elle se retourne, regard "t'es serieux?", puis sourit |
+| 2 | Vestiaire, elle se regarde dans le miroir, ajuste ses scrubs | "She asked me to film her 'for memories'..." | Elle replace ses cheveux, tourne de profil, verifie son reflet |
+| 3 | Penchee en avant pour regler un truc sur le lit, de dos | "POV: you're the patient in the next bed" | Elle se releve, replace ses scrubs, continue comme si de rien |
+
+### SCENES "OOPS" / CAUGHT IN THE ACT
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 4 | Elle saute pour attraper un truc en hauteur sur une etagere | "The supply room has the top shelf too high... watch what happens" | 2-3 sauts sur la pointe des pieds, attrape l'objet, se retourne essoufflee |
+| 5 | Elle fait tomber son badge, se penche pour le ramasser | "I keep dropping my badge in front of the same doctor..." | Se baisse lentement, ramasse, se releve et replace ses cheveux |
+| 6 | Elle passe entre deux chariots dans le couloir, de profil | "The hallway was NOT made for nurses built like me" | Se faufile de profil, scrubs frottent contre le chariot |
+| 7 | Ses scrubs se dechire, elle se fige, touche l'arriere | "My scrubs ripped during a code blue... I had to finish the shift like this" | Regard panique a la camera, essaie de couvrir avec ses mains |
+| 8 | Elle s'assoit sur le comptoir metal, sursaute du froid | "Note to self: don't sit on the metal counter in thin scrubs" | Sursaute, se releve d'un coup, frotte ses cuisses |
+| 9 | Stethoscope coince dans ses cheveux, elle galere | "This is why I should tie my hair but I won't" | Tire doucement, grimace, finit par le decoincer |
+| 10 | Elle s'etire dans le couloir, bras en l'air, dos cambre | "My coworker recorded me stretching and now it's in the group chat..." | Etirement complet, scrubs remontent, soupir de soulagement |
+
+### SCENES QUOTIDIEN MAIS SEXY
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 11 | Se lave les mains au lavabo, regarde la camera dans le miroir | "Even washing my hands looks like a movie scene apparently" | Sourire en coin dans le miroir, secoue ses mains |
+| 12 | Replace son badge qui est tombe trop bas sur sa poitrine | "My badge keeps falling... I wonder why" | Le remonte, regard camera, hausse les epaules |
+| 13 | Pose un pied sur une chaise pour lacer ses baskets, de profil | "POV: you're in the hallway when the nurse bends down to tie her shoe" | Se penche, lace, se releve, secoue ses cheveux |
+| 14 | Enfile des gants roses lentement, doigt par doigt | "The way I put on gloves shouldn't be this intense but here we are" | Enfile chaque doigt, regard intense, claque le gant final |
+| 15 | Mange un yaourt dans la break room, leche la cuillere | "I just wanted to eat my yogurt in peace but my coworker started recording" | Leche la cuillere, regard ailleurs, realise qu'on filme |
+
+### SCENES MOUVEMENT PHYSIQUE
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 16 | Court dans le couloir, code blue | "When they call a code blue and you're the closest nurse" | Course rapide, cheveux volent, tout rebondit |
+| 17 | Danse dans l'ascenseur seule, les portes s'ouvrent | "The elevator camera caught everything..." | Danse, portes s'ouvrent, elle se fige, regard gene |
+| 18 | Squats rapides dans la supply room | "5 min break = 5 min workout... priorities" | 2-3 squats, se releve, s'essuie le front |
+| 19 | Monte sur un tabouret, sur la pointe des pieds, instable | "They really need to hire taller nurses or lower the shelves" | Monte, vacille, attrape l'etagere, regard stresse |
+| 20 | Speed walk dans le couloir pour clocker | "When it's 7:01 PM and my shift ended at 7:00" | Marche ultra rapide, determinee, pousse la porte |
+
+### SCENES VESTIAIRE / INTIMITE
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 21 | Vestiaire, commence a enlever son haut, la porte s'ouvre | "The locker room door doesn't lock and I learned that the hard way" | Sursaute, couvre ses epaules, regard choque |
+| 22 | Mirror check, pince ses joues pour la couleur | "Quick mirror check... can't let the patients see me looking tired" | Ajuste ses scrubs, pince ses joues, sourire satisfait |
+| 23 | Assise sur le banc, enleve ses baskets, pieds nus | "12 hours on my feet... this feeling is better than any date" | Enleve les chaussures, soupir de soulagement, bouge ses orteils |
+| 24 | Se regarde de dos dans le miroir, replace son string | "When you realize your coworkers have been staring all shift..." | Remarque, le replace, regard gene a la camera |
+
+### SCENES INTERACTION PATIENT / COLLEGUE
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 25 | Verifie le pouls d'un patient (on voit juste sa main sur un bras) | "He told me no nurse has ever touched him like that... sir I'm checking your pulse" | Penche la tete, sourit doucement, replace le drap |
+| 26 | Assise au bord du lit, penchee, filmee de la porte | "My coworker said I'm 'too friendly' with the patients... I'm just doing my job" | Sourit, tapote le bras du patient, se leve |
+| 27 | Pose a cote d'un casier, mains sur les hanches | "My coworker asked if we could trade scrubs... ma'am they won't fit" | Regarde de haut en bas, sourire confiant |
+| 28 | Presente un clipboard, regard confiant | "I was explaining the patient's vitals and the doctor wasn't listening..." | Montre le clipboard, le baisse, regard "vraiment?" |
+
+### SCENES HORS HOPITAL
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 29 | Station essence de nuit en scrubs, appuyee contre la voiture | "Gas station at 4 AM in scrubs... the cashier asked if I was okay" | S'appuie, croise les bras, regard fatigue mais beau |
+| 30 | Drive-thru, tend sa carte par la fenetre | "The drive-thru guy gave me my food for free... I think the scrubs helped" | Tend la carte, sourire, prend le sac |
+| 31 | Pousse un caddie en scrubs au supermarche | "Going to the grocery store after a 12h shift and everyone stares" | Pousse le caddie, remarque les regards, continue fierement |
+| 32 | Marche vers sa voiture de nuit dans le parking | "The scariest part of being a nurse isn't the patients... it's the parking lot at 3 AM" | Marche vite, cles en main, regarde par-dessus son epaule |
+
+### SCENES WOW MOMENT
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 33 | Messy bun → elle defait le bun, cheveux en cascade | "My coworker told me to let my hair down... she regretted it" | Defait le bun, slow shake, cheveux tombent |
+| 34 | Pousse la porte de sortie, lumiere coucher de soleil | "Clocking out hits different when you look like this" | Slow-mo walk face camera, cheveux au vent |
+| 35 | Eau renversee sur ses scrubs, le tissu colle | "A patient spilled water on me and now I can't go back out there..." | Regarde ses scrubs, regard camera "vraiment??" |
+| 36 | Ventilateur dans la break room, cheveux volent | "The break room fan is the only man giving me attention rn" | Ferme les yeux, profite du vent, moment film |
+
+### SCENES TRENDS VIRAUX
+
+| # | Scene | Hook | Mouvement Kling |
+|---|---|---|---|
+| 37 | Se maquille a toute vitesse, enfile ses scrubs, court | "GRWM: I'm 15 minutes late and my charge nurse is already calling" | Maquillage rapide, enfile le haut, court vers la porte |
+| 38 | Photo scrubs larges sur mannequin vs ultra serres sur elle | "I ordered a medium... should I return them?" | Tourne de profil, regarde la camera, hausse les epaules |
+| 39 | Marche lentement, stethoscope dore, pearl necklace | "Quiet luxury but make it healthcare" | Marche lente, confiante, ajuste son stethoscope |
+| 40 | ASMR : gants qui claquent, stethoscope, murmure | "ASMR: your nurse during a night shift" | Met les gants, approche le stethoscope, murmure |
