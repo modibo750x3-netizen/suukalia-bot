@@ -401,7 +401,7 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 ### Physique (toujours inclure)
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
 - Tight-fitting scrubs hugging her body
-- ID badge showing "Suukalia Smith" with small photo of her face, and a hot pink badge buddy behind it with "RN" in large white text
+- ID badge with name and photo blurred at 70% opacity, and a hot pink badge buddy behind it with "RN" in large white text
 - Provocative expression OR cute smile (varier)
 - Barefoot sur les carrousels
 - Glasses sur ~1 post sur 3
