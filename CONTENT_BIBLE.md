@@ -705,16 +705,16 @@ JAMAIS "exclusive content" ou lien direct Fanvue dans la bio → shadow ban
 ## REGLES D'INVENTIVITE (IMPORTANT)
 
 ### Rotation obligatoire des scenes
-- **JAMAIS 2 jours de suite la meme scene ou le meme type**
-- **Max 3 scenes voiture par semaine** (meme si plug iconique)
+- **JAMAIS 2 jours de suite la meme scene HORS voiture**
+- **Voiture + plug = signature, peut etre spammee tous les jours** (c'est ce qui performe)
 - **Min 1 scene spicy par jour** (Fanvue conversion)
 - **Min 1 scene "viral bank"** par jour (pour les vues)
 - **Piocher dans les 60+ scenes de la banque** plutot que reinventer
 
 ### Mix quotidien type
-1. Une scene **spicy** (Fanvue bait — S1 a S20)
-2. Une scene **virale** (banque 1-40)
-3. Une scene **signature** (voiture + plug, GRWM, transition)
+1. **Voiture + plug** (signature, peut etre repete)
+2. Une scene **spicy** (Fanvue bait — S1 a S20)
+3. Une scene **virale** (banque 1-40)
 
 ### Signal d'alerte repetitivite
-Si 2 posts d'affilee sont dans le meme lieu (ex: 2 couloirs, 2 bureaux), **CHANGER**. Le feed doit avoir de la variete visuelle.
+Si 2 posts HORS voiture d'affilee sont dans le meme lieu (ex: 2 couloirs, 2 bureaux), **CHANGER**. Le feed doit avoir de la variete visuelle **a l'exception de la voiture** qui reste le signature de l'audience.
