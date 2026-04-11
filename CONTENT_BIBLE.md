@@ -421,9 +421,10 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - "candid photography, raw unedited"
 
 ### Accessoires voiture (TOUJOURS)
-- Large iridescent blue-pink plug-shaped hanging accessory dangling from rearview mirror
+- **OBLIGATOIRE : utiliser le plug de l'image 2 comme reference** — toujours ecrire "the exact same iridescent blue-pink plug-shaped accessory from image 2 hanging from the rearview mirror" dans le prompt
+- **Joindre la photo du plug comme image 2 dans NanoBanana** (image 1 = Suukalia, image 2 = plug reference)
 - Keys in console, cream canvas tote bag on passenger seat
-- Cupholder rotation : iced coffee / energy drink / water bottle / smoothie / nothing (varier à chaque post voiture)
+- Cupholder rotation : iced coffee / energy drink / water bottle / smoothie / nothing (varier a chaque post voiture)
 
 ### Rotation scrubs
 - Bleu (jours 1-3) → Vert (jours 4-6) → Noir (jours 7-9) → Violet (jours 10-12) → repeat
