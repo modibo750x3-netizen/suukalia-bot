@@ -468,8 +468,9 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Programmer le reel de 3h FR via Meta Business Suite
 - Repondre aux commentaires dans les 30 premieres minutes
 - Dimanche = batch filming + programmation semaine
-- 2 sauts de ligne entre caption et hashtags
-- 5 hashtags max par post
+- **ZERO hashtag sur les reels** (les gros comptes 500K+ n'en mettent pas, on copie ce qui marche)
+- Caption courte et directe (1-2 phrases max)
+- Pin comment engageant obligatoire
 - Lumiere dans le prompt doit correspondre a l'heure Houston du post
 
 ---
