@@ -653,3 +653,68 @@ JAMAIS "exclusive content" ou lien direct Fanvue dans la bio → shadow ban
 | 38 | Photo scrubs larges sur mannequin vs ultra serres sur elle | "I ordered a medium... should I return them?" | Tourne de profil, regarde la camera, hausse les epaules |
 | 39 | Marche lentement, stethoscope dore, pearl necklace | "Quiet luxury but make it healthcare" | Marche lente, confiante, ajuste son stethoscope |
 | 40 | ASMR : gants qui claquent, stethoscope, murmure | "ASMR: your nurse during a night shift" | Met les gants, approche le stethoscope, murmure |
+
+---
+
+## SCENES LIMITE / SPICY (pour Fanvue bait + viral hot)
+
+⚠️ Ces scenes sont pour pousser l'audience vers Fanvue. Elles doivent rester **suggestives** (pas de nudite directe sur IG) mais tres teasing. A utiliser 2-3x par semaine maximum.
+
+### SCENES VESTIAIRE / DESHABILLAGE
+
+| # | Scene | Hook | Mouvement Grok Video |
+|---|---|---|---|
+| S1 | Scrubs par terre dans une piece hopital, elle en string de dos qui bounce ses fesses | "While my patient is calling me 🤣" | Bounce des fesses 3-4 fois, regard par dessus l'epaule |
+| S2 | Vestiaire, elle commence a enlever son haut de scrubs (bra visible) | "The locker room is my safe space after a 12h shift" | Enleve le haut lentement, le jette sur le banc |
+| S3 | Scrubs pants glissent en dessous des hanches, string visible | "These scrub pants keep falling... help?" | Remonte les pants, regard camera |
+| S4 | Elle enleve son haut pour mettre un autre, dos camera, bra noir | "Changing between patients real quick" | Retire le haut, dos camera, cheveux bougent |
+| S5 | Elle ajuste son string a travers les scrub pants | "The way these scrubs ride up is not ok" | Tire le tissu, replace, regard camera gene |
+
+### SCENES CHAMBRE PATIENT / HOPITAL SPICY
+
+| # | Scene | Hook | Mouvement Grok Video |
+|---|---|---|---|
+| S6 | Elle se penche pour ramasser un clipboard tombe, angle bas derriere | "I dropped my chart in front of the doctor again..." | Se penche lentement, hips en avant, ramasse, regard par dessus epaule |
+| S7 | Allongee sur un lit d'hopital vide, scrubs leve sur le ventre, ventilateur | "Testing the patient beds on my break..." | S'etire, soulève le haut, montre son ventre |
+| S8 | Squat pour prendre un truc dans une caisse au sol | "Bending over at work is honestly a workout" | Squat lent, dos camera, remonte, regard |
+| S9 | Elle enlève ses baskets et masse ses pieds nus sur un banc | "12 hours on my feet... this feels better than any man" | Masse ses pieds, jambes tendues, regard fatigue sensuel |
+| S10 | Eau renversee sur son haut, tissu transparent colle a la peau | "Patient spilled water on me and now I can't go back out there" | Regarde son haut mouille, tire le tissu, regard camera choc |
+
+### SCENES MIROIR / SELFIE SPICY
+
+| # | Scene | Hook | Mouvement Grok Video |
+|---|---|---|---|
+| S11 | Miroir break room, elle souleve son haut de scrubs pour verifier son ventre | "Flat stomach check after 3 coffees and no food" | Souleve le haut, touche son ventre, sourit au miroir |
+| S12 | Mirror selfie mais elle a que le haut des scrubs (pas de pants visible) | "Forgot my scrub pants at home... no one noticed yet" | Pose, regarde de haut en bas dans le miroir |
+| S13 | Elle replace son bra a travers le haut de scrubs | "Adjusting my bra between patients" | Touche le bra sous le haut, replace, regard camera |
+| S14 | Miroir, elle descend le zip de son haut de scrubs lentement | "Breaking the dress code a little..." | Descend le zip de 5cm, regard seducteur |
+| S15 | Selfie mirror, haut ouvert sur sport bra, regard camera | "Too hot in this hospital today" | Ouvre le haut, sport bra visible, passe la main dans les cheveux |
+
+### SCENES MOUVEMENT PHYSIQUE SPICY
+
+| # | Scene | Hook | Mouvement Grok Video |
+|---|---|---|---|
+| S16 | Elle marche devant la camera (de dos) en scrubs super serres, hips swaying | "POV: you're in the hallway when I walk past" | Marche lente, hips sway exagere, cheveux bougent |
+| S17 | Elle saute pour attraper un truc en haut, fesses rebondissent | "The supply room has the top shelf too high" | 3 sauts sur tiptoes, fesses bouncing, regard par dessus epaule |
+| S18 | Elle s'etire les bras en l'air, dos cambré, haut qui remonte | "This stretch hits after a long shift" | Etire les bras, cambre, haut remonte, soupir soulagement |
+| S19 | Twerk discret en supply room (check si personne) | "Me when the supply room is finally empty" | Check gauche droite, small twerk, rit |
+| S20 | Montee d'escalier de dos, hips qui bougent | "These hospital stairs are killing me" | Monte 3 marches, hips sway, se tourne en haut |
+
+---
+
+## REGLES D'INVENTIVITE (IMPORTANT)
+
+### Rotation obligatoire des scenes
+- **JAMAIS 2 jours de suite la meme scene ou le meme type**
+- **Max 3 scenes voiture par semaine** (meme si plug iconique)
+- **Min 1 scene spicy par jour** (Fanvue conversion)
+- **Min 1 scene "viral bank"** par jour (pour les vues)
+- **Piocher dans les 60+ scenes de la banque** plutot que reinventer
+
+### Mix quotidien type
+1. Une scene **spicy** (Fanvue bait — S1 a S20)
+2. Une scene **virale** (banque 1-40)
+3. Une scene **signature** (voiture + plug, GRWM, transition)
+
+### Signal d'alerte repetitivite
+Si 2 posts d'affilee sont dans le meme lieu (ex: 2 couloirs, 2 bureaux), **CHANGER**. Le feed doit avoir de la variete visuelle.
