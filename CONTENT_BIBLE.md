@@ -279,24 +279,22 @@ Les captions @suukalia sont ULTRA courtes. 1-4 mots + 1 emoji max.
 - La CTA doit etre **SUBTILE + EMOTIONNELLE** — JAMAIS "join my Fanvue" ou "subscribe"
 - Jouer sur la **vulnerabilite, l'intimite, la connexion** — pas juste le teasing
 - La story doit etre une **photo teasing** (crop, blur, angle cache) qui donne envie d'en voir plus
-- **Banque de CTA emotionnelles + nurse double-sens (rotation, JAMAIS la meme 2 jours de suite) :**
+- **Banque de CTA (simples, courtes, marchent matin et soir) :**
 
 ```
-1. "12 hours saving lives and nobody to come home to 🤍"
-2. "i've been thinking about you between patients..."
-3. "i know how to make you feel better... but who takes care of me?"
-4. "the hospital sees the strong me... only you see this side"
-5. "i come home after 12 hours and it's just me... always just me"
-6. "your nurse is off duty... this is who I really am 🤍"
-7. "i've been waiting for you... don't make me wait anymore"
-8. "some things are too personal for here..."
-9. "not everyone deserves to see this side of me"
-10. "i'm tired of being strong for everyone... let me be soft with you"
-11. "the me behind the scrubs is someone you've never met"
-12. "late shift, empty apartment, just my thoughts and you 🤍"
-13. "i take care of everyone... but nobody takes care of me"
-14. "your check-up is ready... just you and me this time"
-15. "i don't show this to just anyone... but you're different"
+NURSE DIRECT :
+1. "come see me 🩺 100% off"
+2. "come see your nurse 🩺 100% off"
+3. "i'm waiting for you 🩺 100% off"
+4. "don't be late 🩺 100% off"
+5. "your nurse is ready 🩺 100% off"
+
+EMOTION / SOLITUDE :
+6. "i'm all alone... come see me 🩺 100% off"
+7. "i hate being alone... come see your nurse 🩺 100% off"
+8. "nobody to come home to... come see me 🩺 100% off"
+9. "just me, myself, and my scrubs... come see me 🩺 100% off"
+10. "tired of being alone... come see your nurse 🩺 100% off"
 ```
 
 ### Rotation stories :
