@@ -440,10 +440,17 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Ascenseur (1x/semaine)
 
 ### Kling 3.0 prompt rules
-- "Static medium shot, no camera movement, no zoom"
+- **Scene NORMALE (selfie, mirror, seule) :** "Static medium shot, no camera movement, no zoom"
+- **Scene FILMEE PAR UN COLLEGUE (POV coworker) :** "Handheld phone footage, slight follow pan, subtle shaky movement, as if secretly filmed by a coworker" — PAS statique, ca doit bouger comme un vrai telephone
 - Décrire UNIQUEMENT le mouvement, pas ce qui est visible sur la photo
 - Toujours "Subtle handheld shake"
 - 7 secondes, 2K, 30fps, HDR
+
+### String / teasing rules
+- String visible sous les scrubs = teasing Fanvue bait
+- Scenes ou le string est visible : vestiaire, scrubs qui tombent, de dos penchee, squat
+- TOUJOURS accompagne d'une story "the full version is on my page 👀" + lien Fanvue
+- Ca reste suggestif sur IG (pas de nudite directe)
 
 ---
 
