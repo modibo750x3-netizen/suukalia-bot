@@ -36,27 +36,27 @@
 
 **Template base :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing [SCRUBS], RN badge on chest with name blurred, [EXPRESSION], natural daylight through windshield, car interior visible, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing [SCRUBS], RN badge on chest with name and photo completely blurred out illegible, [EXPRESSION], natural daylight through windshield, car interior visible, no filter, authentic
 ```
 
 **Reel voiture — scrubs bleu :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing navy blue nursing scrubs, RN badge on chest with name blurred, soft eyes catching the light, looking directly at camera with subtle smirk, natural daylight through windshield, car interior visible, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing navy blue nursing scrubs, RN badge on chest with name and photo completely blurred out illegible, soft eyes catching the light, looking directly at camera with subtle smirk, natural daylight through windshield, car interior visible, no filter, authentic
 ```
 
 **Reel voiture — scrubs vert :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing dark green hospital scrubs with pink stethoscope around neck, RN badge on chest with name blurred, genuine candid moment, warm skin glow, natural afternoon light, car interior visible, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing dark green hospital scrubs with pink stethoscope around neck, RN badge on chest with name and photo completely blurred out illegible, genuine candid moment, warm skin glow, natural afternoon light, car interior visible, no filter, authentic
 ```
 
 **Reel voiture — scrubs violet :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing lavender purple nursing scrubs, RN badge on chest with name blurred, caught off guard expression, subtle natural smile, golden hour light through window, car interior visible, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing lavender purple nursing scrubs, RN badge on chest with name and photo completely blurred out illegible, caught off guard expression, subtle natural smile, golden hour light through window, car interior visible, no filter, authentic
 ```
 
 **Reel voiture — scrubs rose :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing pink nursing scrubs, RN badge on chest with name blurred, looking at camera with tired but beautiful expression, soft warm lighting, car interior visible, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting in car driver seat, wearing pink nursing scrubs, RN badge on chest with name and photo completely blurred out illegible, looking at camera with tired but beautiful expression, soft warm lighting, car interior visible, no filter, authentic
 ```
 
 **Reel voiture — fin de shift nuit :**
@@ -68,24 +68,24 @@ shot on iPhone, candid photography, the person in image 1 sitting in car driver 
 
 **Template base :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting at hospital desk, wearing [SCRUBS], RN badge on chest with name blurred, [EXPRESSION], hospital office background, computer visible, [ECLAIRAGE], no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting at hospital desk, wearing [SCRUBS], RN badge on chest with name and photo completely blurred out illegible, [EXPRESSION], hospital office background, computer visible, [ECLAIRAGE], no filter, authentic
 ```
 
 **Bureau — regard camera :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting at hospital desk, wearing navy blue nursing scrubs, RN badge on chest with name blurred, chin resting on hand, looking directly at camera with bored but pretty expression, hospital office background, fluorescent lighting, computer screen glow, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting at hospital desk, wearing navy blue nursing scrubs, RN badge on chest with name and photo completely blurred out illegible, chin resting on hand, looking directly at camera with bored but pretty expression, hospital office background, fluorescent lighting, computer screen glow, no filter, authentic
 ```
 
 **Bureau — travail :**
 ```
-shot on iPhone, candid photography, the person in image 1 sitting at hospital desk looking at computer, wearing dark green hospital scrubs, RN badge on chest with name blurred, focused expression with soft eyes, hospital office background, natural window light mixed with fluorescent, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 sitting at hospital desk looking at computer, wearing dark green hospital scrubs, RN badge on chest with name and photo completely blurred out illegible, focused expression with soft eyes, hospital office background, natural window light mixed with fluorescent, no filter, authentic
 ```
 
 ### REELS HOPITAL — COULOIR
 
 **Couloir — marche face camera :**
 ```
-shot on iPhone, candid photography, the person in image 1 walking toward camera in hospital hallway, wearing navy blue nursing scrubs, RN badge on chest with name blurred, confident walk, subtle smile, warm skin glow, fluorescent hospital lighting, hallway depth blur behind, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 walking toward camera in hospital hallway, wearing navy blue nursing scrubs, RN badge on chest with name and photo completely blurred out illegible, confident walk, subtle smile, warm skin glow, fluorescent hospital lighting, hallway depth blur behind, no filter, authentic
 ```
 
 **Couloir — dos camera (back view) :**
@@ -97,21 +97,21 @@ shot on iPhone, candid photography, the person in image 1 walking away from came
 
 **Gants roses — face camera :**
 ```
-shot on iPhone, candid photography, the person in image 1 standing in hospital room, wearing dark green hospital scrubs with pink stethoscope, putting on pink latex gloves, RN badge on chest with name blurred, looking at camera with playful expression, soft eyes catching the light, hospital room background, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 standing in hospital room, wearing dark green hospital scrubs with pink stethoscope, putting on pink latex gloves, RN badge on chest with name and photo completely blurred out illegible, looking at camera with playful expression, soft eyes catching the light, hospital room background, no filter, authentic
 ```
 
 ### REELS HOPITAL — LOCKER ROOM (BREAK ROOM)
 
 **Mirror selfie break room :**
 ```
-shot on iPhone, candid photography, the person in image 1 taking mirror selfie in hospital break room, wearing navy blue nursing scrubs, RN badge on chest with name blurred, peace sign or hand in hair, subtle natural smile, break room mirror, fluorescent lighting, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 taking mirror selfie in hospital break room, wearing navy blue nursing scrubs, RN badge on chest with name and photo completely blurred out illegible, peace sign or hand in hair, subtle natural smile, break room mirror, fluorescent lighting, no filter, authentic
 ```
 
 ### REELS — TRANSITION SCRUBS → GLAM
 
 **Slide 1 (scrubs) :**
 ```
-shot on iPhone, candid photography, the person in image 1 standing in hospital hallway, wearing navy blue nursing scrubs, RN badge on chest with name blurred, tired but pretty expression, messy curly hair, fluorescent lighting, no filter, authentic
+shot on iPhone, candid photography, the person in image 1 standing in hospital hallway, wearing navy blue nursing scrubs, RN badge on chest with name and photo completely blurred out illegible, tired but pretty expression, messy curly hair, fluorescent lighting, no filter, authentic
 ```
 
 **Slide 2 (glam) :**
@@ -401,7 +401,7 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 ### Physique (toujours inclure)
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
 - Tight-fitting scrubs hugging her body
-- ID badge with name and photo blurred at 70% opacity, and a hot pink badge buddy behind it with "RN" in large white text
+- ID badge with name and photo **fully blurred out / completely illegible** (95-100% blur — on ne doit JAMAIS pouvoir lire le nom ou voir la photo), and a hot pink badge buddy behind it with "RN" in large white text
 - Provocative expression OR cute smile (varier)
 - Barefoot sur les carrousels
 - Glasses sur ~1 post sur 3
