@@ -279,25 +279,24 @@ Les captions @suukalia sont ULTRA courtes. 1-4 mots + 1 emoji max.
 - La CTA doit etre **SUBTILE + EMOTIONNELLE** — JAMAIS "join my Fanvue" ou "subscribe"
 - Jouer sur la **vulnerabilite, l'intimite, la connexion** — pas juste le teasing
 - La story doit etre une **photo teasing** (crop, blur, angle cache) qui donne envie d'en voir plus
-- **Banque de CTA emotionnelles (rotation, JAMAIS la meme 2 jours de suite) :**
+- **Banque de CTA emotionnelles + nurse double-sens (rotation, JAMAIS la meme 2 jours de suite) :**
 
 ```
-1. "I only show this side to people who actually care about me 🤍"
-2. "some things are too personal for here..."
-3. "I wish I could share everything with you"
-4. "not everyone deserves to see this side of me"
-5. "the real me lives somewhere else"
-6. "I trust you with this version of me 🫶"
-7. "I don't show this to just anyone"
-8. "this is the side of me nobody at the hospital sees"
-9. "late night thoughts... I need someone to talk to"
-10. "sometimes I just want to be seen for who I really am"
-11. "I'm tired of hiding this part of me"
-12. "if you really knew me... 🤍"
-13. "the me behind the scrubs is different"
-14. "I saved this one for the people who stay"
-15. "being vulnerable is scary but you make it easier"
-15. "they'd ban me if I posted it here"
+1. "12 hours saving lives and nobody to come home to 🤍"
+2. "i've been thinking about you between patients..."
+3. "i know how to make you feel better... but who takes care of me?"
+4. "the hospital sees the strong me... only you see this side"
+5. "i come home after 12 hours and it's just me... always just me"
+6. "your nurse is off duty... this is who I really am 🤍"
+7. "i've been waiting for you... don't make me wait anymore"
+8. "some things are too personal for here..."
+9. "not everyone deserves to see this side of me"
+10. "i'm tired of being strong for everyone... let me be soft with you"
+11. "the me behind the scrubs is someone you've never met"
+12. "late shift, empty apartment, just my thoughts and you 🤍"
+13. "i take care of everyone... but nobody takes care of me"
+14. "your check-up is ready... just you and me this time"
+15. "i don't show this to just anyone... but you're different"
 ```
 
 ### Rotation stories :
