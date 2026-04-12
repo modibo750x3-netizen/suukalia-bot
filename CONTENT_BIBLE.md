@@ -276,25 +276,27 @@ Les captions @suukalia sont ULTRA courtes. 1-4 mots + 1 emoji max.
 
 ### Story LIEN QUOTIDIENNE (OBLIGATOIRE — 1x/jour minimum)
 - **1 story par jour avec lien slt.bio** (swipe up / sticker lien)
-- La CTA doit etre **SUBTILE** — JAMAIS "join my Fanvue" ou "subscribe"
+- La CTA doit etre **SUBTILE + EMOTIONNELLE** — JAMAIS "join my Fanvue" ou "subscribe"
+- Jouer sur la **vulnerabilite, l'intimite, la connexion** — pas juste le teasing
 - La story doit etre une **photo teasing** (crop, blur, angle cache) qui donne envie d'en voir plus
-- **Banque de CTA subtiles (rotation, JAMAIS la meme 2 jours de suite) :**
+- **Banque de CTA emotionnelles (rotation, JAMAIS la meme 2 jours de suite) :**
 
 ```
-1. "not everything makes it to IG... 👀"
-2. "this one was too much for here"
-3. "the full version exists somewhere 😏"
-4. "I almost posted this here... almost"
-5. "you're only seeing 10% of me"
-6. "some things are better kept private 🤫"
-7. "the uncensored version is... somewhere"
-8. "I wonder if you'd survive the other page"
-9. "this is the PG version btw"
-10. "there's a place where I don't hold back"
-11. "if you know, you know 👀"
-12. "my other side lives somewhere else"
-13. "too spicy for the gram 🫣"
-14. "guess where the rest is"
+1. "I only show this side to people who actually care about me 🤍"
+2. "some things are too personal for here..."
+3. "I wish I could share everything with you"
+4. "not everyone deserves to see this side of me"
+5. "the real me lives somewhere else"
+6. "I trust you with this version of me 🫶"
+7. "I don't show this to just anyone"
+8. "this is the side of me nobody at the hospital sees"
+9. "late night thoughts... I need someone to talk to"
+10. "sometimes I just want to be seen for who I really am"
+11. "I'm tired of hiding this part of me"
+12. "if you really knew me... 🤍"
+13. "the me behind the scrubs is different"
+14. "I saved this one for the people who stay"
+15. "being vulnerable is scary but you make it easier"
 15. "they'd ban me if I posted it here"
 ```
 
