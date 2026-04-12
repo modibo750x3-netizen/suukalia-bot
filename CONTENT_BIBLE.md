@@ -274,17 +274,40 @@ Les captions @suukalia sont ULTRA courtes. 1-4 mots + 1 emoji max.
 
 5-8 stories par jour, toujours entre 19h-21h heure France (12h-14h Houston)
 
+### Story LIEN QUOTIDIENNE (OBLIGATOIRE — 1x/jour minimum)
+- **1 story par jour avec lien slt.bio** (swipe up / sticker lien)
+- La CTA doit etre **SUBTILE** — JAMAIS "join my Fanvue" ou "subscribe"
+- La story doit etre une **photo teasing** (crop, blur, angle cache) qui donne envie d'en voir plus
+- **Banque de CTA subtiles (rotation, JAMAIS la meme 2 jours de suite) :**
+
+```
+1. "not everything makes it to IG... 👀"
+2. "this one was too much for here"
+3. "the full version exists somewhere 😏"
+4. "I almost posted this here... almost"
+5. "you're only seeing 10% of me"
+6. "some things are better kept private 🤫"
+7. "the uncensored version is... somewhere"
+8. "I wonder if you'd survive the other page"
+9. "this is the PG version btw"
+10. "there's a place where I don't hold back"
+11. "if you know, you know 👀"
+12. "my other side lives somewhere else"
+13. "too spicy for the gram 🫣"
+14. "guess where the rest is"
+15. "they'd ban me if I posted it here"
+```
+
 ### Rotation stories :
 
 ```
 Story 1 : Selfie miroir "good morning 🤍" (intimite)
-Story 2 : Photo teasing floue + "full version on my page 👀" (FOMO)
+Story 2 : **STORY LIEN** — photo teasing + CTA subtile + lien slt.bio (OBLIGATOIRE)
 Story 3 : Poll "Should I post more? Yes / Obviously" (engagement)
-Story 4 : "My Fanvue subscribers going crazy for this one..." (social proof)
-Story 5 : Behind the scenes shooting (curiosite)
-Story 6 : Q&A box "ask me anything" (engagement)
-Story 7 : Repost reel @suuki03 "my other life 🩺" (pont)
-Story 8 : "The things I can't post here... 👀" + lien Fanvue (conversion)
+Story 4 : Behind the scenes shooting (curiosite)
+Story 5 : Q&A box "ask me anything" (engagement)
+Story 6 : Repost reel @suuki03 "my other life 🩺" (pont)
+Story 7 : "The things I can't post here... 👀" (curiosite)
 ```
 
 ---
