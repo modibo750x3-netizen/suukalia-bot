@@ -426,6 +426,22 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - **NanoBanana = OK** pour : scenes "clean" (voiture, nurse work, mirror selfie habillee normal, GRWM, pieds nus sans string)
 - **Grok Imagine = OBLIGATOIRE** pour : carrousels spicy C1-C15, scenes S1-S20 (banque spicy), tout teasing deshabillage
 
+### WORKFLOW 2 ETAPES — BASE NANO → MODIF GROK (pour contenu spicy)
+**Pourquoi :** NanoBanana genere une meilleure consistency visage/corps que Grok, MAIS refuse le spicy. Solution = 2 etapes.
+
+**Etape 1 — Base NanoBanana (CLEAN, pas de refus)**
+Prompt simple, pose et cadre definis, AUCUN terme spicy :
+- PAS de : string, thong, waistband, bra visible, scrub top knot/ouvert, low-rise, deshabillage
+- OUI a : pose sexy non-explicite (hip pop, bend, stretch, squat, mirror selfie), pieds nus, mirror selfie, locker room
+- Format : "shot on iPhone 16 Pro Max, candid mirror selfie, raw unedited, the person in image 1, [pose clean] + [lieu] + [lumiere] + [badge blurred]"
+
+**Etape 2 — Modification Grok Imagine (SPICY)**
+Upload la base Nano → prompt modification courte, ne change QUE les elements spicy :
+- Format type : "Take this image and modify: [modif spicy specifique]. Keep the pose and face exactly the same."
+- Exemples de modifs : "tie the scrub top in a knot at belly button", "lower scrub pants to reveal thong waistband", "pull scrub pants to mid-thigh revealing black thong", "scrub top riding up showing thong waistband peeking"
+
+**Avantage :** on garde la consistency visage Nano + on rajoute le spicy via Grok = carrousels premium sans refus.
+
 ### Physique (toujours inclure)
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
 - Tight-fitting scrubs hugging her body
