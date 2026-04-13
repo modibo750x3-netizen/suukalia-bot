@@ -757,3 +757,97 @@ JAMAIS "exclusive content" ou lien direct Fanvue dans la bio → shadow ban
 
 ### Signal d'alerte repetitivite
 Si 2 posts HORS voiture d'affilee sont dans le meme lieu (ex: 2 couloirs, 2 bureaux), **CHANGER**. Le feed doit avoir de la variete visuelle.
+
+---
+
+## BANQUE DE 15 CARROUSELS SPICY (@suuki03)
+
+⚠️ Carrousels = SPICY uniquement. Mix sexy pose + pieds nus visibles = double conversion (gooners + foot guys). 3 slides minimum, mood candid mirror selfie.
+
+### STRING / WAISTBAND VISIBLE (deshabillage subtil)
+
+| # | Concept | Lieu | Detail spicy |
+|---|---|---|---|
+| C1 | Scrub pants pulled down mid-thigh, thong waistband expose, assise locker bench | Vestiaire | String noir + pieds nus croises ankles |
+| C2 | Mirror selfie, scrub pants legerement descendus sur hanches, waistband string visible | Salle de bain hopital | String rose, main qui touche la hanche |
+| C3 | Bend over devant casier pour ranger sac, pants tirent et string sort | Vestiaire | Vue 3/4 dos, regard par dessus epaule, pieds nus |
+| C4 | Etirement assise sur banc, scrub top remonte expose ventre + waistband thong | Locker bench | Bras au-dessus tete, ventre plat visible |
+
+### PIEDS NUS POSES SEXY (foot fetish core)
+
+| # | Concept | Lieu | Detail spicy |
+|---|---|---|---|
+| C5 | Allongee sur le ventre sur lit hopital vide, pieds en l'air croises orteils pointes | Chambre patient vide | Lecture chart, pieds bouncing en l'air |
+| C6 | Assise sur bureau infirmiere, jambes croisees pieds nus poses sur la chaise devant | Nurse station | Plante des pieds visible, talons pose |
+| C7 | Squat profond pour prendre dans caisse au sol, plante des pieds visible de cote | Supply room | Talons leves, orteils ancres |
+| C8 | Croisee jambes sur canape break room, pieds nus en gros plan premier plan | Break room | Mug de cafe a la main, pieds focus |
+| C9 | Massage pieds sur banc apres shift, baskets jetees a cote | Vestiaire | Visage fatigue sensuel, pieds sur les genoux |
+
+### POSE SEXY MIROIR / SELFIE (conversion direct)
+
+| # | Concept | Lieu | Detail spicy |
+|---|---|---|---|
+| C10 | Mirror selfie hip pop, scrub top noue au nombril expose ventre | Salle de bain | Une main derriere la tete, hanche poussee |
+| C11 | Mirror back arch, dos cambre 3/4 vue, regard par dessus epaule | Vestiaire | Hips push back, cheveux d'un cote |
+| C12 | Stretch matinale, bras leves au-dessus de la tete, scrub top remonte | Locker | Ventre + waistband visible, lumiere fluo chaude |
+| C13 | Squat hold devant miroir, scrub pants tendus, regard camera | Salle de bain | Vue 3/4, hand sur cuisse |
+
+### DESHABILLAGE / TRANSITION (Fanvue bait pur)
+
+| # | Concept | Lieu | Detail spicy |
+|---|---|---|---|
+| C14 | Mid-pull du scrub top par-dessus la tete (sport bra noir visible) | Vestiaire | Bras en l'air, ventre + bra apparents |
+| C15 | Ajuste sport bra sous le scrub top entrouvert, mirror selfie | Salle de bain | Une main sous le haut, regard direct camera |
+
+### REGLES CARROUSELS
+- Toujours 3 slides minimum (max 6)
+- Slide 1 = hook visuel le plus fort
+- Slide 2 = variation angle ou move
+- Slide 3 = close-up zone focus (pieds, hanches, ventre)
+- Pieds nus visibles 1-2x par semaine MINIMUM
+- JAMAIS 2 carrousels meme lieu d'affilee
+- Pas de musique sur carrousel (uniquement sur reels)
+
+---
+
+## PLAN D'ATTAQUE VIRAL J9 → J14
+
+⚠️ Apres 2 jours de zero hashtag (J7-J8), retour sur 5 hashtags cibles + attaque banque virale en focus pour faire exploser les vues.
+
+### TOP 10 SCENES PRIORITAIRES (a tester en 1 semaine)
+
+| Priorite | Scene # | Pourquoi viral | Jour assigne |
+|---|---|---|---|
+| 1 | #37 GRWM late shift | Format ultra-trend 2026 | **J9** |
+| 2 | #4 Saut etagere supply room | Bounce + sexy + relatable | J10 |
+| 3 | #28 Clipboard regard confiant | Hook "doctor wasn't listening" | J10 |
+| 4 | #17 Danse ascenseur caught | Twist comique + sexy | J11 |
+| 5 | #33 Cheveux en cascade | WOW moment slow-mo | J12 |
+| 6 | #21 Vestiaire oops porte | Caught in the act trope | J12 |
+| 7 | #40 ASMR gants stetho | Niche ASMR explose | J13 |
+| 8 | #39 Quiet luxury healthcare | Trend "quiet luxury" 2026 | J14 |
+| 9 | #16 Course code blue | Energie + cheveux qui volent | J14 |
+| 10 | #34 Clocking out sunset | Slow-mo cinematic | Reserve |
+
+### PLANNING J9 → J14
+
+| Jour | Reel 1 (15h FR / 8h Houston) | Carrousel (17h FR / 10h Houston) | Reel 2 (3h FR / 20h Houston) |
+|---|---|---|---|
+| **J9** | Voiture matin (route hopital) | C1 String locker bench + pieds | **#37 GRWM late shift** |
+| **J10** | **#4 Saut etagere supply room** | C5 Allongee ventre lit pieds en l'air | **#28 Clipboard regard confiant** |
+| **J11** | Voiture (post-shift sunset) | C10 Mirror hip pop scrub noue | **#17 Danse ascenseur caught** |
+| **J12** | **#33 Cheveux cascade** | C7 Squat supply room pieds | **#21 Vestiaire oops porte** |
+| **J13** | Voiture (drive-thru #30) | C14 Mid-pull scrub top sport bra | **#40 ASMR gants stetho** |
+| **J14** | **#39 Quiet luxury walk** | C3 Bend over casier string | **#16 Course code blue** |
+
+### CHECK COMPTAGE SEMAINE J9-J14
+- Voitures : J9 + J11 + J13 = **3/4 OK**
+- Pieds nus carrousels : C1 + C5 + C7 = **3x semaine** (au-dessus du min 1-2)
+- Scenes virales banque : 6 reels viraux + 3 voitures = mix equilibre
+- Carrousels SPICY only : ✅ 6/6
+- POV shaky cam : pour scenes filmees collegue (#4, #17, #21, #28)
+
+### REGLE TEST HASHTAGS J9
+- Re-introduire 5 hashtags cibles : #nurselife #grwm #scrubs #nightshift #nursesofinstagram
+- Rotation 5 htags/post (varier selon scene)
+- Mesurer 7 jours : si vues > +30% vs J7-J8 → on garde ; sinon retour zero htag
