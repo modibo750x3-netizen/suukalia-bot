@@ -490,6 +490,7 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Max 3 reels voiture par semaine (rotation 8 lieux)
 - Alterner sexuel / vulnerable / engagement bait
 - CTA : "Main account → @suukalia" dans chaque caption ou bio
+- **CARROUSELS @suuki03 = SPICY UNIQUEMENT** (jamais de "nurse mignonne qui soigne le patient", jamais de wholesome). Les carrousels sont des outils de conversion → mirror selfie spicy, squat, stretch que remonte le top, ajuste bra, pose de dos hips, etc.
 
 ### @suukalia
 - Captions 1-4 mots + 1 emoji MAX
