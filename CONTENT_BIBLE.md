@@ -486,6 +486,7 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 
 ### @suuki03
 - TEXT OVERLAY des la frame 1 sur CHAQUE reel (sinon = 932 vues)
+- **TOUJOURS 2 FRAMES par reel — JAMAIS 1 SEULE** (Frame 1 = hook principal / Frame 2 = question qui engage ou twist)
 - Frame 1 = hook principal, Frame 2 = question qui engage
 - Max 3 reels voiture par semaine (rotation 8 lieux)
 - Alterner sexuel / vulnerable / engagement bait
