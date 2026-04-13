@@ -432,6 +432,12 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Accessoires : pearl necklace, charm bracelet
 - Poses signature : sur le ventre pieds en l'air, assise de dos regard épaule, accroupie de dos
 
+### REGLE CRITIQUE — Visage toujours visible (meme pour scenes "de dos")
+- **JAMAIS de scene 100% dos camera** — le visage DOIT etre partiellement visible (3/4, regard par dessus l'epaule, profil)
+- Sinon Kling/Grok genere une AUTRE fille dans la video (pas de reference faciale = pas de consistency)
+- Pour toute scene "back view" → ecrire : **"3/4 back view looking over her [right/left] shoulder at the camera"**
+- Applique a TOUTES les scenes de la banque virale + spicy
+
 ### Téléphone
 - iPhone 16 Pro Max **blanc**
 - Quand visible dans la scène : "holding a white iPhone 16 Pro Max"
