@@ -491,6 +491,8 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Alterner sexuel / vulnerable / engagement bait
 - CTA : "Main account → @suukalia" dans chaque caption ou bio
 - **CARROUSELS @suuki03 = SPICY UNIQUEMENT** (jamais de "nurse mignonne qui soigne le patient", jamais de wholesome). Les carrousels sont des outils de conversion → mirror selfie spicy, squat, stretch que remonte le top, ajuste bra, pose de dos hips, etc.
+- **PIEDS NUS dans positions sexy** = niche foot fetish OBLIGATOIRE 1-2x/semaine en carrousel. Top spenders Fanvue/OF. Positions : allongee sur le ventre pieds en l'air, assise sur le bureau pieds nus poses, plante des pieds visible en squat, croisee jambes au lit pieds nus, sur le canape pieds nus en gros plan, etirement avec pieds nus visibles
+- Carrousel mix ideal : **sexy pose + pieds visibles** = double conversion (gooners + foot guys)
 
 ### @suukalia
 - Captions 1-4 mots + 1 emoji MAX
