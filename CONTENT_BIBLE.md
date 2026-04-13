@@ -420,6 +420,12 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 
 ## SPECS MODEL & PROMPTS
 
+### REGLE OUTILS — CONTENU SPICY / STRING / WAISTBAND
+- **NanoBanana REFUSE string visible / thong waistband / sous-vetements expose / deshabillage** → filtre trop strict
+- **Pour TOUTES les scenes avec string visible, thong waistband, bra expose, scrub top ouvert, deshabillage → UTILISER GROK IMAGINE** (pas NanoBanana)
+- **NanoBanana = OK** pour : scenes "clean" (voiture, nurse work, mirror selfie habillee normal, GRWM, pieds nus sans string)
+- **Grok Imagine = OBLIGATOIRE** pour : carrousels spicy C1-C15, scenes S1-S20 (banque spicy), tout teasing deshabillage
+
 ### Physique (toujours inclure)
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
 - Tight-fitting scrubs hugging her body
