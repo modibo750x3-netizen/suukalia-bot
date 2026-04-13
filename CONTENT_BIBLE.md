@@ -426,11 +426,12 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - **NanoBanana = OK** pour : scenes "clean" (voiture, nurse work, mirror selfie habillee normal, GRWM, pieds nus sans string)
 - **Grok Imagine = OBLIGATOIRE** pour : carrousels spicy C1-C15, scenes S1-S20 (banque spicy), tout teasing deshabillage
 
-### REGLE WORKFLOW — UN SEUL PROMPT DE BASE
-- **Donner UN prompt de base par image/slide** (pas plusieurs variations multi-outils)
-- Si NanoBanana refuse (trop hot) → **passer sur Grok avec le MEME prompt**
-- On ne split PAS le travail sur plusieurs outils pour une meme image
-- Un slide = un prompt = un outil (Nano si clean OK, Grok si Nano refuse)
+### REGLE WORKFLOW — NANO EN BASE, GROK POUR EDITER
+- **La BASE (premiere image / slide 1) se fait TOUJOURS sur NanoBanana** → etablit le visage, le corps, le cadre
+- **Si la base est trop hot et Nano refuse** → prendre le prompt base, passer sur Grok pour la generer
+- **Les slides suivants = edits de la base** (Grok fait ce qu'on veut, carte blanche)
+- On ne genere JAMAIS chaque slide from scratch → toujours edit depuis la base Nano
+- Resume : Nano cree la reference master → Grok edite pour les variations/spicy
 
 ### Physique (toujours inclure)
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
