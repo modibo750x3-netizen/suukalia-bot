@@ -1179,3 +1179,68 @@ Format valide par Modibo. Jouer sur l'emotion avec une touche sexy subtile (pas 
 ### REGLE DA
 
 Toutes ces idees gardent la DA "Provocatrice dans l'ame" MAIS avec ton emotionnel plutot que provocateur. Le pivot sexy reste subtil (col qui s'ouvre, epaule nue, cheveux qu'on defait) — jamais vulgaire.
+
+## DA OFFICIELLE #2 — "EMOTION + SEXY SUBTIL"
+
+Deuxieme DA validee par Modibo (complementaire de "Provocatrice dans l'ame").
+
+### CONCEPT
+
+Jouer sur l'emotion (fatigue, solitude, poids du metier) AVEC une touche sexy naturelle et subtile. Pas vulgaire, pas force. Le sexy vient des petits details : col qui s'ouvre, epaule nue, cheveux qu'on defait, nuque exposee, cordon de scrub qu'on desserre.
+
+### 5 PILIERS
+
+1. **Emotion d'abord** — fatigue reelle, regard vide, solitude, poids de la shift
+2. **Sexy en detail** — jamais le sujet principal, toujours en sous-texte
+3. **Mouvements lents** — tout est slow, deliberate, fatigue
+4. **Voix off basse et douce** — pas sultry provoc, plutot epuise/confessionnel
+5. **Lumiere tamisee** — nuit, 3am, parking, lampe de chevet, lumiere naturelle faible
+
+### CE QUI DECLENCHE LA TOUCHE SEXY
+
+- Col de scrub qui s'ouvre/desserre
+- T-shirt oversize avec epaule qui depasse
+- Cheveux qu'on defait lentement
+- Cordon de pantalon qu'on denoue
+- Nuque exposee quand elle remonte les cheveux
+- Peignoir blanc entrouvert (pas ouvert)
+- Brassiere sport visible (scrubs a moitie enleves)
+
+### JAMAIS
+
+- ❌ Cigarette (elle fume PAS)
+- ❌ Poses sexy explicites
+- ❌ Smirk provocateur
+- ❌ Regard "come here"
+- ❌ Dialogue provoc ("you like what you see")
+- ❌ Lingerie visible
+
+### TOUJOURS
+
+- ✅ Regard vide ou perdu
+- ✅ Mouvements lents fatigues
+- ✅ Voix off introspective
+- ✅ Solitude palpable
+- ✅ iPhone blanc si telephone
+- ✅ Scrubs ou tenue realiste (pas costume)
+
+### DIALOGUES TYPE
+
+- "12 hours on my feet and nobody's waiting for me"
+- "some nights you just need someone to come home to"
+- "nobody sees what we carry home"
+- "the shift isn't the hardest part... coming home to an empty apartment is"
+- "i just need someone to tell me i did good today"
+- "3am and i'm still thinking about bed 4"
+
+### QUAND UTILISER
+
+- Reels emotionnels viraux
+- Contenu "relatable" pour les nurses
+- Pivot entre spicy et soft pour varier le feed
+- Quand on veut toucher l'audience feminine ET masculine
+- Story posts intimes
+
+### POOL 11 CONCEPTS
+
+Voir section "POOL IDEES REELS — EMOTION + SEXY SUBTIL" (A a K).
