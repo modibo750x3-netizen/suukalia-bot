@@ -1387,3 +1387,64 @@ Ne jamais assumer. Mieux vaut poser une question courte que sortir un prompt qu'
 
 Avant CHAQUE prompt tourne dans un lieu : "Tu veux utiliser quelle piece de ta banque ?"
 JAMAIS assumer.
+
+## STRATEGIE CONTENU — 5 PILIERS (VALIDEE 14/04/2026)
+
+Abandon du contenu "debat / educational" — zero ROI. Focus 100% sur contenus qui convertissent Fanvue.
+
+### Repartition cible par semaine
+
+| Pilier | % | Objectif $$ |
+|---|---|---|
+| Emotion / Storytime | 25% | Parasocial / fidelisation (proven $250-650/j) |
+| Dating / Single nurse | 20% | Fantasme "elle est dispo" → DM |
+| Nurse Advice for Men | 25% | CONVERSION MAX direct Fanvue |
+| POV / Roleplay soft | 20% | Fantasme "elle s'occupe de moi" |
+| Glow up / Transformation | 10% | Double perception de valeur |
+
+### Pilier phare : NURSE ADVICE FOR MEN
+
+Idee Modibo validee — pilier le plus rentable a cultiver.
+
+**Pourquoi ca marche :**
+1. Autorite medicale (nurse = droit de parler corps/sexe)
+2. Intimite coaching (elle te parle a TOI)
+3. Fantasme direct ("elle connait tout sur le sexe")
+4. CTA natif ("full advice on my page")
+
+**Exemples de hooks :**
+- "as a nurse, here's how to last longer in bed"
+- "things your nurse wishes men knew about foreplay"
+- "3 things women actually want that men get wrong"
+- "nurse tip: the spot men always miss"
+- "POV: your nurse is explaining why you finish too fast"
+- "men ask me medical questions... they really mean this"
+
+**Format types :**
+- Reel salon face cam intime (confession)
+- POV lit ou canape
+- Storytime "a patient told me..."
+- Tips list visuel texte overlay
+
+### OUT — Angles abandonnes
+- Debat medicine / ICU vs ER / controversial opinions (zero ROI)
+- Educational pure (legitime mais ne convertit pas)
+- Funny relatable seul (boost algo ok mais conversion faible — a mixer seulement)
+
+## FORMAT SIGNATURE — "PICK A NUMBER"
+
+Format viral comment-bait (ref : @urshanarose — 846 comments sur 2684 likes = 31% ratio).
+
+### Concept
+1 photo. Numeros 1-4 sur body parts ou variations. Caption qui force le mec a commenter son numero.
+
+### Variations nurse
+- **Triage :** 1=face, 2=hands, 3=legs, 4=waist → "which patient would I check on first?"
+- **Symptoms :** 1=headache, 2=bad back, 3=heart ache, 4=bad intentions → "which one you calling about?"
+- **Fantasy :** 1=eyes, 2=feet, 3=waist, 4=thighs → "which one are you confessing to?"
+
+### Frequence
+1x/semaine max (sature vite). Rotation lieux : canape / lit / voiture / vestiaire.
+
+### Conversion
+Chaque "mon numero c'est X" en commentaire → reponse DM avec lien Fanvue.
