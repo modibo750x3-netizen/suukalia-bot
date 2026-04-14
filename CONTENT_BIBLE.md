@@ -442,6 +442,15 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Avantage vs Kling : elle peut PARLER + multi-shot natif + audio inclus + lip-sync natif
 - **Kling archive** — plus jamais utilise pour les reels
 
+### REGLE WORKFLOW — REELS SPICY (photo edit Grok → video Seedance)
+**On peut creer des reels spicy complets avec ce workflow 3 etapes :**
+- **Etape 1 : Nano** → photo base clean (scene + pose + visage)
+- **Etape 2 : Grok** → edit la photo en version spicy (string, thong, knot, deshabillage, tout ce qu'on veut, carte blanche)
+- **Etape 3 : Seedance** → uploader la photo spicy Grok comme @Image1 + prompt video
+- Seedance genere la video spicy animee avec dialogue + audio natif
+- **Avantage :** on peut transformer n'importe quelle scene spicy (carrousel C1-C15, banque S1-S20) en REEL video complet
+- Applicable a toutes les scenes : locker room teasing, vestiaire deshabillage, mirror selfie string visible, squat supply room, etc.
+
 ### REGLE WORKFLOW — VIDEO AVEC DIALOGUE (ultra simplifie)
 **Seedance fait TOUT tout seul. Pas besoin d'ElevenLabs, pas besoin de Sync.so, pas besoin de CapCut.**
 
