@@ -520,7 +520,28 @@ shown in @Image2.
 - Cupholder rotation : iced coffee / energy drink / water bottle / smoothie / nothing (varier a chaque post voiture)
 
 ### Rotation scrubs
-- Bleu (jours 1-3) → Vert (jours 4-6) → Noir (jours 7-9) → Violet (jours 10-12) → repeat
+
+**COULEURS VIRALES (priorite reels) :**
+- Navy blue ✅ top performer (codes nurse IG/TikTok)
+- Vert chirurgical ✅ skin pop sous fluo hopital
+- Burgundy ✅ (nouveau — code fort nurse TikTok, a tester)
+- Violet / lavender ✅ eyecatcher thumbnail
+- Ceil blue / rose pale ✅ (occasionnel, vibe doux)
+
+**ROTATION REELS (jours 1-12) :**
+- Navy (jours 1-3) → Vert (jours 4-6) → Burgundy (jours 7-9) → Violet (jours 10-12) → repeat
+
+**NOIR — regle speciale :**
+- ❌ RETIRE de la rotation reels standard (performe 3x moins : contraste mort sous fluo + pas de signal "nurse" pour l'algo + lu comme workout wear)
+- ✅ OK uniquement pour :
+  - Carrousels spicy (vestiaire, chambre patient) ou le teasing prime sur le signal nurse
+  - 1 reel/semaine MAX et uniquement avec concept FACE + VOIX fort (jamais body-only)
+- ⚠️ Jamais de reel noir + body-only + hook faible = triple penalite algo
+
+**Diagnostic grille (avril 2026) :**
+- Reels noirs observes : 4K / 8K / 9K vues
+- Reels vert / navy / violet observes : 21K / 31K / 235K / 2.1M vues
+- Gap x10 minimum — raison principale : codes couleur nurse + contraste thumbnail
 
 ### Rotation lieux (8 spots, jamais 2x de suite)
 - Voiture (3x/semaine)
