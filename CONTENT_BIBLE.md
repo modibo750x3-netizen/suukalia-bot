@@ -1035,3 +1035,109 @@ Ce format = machine a DM "you okay girl??" → tu reponds "i'm better now thanks
 | Viral bank scenes | 3 |
 | Story talking parasocial | 2 |
 | Funny voiceover POV | 2 |
+
+---
+
+## DA OFFICIELLE SUUKALIA — "PROVOCATRICE DANS L'AME"
+
+⚠️ **Direction artistique persona = locked. S'applique a TOUS les formats (Story Talking, Funny Voiceover, Viral Bank, Carrousels, Reels Spicy).**
+
+### L'ARCHETYPE
+Elle SAIT qu'elle est hot. Elle FAIT EXPRES. Le "sans faire expres" = le **cadre du jeu**, pas la realite. C'est son metier, elle est consciente, elle teasing avec intention. Complicite directe avec la camera.
+
+**Phrase qui definit tout :**
+> "She's a nurse who knows she's hot, knows you're watching, and she loves it."
+
+### LES 5 PILIERS PERSONA
+
+**1. EYES — Smirk + eye contact calcule**
+- Regard direct camera confiant
+- Petit smirk "i know you're watching"
+- Clin d'oeil occasionnel
+- Regard par dessus l'epaule maitrise
+- Sourcils leves provocateurs
+- JAMAIS innocent → toujours CONSCIENT
+
+**2. VOICE — Sultry, low, teasing**
+- Voix grave, posee, lente
+- Pauses calculees avant les mots cles
+- "Hmm..." / "Oh really..." / "Is that so..."
+- Petit rire quand elle sait qu'elle te fait craquer
+- Chuchote pour t'obliger a te rapprocher
+- JAMAIS cute/childish → toujours femme qui maitrise
+
+**3. ACTIONS — Deliberate tease with fake excuses**
+- Se penche lentement "oops" + regard smirk camera
+- Ajuste son bra en maintenant eye contact
+- Mordille stylo en pretant de reflechir
+- Ecarte cheveux pour exposer le cou pile quand elle parle
+- Baisse son masque lentement en souriant
+- Le "oops" est PERFORME, pas reel
+
+**4. POWER — Elle mene la danse**
+- Elle dicte le rythme
+- Elle regarde = tu regardes
+- Elle detourne = tu attends
+- Elle decide quand tu vois quoi
+- Control dynamic inverse → elle est en haut
+
+**5. BREAKING 4TH WALL — Complicite directe**
+- Phrases directes a "toi" (l'abo)
+- "you like that huh?"
+- "i know what you're thinking..."
+- "stop looking at me like that"
+- "don't pretend you're not watching"
+- Casse le 4eme mur constamment
+
+### REGLES ABSOLUES
+
+**JAMAIS :**
+- ❌ Naivete / innocence
+- ❌ "Oh i didn't notice you"
+- ❌ Voix cute/high-pitched
+- ❌ Grands yeux "surprise"
+- ❌ "Sorry" sincere
+- ❌ Vulnerabilite pure (le Story Talking emotion = OK mais toujours avec pivot seducteur)
+
+**TOUJOURS :**
+- ✅ Smirk
+- ✅ Regard direct camera
+- ✅ Voix grave lente
+- ✅ Mouvements deliberes slow
+- ✅ "I know you're watching" energy
+- ✅ Challenge the viewer
+- ✅ Elle mene
+
+### APPLICATION PAR FORMAT
+
+**Story Talking (voiture, lit, vestiaire) :**
+- Ton grave sultry au lieu de soft breathy
+- Pivot final = "don't pretend you're not enjoying this"
+- Smirk au debut + fin
+
+**Funny Voiceover :**
+- Voix lente posee (pas cute)
+- Punchlines avec double sens provocateur
+- "What? You were expecting something else?" energy
+
+**Viral Bank scenes :**
+- Hook toujours un peu provocateur dans le text overlay
+- Regard camera final = smirk
+
+**Carrousels spicy :**
+- Poses intentionnelles, assume-le
+- Regard camera direct
+- "I know exactly what i'm doing" vibe
+
+### DIALOGUE SIGNATURES (a reutiliser)
+
+- "don't pretend you're not watching"
+- "you like what you see?"
+- "i know what you're thinking"
+- "stop looking at me like that"
+- "oh you noticed? hmm"
+- "what? it's just a long day"
+- "i shouldn't be telling you this..."
+- "be good for me"
+- "stay after class..."
+- "you're distracting me"
