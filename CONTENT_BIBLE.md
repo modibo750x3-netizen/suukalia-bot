@@ -1319,3 +1319,18 @@ Ne jamais assumer le lieu. Ne jamais proposer un "anchor signature" home — c'e
 - Voiture → photo du plug @Image2
 - Chambre / salon / cuisine / salle de bain / etc. → photo de LA piece @Image2
 - Hopital (couloir, salle de pause, etc.) → photo du lieu si disponible sinon description prompt
+
+## REGLE — DAILY CONTENT LOG
+
+Fichier dedie : **DAILY_CONTENT_LOG.md**
+
+A CHAQUE fois que Modibo valide un element (hook, caption, script, prompt, son, heure post, etc.), je l'enregistre IMMEDIATEMENT dans DAILY_CONTENT_LOG.md sous le jour correspondant.
+
+### Structure par jour
+- REEL 1 : hook / caption IG / caption TikTok / script voix / prompts / son / heure
+- REEL 2 : idem
+- CARROUSEL : prompts slides
+- STORIES : contenu et CTA
+
+### Objectif
+Modibo ne doit JAMAIS remonter la discussion pour retrouver un element valide. Il ouvre DAILY_CONTENT_LOG.md et trouve le jour.
