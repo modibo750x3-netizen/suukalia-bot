@@ -33,9 +33,6 @@ Nobody tells you the hardest part isn't the patients. It's the silence after. Th
 #nightshift #icu #nurselife #nursesofinstagram #scrublife
 ```
 
-**Caption TikTok — VALIDE**
-> "nobody warns you about the part after the shift. #nursetok #nightshift #12hourshift #fyp"
-
 **Son :** Piano sad en fond bas (10% volume)
 
 **Heure de post :** 15h FR (9am EST optimal US)
@@ -125,9 +122,6 @@ bed 4 is empty... want me to show you how i make it? 😈
 #nurse #nightshift #hospitalhumor #nurselife #scrubs
 ```
 
-**Caption TikTok :**
-> "bed 4 is empty 🤭 swipe for the inspection #nurse #nurselife #nursetok #fyp"
-
 ---
 
 ### REEL 2 — Voiture storytime (STOCK)
@@ -144,9 +138,6 @@ some nights the stories don't leave with the shift. just me, the car, and too ma
 
 #nurselife #storytime #nightshift #nursesofinstagram #12hourshift
 ```
-
-**Caption TikTok :**
-> "storytime from the parking lot 🤍 #nurse #nightshift #storytime #nursetok #fyp"
 
 ---
 
