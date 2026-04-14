@@ -180,13 +180,20 @@ PROMPTS: dict[str, tuple[str, int]] = {
 
     # /day9 — emotional hospital shift short-form video (front-camera POV)
     "day9": (
-        "Write a detailed short-form video script for Suukalia. Scene: 4am hospital bedroom, "
-        "vulnerable emotional monologue. Output ONLY the complete prompt, ready to paste into "
-        "a video generation tool (Higgsfield, Runwayml, etc.). No labels, no sections.\n\n"
-        "Include: front-camera POV (as if phone is above her face), navy scrubs, bedroom setting, "
-        "soft bedside lamp lighting, tear rolling down cheek, eye contact with camera, "
-        "authentic FaceTime aesthetic, vertical 9:16, breathy voice, emotional vulnerability, "
-        "the monologue about being tired of being strong. Keep it cinematic yet intimate.",
-        1000,
+        "Create a detailed Higgsfield / video AI prompt for Suukalia. Scene details:\n\n"
+        "Suukalia lying on her bed in a bedroom, at 4am after a 12-hour hospital shift, "
+        "still in navy blue scrubs. Pure front-camera POV — the iPhone's front camera. "
+        "No phone, no arm, no mirror visible — only her face and upper body from slightly above, "
+        "as if the phone is held above her face looking down.\n\n"
+        "She speaks softly and directly into the lens, vulnerable and exhausted:\n"
+        "'Four AM. Everyone thinks nurses are strong. [pause] Nobody's home waiting for me. "
+        "Nobody ever asks how my shift was. [she slowly loosens her scrub top collar with one hand] "
+        "...I'm so tired of being the strong one.'\n\n"
+        "Technical: Static front-camera POV with subtle handheld movement. Warm bedside lamp, "
+        "dim intimate shadows. Eyes locked on lens. Single tear rolling slowly. Native lip-sync. "
+        "Voice: low, breathy, hoarse, slow. Vertical 9:16. Authentic FaceTime/selfie aesthetic, "
+        "subtle lens distortion, shallow DOF. Output ONLY the complete prompt text — no labels, "
+        "no sections, ready to paste directly.",
+        1200,
     ),
 }
