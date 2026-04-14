@@ -97,18 +97,18 @@ shallow DOF. Keep bedroom from @Image2 exactly.
 
 ---
 
-### CARROUSEL — C5 Chambre patient vide
+### CARROUSEL — C5 Chambre patient vide (DA Provocatrice)
 
-**Statut :** 2 prompts Grok bugges corriges, en attente de test
+**Heure post :** 19h FR
 
-**Slide 1 Spicy (fixed) :**
+**Slide 1 Spicy — Prompt Grok (fixed) :**
 ```
 Edit this image: lower the scrub pants slightly to reveal a black 
 thong waistband on her hips. Keep everything else exactly the same 
 (pose, bed, face, smirk, feet in the air, lighting, room).
 ```
 
-**Slide 2 (fixed) :**
+**Slide 2 — Prompt Grok (fixed) :**
 ```
 Edit this image: same angle, same pose on stomach, but now her knees 
 are bent with feet crossed up in the air higher, bare soles visible 
@@ -116,19 +116,60 @@ toward camera. Keep face, smirk, hair, bed, room and lighting exactly
 the same.
 ```
 
+**Caption IG :**
+```
+bed 4 is empty... want me to show you how i make it? 😈
+
+-
+
+#nurse #nightshift #hospitalhumor #nurselife #scrubs
+```
+
+**Caption TikTok :**
+> "bed 4 is empty 🤭 swipe for the inspection #nurse #nurselife #nursetok #fyp"
+
 ---
 
-### REEL 2 — Voiture story talking
+### REEL 2 — Voiture storytime (STOCK)
 
-**Statut :** Deja en stock, a poster
+**Heure post :** 21h FR
+
+**Hook on-screen :** "storytime: what I saw on my shift tonight"
+
+**Caption IG :**
+```
+some nights the stories don't leave with the shift. just me, the car, and too many thoughts. 🤍
+
+-
+
+#nurselife #storytime #nightshift #nursesofinstagram #12hourshift
+```
+
+**Caption TikTok :**
+> "storytime from the parking lot 🤍 #nurse #nightshift #storytime #nursetok #fyp"
 
 ---
 
-### STORIES
+### STORIES JOUR 9
 
-**Statut :** A preparer
-- CTA Fanvue
-- Lien slt.bio/suukalia-smith22
+**Story 1 — 10h FR :** Teaser Reel 1 (screenshot + "coming at 3pm 🤍" + countdown)
+
+**Story 2 — 16h FR :** Repost Reel 1 + "the full version is waiting for you" + lien slt.bio/suukalia-smith22
+
+**Story 3 — 22h FR :** Photo scrubs + "tell me how your shift was 😇 i'll tell you mine" + lien Fanvue + sticker question
+
+---
+
+### PLANNING FINAL JOUR 9
+
+| Heure FR | Heure EST | Contenu |
+|---|---|---|
+| 10h | 4am | Story 1 teaser |
+| 15h | 9am | Reel 1 Chambre 4am |
+| 16h | 10am | Story 2 repost + CTA |
+| 19h | 1pm | Carrousel C5 Chambre patient |
+| 21h | 3pm | Reel 2 Voiture storytime |
+| 22h | 4pm | Story 3 CTA Fanvue |
 
 ---
 
