@@ -1288,3 +1288,34 @@ Team officielle d'agents IA a recruter selon les besoins. Claude les lance en pa
 ### REGLE
 
 Modibo gere deja la team DM/Fanvue conversion. Ces 6 agents = focus CREATION CONTENU + GROWTH uniquement.
+
+## REGLE WORKFLOW — BANQUE PHOTOS LIEUX
+
+Modibo possede une BANQUE DE PHOTOS des differentes pieces/lieux de Suukalia (chambre, salon, salle de bain, cuisine, balcon, etc.).
+
+### FONCTIONNEMENT
+
+Pour CHAQUE reel/contenu tourne dans un lieu specifique :
+1. Modibo choisit la photo de la piece dans sa banque
+2. On utilise cette photo comme **@Image2** dans Seedance
+3. Le prompt Nano/Seedance doit REFERENCER explicitement la piece de @Image2
+4. Resultat : lieu authentique et coherent
+
+### POURQUOI
+
+- Evite que Seedance genere un lieu different a chaque video
+- Donne un "chez elle" credible et constant
+- Permet de varier les lieux sans perdre la coherence (chaque piece a sa propre photo)
+
+### REGLE AVANT PROMPT
+
+AVANT de generer un prompt pour un contenu tourne dans un lieu, TOUJOURS demander a Modibo :
+> "Tu veux utiliser quelle piece de ta banque pour ce reel ?"
+
+Ne jamais assumer le lieu. Ne jamais proposer un "anchor signature" home — c'est la photo reelle de la piece qui fait la coherence.
+
+### RAPPEL @Image2 PAR LIEU
+
+- Voiture → photo du plug @Image2
+- Chambre / salon / cuisine / salle de bain / etc. → photo de LA piece @Image2
+- Hopital (couloir, salle de pause, etc.) → photo du lieu si disponible sinon description prompt
