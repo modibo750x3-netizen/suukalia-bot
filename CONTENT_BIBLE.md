@@ -1244,3 +1244,47 @@ Jouer sur l'emotion (fatigue, solitude, poids du metier) AVEC une touche sexy na
 ### POOL 11 CONCEPTS
 
 Voir section "POOL IDEES REELS — EMOTION + SEXY SUBTIL" (A a K).
+
+## TEAM AGENTS IA SUUKALIA — 6 SPECIALISTES
+
+Team officielle d'agents IA a recruter selon les besoins. Claude les lance en parallele pendant qu'on avance.
+
+### 1. PROMPT ENGINEER
+- Expert Nano + Grok + Seedance
+- Corrige prompts qui buggent
+- Optimise consistency visage Suuki
+- Appel : prompt sort pas bien
+
+### 2. HOOK & CAPTION WRITER
+- Hooks TikTok/Reels viraux
+- Captions emotion + CTA Fanvue
+- 10 variations en 30s
+- Appel : besoin copies multiples
+
+### 3. COMPETITOR SCOUT
+- Analyse top nurse creators
+- Decortique patterns viraux
+- Pique ce qui marche
+- Appel : manque d'inspi
+
+### 4. GROWTH ANALYST
+- Lit screenshots Meta Ads
+- Optimise CPV/budget/ROAS
+- Scale ou kill campagnes
+- Appel : partage insights ads
+
+### 5. CONTENT PLANNER
+- Planning hebdo complet
+- Balance spicy/emotion/funny
+- Horaires post optimaux
+- Appel : planif semaine
+
+### 6. DIALOGUE WRITER
+- Scripts voix Suuki (ElevenLabs)
+- Dialogues story talking
+- Timing Seedance 13s max
+- Appel : scripts parles
+
+### REGLE
+
+Modibo gere deja la team DM/Fanvue conversion. Ces 6 agents = focus CREATION CONTENU + GROWTH uniquement.
