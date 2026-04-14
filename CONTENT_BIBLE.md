@@ -1153,3 +1153,29 @@ Elle SAIT qu'elle est hot. Elle FAIT EXPRES. Le "sans faire expres" = le **cadre
 - "be good for me"
 - "stay after class..."
 - "you're distracting me"
+
+
+## POOL IDEES REELS — EMOTION + SEXY SUBTIL
+
+Format valide par Modibo. Jouer sur l'emotion avec une touche sexy subtile (pas vulgaire, naturel). Elle fume PAS.
+
+### CHEZ ELLE
+
+- **A) The shift that broke me** — elle rentre, s'affale sur le lit en scrubs, enleve chaussures lentement, regard vide plafond. Voix off fatiguee.
+- **B) 3am thoughts** — dans son lit, seule, t-shirt oversize (epaule nue), lumiere tamisee, parle au telephone blanc a personne.
+- **C) Undressing after 12h** — devant miroir en scrubs, defait cordon pantalon lentement, soupir, regard fatigue. Coupe avant.
+- **D) The empty side of the bed** — lit king size, seule, draps blancs, t-shirt loose, tend la main vers cote vide.
+- **E) Post-shift shower thoughts** — rebord baignoire en peignoir blanc entrouvert, cheveux mouilles, regard perdu.
+- **K) Balcon appart retour shift** — scrubs, verre de vin, regard vers la ville, defait cheveux lentement.
+
+### LIEUX HOPITAL / EXTERIEUR
+
+- **F) Voiture parking hopital fin de shift** — 4h du matin, scrubs, tete appuyee vitre, une larme, desserre haut des scrubs.
+- **G) Vestiaire seule apres shift** — banc du vestiaire, scrubs a moitie enleves (brassiere sport visible), tete dans les mains.
+- **H) Couloir hopital vide 3am** — adossee au mur, scrubs, stethoscope pendant, glisse le long du mur jusqu'au sol.
+- **I) Salle de pause cafe froid** — seule, scrubs, tasse froide, remonte cheveux lentement (nuque exposee).
+- **J) Rooftop hopital nuit** — toit hopital, scrubs, vent dans cheveux, regard vers la ville, col scrub legerement ouvert. (PAS de cigarette)
+
+### REGLE DA
+
+Toutes ces idees gardent la DA "Provocatrice dans l'ame" MAIS avec ton emotionnel plutot que provocateur. Le pivot sexy reste subtil (col qui s'ouvre, epaule nue, cheveux qu'on defait) — jamais vulgaire.
