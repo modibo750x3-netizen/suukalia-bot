@@ -66,27 +66,33 @@ Authentic FaceTime-style front camera aesthetic, subtle lens
 distortion, emotional, shallow depth of field.
 ```
 
-**Prompt Seedance — VALIDE**
+**Prompt Seedance — VALIDE v2 (POV pur sans phone)**
 ```
 @Image1 Suukalia lying on her bed in the bedroom shown in @Image2, 
-at 4am after a 12-hour shift, still in navy blue scrubs. She is 
-holding her white iPhone up filming herself selfie style. She 
-speaks softly and directly to the phone camera, vulnerable and 
-exhausted:
+at 4am after a 12-hour hospital shift, still in navy blue scrubs. 
+
+This is a pure front-camera POV — we are her iPhone's front camera. 
+No phone, no arm, no mirror visible in frame. We see only her face 
+and upper body from slightly above, as if the phone is held above 
+her face looking down.
+
+She speaks softly and directly into the camera lens, vulnerable 
+and exhausted:
 
 "Four AM. Everyone thinks nurses are strong. [pause] Nobody's 
 home waiting for me. Nobody ever asks how my shift was. 
-[she slowly loosens her scrub top collar with her free hand] 
+[she slowly loosens her scrub top collar with one hand] 
 ...I'm so tired of being the strong one."
 
-Camera: selfie POV, phone held up above her face, very slight 
-natural handheld movement. Lighting: warm bedside lamp, dim 
-intimate shadows. Her eyes stay locked on the phone camera. 
-A tear slowly rolls down during the monologue. At "tired of 
-being the strong one" she closes her eyes briefly, then reopens. 
-Native lip-sync. Voice: low, breathy, slightly hoarse, slow 
-pacing. Vertical 9:16. Authentic vlog selfie aesthetic, 
-emotional, shallow DOF. Keep bedroom from @Image2 exactly.
+Camera: static front-camera POV with very slight natural handheld 
+movement (as if phone is resting above her face). Lighting: warm 
+bedside lamp, dim intimate shadows. Her eyes stay locked on the 
+camera lens. A tear slowly rolls down during the monologue. At 
+"tired of being the strong one" she closes her eyes briefly, then 
+reopens looking back at camera. Native lip-sync. Voice: low, 
+breathy, slightly hoarse, slow pacing. Vertical 9:16. Authentic 
+FaceTime/selfie aesthetic, subtle lens distortion, emotional, 
+shallow DOF. Keep bedroom from @Image2 exactly.
 ```
 
 ---
