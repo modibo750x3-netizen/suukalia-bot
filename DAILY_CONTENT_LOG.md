@@ -164,7 +164,103 @@ some nights the stories don't leave with the shift. just me, the car, and too ma
 
 ---
 
-## HISTORIQUE JOURS PRECEDENTS
+## JOUR 10 — 15 avril 2026
+
+**Contexte :** Modibo en voyage Chine, pack programme d'avance (eSIM Saily pour backup).
+
+### REEL 1 — Nurse Advice "The truth men don't wanna hear" (15h FR) — PROGRAMME
+
+**Pilier :** Nurse Advice (nouveau pilier money maker)
+
+**Tenue :** Off-duty — burnt orange ribbed halter crop tank + shorts blancs drawstring, messy high bun
+
+**Lieu :** Salon chez elle, journee (photo banque @Image2)
+
+**Cadrage :** Selfie POV pur (no phone, no arm, no mirror)
+
+**Duree :** 11 secondes
+
+**Hook on-screen :**
+- Frame 1 : "as a nurse, here's what 90% of men get wrong."
+- Frame 2 (mid) : "...and it's not what you think."
+
+**Script voix Suuki (11s) :**
+> "I see it every week. Men come in thinking their problem is physical. [leans closer] It's not. [pause] The reason you can't last... is in your head. [smirk] ...and I know how to fix it. [breath] ...DM me."
+
+**ElevenLabs :** Stability 42 / Similarity 75 / Style 50
+
+**Caption IG :**
+```
+most men's "problem" isn't what they think it is. and i'd know. 🤍
+
+the fix? it's not physical. DM me 😇
+
+-
+
+#nurse #nurselife #rn #nursetok #nightshiftnurse
+```
+
+**Son :** "Die For You" — The Weeknd (slowed + reverb) OU trending TikTok du jour, volume 15-20%
+
+**Prompt Nano Banana :**
+```
+Using the attached living room photo as the exact location, generate
+a photorealistic FRONT-CAMERA SELFIE of Suukalia (face reference),
+as if we are looking through her iPhone's front camera while she
+films herself reclining on the couch in her living room, daytime.
+
+IMPORTANT: No mirror, no phone visible in frame, no arm holding a
+phone. Pure first-person front-camera POV — only her face and upper
+body from slightly high angle.
+
+She is wearing a burnt orange / terracotta ribbed halter crop tank
+top and white cotton drawstring cozy shorts. Hair in a loose messy
+high bun. Natural makeup: glossy nude lips, soft eyeliner, glowing
+skin. Eyes looking into phone camera lens with soft knowing smirk,
+one hand near collarbone.
+
+Lighting: soft natural daylight side window, warm cozy. Keep living
+room exactly as reference. Vertical 9:16. Authentic FaceTime selfie
+aesthetic, subtle lens distortion, intimate, shallow DOF.
+```
+
+**Prompt Grok Edit A (spicy moderee base Seedance) :**
+```
+Edit this image: keep face, living room, lighting, selfie POV angle.
+Changes: tighter shorter crop top showing more toned midriff, slightly
+deeper V-neckline (tasteful cleavage no nudity), pose reclining back
+sensually against cushions one arm above head near pillow other hand
+resting on stomach near crop hem, lips slightly parted eyes half-lidded
+into camera, keep white shorts same, keep messy bun same.
+```
+
+**Prompt Seedance :**
+```
+CRITICAL: Suukalia is OFF-DUTY. She is NOT wearing nursing scrubs,
+NO scrubs, NO RN badge, NO stethoscope. Casual loungewear only.
+
+@Image1 Suukalia reclining on couch in living room shown in @Image2,
+daytime. Wearing burnt orange ribbed halter crop tank + white drawstring
+cozy shorts, messy high bun. Toned midriff visible, bare shoulders,
+bare legs.
+
+Pure front-camera POV — her iPhone front camera. No phone, no arm,
+no mirror visible. Face and upper body from slightly above.
+
+She speaks softly into camera lens, intimate confession tone:
+"I see it every week. Men come in thinking their problem is physical.
+[leans closer] It's not. [pause] The reason you can't last... is in
+your head. [smirk] ...and I know how to fix it. [breath] ...DM me."
+
+Camera: static front-camera POV, slight handheld. Lighting: soft
+natural daylight side window, cozy. Eyes locked on lens. At "it's not"
+raises eyebrow. At "in your head" taps temple. At "DM me" bites lower
+lip briefly smiles. Native lip-sync. Voice: low breathy confident
+teasing. Duration: 11 seconds. Vertical 9:16. Keep living room from
+@Image2 exactly.
+```
+
+---
 
 ### JOUR 8
 (A remplir retroactivement si besoin)
