@@ -42,20 +42,28 @@ Nobody tells you the hardest part isn't the patients. It's the silence after. Th
 
 **Cadrage :** SELFIE POV (elle filme avec son iPhone blanc)
 
-**Prompt Nano — VALIDE**
+**Prompt Nano — VALIDE v2 (anti-miroir)**
 ```
 Using the attached bedroom photo as the exact location, generate 
-a photorealistic SELFIE of Suukalia (face reference) lying on her 
-bed at 4am, just came home from a 12-hour hospital shift. She is 
-holding her white iPhone up with one hand, filming herself selfie 
-style. Still wearing navy blue nursing scrubs. Hair messy, pulled 
-back loosely. Exhausted face, soft tired eyes looking directly into 
-the phone camera, one single tear on her cheek. Other hand resting 
-on her collarbone. Lighting: single warm bedside lamp, dim and 
-intimate, soft shadows on her face. Selfie angle from above (phone 
-held up by her). Keep the bedroom exactly as shown in reference. 
-Vertical 9:16 frame. Film grain, authentic vlog aesthetic, 
-emotional, shallow depth of field.
+a photorealistic FRONT-CAMERA SELFIE of Suukalia (face reference), 
+as if we are looking through her iPhone's front camera while she 
+films herself lying on her bed at 4am, just came home from a 
+12-hour hospital shift. 
+
+IMPORTANT: No mirror, no phone visible in frame, no arm holding 
+a phone. This is a pure first-person front-camera POV — we see 
+only what her phone captures: her face and upper body from a 
+slightly high angle, as if the phone is held above her face 
+looking down at her.
+
+She is wearing navy blue nursing scrubs, lying on her back. Hair 
+messy, pulled back loosely. Exhausted face, soft tired eyes 
+looking directly into the phone camera lens, one single tear on 
+her cheek. One hand resting on her collarbone. Lighting: single 
+warm bedside lamp, dim intimate shadows on her face. Keep the 
+bedroom exactly as shown in reference. Vertical 9:16 frame. 
+Authentic FaceTime-style front camera aesthetic, subtle lens 
+distortion, emotional, shallow depth of field.
 ```
 
 **Prompt Seedance — VALIDE**
