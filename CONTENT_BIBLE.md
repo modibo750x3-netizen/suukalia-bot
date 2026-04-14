@@ -1334,3 +1334,35 @@ A CHAQUE fois que Modibo valide un element (hook, caption, script, prompt, son, 
 
 ### Objectif
 Modibo ne doit JAMAIS remonter la discussion pour retrouver un element valide. Il ouvre DAILY_CONTENT_LOG.md et trouve le jour.
+
+## REGLE CRITIQUE — CHECKLIST AVANT PROMPT
+
+Modibo perd du temps a corriger des erreurs basiques. Avant CHAQUE prompt sortir, verifier :
+
+### CHECKLIST OBLIGATOIRE
+
+1. **Lieu confirme ?** Photo de la banque / @Image2 / description precise
+2. **Objet signature coherent ?**
+   - Voiture → plug en @Image2
+   - Chambre → photo chambre en @Image2
+   - Pas de telephone blanc mentionne SI on est en POV pur (on le voit pas)
+3. **Cadrage coherent dans TOUT le prompt ?**
+   - Selfie POV = no phone visible, no mirror, no arm holding phone
+   - Static cam = mentionner clairement pas de selfie
+   - Jamais mixer les deux
+4. **Script vs prompt = zero contradiction ?**
+   - Si le script dit "[loosens collar]" → prompt doit inclure l'action
+   - Si le script dit 4am → prompt doit inclure 4am
+5. **DA matchee ?**
+   - DA Emotion = voix tired, PAS provoc, details sexy subtils only
+   - DA Provocatrice = smirk, regard direct, dialogue teasing
+   - Pas de mix des deux
+
+### SI DOUTE → DEMANDER AVANT DE SORTIR LE PROMPT
+
+Ne jamais assumer. Mieux vaut poser une question courte que sortir un prompt qu'on doit refaire 3 fois.
+
+### LIEU = REFLEXE #1
+
+Avant CHAQUE prompt tourne dans un lieu : "Tu veux utiliser quelle piece de ta banque ?"
+JAMAIS assumer.
