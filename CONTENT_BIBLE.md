@@ -440,6 +440,27 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Seedance accepte les visages humains realistes (valide en test)
 - Avantage vs Kling : elle peut PARLER + multi-shot natif + audio inclus
 
+### REGLE VOIX SUUKALIA — ELEVENLABS + SEEDANCE
+**Voix officielle Suukalia = cree UNE fois dans ElevenLabs, reutilisee pour toujours.**
+
+**Setup initial (a faire 1 fois) :**
+1. ElevenLabs (elevenlabs.io) → plan Starter ~$5/mois
+2. Feature **Voice Design** → decrire la voix : "young american woman, soft breathy, slightly raspy, intimate, mid-20s, warm"
+3. Sauvegarder la voix sous "Suukalia Voice" dans la bibliotheque
+
+**Workflow par reel avec dialogue :**
+1. Ecrire le texte du dialogue (max 15s audio)
+2. Generer l'audio dans ElevenLabs avec la voix "Suukalia Voice" → telecharger MP3
+3. Generer la photo de reference dans NanoBanana (@Image1)
+4. Dans Seedance : upload @Image1 (photo) + @Audio1 (MP3 ElevenLabs) + prompt
+5. Prompt type : "@Image1 as the subject. [scene]. Voice references @Audio1 — she says exactly what's in the audio. [motion/expressions]."
+
+**Avantage :** MEME voix a chaque reel → persona credible + parasocial fort + indetectable IA.
+
+**Alternative si Seedance rend mal le lip-sync :** generer la video muette sur Seedance, puis lip-sync avec HeyGen sur l'audio ElevenLabs.
+
+**Future Lana Ashford :** creer une 2eme voix distincte dans ElevenLabs ("young woman, crisp clean American, equestrian refined tone") → chaque modele a sa voix unique.
+
 ### Physique (toujours inclure)
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
 - Tight-fitting scrubs hugging her body
