@@ -905,3 +905,83 @@ Si 2 posts HORS voiture d'affilee sont dans le meme lieu (ex: 2 couloirs, 2 bure
 - Re-introduire 5 hashtags cibles : #nurselife #grwm #scrubs #nightshift #nursesofinstagram
 - Rotation 5 htags/post (varier selon scene)
 - Mesurer 7 jours : si vues > +30% vs J7-J8 → on garde ; sinon retour zero htag
+
+---
+
+## FORMAT SIGNATURE — STORY TALKING (Seedance dialogue)
+
+⚠️ Nouveau format signature Suukalia post-Seedance 2.0. **Elle raconte une histoire/confession direct camera** dans differents lieux. Ultra parasocial, high conversion Fanvue.
+
+### PRINCIPE
+- Video 10-15s generee via Seedance avec dialogue natif + lip-sync parfait
+- Pas de hook text overlay (le dialogue EST le hook)
+- Pas de musique (on laisse sa voix + ambiance naturelle)
+- Format POV selfie intime, elle se confie a "toi" (l'abonne)
+- Ton : doux, breathy, intime, vulnerable, avec emotion
+
+### LIEUX POSSIBLES (rotation)
+1. **Voiture post-shift** (nuit, parking hopital, amber light)
+2. **Voiture matin** (pre-shift, cafe dans la main)
+3. **Lit le soir** (pyjama ou haut large, cheveux laches, lumiere tamisee)
+4. **Salle de bain hopital** (pause entre patients, miroir, fluo)
+5. **Canape appart** (plaid, chaussettes, tisane, lumiere chaude)
+6. **Vestiaire apres shift** (cheveux defaits, casier ouvert)
+7. **Balcon / rooftop** (coucher de soleil, vent dans les cheveux)
+8. **Cuisine tard le soir** (frigo ouvert, snack, petite lumiere)
+
+### THEMES D'HISTOIRES (rotation)
+- **Patient emotion** : "un patient m'a fait pleurer aujourd'hui..."
+- **Collegue drama** : "ma charge nurse m'a encore crie dessus..."
+- **Solitude** : "parfois je rentre et je parle a mes plantes..."
+- **Vulnerable confession** : "j'ai un secret a te dire..."
+- **Crush hopital** : "il y a ce docteur qui me fait un effet..."
+- **Bad day** : "aujourd'hui j'ai failli craquer..."
+- **Appreciation** : "merci d'etre la quand j'ai personne d'autre..."
+- **Memory** : "tu sais pourquoi je suis devenue infirmiere ?"
+- **Confession spicy** : "j'ai fait quelque chose de pas bien aujourd'hui..."
+- **Seeking comfort** : "j'ai pas envie d'etre seule ce soir..."
+
+### STRUCTURE DIALOGUE TYPE (12s)
+```
+0-4s: Hook emotionnel
+  "okay so today was... [something crazy/rough/weird]"
+  
+4-8s: Le drame / la story
+  "[patient/collegue/moment specifique]... i [reaction emotion]"
+  
+8-12s: Pivot vers l'abo (parasocial)
+  "i'm just glad i have you to talk to."
+  OU
+  "do you ever feel like this too?"
+  OU
+  "thank you for listening to me tonight."
+```
+
+### REGLES CRITIQUES
+- **JAMAIS 2 story-talking d'affilee** (max 1 par 2 jours)
+- **Pivot obligatoire vers l'abo** a la fin (pour le parasocial)
+- **Ton toujours doux/intime** (jamais excite/hype)
+- **Eye contact camera constant** (90% du temps)
+- **Badge toujours blurred** si scene hopital
+- **Plug @Image2 en voiture** pour consistency
+
+### CAPTION FORMAT
+```
+sorry i needed to vent tonight... [theme] 🤍 thank you for listening
+
+
+-
+
+
+#nurselife #nightshift #12hourshift #nursesofinstagram #aloneinthecity
+```
+
+### PIN COMMENT AUTO
+> "[phrase emotionnelle qui invite a repondre] 🤍"
+
+### CONVERSION FANVUE
+Ce format = machine a DM "you okay girl??" → tu reponds "i'm better now thanks to you 🤍" → lien Fanvue en bio naturellement click.
+
+### QUAND POSTER
+- **21h Houston (4h France)** pour audience americaine au lit
+- Format emotion = peak window 21h-23h Houston
