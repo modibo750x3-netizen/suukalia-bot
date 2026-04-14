@@ -10,7 +10,7 @@ Regle : des que Modibo valide un hook / caption / prompt / idee, je l'ajoute ici
 
 ### REEL 1 — Chez elle, chambre 4am (Emotion + Sexy Subtil)
 
-**Statut :** en cours de finalisation (selfie POV a valider)
+**Statut :** VALIDE en selfie POV, prompts finaux ci-dessous
 
 **DA :** Emotion + Sexy Subtil (DA #2)
 
@@ -40,8 +40,46 @@ Nobody tells you the hardest part isn't the patients. It's the silence after. Th
 
 **Heure de post :** 15h FR (9am EST optimal US)
 
-**Prompt Nano :** en cours (selfie POV a valider)
-**Prompt Seedance :** en cours
+**Cadrage :** SELFIE POV (elle filme avec son iPhone blanc)
+
+**Prompt Nano — VALIDE**
+```
+Using the attached bedroom photo as the exact location, generate 
+a photorealistic SELFIE of Suukalia (face reference) lying on her 
+bed at 4am, just came home from a 12-hour hospital shift. She is 
+holding her white iPhone up with one hand, filming herself selfie 
+style. Still wearing navy blue nursing scrubs. Hair messy, pulled 
+back loosely. Exhausted face, soft tired eyes looking directly into 
+the phone camera, one single tear on her cheek. Other hand resting 
+on her collarbone. Lighting: single warm bedside lamp, dim and 
+intimate, soft shadows on her face. Selfie angle from above (phone 
+held up by her). Keep the bedroom exactly as shown in reference. 
+Vertical 9:16 frame. Film grain, authentic vlog aesthetic, 
+emotional, shallow depth of field.
+```
+
+**Prompt Seedance — VALIDE**
+```
+@Image1 Suukalia lying on her bed in the bedroom shown in @Image2, 
+at 4am after a 12-hour shift, still in navy blue scrubs. She is 
+holding her white iPhone up filming herself selfie style. She 
+speaks softly and directly to the phone camera, vulnerable and 
+exhausted:
+
+"Four AM. Everyone thinks nurses are strong. [pause] Nobody's 
+home waiting for me. Nobody ever asks how my shift was. 
+[she slowly loosens her scrub top collar with her free hand] 
+...I'm so tired of being the strong one."
+
+Camera: selfie POV, phone held up above her face, very slight 
+natural handheld movement. Lighting: warm bedside lamp, dim 
+intimate shadows. Her eyes stay locked on the phone camera. 
+A tear slowly rolls down during the monologue. At "tired of 
+being the strong one" she closes her eyes briefly, then reopens. 
+Native lip-sync. Voice: low, breathy, slightly hoarse, slow 
+pacing. Vertical 9:16. Authentic vlog selfie aesthetic, 
+emotional, shallow DOF. Keep bedroom from @Image2 exactly.
+```
 
 ---
 
