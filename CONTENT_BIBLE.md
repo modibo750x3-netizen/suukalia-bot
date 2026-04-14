@@ -985,3 +985,53 @@ Ce format = machine a DM "you okay girl??" → tu reponds "i'm better now thanks
 ### QUAND POSTER
 - **21h Houston (4h France)** pour audience americaine au lit
 - Format emotion = peak window 21h-23h Houston
+
+---
+
+## FORMAT SIGNATURE — FUNNY POV VOICEOVER (Seedance)
+
+⚠️ Format relatable/humour. Elle filme quelque chose, parle en voiceover par dessus. Pas de lip-sync = plus facile a generer. Format viral IG 2026 (style Alix Earle / Paige Desorbo mais nurse).
+
+### PRINCIPE
+- Video 15-30s multi-shot Seedance
+- Elle filme des objets/lieux/situations (pas elle en train de parler)
+- Audio = sa voix en voiceover OFF + ambient sounds
+- Ton : humour, relatable, gossip, sarcastique
+- 1-2 apparitions visage max (reaction face)
+
+### BANQUE 10 CONCEPTS
+
+| # | Titre | Concept |
+|---|---|---|
+| V1 | My Night Shift in 60 Seconds | Rapid cuts cafe brule, ordi bug, patient confus, supply room chaos, 3am crying |
+| V2 | Things in Hospital that Make Me Irrationally Angry | Listicle distributeur vide, lit mal fait, coffee pot vide, sa chaise volee |
+| V3 | POV: You're My Patient | POV patient lit, elle check IV/stetho/ordi, flirt "your BP is UP" |
+| V4 | My Coworker Thinks I Don't See Her | Coin couloir, collegue flirte docteur, chuchote gossip |
+| V5 | Rating Break Room Snacks | Chaque snack un par un, ratings sarcastiques |
+| V6 | What They Ask Me at 3AM | Patients requests bizarres, mimiques exasperees |
+| V7 | Coming Home After 12hr Shift | Montage sortie hopital → drive thru → canape |
+| V8 | Things I Overheard Today | Portes fermees, couloirs, quotes gossip |
+| V9 | My Patient is Setting Me Up With Her Son | Chambre 304, badge, miroir rire |
+| V10 | What I Pack in My Bag for 12hr Shift | Sort objets un par un, humour |
+
+### REGLES FORMAT
+- **Max 2 funny voiceover/semaine** (pas overdose)
+- **Alterner** avec Story Talking + Viral Bank
+- **Audio natif ambient** (hospital sounds, break room, car, etc.)
+- **Voix voiceover claire posee** (pas breathy/intime comme Story Talking)
+- **Humor timing** = pauses dramatiques + punchlines
+- **Badge blurred** si visible + plug @Image2 si voiture
+
+### POURQUOI ÇA MARCHE
+- Format grand public non-spicy = attire audience large (pas que les gooners)
+- Shares elevees (les filles partagent a leurs copines nurses)
+- Saves elevees (relatable = "c'est moi ça")
+- Builds persona beyond sexy (Suuki devient PERSONNAGE attachant)
+- Ouvre saga-format (ex V9 Mrs. Patterson story = serie continue)
+
+### MIX HEBDO IDEAL
+| Format | Fois/sem |
+|---|---|
+| Viral bank scenes | 3 |
+| Story talking parasocial | 2 |
+| Funny voiceover POV | 2 |
