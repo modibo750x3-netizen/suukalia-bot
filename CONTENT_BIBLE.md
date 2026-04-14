@@ -494,6 +494,7 @@ shown in @Image2.
 - Cheveux : curly, souvent en messy bun haut
 - Stéthoscope autour du cou (pas toujours, ~1 sur 2)
 - Accessoires : pearl necklace, charm bracelet
+- **TELEPHONE BLANC** (iPhone blanc) — c'est SON telephone signature, a mentionner dans TOUS les prompts ou elle tient un telephone (mirror selfie, voiture selfie, POV filme elle, etc.)
 - Poses signature : sur le ventre pieds en l'air, assise de dos regard épaule, accroupie de dos
 
 ### REGLE CRITIQUE — Visage toujours visible (meme pour scenes "de dos")
