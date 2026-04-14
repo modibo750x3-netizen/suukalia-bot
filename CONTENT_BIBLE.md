@@ -434,11 +434,13 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 - Resume : Nano cree la reference master → Grok edite pour les variations/spicy
 
 ### REGLE WORKFLOW — SEEDANCE 2.0 (VIDEO)
+**⚠️ TOUS LES REELS SE FONT EN SEEDANCE MAINTENANT. FINI KLING.**
 - **Etape 1 : generer la photo de reference avec NanoBanana** (scene + pose + visage Suuki)
 - **Etape 2 : uploader cette photo comme @Image1 dans Seedance** + ecrire le prompt video
 - Seedance genere la video 4-15s avec audio natif + dialogue + motion control + LIP-SYNC PARFAIT
 - Seedance accepte les visages humains realistes (valide en test)
 - Avantage vs Kling : elle peut PARLER + multi-shot natif + audio inclus + lip-sync natif
+- **Kling archive** — plus jamais utilise pour les reels
 
 ### REGLE WORKFLOW — VIDEO AVEC DIALOGUE (ultra simplifie)
 **Seedance fait TOUT tout seul. Pas besoin d'ElevenLabs, pas besoin de Sync.so, pas besoin de CapCut.**
