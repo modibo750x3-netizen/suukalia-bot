@@ -177,4 +177,16 @@ PROMPTS: dict[str, tuple[str, int]] = {
         "Include Instagram, Twitter, Threads, Fanvue. Under 150 words total.",
         400,
     ),
+
+    # /day9 — emotional hospital shift short-form video (front-camera POV)
+    "day9": (
+        "Write a detailed short-form video script for Suukalia. Scene: 4am hospital bedroom, "
+        "vulnerable emotional monologue. Output ONLY the complete prompt, ready to paste into "
+        "a video generation tool (Higgsfield, Runwayml, etc.). No labels, no sections.\n\n"
+        "Include: front-camera POV (as if phone is above her face), navy scrubs, bedroom setting, "
+        "soft bedside lamp lighting, tear rolling down cheek, eye contact with camera, "
+        "authentic FaceTime aesthetic, vertical 9:16, breathy voice, emotional vulnerability, "
+        "the monologue about being tired of being strong. Keep it cinematic yet intimate.",
+        1000,
+    ),
 }

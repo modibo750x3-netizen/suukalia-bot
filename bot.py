@@ -40,7 +40,7 @@ from telegram.ext import CallbackQueryHandler
 
 from agents import analyste_agent, channel_agent, poster_agent, strategie_agent
 from agents import marcus_agent, sofia_agent, alex_agent, maya_agent
-from agents import instagram_scraper, browser_scraper
+from agents import instagram_scraper, browser_scraper, team
 
 # ── Bootstrap ────────────────────────────────────────────────────────────────────
 load_dotenv()
@@ -75,6 +75,7 @@ BOT_COMMANDS = [
     BotCommand("sofia", "Sofia — Contenu [ig|ig_main|ig_nurse|collab|twitter|threads|ppv]"),
     BotCommand("alex", "Alex — Analyse métriques data & performance"),
     BotCommand("maya", "Maya — Post channel Telegram [ppv] (1300 abonnés)"),
+    BotCommand("day9", "Jour 9 — Prompt vidéo émotionnel (hospital shift POV)"),
 ]
 
 # ── Higgsfield ───────────────────────────────────────────────────────────────────
@@ -697,6 +698,17 @@ async def _scheduled_channel_post(context: ContextTypes.DEFAULT_TYPE) -> None:
     except Exception as exc:
         logger.error("Scheduled channel post failed: %s", exc)
 
+# ── /day9 — Jour 9 emotional hospital shift short-form video ──────────────────────
+
+
+async def cmd_day9(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Generate Day 9 emotional video prompt — front-camera POV hospital bedroom scene."""
+    await update.message.reply_chat_action(ChatAction.TYPING)
+    await update.message.reply_text(
+        "🎬 Jour 9: Prompt vidéo émotionnel en cours… (20-30 sec)"
+    )
+    await _safe_run(update, team.run("day9", _ai(context)))
+
 # ── /faceswap ───────────────────────────────────────────────────────────────────
 
 
@@ -829,6 +841,7 @@ def main() -> None:
     app.add_handler(CommandHandler("sofia", cmd_sofia))
     app.add_handler(CommandHandler("alex", cmd_alex))
     app.add_handler(CommandHandler("maya", cmd_maya))
+    app.add_handler(CommandHandler("day9", cmd_day9))
 
     # Commands — legacy aliases
     app.add_handler(CommandHandler("strategie", cmd_strategie))

@@ -28,6 +28,7 @@ _ROUTING: dict[str, str] = {
     "reel1":  "strategy",
     "reel2":  "strategy",
     "prompt": "prompt",
+    "day9":   "prompt",
     "day":    "orchestrator",
     "igrow":  "growth",
 }
