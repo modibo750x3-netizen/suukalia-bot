@@ -436,30 +436,42 @@ Style : 2-3 phrases, authentique, questions pour engagement, 0 hashtag
 ### REGLE WORKFLOW — SEEDANCE 2.0 (VIDEO)
 - **Etape 1 : generer la photo de reference avec NanoBanana** (scene + pose + visage Suuki)
 - **Etape 2 : uploader cette photo comme @Image1 dans Seedance** + ecrire le prompt video
-- Seedance genere la video 4-15s avec audio natif + dialogue + motion control
+- Seedance genere la video 4-15s avec audio natif + dialogue + motion control + LIP-SYNC PARFAIT
 - Seedance accepte les visages humains realistes (valide en test)
-- Avantage vs Kling : elle peut PARLER + multi-shot natif + audio inclus
+- Avantage vs Kling : elle peut PARLER + multi-shot natif + audio inclus + lip-sync natif
 
-### REGLE VOIX SUUKALIA — ELEVENLABS + SEEDANCE
-**Voix officielle Suukalia = cree UNE fois dans ElevenLabs, reutilisee pour toujours.**
+### REGLE WORKFLOW — VIDEO AVEC DIALOGUE (ultra simplifie)
+**Seedance fait TOUT tout seul. Pas besoin d'ElevenLabs, pas besoin de Sync.so, pas besoin de CapCut.**
 
-**Setup initial (a faire 1 fois) :**
-1. ElevenLabs (elevenlabs.io) → plan Starter ~$5/mois
-2. Feature **Voice Design** → decrire la voix : "young american woman, soft breathy, slightly raspy, intimate, mid-20s, warm"
-3. Sauvegarder la voix sous "Suukalia Voice" dans la bibliotheque
+**Workflow :**
+1. NanoBanana → photo reference (Suuki + plug en @Image2 si scene voiture)
+2. Seedance → video 12-15s avec dialogue ecrit dans le prompt entre guillemets
+3. Post
 
-**Workflow par reel avec dialogue :**
-1. Ecrire le texte du dialogue (max 15s audio)
-2. Generer l'audio dans ElevenLabs avec la voix "Suukalia Voice" → telecharger MP3
-3. Generer la photo de reference dans NanoBanana (@Image1)
-4. Dans Seedance : upload @Image1 (photo) + @Audio1 (MP3 ElevenLabs) + prompt
-5. Prompt type : "@Image1 as the subject. [scene]. Voice references @Audio1 — she says exactly what's in the audio. [motion/expressions]."
+**Format du dialogue dans le prompt Seedance :**
+```
+0-4s: [action + expression]. She says softly: "[texte du dialogue]"
+4-8s: [action]. She continues: "[suite]"
+8-12s: [action]. She says: "[fin]"
+```
 
-**Avantage :** MEME voix a chaque reel → persona credible + parasocial fort + indetectable IA.
+**Voice seeding (pour voix Suuki consistante entre reels) :**
+Ajouter cette description fixe dans chaque prompt :
+```
+Soft breathy female voice, young American woman mid-20s, slightly 
+raspy intimate tone, warm Southern Houston accent.
+```
 
-**Alternative si Seedance rend mal le lip-sync :** generer la video muette sur Seedance, puis lip-sync avec HeyGen sur l'audio ElevenLabs.
+**Plug consistency en voiture :**
+Upload plug comme `@Image2` + ecrire :
+```
+The object shown in @Image2 is her signature car charm, visible 
+hanging from rearview mirror throughout the video, exactly as 
+shown in @Image2.
+```
 
-**Future Lana Ashford :** creer une 2eme voix distincte dans ElevenLabs ("young woman, crisp clean American, equestrian refined tone") → chaque modele a sa voix unique.
+**Cout :** ~$0.60/reel avec dialogue (vs $1-2 en multi-outils avant)
+**Temps :** ~8 min/reel (vs 25 min avec ElevenLabs+Sync.so)
 
 ### Physique (toujours inclure)
 - Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
