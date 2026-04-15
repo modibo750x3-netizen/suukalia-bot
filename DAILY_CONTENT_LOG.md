@@ -262,6 +262,60 @@ teasing. Duration: 11 seconds. Vertical 9:16. Keep living room from
 
 ---
 
+### CARROUSEL — Scrubs canape high angle (19h FR) — PROGRAMME
+
+**Pilier :** Pose sexy pure
+**Scrubs :** Burgundy
+**Lieu :** Salon canape (photo banque @Image2)
+**Workflow :** 1 Nano base → 3 Grok edits
+
+**Prompt Nano (base safe) :**
+```
+@Image1 Suukalia reclining on the couch in @Image2, daytime.
+Outfit: full burgundy nursing scrubs, RN badge blurred. Hair down soft waves.
+Pose: lying back on cushions, one leg bent up foot on couch, other leg stretched,
+one hand behind head in hair, other hand on stomach. Head tilted, soft smirk,
+eyes into camera.
+Camera: HIGH ANGLE looking DOWN. Soft natural daylight side window.
+Vertical 9:16, iPhone candid, no filter.
+```
+
+**Grok Slide 1 (crop + thong) :**
+```
+Edit: keep face, couch, lighting, same high angle pose. Changes:
+- Scrub top tied in knot front, cropped short, midriff + cleavage visible
+- Scrub pants low on hips, waistband rolled, black thong waistband visible
+- Keep hair, pose, expression same.
+```
+
+**Grok Slide 2 (pose stomach) :**
+```
+Edit: keep face, couch, lighting, same outfit (crop + thong visible).
+New pose: on stomach, legs bent up and crossed in air showing soles toward
+camera, chin on hands elbows on cushion, looking up into camera playful smirk.
+High angle looking down.
+```
+
+**Grok Slide 3 (pose assise reveal) :**
+```
+Edit: keep face, couch, lighting, same outfit. New pose:
+- Sitting up, knees together bent to one side, leaning forward hands on thighs
+- Scrub top knot looser, more cleavage
+- Looking into camera, lips parted, teasing smirk, hair over shoulder
+Same high angle.
+```
+
+**Caption IG :**
+```
+off shift. on duty 😇
+
+-
+
+#nurse #nurselife #rn #scrubs #nursesofinstagram
+```
+
+---
+
 ### JOUR 8
 (A remplir retroactivement si besoin)
 
