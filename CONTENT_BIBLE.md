@@ -1518,3 +1518,34 @@ Le mec doit sentir qu'il PEUT combler ce manque en commentant ou DM.
 ✅ Laisser une **porte ouverte** pour que le mec se projette en sauveur
 ✅ Creer un **manque explicite** (personne / amour / reconfort / reconnaissance)
 ✅ Finir avec un **double sens teasing-triste** (Fanvue conversion subtile)
+
+## FORMAT SIGNATURE QUOTIDIEN — EMOTION + SEXY + VULNERABILITY (validee 16/04/2026)
+
+### Regle
+**1 reel/jour OBLIGATOIRE** dans cette DA. C'est le format signature daily de Suukalia.
+
+### Caracteristiques
+
+- **DA :** Emotion vulnerable + touche sexy subtile + Frame 2 vulnerability trigger
+- **Format :** Static cam + text overlay + 7s + pas de dialogue speaking
+- **Son :** Piano sad / R&B slow / emotional trending audio
+- **Visuel :** Scrub top legerement ouvert / decollete / bretelle visible / peau subtile — JAMAIS vulgaire, toujours "accidentel"
+- **Lieu :** Rotation hopital — ambulance bay / supply closet / scrub sink / chapel / nurse station / locker room / elevator / stairwell / break room 3am
+- **Pose :** Dos mur / dos porte / tete renversée / penchée / assise seule
+- **Expression :** Fatiguee vulnerable, regard loin ou dans le vide
+- **Hook Frame 2 :** Phrase qui cree un manque → invite comment/DM reconfort
+
+### Pourquoi 1/jour
+- Audience habituée = attend le daily emotion = **retention + save rate eleve**
+- Parasocial fidelise (ils reviennent voir "comment elle va aujourd'hui")
+- Conversion Fanvue lente mais stable ($250-650/j prouve)
+- Reduit dependance speaking Seedance (aligne avec regle max 3 speaking/sem)
+
+### Checklist avant de generer
+
+1. Le Frame 2 = vulnerability trigger qui invite reponse ?
+2. Lieu pas deja utilise dans les 5 derniers jours ?
+3. Pose pas deja utilisee dans les 5 derniers jours ?
+4. Skin subtil present (decollete / epaule / midriff / bretelle) ?
+5. Duree 7-9s max ?
+6. Static cam / pas de dialogue ?
