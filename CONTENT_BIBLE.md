@@ -1448,3 +1448,37 @@ Format viral comment-bait (ref : @urshanarose — 846 comments sur 2684 likes = 
 
 ### Conversion
 Chaque "mon numero c'est X" en commentaire → reponse DM avec lien Fanvue.
+
+## REGLE — RATIO REELS PARLANTS / TEXT OVERLAY (16/04/2026)
+
+### Constat
+Trop de reels Seedance lip-sync speaking consecutifs = 
+1. Pattern IA detectable par Meta (reach reduit)
+2. Moins viral que les text overlay classiques
+3. Saturation audience
+
+### REGLE : MAX 3 REELS SPEAKING / SEMAINE
+
+**3 reels parlants max/semaine** (Seedance dialogue lip-sync)
+**Le reste = formats proven :**
+- Text overlay classique (hook + 2e frame, pas de voix)
+- Voice-over pur (elle parle mais on voit pas sa bouche, elle filme un objet/lieu)
+- Scenes viral bank (voiture / couloir / etc — statique avec hook texte)
+- Funny POV voiceover (signature format)
+
+### Repartition hebdo cible
+
+| Format | Frequence/semaine |
+|---|---|
+| Speaking reel (Seedance lip-sync) | 3 max |
+| Text overlay scene (voiture / hopital / etc) | 4-5 |
+| Voice-over POV (filme objet) | 2-3 |
+| Carrousel | 2-3 |
+| Stories | 7 (1/jour) |
+
+### Retour aux formats base
+
+Revenir aux reels qui marchaient (2.1M / 235K / 31K) :
+- Voiture face cam + texte overlay seulement (pas de dialogue)
+- Scenes hopital statique + voice-over narrative
+- Format "POV elle filme son badge / ses scrubs / une scene" + texte hook
