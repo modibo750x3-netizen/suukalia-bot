@@ -485,7 +485,8 @@ shown in @Image2.
 **Temps :** ~8 min/reel (vs 25 min avec ElevenLabs+Sync.so)
 
 ### Physique (toujours inclure)
-- Curvy hourglass figure, large hips, slim waist, full chest, thick thighs, 1m68
+- Slim / skinny well-built body, naturally athletic, natural curves but nothing exaggerated
+- Toned slim figure with subtle natural curves (not curvy hourglass), small-medium natural chest, defined slim waist, naturally toned hips and thighs, 1m68
 - Tight-fitting scrubs hugging her body
 - ID badge with name and photo **fully blurred out / completely illegible** (95-100% blur — on ne doit JAMAIS pouvoir lire le nom ou voir la photo), and a hot pink badge buddy behind it with "RN" in large white text
 - Provocative expression OR cute smile (varier)
@@ -1586,11 +1587,11 @@ Base sur top 5 carrousels Suuki (144K / 57K / 56K / 33K / 19K) — formula prouv
 ### Caracteristiques systematiques
 
 ✅ **Body characteristics** dans CHAQUE prompt :
-- Curvy hourglass figure
-- Large hips
-- Slim waist
-- Full chest
-- Thick thighs
+- Slim / skinny well-built body
+- Naturally athletic with subtle natural curves (NOT curvy hourglass)
+- Small-medium natural chest (NOT full chest)
+- Defined slim waist
+- Naturally toned hips and thighs (NOT large hips)
 - 1m68
 - Tight-fitting scrubs hugging her body
 
