@@ -1575,3 +1575,51 @@ Suukalia a des **cheveux CURLY naturels** (pas raides, pas longs lisses).
 Toujours juste mentionner l'**ARRANGEMENT** (down / pony / bun / half), pas la longueur ou texture qui sont dans @Image1.
 
 Exemple : "curly hair pulled back loose" au lieu de "long brown curly hair pulled back into a messy bun with strands falling on face".
+
+## REGLE CARROUSEL — DA + ROTATION POSES (16/04/2026)
+
+### DA validee carrousels
+**Playful confident + casual sexy + comment-bait caption + body visible**
+
+Base sur top 5 carrousels Suuki (144K / 57K / 56K / 33K / 19K) — formula prouvée.
+
+### Caracteristiques systematiques
+
+✅ **Body characteristics** dans CHAQUE prompt :
+- Curvy hourglass figure
+- Large hips
+- Slim waist
+- Full chest
+- Thick thighs
+- 1m68
+- Tight-fitting scrubs hugging her body
+
+✅ **Pose "caught in the moment"** (pas posee artificielle)
+✅ **Smile / smirk / playful** (pas emotion triste sur les carrousels)
+✅ **Caption comment-bait** ("1, 2, 3?", "X minutes turned into Y", "X needed a break")
+✅ **Trending R&B/pop song** (pas piano sad)
+✅ **Feet visible** sur 1 slide minimum (niche foot)
+
+### Rotation poses (jamais 2x meme pose dans la semaine)
+
+Tracker des poses utilisees recemment :
+
+| Type pose | Variations |
+|---|---|
+| Bureau desk | Feet up V-sign / Crossed legs smirk / Leaning keyboard |
+| Chambre patient lit | Stomach feet up / Sitting edge / Over shoulder back |
+| Bathroom mirror | Thong peek back arch / Front profile / Side angle |
+| Brick wall exterieur | Arms crossed / Hand in hair / Hands in scrub pockets |
+| Couloir hopital | Walking back view / Standing leaning / Sitting on bench |
+| Vestiaire | Locker mirror / Bench sitting / Standing changing |
+| Canape salon | High angle reclining (deja overuse — eviter pendant 7j) |
+| Escalier | Sitting step / Standing top of stairs / Leaning rail |
+| Ascenseur | Standing back wall / Mirror reflection / Sitting floor |
+
+### Verifier avant prompt carrousel
+
+1. Pose **deja utilisee dans les 7 derniers jours** ? Si oui → switch
+2. Body characteristics **dans le prompt** ?
+3. Caption = **comment-bait** ?
+4. Au moins **1 slide avec feet** visible ?
+5. **Smile / smirk / playful** (pas sad) ?
