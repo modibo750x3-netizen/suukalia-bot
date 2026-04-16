@@ -1482,3 +1482,39 @@ Revenir aux reels qui marchaient (2.1M / 235K / 31K) :
 - Voiture face cam + texte overlay seulement (pas de dialogue)
 - Scenes hopital statique + voice-over narrative
 - Format "POV elle filme son badge / ses scrubs / une scene" + texte hook
+
+## REGLE CRITIQUE — FRAME 2 = VULNERABILITY TRIGGER
+
+### Principe
+Le Frame 2 de chaque reel emotion doit faire **que l'audience masculine VEUT :**
+1. Commenter pour la reconforter
+2. Envoyer un DM pour la consoler/proteger
+3. La percevoir vulnerable et **disponible a etre consolee**
+
+### Format Frame 2 qui marche
+
+- *"nobody ever asks the nurse if SHE's okay."* → invite "are you okay?"
+- *"nobody checks on the one who checks on everyone."* → invite "I'd check on you"
+- *"I just want someone to tell me I did good tonight."* → invite "you did amazing"
+- *"nobody hugs the nurse when she comes home."* → invite "I'd hug you"
+- *"I carry everyone. nobody carries me."* → invite "I'd carry you"
+- *"I'm tired of being strong alone."* → invite "you're not alone"
+- *"I just need someone to ask how my shift was."* → invite "tell me"
+
+### FORMULE
+
+**Frame 2 = phrase vulnerable + implicite "manque de quelqu'un / besoin non comble"**
+
+Le mec doit sentir qu'il PEUT combler ce manque en commentant ou DM.
+
+### CE QU'IL NE FAUT PAS FAIRE
+
+❌ Frame 2 trop fort / trop sombre (death patient, morgue) = audience freeze, pas de comment
+❌ Frame 2 factuel neutre ("still feel it" / "walked back") = pas d'invitation a repondre
+❌ Frame 2 avec reponse deja fournie ("I cried in supply closet") = ferme le dialogue
+
+### CE QU'IL FAUT FAIRE
+
+✅ Laisser une **porte ouverte** pour que le mec se projette en sauveur
+✅ Creer un **manque explicite** (personne / amour / reconfort / reconnaissance)
+✅ Finir avec un **double sens teasing-triste** (Fanvue conversion subtile)
