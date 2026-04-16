@@ -1549,3 +1549,29 @@ Le mec doit sentir qu'il PEUT combler ce manque en commentant ou DM.
 4. Skin subtil present (decollete / epaule / midriff / bretelle) ?
 5. Duree 7-9s max ?
 6. Static cam / pas de dialogue ?
+
+## REGLE — CHEVEUX SUUKI
+
+Suukalia a des **cheveux CURLY naturels** (pas raides, pas longs lisses).
+
+### Regle dans les prompts
+
+❌ NE PAS decrire la texture / longueur / type de cheveux
+✅ Laisser @Image1 (face reference) gerer les caracteristiques naturelles
+
+### Coiffures a tourner (varier)
+
+- "Curly hair down naturally"
+- "Curly hair pulled back into a low pony"
+- "Curly hair in a high messy bun"
+- "Curly hair half-up half-down"
+- "Curly hair in two boxer braids"
+- "Curly hair tied back loose"
+- "Curly hair wet from shower"
+- "Curly hair under a scrub cap"
+
+### Format dans le prompt
+
+Toujours juste mentionner l'**ARRANGEMENT** (down / pony / bun / half), pas la longueur ou texture qui sont dans @Image1.
+
+Exemple : "curly hair pulled back loose" au lieu de "long brown curly hair pulled back into a messy bun with strands falling on face".
