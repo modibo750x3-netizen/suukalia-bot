@@ -1522,7 +1522,7 @@ Le mec doit sentir qu'il PEUT combler ce manque en commentant ou DM.
 ## FORMAT SIGNATURE QUOTIDIEN — EMOTION + SEXY + VULNERABILITY (validee 16/04/2026)
 
 ### Regle
-**1 reel/jour OBLIGATOIRE** dans cette DA. C'est le format signature daily de Suukalia.
+**1 a 2 reels/jour OBLIGATOIRE** dans cette DA. C'est le format signature daily de Suukalia.
 
 ### Caracteristiques
 
