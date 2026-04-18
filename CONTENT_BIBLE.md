@@ -492,6 +492,7 @@ shown in @Image2.
 - Provocative expression OR cute smile (varier)
 - Barefoot sur les carrousels
 - Glasses sur ~1 post sur 3
+- Scrub cap (bonnet chirurgical) sur ~1 post sur 4 (elle l'enleve ou le porte)
 - Cheveux : curly, souvent en messy bun haut
 - Stéthoscope autour du cou (pas toujours, ~1 sur 2)
 - Accessoires : pearl necklace, charm bracelet
@@ -529,8 +530,8 @@ shown in @Image2.
 - Violet / lavender ✅ eyecatcher thumbnail
 - Ceil blue / rose pale ✅ (occasionnel, vibe doux)
 
-**ROTATION REELS (jours 1-12) :**
-- Navy (jours 1-3) → Vert (jours 4-6) → Burgundy (jours 7-9) → Violet (jours 10-12) → repeat
+**ROTATION REELS (7 couleurs, 2 jours chacune, cycle 14 jours) :**
+- Navy (J1-2) → Vert (J3-4) → Burgundy (J5-6) → Violet (J7-8) → Rose (J9-10) → Orange (J11-12) → Gris (J13-14) → repeat
 
 **NOIR — regle speciale :**
 - ❌ RETIRE de la rotation reels standard (performe 3x moins : contraste mort sous fluo + pas de signal "nurse" pour l'algo + lu comme workout wear)
