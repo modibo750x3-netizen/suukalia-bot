@@ -316,6 +316,70 @@ off shift. on duty 😇
 
 ---
 
+## JOUR 11 — 16 avril 2026
+
+### REEL 1 — Scrub sink (09h EST / 21h Shanghai) — Emotion+Sexy
+- F1: "I took care of 14 people tonight."
+- F2: "nobody's coming home to take care of me."
+- Scrubs vert, curly hair half-up half-down
+- Nano → Grok boost sexy → Seedance 7s silent
+- Caption: "14 patients tonight. none of them know my name. 🤍"
+- Son: Piano sad / Liability — Lorde
+
+### REEL 2 — Ascenseur hopital (12h EST / 00h Shanghai) — Emotion+Sexy
+- F1: "bed 7 told me I'm his favorite nurse."
+- F2: "he's the only one who said anything nice to me this week."
+- Scrubs vert, curly hair low loose pony
+- Nano → Grok boost sexy → Seedance 7s silent
+- Caption: "some days the only kind words come from strangers in hospital beds. 🤍"
+- Son: Runaway — AURORA
+
+### CARROUSEL — Bureau desk feet up (20h EST / 08h Shanghai) — Playful confident
+- Slide 1: Feet up desk V-sign smile (Nano base)
+- Slide 2: Crossed legs smirk (Grok edit)
+- Slide 3: Leaning keyboard tongue out (Grok edit)
+- Scrubs vert, curly hair down, barefoot
+- Caption: "my feet needed a break today too 💀"
+- Son: Mood — Yagih Mael
+
+### STORY — flexible
+- "long night. need some comfort tonight 🤍"
+- Sticker question + lien slt.bio/suukalia-smith22
+
+---
+
+## JOUR 12 — 17 avril 2026
+
+### REEL 1 — Chapelle hopital (09h EST / 21h Shanghai) — Emotion+Sexy
+- F1: "I prayed for all my patients tonight."
+- F2: "I forgot to pray for me."
+- Scrubs burgundy, curly hair half-up loose
+- Nano → Grok boost sexy → Seedance 7s silent
+- Caption: "I prayed for every patient tonight. I forgot to pray for me. 🤍"
+- Son: Piano sad / Creep cover slowed
+
+### REEL 2 — Nurse station 3AM (12h EST / 00h Shanghai) — Emotion+Sexy
+- F1: "it's 3am and nobody's texted me back."
+- F2: "but I'm the one everyone calls when they need something."
+- Scrubs burgundy, curly messy bun, phone en main
+- Nano → Grok boost sexy → Seedance 7s silent
+- Caption: "3am and nobody's missing me. must be nice 🤍"
+- Son: Matilda — Harry Styles slowed
+
+### CARROUSEL — Chambre patient lit Pick a number (20h EST / 08h Shanghai) — Playful confident
+- Slide 1: Stomach feet up on patient bed, cute smile (Nano base)
+- Slide 2: Sitting edge, legs crossed, confident smirk (Grok edit)
+- Slide 3: Kneeling over shoulder, playful smile (Grok edit)
+- Scrubs burgundy, pearl necklace, barefoot, curly hair down
+- Caption: "1, 2, or 3 — which bed would you check in first? reply honestly 🥺"
+- Son: greedy — Tate McRae
+
+### STORY — flexible
+- "did my prayers for the week. save me a spot in yours? 🤍"
+- Sticker question + lien slt.bio/suukalia-smith22
+
+---
+
 ### JOUR 8
 (A remplir retroactivement si besoin)
 
