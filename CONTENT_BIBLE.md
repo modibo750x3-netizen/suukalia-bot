@@ -1624,3 +1624,36 @@ Tracker des poses utilisees recemment :
 3. Caption = **comment-bait** ?
 4. Au moins **1 slide avec feet** visible ?
 5. **Smile / smirk / playful** (pas sad) ?
+
+## REGLE — LIEUX INSOLITES + PERSONNAGES SECONDAIRES (18/04/2026)
+
+### Principe
+Arreter de repeter les memes lieux/poses. Trouver des settings **insolites** avec des **reactions de personnages secondaires** en arriere-plan pour creer du storytelling visuel.
+
+### Personnages secondaires a integrer
+
+- **Patients en salle d'attente** qui la regardent bouche bée
+- **Chef/superviseure** choquee bras croises en arriere-plan
+- **Collegue male** qui fait semblant de pas regarder (ou qui regarde clairement)
+- **Docteur** qui laisse tomber son clipboard / renverse son cafe
+- **Autre infirmiere** qui fait des gros yeux
+- **Ambulancier/EMT** qui se retourne
+- **Patients qui pretendent dormir** mais qui observent
+
+### Lieux insolites a explorer
+
+- Bureau d'accueil/reception hopital (assise SUR le comptoir)
+- Cafeteria hopital (plateau en main, mecs qui la fixent)
+- Parking ambulance (appuyee contre l'ambulance)
+- Salle de radio/X-ray (pose devant lightbox)
+- Stretcher dans le couloir (assise dessus casually)
+- Pharmacy counter (pharmacien confus)
+- Entree urgences (portes auto qui s'ouvrent derriere elle)
+- Sur le comptoir nurse station (assise dessus jambes croisees, chef derriere choquee)
+- Wheelchair (pose assise dedans, staff qui regarde)
+- Salle d'attente vide (assise parmi les chaises comme une patiente)
+
+### Impact
+- Personnage secondaire = **reaction = engagement** (commentaires "the doctor tho 💀")
+- Lieu insolite = **stop-scroll** (jamais vu avant)
+- Storytelling en 1 image = **save rate eleve** (l'audience revient regarder les details)
