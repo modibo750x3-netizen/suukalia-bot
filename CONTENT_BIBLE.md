@@ -530,8 +530,10 @@ shown in @Image2.
 - Violet / lavender ✅ eyecatcher thumbnail
 - Ceil blue / rose pale ✅ (occasionnel, vibe doux)
 
-**ROTATION REELS (7 couleurs, 2 jours chacune, cycle 14 jours) :**
-- Navy (J1-2) → Vert (J3-4) → Burgundy (J5-6) → Violet (J7-8) → Rose (J9-10) → Orange (J11-12) → Gris (J13-14) → repeat
+**COULEURS DISPONIBLES (17 couleurs) :**
+Navy, Vert, Burgundy, Violet, Rose, Orange, Gris, Ceil blue, Teal, Rouge, Corail, Blanc, Jaune, Turquoise, Olive, Prune, Beige
+
+**ROTATION REELS :** 1 couleur par jour, jamais la meme 2 jours de suite, varier max. Pas de cycle fixe — piocher librement dans les 17 couleurs.
 
 **NOIR — regle speciale :**
 - ❌ RETIRE de la rotation reels standard (performe 3x moins : contraste mort sous fluo + pas de signal "nurse" pour l'algo + lu comme workout wear)
