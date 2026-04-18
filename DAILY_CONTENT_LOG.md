@@ -351,11 +351,11 @@ off shift. on duty 😇
 ## JOUR 12 — 17 avril 2026
 
 ### REEL 1 — Chapelle hopital (09h EST / 21h Shanghai) — Emotion+Sexy
-- F1: "I prayed for all my patients tonight."
-- F2: "I forgot to pray for me."
+- F1: "she was 23. same age as me. 💔"
+- F2: "I held her hand until she stopped breathing. 🤍"
 - Scrubs burgundy, curly hair half-up loose
 - Nano → Grok boost sexy → Seedance 7s silent
-- Caption: "I prayed for every patient tonight. I forgot to pray for me. 🤍"
+- Caption: "some shifts don't leave you when you leave them. 🤍"
 - Son: Piano sad / Creep cover slowed
 
 ### REEL 2 — Nurse station 3AM (12h EST / 00h Shanghai) — Emotion+Sexy
