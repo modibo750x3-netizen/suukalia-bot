@@ -1660,3 +1660,18 @@ Arreter de repeter les memes lieux/poses. Trouver des settings **insolites** ave
 - Personnage secondaire = **reaction = engagement** (commentaires "the doctor tho 💀")
 - Lieu insolite = **stop-scroll** (jamais vu avant)
 - Storytelling en 1 image = **save rate eleve** (l'audience revient regarder les details)
+
+## REGLE — FORMAT DE LIVRAISON (18/04/2026)
+
+### A chaque jour, livrer dans cet ordre :
+
+1. **Prompts complets** (Nano + Grok + Seedance) pour chaque post
+2. **Bloc COPIER/COLLER** a la fin avec :
+   - Frame 1 + Frame 2 de chaque reel (en bloc code copier)
+   - Caption de chaque post (en bloc code copier)
+   - Son de chaque post
+   - Texte story + lien
+   - Heures Shanghai + EST
+
+### Format obligatoire
+Chaque texte a copier doit etre dans un bloc ``` pour faciliter le copier-coller.
