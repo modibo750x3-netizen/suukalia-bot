@@ -1675,3 +1675,17 @@ Arreter de repeter les memes lieux/poses. Trouver des settings **insolites** ave
 
 ### Format obligatoire
 Chaque texte a copier doit etre dans un bloc ``` pour faciliter le copier-coller.
+
+## REGLE — FORMAT SUUKALIA COMPTE PRINCIPAL (25/04/2026)
+
+### Posts par jour
+- **1 carrousel** (photos — Nano base + Grok edits)
+- **1 reel** (image to video — Seedance from photo)
+- **1 story** (avec lien Fanvue)
+
+### Pas de speaking / dialogue sur Suukalia
+Suukalia = lifestyle / thirst / aesthetic. Pas de hooks texte overlay emotion nurse.
+
+### Heures de post (US audience)
+- 09h EST / 21h Shanghai → Reel
+- 20h EST / 08h Shanghai → Carrousel
