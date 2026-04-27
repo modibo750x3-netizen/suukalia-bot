@@ -1689,3 +1689,13 @@ Suukalia = lifestyle / thirst / aesthetic. Pas de hooks texte overlay emotion nu
 ### Heures de post (US audience)
 - 09h EST / 21h Shanghai → Reel
 - 20h EST / 08h Shanghai → Carrousel
+
+## 📌 HEURES DE POST — PINNED (Shanghai / US / France)
+
+| Shanghai | US EST | France |
+|---|---|---|
+| **21h00** | 09h00 | 15h00 |
+| **00h00** | 12h00 | 18h00 |
+| **08h00** | 20h00 | 02h00 |
+
+⚠️ A METTRE A JOUR quand Modibo change de fuseau horaire.
