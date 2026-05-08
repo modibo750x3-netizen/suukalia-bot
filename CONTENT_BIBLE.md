@@ -1710,3 +1710,15 @@ Toute tenue doit etre decrite comme "skin-tight hugging every curve like a secon
 
 ### 3. Effet wedgie sur toutes les poses de dos/fesses
 Quand on voit ses fesses, toujours ajouter "fabric riding up into her curves" pour l'effet wedgie. Ceci s'applique a TOUTES les tenues (shorts, jupes, bikini, scrubs, etc.).
+
+### 4. Selfie = camera avant toujours
+Quand elle prend un selfie, c'est TOUJOURS avec la camera avant (front camera). Jamais miroir sauf si specifie.
+
+### 5. Pas de soutien-gorge
+Elle ne porte JAMAIS de soutien-gorge. Jamais mentionner de bra dans les prompts.
+
+### 6. Tenues ultra courtes + moulantes
+Toutes les tenues sont ultra courtes (crop top, mini shorts, mini skirt) et ultra moulantes (skin-tight). Jamais de vetements longs ou amples.
+
+### 7. Chaque prompt = pose differente + toujours sexy
+Jamais 2 prompts avec la meme pose. Chaque photo doit etre une pose differente et toujours sexy/sensuelle.
