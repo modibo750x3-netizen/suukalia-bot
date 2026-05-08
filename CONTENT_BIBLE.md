@@ -1366,3 +1366,39 @@ Ne jamais assumer. Mieux vaut poser une question courte que sortir un prompt qu'
 
 Avant CHAQUE prompt tourne dans un lieu : "Tu veux utiliser quelle piece de ta banque ?"
 JAMAIS assumer.
+
+## SKILL HIGGSFIELD — INSTALLE ET ACTIF
+
+Skill complet Higgsfield AI reinstalle (v3.6.2). Couvre Soul 2.0, Soul ID, Seedance 2.0, Cinema Studio.
+
+### SOUL ID — SUUKALIA
+
+Soul ID entraine avec les photos de Suukalia. Une fois entraine, chaque generation garde son visage IDENTIQUE. Plus besoin de @Image1 face ref a chaque prompt.
+
+### NOUVEAU WORKFLOW AVEC SOUL 2.0
+
+**Photos (carrousels, bases reels) :**
+1. Soul 2.0 avec Soul ID Suukalia → photo base consistante
+2. Grok → edit spicy si besoin (carte blanche)
+3. Seedance 2.0 → video animee avec lip-sync natif
+
+**Avantage vs ancien workflow Nano :**
+- Consistency visage automatique (Soul ID)
+- Presets style integres (editorial, fashion, street photo, etc.)
+- Prompts max 75 mots (pas de roman)
+- Formule MCSLA : Model / Camera / Subject / Look / Action
+
+### FORMULE MCSLA (PROMPT STRUCTURE)
+
+| M | Model | Soul 2.0 |
+| C | Camera | angle, cadrage, mouvement |
+| S | Subject | Suukalia + description scene |
+| L | Look | style, lumiere, couleurs |
+| A | Action | ce qu'elle fait |
+
+### REGLE
+
+- Soul 2.0 REMPLACE NanoBanana pour les bases photos quand Soul ID donne meilleure consistency
+- NanoBanana reste backup si Soul 2.0 refuse un prompt
+- Grok reste pour les edits spicy (carte blanche)
+- Seedance reste pour les videos
