@@ -1699,3 +1699,14 @@ Suukalia = lifestyle / thirst / aesthetic. Pas de hooks texte overlay emotion nu
 | **08h00** | 20h00 | 02h00 |
 
 ⚠️ A METTRE A JOUR quand Modibo change de fuseau horaire.
+
+## REGLE — TENUES + POSES (PERMANENT)
+
+### 1. Cheveux
+Ne JAMAIS decrire les cheveux dans les prompts. Soul ID gere automatiquement.
+
+### 2. Tenues toujours moulantes
+Toute tenue doit etre decrite comme "skin-tight hugging every curve like a second skin". Jamais de vetements laches/loose. Tout colle au corps comme un legging.
+
+### 3. Effet wedgie sur toutes les poses de dos/fesses
+Quand on voit ses fesses, toujours ajouter "fabric riding up into her curves" pour l'effet wedgie. Ceci s'applique a TOUTES les tenues (shorts, jupes, bikini, scrubs, etc.).
