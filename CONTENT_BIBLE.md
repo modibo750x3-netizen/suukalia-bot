@@ -1722,3 +1722,22 @@ Toutes les tenues sont ultra courtes (crop top, mini shorts, mini skirt) et ultr
 
 ### 7. Chaque prompt = pose differente + toujours sexy
 Jamais 2 prompts avec la meme pose. Chaque photo doit etre une pose differente et toujours sexy/sensuelle.
+
+## REGLE — FORMAT PROMPT SOUL 2.0 (PERMANENT)
+
+### Structure
+"The Soul ID character" + pose + tenue + background. C'EST TOUT.
+
+### Ne JAMAIS decrire
+- Cheveux (LoRA gere)
+- Visage (LoRA gere)
+- Corps / silhouette (LoRA gere)
+- Couleur de peau (LoRA gere)
+
+### Toujours inclure
+- "The Soul ID character"
+- Pose precise
+- Tenue precise (skin-tight, no bra sauf si brassiere dans la tenue)
+- Accessoires (bijoux, lunettes, telephone)
+- Background + lighting
+- "No tattoos. 9:16."
