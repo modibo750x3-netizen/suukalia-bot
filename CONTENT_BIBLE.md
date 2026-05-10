@@ -1402,3 +1402,36 @@ Soul ID entraine avec les photos de Suukalia. Une fois entraine, chaque generati
 - NanoBanana reste backup si Soul 2.0 refuse un prompt
 - Grok reste pour les edits spicy (carte blanche)
 - Seedance reste pour les videos
+
+## REGLE CRITIQUE — SOUL ID = LORA, ZERO DESCRIPTION PHYSIQUE
+
+Soul ID est un LoRA entraine. Il connait DEJA le visage, les cheveux, la peau, le corps de Suukalia.
+
+### JAMAIS DANS UN PROMPT SOUL 2.0
+
+- ❌ Cheveux (couleur, longueur, style, braided, etc.)
+- ❌ Peau / ethnie / race
+- ❌ Visage / yeux / levres
+- ❌ Body type / taille / silhouette
+
+### TOUJOURS DANS UN PROMPT SOUL 2.0
+
+- ✅ Tenue (vetements, chaussures, accessoires)
+- ✅ Pose (position du corps, des mains, des jambes)
+- ✅ Props (iPhone blanc, stethoscope, verre, etc.)
+- ✅ Expression (smirk, regard camera, yeux mi-clos)
+- ✅ Lieu / decor (lit, terrasse, voiture, hopital)
+- ✅ Lumiere (golden hour, lampe de chevet, neon)
+- ✅ Contraintes (no tattoos, etc.)
+- ✅ Format (9:16, 16:9)
+
+### EXEMPLE PROMPT VALIDE (reference Modibo)
+
+```
+The Soul ID character lying on her side on the bed taking a selfie 
+with white iPhone, her tight cropped tee pulled up to just under 
+her chest with one hand, other hand holding phone above her face, 
+soft smirk, eyes looking directly into phone camera. Same plaid 
+shorts riding low on hips. Messy white pillows behind her. Warm 
+golden daylight. No tattoos. 9:16.
+```
