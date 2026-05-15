@@ -19,7 +19,7 @@ Document de référence complet. Toutes les infos extraites du repo avant reset.
 
 | Plateforme | Handle | Followers | Angle |
 |---|---|---|---|
-| Instagram principal | @suukalia | 75.1k (vérifié Meta) | lifestyle, bikini, penthouse aesthetic, Moon |
+| Instagram principal | @suukalia | 90k (vérifié Meta) | lifestyle, bikini, penthouse aesthetic, Moon |
 | Instagram secondaire | @suuki03 | 15.7k | nurse practitioner content |
 | Twitter principal | — | 40k | body/desire 80% + nurse 20% |
 | Twitter feeder | — | 14k | reposts + redirections vers @suukalia |
@@ -28,7 +28,7 @@ Document de référence complet. Toutes les infos extraites du repo avant reset.
 | Linkme | link.me/suukalia | — | hub liens |
 | Fanvue | — | — | monétisation principale |
 
-**Total cross-platform** : ~168k followers
+**Total cross-platform** : ~183k followers
 
 ---
 
@@ -273,7 +273,7 @@ shot on iPhone, candid photography, wearing navy blue nursing scrubs, [lieu hôp
 
 ## VOIX & TON PAR PLATEFORME
 
-### Instagram principal (75k) — lifestyle
+### Instagram principal (90k) — lifestyle
 Confident, flirty, élevée. Emojis choisis. 15 hashtags lifestyle. Moon naturellement dans 1 caption sur 3.
 
 ### Instagram secondaire (15.7k) — nurse
