@@ -7,7 +7,7 @@ Document de référence complet. Toutes les infos extraites du repo avant reset.
 ## PROFIL
 
 - **Type** : Modèle IA OFM
-- **Apparence** : Femme métisse, cheveux bouclés noirs volumineux, peau golden brown, silhouette hourglass, 1m68
+- **Apparence** : Femme métisse, cheveux bouclés noirs volumineux, peau golden brown, **silhouette snatched hourglass / bombshell** (taille fine ultra-cintrée, hanches larges, cuisses pleines, buste plein, ratio extrême type Kim K / Sommer Ray / Demi Rose), 1m68
 - **Métier** : Infirmière praticienne (nurse practitioner)
 - **Chat** : Moon — chat noir, intégré naturellement dans contenu lifestyle (1 caption sur 3 minimum)
 - **Aesthetic** : Penthouse avec néon rose SUUKI, chambre black & pink, warm/moody lighting, contexte premium
