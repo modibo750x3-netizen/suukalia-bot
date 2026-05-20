@@ -6,6 +6,8 @@ Command: /strategie
 
 import anthropic
 
+from .config import MODEL
+
 SYSTEM = """Tu es l'Agent Stratège de la team Suukalia (aka Suuki).
 
 ═══ PROFIL SUUKALIA ═══
@@ -123,9 +125,8 @@ MAX 400 mots. Concis, direct, zéro intro."""
 
 async def run(client: anthropic.AsyncAnthropic) -> str:
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=1800,
-        thinking={"type": "adaptive"},
         system=SYSTEM,
         messages=[{
             "role": "user",
@@ -138,4 +139,5 @@ async def run(client: anthropic.AsyncAnthropic) -> str:
             ),
         }],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

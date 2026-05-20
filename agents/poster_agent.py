@@ -5,6 +5,8 @@ Command: /poster [ig|twitter|threads]  (default: all platforms)
 
 import anthropic
 
+from .config import MODEL
+
 SYSTEM = """Tu es l'Agent Poster de la team Suukalia (aka Suuki).
 
 ═══ PROFIL SUUKALIA ═══
@@ -71,9 +73,10 @@ async def run(platform: str, client: anthropic.AsyncAnthropic) -> str:
         key = "all"
     prompt, max_tokens = _PROMPTS[key]
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=max_tokens,
         system=SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

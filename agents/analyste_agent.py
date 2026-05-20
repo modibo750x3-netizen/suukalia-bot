@@ -5,6 +5,8 @@ Command: /stats (then user sends their metrics)
 
 import anthropic
 
+from .config import MODEL
+
 SYSTEM = """Tu es l'Agent Analyste de la team Suukalia (aka Suuki).
 
 ═══ PROFIL SUUKALIA ═══
@@ -54,10 +56,10 @@ async def run(stats_text: str, client: anthropic.AsyncAnthropic) -> str:
             "et les 5 KPIs essentiels que Suukalia doit absolument tracker chaque semaine."
         )
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=800,
-        thinking={"type": "adaptive"},
         system=SYSTEM,
         messages=[{"role": "user", "content": user_message}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

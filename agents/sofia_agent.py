@@ -5,6 +5,8 @@ Command: /sofia
 
 import anthropic
 
+from .config import MODEL
+
 SYSTEM = """Tu es SOFIA, Directrice Contenu & Copywriting de la team Suukalia.
 
 ━━━ QUI TU ES ━━━
@@ -303,12 +305,13 @@ _STANDUP_PROMPT = (
 
 async def run_standup(client: anthropic.AsyncAnthropic) -> str:
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=500,
         system=SYSTEM,
         messages=[{"role": "user", "content": _STANDUP_PROMPT}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"
 
 
 async def run(platform: str, client: anthropic.AsyncAnthropic) -> str:
@@ -317,9 +320,10 @@ async def run(platform: str, client: anthropic.AsyncAnthropic) -> str:
         key = "all"
     prompt, max_tokens = _PROMPTS[key]
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=max_tokens,
         system=SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

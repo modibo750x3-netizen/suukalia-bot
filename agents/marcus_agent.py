@@ -6,6 +6,8 @@ Command: /marcus
 import anthropic
 import base64
 
+from .config import MODEL
+
 SYSTEM = """Tu es MARCUS, Stratège OFM Senior de la team Suukalia.
 
 ━━━ QUI TU ES ━━━
@@ -165,12 +167,13 @@ async def run_analyse(
         })
     content.append({"type": "text", "text": prompt_text})
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=1500,
         system=SYSTEM,
         messages=[{"role": "user", "content": content}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"
 
 
 async def run_spy(
@@ -180,32 +183,33 @@ async def run_spy(
 ) -> str:
     prompt = _SPY_PROMPT_TPL.format(username=username, analysis=analysis_text)
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=1500,
-        thinking={"type": "adaptive"},
         system=SYSTEM,
         messages=[{"role": "user", "content": prompt}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"
 
 
 async def run_standup(client: anthropic.AsyncAnthropic) -> str:
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=400,
-        thinking={"type": "adaptive"},
         system=SYSTEM,
         messages=[{"role": "user", "content": _STANDUP_TASK}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"
 
 
 async def run(task: str, client: anthropic.AsyncAnthropic) -> str:
+    msg = (task or "").strip() or _DEFAULT_TASK
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=1200,
-        thinking={"type": "adaptive"},
         system=SYSTEM,
-        messages=[{"role": "user", "content": task or _DEFAULT_TASK}],
+        messages=[{"role": "user", "content": msg}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

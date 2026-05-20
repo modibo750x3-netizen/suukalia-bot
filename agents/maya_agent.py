@@ -6,6 +6,8 @@ Auto-sends to Telegram channel. PPV teasers on Friday & Saturday.
 
 import anthropic
 
+from .config import MODEL
+
 SYSTEM = """Tu es MAYA, Manager Communauté & Conversion de la team Suukalia.
 
 ━━━ QUI TU ES ━━━
@@ -98,12 +100,13 @@ async def run_standup(client: anthropic.AsyncAnthropic) -> str:
     }.get(today.strftime("%A"), today.strftime("%A"))
     task = f"C'est {day_fr}{'(jour PPV ✅)' if is_ppv else ''}. " + _STANDUP_TASK
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=300,
         system=SYSTEM,
         messages=[{"role": "user", "content": task}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"
 
 
 async def run(
@@ -121,9 +124,10 @@ async def run(
             f"and naturally creates a connection towards Fanvue."
         )
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=400,
         system=SYSTEM,
         messages=[{"role": "user", "content": task}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

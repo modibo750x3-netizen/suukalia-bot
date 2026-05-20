@@ -5,6 +5,8 @@ Command: /alex [optional: paste metrics inline]
 
 import anthropic
 
+from .config import MODEL
+
 SYSTEM = """Tu es ALEX, Analyste Data & Performance de la team Suukalia.
 
 ━━━ QUI TU ES ━━━
@@ -102,26 +104,26 @@ _NO_STATS_TASK = (
 
 async def run_standup(client: anthropic.AsyncAnthropic) -> str:
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=350,
-        thinking={"type": "adaptive"},
         system=SYSTEM,
         messages=[{"role": "user", "content": _STANDUP_TASK}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"
 
 
 async def run(stats_text: str, client: anthropic.AsyncAnthropic) -> str:
     task = (
         f"Analyse ces métriques de performance de Suukalia :\n\n{stats_text}"
-        if stats_text.strip()
+        if (stats_text or "").strip()
         else _NO_STATS_TASK
     )
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=900,
-        thinking={"type": "adaptive"},
         system=SYSTEM,
         messages=[{"role": "user", "content": task}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

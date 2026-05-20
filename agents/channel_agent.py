@@ -6,6 +6,8 @@ Auto-posts daily via job scheduler. PPV teasers on Friday & Saturday.
 
 import anthropic
 
+from .config import MODEL
+
 SYSTEM = """Tu es l'Agent Channel Manager de la team Suukalia (aka Suuki).
 
 ═══ PROFIL SUUKALIA ═══
@@ -57,9 +59,10 @@ async def run(is_ppv_day: bool, day_name: str, client: anthropic.AsyncAnthropic)
             f"Engage les abonnés, garde-les actifs et connectés à Suukalia."
         )
     response = await client.messages.create(
-        model="claude-opus-4-6",
+        model=MODEL,
         max_tokens=300,
         system=SYSTEM,
         messages=[{"role": "user", "content": user_message}],
     )
-    return "\n".join(b.text for b in response.content if b.type == "text").strip()
+    result = "\n".join(b.text for b in response.content if b.type == "text").strip()
+    return result or "(Aucune réponse générée)"

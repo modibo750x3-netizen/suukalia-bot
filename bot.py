@@ -133,6 +133,9 @@ async def _higgsfield_poll(job_id: str, max_wait: int = 180, interval: int = 5) 
 
 async def send_chunks(update: Update, text: str) -> None:
     """Send a long message split into ≤4096-char chunks."""
+    if not text or not text.strip():
+        await update.message.reply_text("(Aucune réponse générée)")
+        return
     if len(text) <= MAX_MSG_LEN:
         await update.message.reply_text(text)
         return
@@ -438,7 +441,17 @@ async def cmd_sofia(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         )
         return
 
-    content = await sofia_agent.run(platform, _ai(context))
+    try:
+        content = await sofia_agent.run(platform, _ai(context))
+    except anthropic.APIStatusError as exc:
+        logger.error("Sofia API %s: %s", exc.status_code, exc.message)
+        await update.message.reply_text("❌ Erreur service IA. Réessaie dans un moment.")
+        return
+    except Exception as exc:
+        logger.exception("Sofia error: %s", exc)
+        await update.message.reply_text("❌ Une erreur s'est produite. Réessaie.")
+        return
+
     await send_chunks(update, content)
 
     if platform in ("twitter", "all"):
