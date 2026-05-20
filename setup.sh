@@ -29,6 +29,7 @@ clone_if_missing() {
 clone_if_missing https://github.com/nidhinjs/prompt-master.git prompt-master
 clone_if_missing https://github.com/AKCodez/higgsfield-claude-skills.git higgsfield-claude-skills
 clone_if_missing https://github.com/higgsfield-ai/skills.git higgsfield-official
+clone_if_missing https://github.com/OSideMedia/higgsfield-ai-prompt-skill.git higgsfield-ai-prompt-skill
 clone_if_missing https://github.com/moboutrig/instagram-claude-skill.git instagram-automation
 
 # Symlink sub-skills (AKCodez + Higgsfield officiel ont chacun plusieurs skills dans des sous-dossiers)
