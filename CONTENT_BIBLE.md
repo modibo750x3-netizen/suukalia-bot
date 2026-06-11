@@ -17,16 +17,17 @@
 
 ---
 
-## HORAIRES (France → Houston)
+## HORAIRES (France → EST)
 
-| Contenu | Heure Houston | Heure France |
+| Heure FR | Heure EST | Contenu |
 |---|---|---|
-| Reel 1 @suuki03 | 8h | 15h |
-| Reel @suukalia | 9h | 16h |
-| Carrousel @suuki03 | 10h | 17h |
-| Carrousel @suukalia | 12h | 19h |
-| Stories @suukalia | 13h-14h | 20h |
-| Reel 2 @suuki03 (programme) | 20h | 3h (auto) |
+| 15h | 9am | Reel 1 @suuki03 |
+| 16h | 10am | Reel @suukalia |
+| 17h | 11am | Post 1 @dr.suukalia (stock) |
+| 19h | 1pm | Carrousel @suukalia |
+| 20h | 2pm | Post 2 @dr.suukalia (stock) |
+| 23h | 5pm | Post 3 @dr.suukalia (stock) |
+| 03h (auto) | 9pm | Reel 2 @suuki03 |
 
 ---
 
