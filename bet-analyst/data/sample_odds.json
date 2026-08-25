@@ -1,0 +1,326 @@
+[
+  {
+    "match_id": "demo-1",
+    "league": "soccer_france_ligue_one",
+    "kickoff": "2026-08-29T19:00:00+00:00",
+    "home": "Paris SG",
+    "away": "Lyon",
+    "quotes": [
+      {
+        "bookmaker": "pinnacle",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.29,
+          "DRAW": 7.07,
+          "AWAY": 9.41
+        }
+      },
+      {
+        "bookmaker": "bet365",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.25,
+          "DRAW": 7.0,
+          "AWAY": 9.29
+        }
+      },
+      {
+        "bookmaker": "unibet",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.24,
+          "DRAW": 7.0,
+          "AWAY": 9.37
+        }
+      },
+      {
+        "bookmaker": "winamax",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.26,
+          "DRAW": 6.66,
+          "AWAY": 9.0
+        }
+      },
+      {
+        "bookmaker": "betclic",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.24,
+          "DRAW": 6.81,
+          "AWAY": 9.33
+        }
+      }
+    ]
+  },
+  {
+    "match_id": "demo-2",
+    "league": "soccer_france_ligue_one",
+    "kickoff": "2026-08-29T21:00:00+00:00",
+    "home": "Marseille",
+    "away": "Nice",
+    "quotes": [
+      {
+        "bookmaker": "pinnacle",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.11,
+          "DRAW": 4.0,
+          "AWAY": 3.32
+        }
+      },
+      {
+        "bookmaker": "bet365",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.05,
+          "DRAW": 3.96,
+          "AWAY": 3.24
+        }
+      },
+      {
+        "bookmaker": "unibet",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.05,
+          "DRAW": 3.93,
+          "AWAY": 3.2
+        }
+      },
+      {
+        "bookmaker": "winamax",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.06,
+          "DRAW": 4.0,
+          "AWAY": 3.16
+        }
+      },
+      {
+        "bookmaker": "betclic",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.03,
+          "DRAW": 3.85,
+          "AWAY": 3.27
+        }
+      }
+    ]
+  },
+  {
+    "match_id": "demo-3",
+    "league": "soccer_france_ligue_one",
+    "kickoff": "2026-08-29T23:00:00+00:00",
+    "home": "Lille",
+    "away": "Metz",
+    "quotes": [
+      {
+        "bookmaker": "pinnacle",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.34,
+          "DRAW": 5.98,
+          "AWAY": 8.87
+        }
+      },
+      {
+        "bookmaker": "bet365",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.31,
+          "DRAW": 5.84,
+          "AWAY": 8.76
+        }
+      },
+      {
+        "bookmaker": "unibet",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.3,
+          "DRAW": 5.74,
+          "AWAY": 8.92
+        }
+      },
+      {
+        "bookmaker": "winamax",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.31,
+          "DRAW": 5.79,
+          "AWAY": 8.58
+        }
+      },
+      {
+        "bookmaker": "betclic",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.31,
+          "DRAW": 5.66,
+          "AWAY": 8.62
+        }
+      }
+    ]
+  },
+  {
+    "match_id": "demo-4",
+    "league": "soccer_france_ligue_one",
+    "kickoff": "2026-08-30T01:00:00+00:00",
+    "home": "Rennes",
+    "away": "Monaco",
+    "quotes": [
+      {
+        "bookmaker": "pinnacle",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.61,
+          "DRAW": 4.42,
+          "AWAY": 2.41
+        }
+      },
+      {
+        "bookmaker": "bet365",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.55,
+          "DRAW": 4.34,
+          "AWAY": 2.34
+        }
+      },
+      {
+        "bookmaker": "unibet",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.53,
+          "DRAW": 4.19,
+          "AWAY": 2.37
+        }
+      },
+      {
+        "bookmaker": "winamax",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.33,
+          "DRAW": 3.94,
+          "AWAY": 2.71
+        }
+      },
+      {
+        "bookmaker": "betclic",
+        "market": "1X2",
+        "odds": {
+          "HOME": 2.53,
+          "DRAW": 4.19,
+          "AWAY": 2.36
+        }
+      }
+    ]
+  },
+  {
+    "match_id": "demo-5",
+    "league": "soccer_france_ligue_one",
+    "kickoff": "2026-08-30T03:00:00+00:00",
+    "home": "Lens",
+    "away": "Nantes",
+    "quotes": [
+      {
+        "bookmaker": "pinnacle",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.63,
+          "DRAW": 4.57,
+          "AWAY": 5.22
+        }
+      },
+      {
+        "bookmaker": "bet365",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.59,
+          "DRAW": 4.36,
+          "AWAY": 5.22
+        }
+      },
+      {
+        "bookmaker": "unibet",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.58,
+          "DRAW": 4.42,
+          "AWAY": 5.1
+        }
+      },
+      {
+        "bookmaker": "winamax",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.58,
+          "DRAW": 4.45,
+          "AWAY": 5.09
+        }
+      },
+      {
+        "bookmaker": "betclic",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.57,
+          "DRAW": 4.43,
+          "AWAY": 5.12
+        }
+      }
+    ]
+  },
+  {
+    "match_id": "demo-6",
+    "league": "soccer_france_ligue_one",
+    "kickoff": "2026-08-30T05:00:00+00:00",
+    "home": "Brest",
+    "away": "Clermont",
+    "quotes": [
+      {
+        "bookmaker": "pinnacle",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.61,
+          "DRAW": 4.55,
+          "AWAY": 5.38
+        }
+      },
+      {
+        "bookmaker": "bet365",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.57,
+          "DRAW": 4.51,
+          "AWAY": 5.22
+        }
+      },
+      {
+        "bookmaker": "unibet",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.57,
+          "DRAW": 4.41,
+          "AWAY": 5.2
+        }
+      },
+      {
+        "bookmaker": "winamax",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.57,
+          "DRAW": 4.35,
+          "AWAY": 5.41
+        }
+      },
+      {
+        "bookmaker": "betclic",
+        "market": "1X2",
+        "odds": {
+          "HOME": 1.57,
+          "DRAW": 4.42,
+          "AWAY": 5.14
+        }
+      }
+    ]
+  }
+]
